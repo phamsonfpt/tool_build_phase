@@ -1,0 +1,48 @@
+# Environments & Virtual Envs
+venv/
+env/
+.venv/
+*/venv/
+*/env/
+*/.venv/
+
+# Python cache & compiled files
+__pycache__/
+*__pycache__*
+*.py[cod]
+*$py.class
+*.so
+
+# Model weights & large binaries (>100MB / GitHub limit)
+*.safetensors
+*.pt
+*.pth
+*.bin
+*.onnx
+*.weights
+*.engine
+*.tar
+*.zip
+*.tar.gz
+
+# Large datasets & heavy experiment outputs
+ai_router/data/
+ai_router/experiments/
+ai_router/.cache/
+al_router_demo/experiments_demo/*/model_demo.safetensors
+data/
+experiments/
+.cache/
+*/.cache/
+
+# Environment variables & secrets
+.env
+.env.*
+*.secret
+
+# IDEs & System files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

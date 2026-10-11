@@ -1,0 +1,8 @@
+{
+    "evaluation_dataset": "BDD100K_Val",
+    "metric": "mAP_50 (Simulated)",
+    "base_model_score": "77.98%",
+    "new_model_score": "83.38%",
+    "absolute_improvement": "+5.40%",
+    "conclusion": "SUCCESS: Active Learning improved model performance."
+}

@@ -1,0 +1,174 @@
+{
+    "red_zone": [
+        {
+            "image": "000000000636.jpg",
+            "uncertainty_score": 1.1155455719793317,
+            "min_confidence": 0.40294337297194216,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000581.jpg",
+            "uncertainty_score": 1.1128135949766942,
+            "min_confidence": 0.4107810617483148,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000569.jpg",
+            "uncertainty_score": 1.111418021419813,
+            "min_confidence": 0.3896409638698211,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000540.jpg",
+            "uncertainty_score": 1.108771520060791,
+            "min_confidence": 0.4098639055833135,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000590.jpg",
+            "uncertainty_score": 1.1074493057013446,
+            "min_confidence": 0.44033723100351374,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000650.jpg",
+            "uncertainty_score": 1.1072602423811642,
+            "min_confidence": 0.4412127896970112,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000562.jpg",
+            "uncertainty_score": 1.0929139029070611,
+            "min_confidence": 0.44361195208247856,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000575.jpg",
+            "uncertainty_score": 1.090059293859066,
+            "min_confidence": 0.4891221738751952,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000641.jpg",
+            "uncertainty_score": 1.0888379848722656,
+            "min_confidence": 0.42898533330577476,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000595.jpg",
+            "uncertainty_score": 1.0829576491101012,
+            "min_confidence": 0.4236068671999682,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000629.jpg",
+            "uncertainty_score": 1.080888560610658,
+            "min_confidence": 0.41948246326709293,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000605.jpg",
+            "uncertainty_score": 1.078684564722836,
+            "min_confidence": 0.42212878404966875,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000620.jpg",
+            "uncertainty_score": 1.0783477303598672,
+            "min_confidence": 0.49799195176390876,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000544.jpg",
+            "uncertainty_score": 1.0777110154158391,
+            "min_confidence": 0.4770498552324714,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000572.jpg",
+            "uncertainty_score": 1.0772876988377793,
+            "min_confidence": 0.4245422647188953,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000597.jpg",
+            "uncertainty_score": 1.0714387048901768,
+            "min_confidence": 0.4413431992386199,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000560.jpg",
+            "uncertainty_score": 1.0707633615606431,
+            "min_confidence": 0.4169052690256133,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000634.jpg",
+            "uncertainty_score": 1.0634962194714306,
+            "min_confidence": 0.4058735450746614,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000643.jpg",
+            "uncertainty_score": 1.0494284294816931,
+            "min_confidence": 0.49015484706699997,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000564.jpg",
+            "uncertainty_score": 1.0399551060839898,
+            "min_confidence": 0.46275940514200264,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000542.jpg",
+            "uncertainty_score": 1.0384228497550818,
+            "min_confidence": 0.4372107558174082,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000599.jpg",
+            "uncertainty_score": 1.0010063245843084,
+            "min_confidence": 0.588674044766715,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000584.jpg",
+            "uncertainty_score": 0.9745169047126967,
+            "min_confidence": 0.6072354470152779,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000612.jpg",
+            "uncertainty_score": 0.9655954640003448,
+            "min_confidence": 0.5565593749813698,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000625.jpg",
+            "uncertainty_score": 0.9439617444367989,
+            "min_confidence": 0.6104577017179964,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000626.jpg",
+            "uncertainty_score": 0.9258466224130479,
+            "min_confidence": 0.6304366499092248,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000623.jpg",
+            "uncertainty_score": 0.9061993918154007,
+            "min_confidence": 0.6329863725746583,
+            "zone": "RED (CVAT Review)"
+        },
+        {
+            "image": "000000000589.jpg",
+            "uncertainty_score": 0.8521216965601066,
+            "min_confidence": 0.6729377881136929,
+            "zone": "RED (CVAT Review)"
+        }
+    ],
+    "green_zone": [],
+    "grey_zone": []
+}

@@ -1,0 +1,478 @@
+[
+    {
+        "name": "000000000636.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000581.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000569.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000540.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000590.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000650.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000562.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000575.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000641.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000595.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000629.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000605.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000620.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000544.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000572.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000597.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000560.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000634.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000643.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000564.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000542.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000599.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000584.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000612.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000625.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000626.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000623.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    },
+    {
+        "name": "000000000589.jpg",
+        "labels": [
+            {
+                "category": "car",
+                "box2d": {
+                    "x1": 100.0,
+                    "y1": 150.0,
+                    "x2": 200.0,
+                    "y2": 250.0
+                },
+                "attributes": {
+                    "AI_Confidence": 0.82
+                }
+            }
+        ]
+    }
+]

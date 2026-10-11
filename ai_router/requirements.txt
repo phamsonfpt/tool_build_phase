@@ -1,0 +1,8 @@
+torch
+torchvision
+transformers
+scipy
+numpy
+Pillow
+tqdm
+cvat-sdk
