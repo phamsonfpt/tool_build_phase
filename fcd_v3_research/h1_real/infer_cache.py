@@ -13,7 +13,7 @@ import torch
 from PIL import Image
 from torch.utils.data import DataLoader, Dataset
 
-from h1common import CACHE, CAR_LABEL, DATA, SCORE_FLOOR
+from h1common import CACHE, DATA, SCORE_FLOOR, car_label
 from h1common_model import load_expert, load_processor
 
 SRC = {"meta": "test", "val": "val"}
@@ -38,13 +38,14 @@ def main(which, expert):
     names = [n for r in sorted(units) for n in units[r]]
     dev = torch.device("cuda")
     model = load_expert(expert, dev).half()
+    car = car_label(expert)                                           # fixed in P3.0 on Meta-Train
     dl = DataLoader(Keyframes(names, SRC[which]), batch_size=8, num_workers=6, pin_memory=True)
     scores, boxes, feats, offsets = [], [], [], [0]
     t0 = time.time()
     with torch.no_grad():
         for b, (pv, wh) in enumerate(dl):
             out = model(pixel_values=pv.to(dev).half())
-            s = out.logits.float().sigmoid()[..., CAR_LABEL]           # (B, 300)
+            s = out.logits.float().sigmoid()[..., car]           # (B, 300)
             cxcywh = out.pred_boxes.float()
             xyxy = torch.cat([cxcywh[..., :2] - cxcywh[..., 2:] / 2, cxcywh[..., :2] + cxcywh[..., 2:] / 2], -1)
             xyxy = xyxy * torch.cat([wh, wh], -1).to(dev)[:, None, :]

@@ -61,12 +61,12 @@ out["ride_proxy"]["counterfactual_video_split_val_rides_shared_with_train"] = su
 
 # class schema (labels are read only for category names)
 cats = collections.Counter()
-for n in split_names["val"][:2000]:
-    d = json.load(open(os.path.join(DATA, "100k", "val", n + ".json")))
+for n in split_names["train"][:2000]:          # schema from train labels; Val labels stay closed
+    d = json.load(open(os.path.join(DATA, "100k", "train", n + ".json")))
     for o in d["frames"][0].get("objects", []):
         if "box2d" in o:
             cats[o["category"]] += 1
-out["box_categories_val_sample"] = dict(cats)
+out["box_categories_train_sample"] = dict(cats)
 out["C_eval"] = ["car"]  # the expert detectors are single-class (car) fine-tunes
 
 # Evaluation pool = Val minus any ride also present in 100K train (the experts were trained on 100K train, A2)

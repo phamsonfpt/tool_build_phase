@@ -9,7 +9,7 @@ import sys
 
 import numpy as np
 
-from h1common import ALPHA, ALPHA_C, BASE_GRID, CACHE, TAU_CLS, Z95, icc_anova, k_max, write_json
+from h1common import ALPHA, ALPHA_C, BASE_GRID, CACHE, REACH_LADDER, TAU_CLS, Z95, icc_anova, k_max, write_json
 from h1units import aggregate, build_path, fdp, grid_params, load_counts, point_at, ride_index
 
 N_REG = 1500
@@ -60,19 +60,32 @@ def main(anchor):
             "min_fdp_on_G": float(f_meta.min()),
         }
 
-    theta = 0.75 if len(per_theta[0.75]["qual"]) else 0.5
+    # reachability rule (Section 6.2): start from t_cls >= 0.05 and walk down REACH_LADDER until the
+    # Meta-Train risk on G reaches 2 alpha_C; columns below the chosen rung are not part of G
+    cls_of = np.array([p[2] for p in params])
+
+    def reach(f):
+        log = []
+        for t in REACH_LADDER:
+            mask = cls_of >= t - 1e-12
+            log.append({"t_cls_min": t, "max_fdp_meta": float(f[mask].max())})
+            if f[mask].max() >= 2 * ALPHA_C:
+                return t, mask, log, True
+        return t, mask, log, False
+
+    _, mask75, _, _ = reach(per_theta[0.75]["f"])
+    theta = 0.75 if len(np.intersect1d(per_theta[0.75]["qual"], np.nonzero(mask75)[0])) else 0.5
     rep["theta_IoU"] = theta
     P = per_theta[theta]
-    # reachability check (added in v1.3): G must contain points whose Meta-Train risk exceeds 2 alpha_C,
-    # otherwise the path extensions cannot place true nulls and T1/T2 fail by construction
-    rep["reachability"] = {"max_fdp_meta_on_G": float(P["f"].max()),
-                           "reaches_2alpha": bool(P["f"].max() >= 2 * ALPHA),
-                           "reaches_2alpha_C": bool(P["f"].max() >= 2 * ALPHA_C)}
+    t_min, inG, reach_log, reached = reach(P["f"])
+    rep["reachability"] = {"t_cls_min": t_min, "reached_2alpha_C": reached, "ladder": reach_log,
+                           "G_size": int(inG.sum())}
+    f_G = np.where(inG, P["f"], np.inf)          # columns outside G are never feasible
     ti = list(map(float, c["thetas"])).index(theta)
 
     # provisional path (core only) -> tau_ref at alpha_k = 0.008
     core, ext = core_ext_alphas(N_REG)
-    path0 = build_path(P["f"], P["cov"], core)
+    path0 = build_path(f_G, P["cov"], core)
     ref = path0[point_at(path0, 0.008)][1]
     # Exp A tier 2 replacement: within-ride ICC of image-level FDP at tau_ref (super-blocks need GPS: n/a)
     img_fdp = fdp(c["N"][:, ti, ref], c["TP"][:, ti, ref])
@@ -83,8 +96,8 @@ def main(anchor):
                      "metadata; block / super-block ICC cannot be computed (D6)")
 
     # final paths
-    path = build_path(P["f"], P["cov"], np.concatenate([core, ext]))
-    path_c = build_path(P["f"], P["cov"], ALPHAS_C)
+    path = build_path(f_G, P["cov"], np.concatenate([core, ext]))
+    path_c = build_path(f_G, P["cov"], ALPHAS_C)
     # image-level Meta-Train FDP along Lambda_C (for D*_C of the Exp C' frame arm)
     img_Z_C = fdp(c["N"][:, ti, [g for _, g in path_c]], c["TP"][:, ti, [g for _, g in path_c]])
 
@@ -104,6 +117,12 @@ def main(anchor):
         for ncl in (100, 200, 400):
             nn = 2 * ncl
             d_star_c[ncl] = nn * (ALPHA_C - k_max(nn, ALPHA_C) / nn) ** 2 / (Z95 ** 2 * s2c)
+    def gap_at(pth, level):        # Meta-Train risk of the last point <= level and of the first point above it
+        r = [float(P["f"][g]) for _, g in pth]
+        below = [x for x in r if x <= level]; above = [x for x in r if x > level]
+        return {"last_below": max(below) if below else None, "first_above": min(above) if above else None}
+
+    rep["resolution"] = {"path_around_alpha": gap_at(path, ALPHA), "path_C_around_alpha_C": gap_at(path_c, ALPHA_C)}
     rep.update({
         "path": [{"alpha_k": a, "tau": params[g], "fdp_meta": P["f"][g], "cov_meta": P["cov"][g],
                   "rho_meta": P["rho"][g]} for a, g in path],
@@ -119,7 +138,7 @@ def main(anchor):
     })
     reg = {
         "anchor": anchor, "theta_IoU": theta, "theta_index": ti, "N": N_REG, "alpha": ALPHA, "alpha_C": ALPHA_C,
-        "tau_fcd_grid": list(map(float, c["tau_fcd"])), "tau_cls_grid": TAU_CLS.tolist(),
+        "tau_fcd_grid": list(map(float, c["tau_fcd"])), "tau_cls_grid": [float(t) for t in TAU_CLS if t >= t_min - 1e-12],
         "tau_base_index": int(P["base"]), "tau_base": params[P["base"]], "tau_base_meets_alpha": P["base_ok"],
         "path_index": [g for _, g in path], "path_alpha": [a for a, _ in path],
         "path_C_index": [g for _, g in path_c], "path_C_alpha": [a for a, _ in path_c],

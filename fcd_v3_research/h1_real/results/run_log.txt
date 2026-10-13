@@ -1,0 +1,66 @@
+[2026-10-14 01:53:23] P1 metadata
+[2026-10-14 01:53:26] P3.0 class map (Meta-Train)
+expert_1 {"car_label": 3, "id2label_name": "motorbike", "meta": {"n": 803, "prec50": 0.9950186799501868, "prec75": 0.9813200498132005}, "meta_150": {"n": 414, "prec50": 0.9975845410628019, "prec75": 0.9806763285024155}, "train_150": {"n": 427, "prec50": 0.9929742388758782, "prec75": 0.9859484777517564}, "other_labels_with_tp": {}}
+expert_2 {"car_label": 3, "id2label_name": "motorbike", "meta": {"n": 618, "prec50": 0.9902912621359223, "prec75": 0.982200647249191}, "meta_150": {"n": 316, "prec50": 0.9936708860759493, "prec75": 0.9841772151898734}, "train_150": {"n": 318, "prec50": 0.9968553459119497, "prec75": 0.9905660377358491}, "other_labels_with_tp": {}}
+expert_3 {"car_label": 3, "id2label_name": "motorbike", "meta": {"n": 841, "prec50": 0.995243757431629, "prec75": 0.985731272294887}, "meta_150": {"n": 436, "prec50": 0.9977064220183486, "prec75": 0.981651376146789}, "train_150": {"n": 440, "prec50": 0.9977272727272727, "prec75": 0.9931818181818182}, "other_labels_with_tp": {}}
+[2026-10-14 01:55:33] inference meta expert_1: cached
+[2026-10-14 01:55:33] inference meta expert_2: cached
+[2026-10-14 01:55:33] inference meta expert_3: cached
+[2026-10-14 01:55:33] inference val expert_1: cached
+[2026-10-14 01:55:33] inference val expert_2: cached
+[2026-10-14 01:55:33] inference val expert_3: cached
+[2026-10-14 01:55:34] grid counts meta expert_1
+meta expert_1 images 5027 boxes>=0.05 79014 GT 52149
+[2026-10-14 01:55:41] grid counts meta expert_2
+meta expert_2 images 5027 boxes>=0.05 80675 GT 52149
+[2026-10-14 01:55:49] grid counts meta expert_3
+meta expert_3 images 5027 boxes>=0.05 93460 GT 52149
+[2026-10-14 01:55:57] P3 pilot + registration expert_1
+ "theta_IoU": 0.75,
+  "t_cls_min": 0.0095,
+   "last_below": 0.016029926005079135,
+   "first_above": 0.020645230863974177
+   "last_below": 0.0957326985921815,
+   "first_above": 0.10029466803204928
+registration sha256: 74ea39c372e30599628d21b6c961fe9c0e352948d83a5c9a5e2976226815c304
+[2026-10-14 01:56:02] P3 pilot + registration expert_2
+ "theta_IoU": 0.75,
+  "t_cls_min": 0.011,
+   "last_below": 0.016857919149304502,
+   "first_above": 0.020202081948394852
+   "last_below": 0.09762830031160545,
+   "first_above": 0.10434354365930686
+registration sha256: ae9ec23f18955e57c433eafea3317d9f5bd08b6a9d845658183df29ec498c411
+[2026-10-14 01:56:07] P3 pilot + registration expert_3
+ "theta_IoU": 0.75,
+  "t_cls_min": 0.0105,
+   "last_below": 0.0158080059699096,
+   "first_above": 0.02076065446770152
+   "last_below": 0.09612430013912951,
+   "first_above": 0.10142453351109527
+registration sha256: da2a90e83147be73f1f49f7f5146436b1fe896cb588009d2e4fb0ffb722fc4b0
+[2026-10-14 01:56:12] --- registration frozen; Val labels are read from here on ---
+[2026-10-14 01:56:12] grid counts val expert_1
+val expert_1 images 9995 boxes>=0.05 153908 GT 102495
+[2026-10-14 01:57:32] grid counts val expert_2
+val expert_2 images 9995 boxes>=0.05 155664 GT 102495
+[2026-10-14 01:57:45] grid counts val expert_3
+val expert_3 images 9995 boxes>=0.05 181619 GT 102495
+[2026-10-14 01:57:59] Exp B expert_1
+[2026-10-14 01:58:09] Exp B expert_2
+[2026-10-14 01:58:20] Exp B expert_3
+[2026-10-14 01:58:30] Exp C' expert_1
+[2026-10-14 01:58:33] Exp C' expert_2
+[2026-10-14 01:58:36] Exp C' expert_3
+[2026-10-14 01:58:39] self-tests
+PASS test_greedy_and_prefix_property
+PASS test_lemma_A4_monotone
+PASS test_hb_tables_and_validity
+PASS test_fixed_sequence_and_vr_ci
+[2026-10-14 01:58:40] ALLDONE
+[2026-10-14 02:00:16] D11 ablation (coarse grid) expert_1
+{"anchor": "expert_1", "t_cls_min": 0.009, "K": 17, "jstar_alpha_k": 0.021, "R_pool_jstar": 0.02027625894389393, "last_below_alpha_pool": 0.01668797163505473, "LTT_VR": 0.0, "plugin_VR": 0.4750499001996008, "plugin_CI": [0.4214107471459881, 0.5311134601635835], "T1b_would_pass": true}
+[2026-10-14 02:00:24] D11 ablation (coarse grid) expert_2
+{"anchor": "expert_2", "t_cls_min": 0.01, "K": 16, "jstar_alpha_k": 0.029, "R_pool_jstar": 0.028556953682898782, "last_below_alpha_pool": 0.016041484572401673, "LTT_VR": 0.0, "plugin_VR": 0.000998003992015968, "plugin_CI": [0.0, 0.0109837821504704], "T1b_would_pass": false}
+[2026-10-14 02:00:31] D11 ablation (coarse grid) expert_3
+{"anchor": "expert_3", "t_cls_min": 0.01, "K": 17, "jstar_alpha_k": 0.022, "R_pool_jstar": 0.021186619585615612, "last_below_alpha_pool": 0.019610527576030646, "LTT_VR": 0.0, "plugin_VR": 0.2874251497005988, "plugin_CI": [0.23946894651889292, 0.33919692522861417], "T1b_would_pass": true}

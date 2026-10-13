@@ -35,17 +35,17 @@
   },
   "counterfactual_video_split_val_rides_shared_with_train": 0.49445846909583474
  },
- "box_categories_val_sample": {
-  "traffic sign": 7045,
-  "traffic light": 5661,
-  "car": 19853,
-  "rider": 133,
-  "motor": 97,
-  "person": 2920,
-  "bus": 347,
-  "truck": 860,
-  "bike": 179,
-  "train": 6
+ "box_categories_train_sample": {
+  "traffic light": 5283,
+  "traffic sign": 6893,
+  "car": 20270,
+  "person": 2312,
+  "bus": 297,
+  "truck": 905,
+  "rider": 113,
+  "bike": 208,
+  "motor": 71,
+  "train": 4
  },
  "C_eval": [
   "car"

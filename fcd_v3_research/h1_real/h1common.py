@@ -6,7 +6,7 @@ import os
 import numpy as np
 from scipy import stats
 
-DATA = r"D:\tool_build_phase\ai_router\data"
+DATA = r"D:\tool_build_phase\ai_router\data"   # only DATA\100k\<split> is ever read
 HERE = os.path.dirname(os.path.abspath(__file__))
 CACHE = os.path.join(HERE, "cache")
 RESULTS = os.path.join(HERE, "results")
@@ -14,18 +14,26 @@ RESULTS = os.path.join(HERE, "results")
 ALPHA, ALPHA_C, DELTA = 0.02, 0.10, 0.05
 Z95 = stats.norm.ppf(1 - DELTA)  # one-sided z_{1-delta} = 1.645
 
-# 3-D grid G (registered in P3 before any Val label is read)
-# low end added after the P3 reachability check failed on the first grid (max Macro-FDP 0.021 < 2 alpha_C)
-TAU_CLS = np.array([0.004, 0.005, 0.006, 0.007, 0.008, 0.009, 0.010, 0.0125, 0.015, 0.0175, 0.020, 0.025,
-                    0.030, 0.040, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60,
-                    0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 0.97, 0.99])
+# 3-D grid G (registered in P3 before any Val label is read).
+# TAU_CLS is the full candidate ladder; P3 keeps t_cls >= 0.05 and only walks down REACH_LADDER until the
+# Meta-Train risk on G reaches 2 alpha_C (reachability rule, Section 6.2 of the H1 document).
+# Resolution rule: below 0.05 the candidate ladder has step 0.0005, so consecutive path points around alpha and
+# alpha_C are never separated by a coarse jump of the detector's bimodal score distribution.
+_FINE = np.round(np.arange(0.004, 0.05 + 1e-9, 0.0005), 4)
+REACH_LADDER = [float(t) for t in _FINE[::-1]]           # walked downwards from 0.05
+TAU_CLS = np.concatenate([_FINE, [0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60,
+                                  0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 0.97, 0.99]])
 TAU_LOC = np.array([0.0, 0.5, 0.6, 0.7, 0.8, 0.9])       # ensemble IoU agreement >= tau_loc
 FCD_QUANTILES = [1.0, 0.90, 0.75, 0.50, 0.25]            # tau_fcd = Meta-Train quantile of fcd (1.0 = no filter)
 BASE_GRID = np.array([0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60,
                       0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 0.99])
 SCORE_FLOOR = 0.004  # queries below this car score are never stored
 EXPERTS = ["expert_1", "expert_2", "expert_3"]
-CAR_LABEL = 3        # the experts were fine-tuned with category_id = 3 (HF id2label: 'motorbike')
+
+
+def car_label(expert):
+    """Output index of 'car' for an expert, determined on Meta-Train by p3_class_map.py (P3.0)."""
+    return json.load(open(os.path.join(CACHE, "class_map.json")))[expert]["car_label"]
 
 
 def write_json(path, obj):
