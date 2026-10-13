@@ -35,23 +35,6 @@
   },
   "counterfactual_video_split_val_rides_shared_with_train": 0.49445846909583474
  },
- "mot_frames": {
-  "train": {
-   "clips": 1400,
-   "in_100k_same_split": 1400,
-   "rides": 871
-  },
-  "val": {
-   "clips": 200,
-   "in_100k_same_split": 200,
-   "rides": 115
-  },
-  "test": {
-   "clips": 400,
-   "in_100k_same_split": 399,
-   "rides": 256
-  }
- },
  "box_categories_val_sample": {
   "traffic sign": 7045,
   "traffic light": 5661,

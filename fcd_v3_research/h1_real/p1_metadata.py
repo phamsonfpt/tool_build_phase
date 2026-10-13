@@ -1,8 +1,9 @@
 """P1 — metadata-only checks (no box labels are used except the class schema).
 
 * ride proxy: BDD100K video name = <ride-hash>-<clip-hash>; we test whether the prefix behaves like a ride id
-* split overlap at ride level (A2), MOT ⊂ 100K check, class schema (C_eval)
+* split overlap at ride level (A2), class schema (C_eval)
 * Evaluation pool (Val) units and m_tilde; Meta-Train = random rides of the 100K *test* split
+Only ai_router/data/100k is read.
 Outputs cache/p1_units.json
 """
 import collections
@@ -57,14 +58,6 @@ for _ in range(5):
             (tr_r if u < 0.7 else val_r if u < 0.8 else set()).add(p)
     shared.append(len(val_r & tr_r) / len(val_r))
 out["ride_proxy"]["counterfactual_video_split_val_rides_shared_with_train"] = sum(shared) / len(shared)
-
-# MOT frames shipped in ai_router/data/{train,val,test} (frame #100 of each MOT clip)
-mot = {}
-for s in ("train", "val", "test"):
-    vids = sorted(f.replace("-0000100.jpg", "") for f in os.listdir(os.path.join(DATA, s)) if f.endswith(".jpg"))
-    mot[s] = {"clips": len(vids), "in_100k_same_split": len(set(vids) & set(split_names[s])),
-              "rides": len({ride(v) for v in vids})}
-out["mot_frames"] = mot
 
 # class schema (labels are read only for category names)
 cats = collections.Counter()
