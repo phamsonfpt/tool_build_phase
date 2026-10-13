@@ -1,0 +1,182 @@
+{
+ "anchor": "expert_2",
+ "registration_sha256": "ad62043690a07812a9408867cf43c330f9564e4704ddf8067b3e9872bf213636",
+ "n_eval_rides": 5930,
+ "n_eval_images": 9995,
+ "feasible": true,
+ "T1_H0_pool_nonempty": true,
+ "jstar_pool": 15,
+ "jstar_alpha_k": 0.029,
+ "C2": {
+  "VR": 0.0,
+  "CI": [
+   0.0,
+   0.0109837821504704
+  ],
+  "CP_on_B_ref": [
+   0.0,
+   0.003674747948320408
+  ],
+  "decision": "Khong kiem dinh duoc (T1b)"
+ },
+ "C2b": {
+  "decision": "Khong kiem dinh duoc",
+  "reason": "no GPS/time metadata -> no super-block; held-out group = ride = unit"
+ },
+ "C3": {
+  "Yield": 1.0,
+  "CI": [
+   1.0,
+   1.0
+  ],
+  "decision": "Dat"
+ },
+ "D7": {
+  "reach_jstar_share": 0.010978043912175649,
+  "selected_alpha_k_hist": {
+   "0.009": 3,
+   "0.01": 105,
+   "0.011": 144,
+   "0.012": 516,
+   "0.013": 8,
+   "0.014": 48,
+   "0.015": 142,
+   "0.016": 25,
+   "0.017": 11
+  }
+ },
+ "C3b": {
+  "median_rho_cov": 0.989082420415559,
+  "CI": [
+   0.989001601610004,
+   0.989196318473053
+  ],
+  "decision": "Dat",
+  "median_cov_test_at_tau_hat": 0.18060075799623562
+ },
+ "H1c": "DAT",
+ "D1": {
+  "median_R_pool_tau_hat": 0.010964545627860088,
+  "p95_R_pool_tau_hat": 0.013678121850642322,
+  "Delta_gap": 0.009035454372139913,
+  "median_R_test": 0.01098799410096819,
+  "p95_R_test": 0.014822538456958459,
+  "share_R_test_gt_alpha": 0.0
+ },
+ "D3": {
+  "micro_fdp_median": 0.01254320023336418,
+  "micro_fdp_p95": 0.015726100684192862,
+  "empty_unit_share_median": 0.16072234762979684,
+  "spearman_Nacc_FDP_median": 0.13329400799013844,
+  "tau_base": [
+   0.0,
+   Infinity,
+   0.05
+  ],
+  "macro_fdp_tau_base_test_median": 0.01370052154013247,
+  "macro_fdp_tau_base_test_p95": 0.01463609958833922,
+  "tau_base_test_violation_share": 0.0
+ },
+ "D4": {
+  "halluc_share_of_FP_median": 0.5542857142857143
+ },
+ "H1a": "KHONG KIEM DINH DUOC (T1b)",
+ "D9_positive_controls": {
+  "plugin_no_bound": {
+   "VR": 0.000998003992015968,
+   "CI": [
+    0.0,
+    0.0109837821504704
+   ],
+   "C2_zone": "Chap nhan"
+  },
+  "LTT_N_inflated_x4": {
+   "VR": 0.0,
+   "CI": [
+    0.0,
+    0.0109837821504704
+   ],
+   "C2_zone": "Chap nhan"
+  },
+  "LTT_N_inflated_x16": {
+   "VR": 0.0,
+   "CI": [
+    0.0,
+    0.0109837821504704
+   ],
+   "C2_zone": "Chap nhan"
+  },
+  "LTT_N_inflated_x64": {
+   "VR": 0.000998003992015968,
+   "CI": [
+    0.0,
+    0.0109837821504704
+   ],
+   "C2_zone": "Chap nhan"
+  },
+  "LTT_N_inflated_x256": {
+   "VR": 0.000998003992015968,
+   "CI": [
+    0.0,
+    0.0109837821504704
+   ],
+   "C2_zone": "Chap nhan"
+  }
+ },
+ "T1b_positive_control_caught": false,
+ "B_img": {
+  "VR": 0.0,
+  "CI": [
+   0.0,
+   0.0109837821504704
+  ],
+  "Yield": 1.0,
+  "reach_jstar_share": 0.08782435129740519,
+  "R_pool_img_path": [
+   0.0009504752376188094,
+   0.0013006503251625813,
+   0.0017675504418876102,
+   0.004118726029681507,
+   0.004772386193096548,
+   0.005194502012911217,
+   0.007174063222087233,
+   0.007636437266252173,
+   0.00955958137799058,
+   0.01029542549052304,
+   0.01214682738194494,
+   0.012180177390282442,
+   0.012400287445309957,
+   0.013811570287308157,
+   0.014768636121812711,
+   0.02639752415890485
+  ]
+ },
+ "C2b_instrument_images_in_rides": {
+  "var_ratio": 1.0584210363007098,
+  "CI": [
+   0.9371489518917538,
+   1.1907932110316526
+  ],
+  "icc_image_anova": -0.04498586238708662,
+  "m_tilde": 2.853126563281641,
+  "Kish_Deff": 0.9166355034383573
+ },
+ "stress": {
+  "night": {
+   "rides": 2215,
+   "median_risk_at_tau_hat": 0.010882399231541617,
+   "share_rounds_risk_gt_alpha": 0.0
+  },
+  "rain_snow": {
+   "rides": 873,
+   "median_risk_at_tau_hat": 0.015658494448377355,
+   "share_rounds_risk_gt_alpha": 0.010978043912175649
+  },
+  "highway": {
+   "rides": 1516,
+   "median_risk_at_tau_hat": 0.007545610207076307,
+   "share_rounds_risk_gt_alpha": 0.0
+  }
+ }
+}
+R_pool along path: ['0.0020:0.0011', '0.0030:0.0017', '0.0040:0.0022', '0.0050:0.0050', '0.0070:0.0054', '0.0080:0.0059', '0.0090:0.0074', '0.0100:0.0082', '0.0110:0.0101', '0.0120:0.0110', '0.0130:0.0133', '0.0140:0.0133', '0.0150:0.0137', '0.0160:0.0150', '0.0170:0.0160', '0.0290:0.0286']

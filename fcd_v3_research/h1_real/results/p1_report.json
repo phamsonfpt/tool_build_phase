@@ -1,0 +1,85 @@
+{
+ "ride_proxy": {
+  "videos": 100000,
+  "prefixes": 60138,
+  "videos_per_prefix": 1.6628421297682,
+  "per_split": {
+   "train": {
+    "videos": 70000,
+    "prefixes": 42167,
+    "max_videos_per_prefix": 48,
+    "m_tilde": 2.874257142857143,
+    "singleton_share": 0.6677022316029122
+   },
+   "val": {
+    "videos": 10000,
+    "prefixes": 5931,
+    "max_videos_per_prefix": 20,
+    "m_tilde": 2.8542,
+    "singleton_share": 0.6572247513066937
+   },
+   "test": {
+    "videos": 20000,
+    "prefixes": 12041,
+    "max_videos_per_prefix": 17,
+    "m_tilde": 2.777,
+    "singleton_share": 0.6654762893447388
+   }
+  },
+  "prefix_overlap": {
+   "train&val": [
+    "fe189115"
+   ],
+   "train&test": 0,
+   "val&test": 0
+  },
+  "counterfactual_video_split_val_rides_shared_with_train": 0.49445846909583474
+ },
+ "mot_frames": {
+  "train": {
+   "clips": 1400,
+   "in_100k_same_split": 1400,
+   "rides": 871
+  },
+  "val": {
+   "clips": 200,
+   "in_100k_same_split": 200,
+   "rides": 115
+  },
+  "test": {
+   "clips": 400,
+   "in_100k_same_split": 399,
+   "rides": 256
+  }
+ },
+ "box_categories_val_sample": {
+  "traffic sign": 7045,
+  "traffic light": 5661,
+  "car": 19853,
+  "rider": 133,
+  "motor": 97,
+  "person": 2920,
+  "bus": 347,
+  "truck": 860,
+  "bike": 179,
+  "train": 6
+ },
+ "C_eval": [
+  "car"
+ ],
+ "eval_pool": {
+  "rides": 5930,
+  "images": 9995,
+  "excluded_rides": [
+   "fe189115"
+  ],
+  "m_tilde": 2.853126563281641,
+  "m_max": 20
+ },
+ "meta_train": {
+  "source": "100k/test",
+  "rides": 3000,
+  "images": 5027,
+  "m_tilde": 2.767654664810026
+ }
+}
