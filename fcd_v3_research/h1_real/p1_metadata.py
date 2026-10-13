@@ -76,9 +76,8 @@ for n in split_names["val"][:2000]:
 out["box_categories_val_sample"] = dict(cats)
 out["C_eval"] = ["car"]  # the expert detectors are single-class (car) fine-tunes
 
-# Evaluation pool = Val minus any ride also present in train (A2) and minus the detector-training rides
-detector_train_rides = {ride(f.replace("-0000100.jpg", "")) for f in os.listdir(os.path.join(DATA, "train"))}
-excluded = set(rides["train"]) | detector_train_rides
+# Evaluation pool = Val minus any ride also present in 100K train (the experts were trained on 100K train, A2)
+excluded = set(rides["train"])
 eval_rides = sorted(r for r in rides["val"] if r not in excluded)
 by_ride = collections.defaultdict(list)
 for n in split_names["val"]:
