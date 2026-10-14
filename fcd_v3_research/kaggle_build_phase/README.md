@@ -19,8 +19,9 @@ Mỗi chuyên gia mất khoảng 8.5 giờ GPU (T4 x2). Ba người chạy song 
 
 **1. Tải nhãn BDD test lên Kaggle**
 
-Bộ BDD100K trên Kaggle (`solesensei_bdd100k`) thường chỉ có file nhãn train/val, nên cần tải thêm nhãn test.
-* File cần tải: `kaggle_build_phase/test_labels_dataset/bdd100k_labels_images_test.json` (72.5 MB; 20.000 ảnh, 367.728 box). File này được tạo từ thư mục `ai_router/data/100k/test` bằng `_src/make_test_labels.py`.
+Trong bộ BDD100K trên Kaggle (`solesensei_bdd100k`), thư mục `bdd100k_labels_release` chỉ có file nhãn train và val (đã kiểm tra ngày 14/10/2026), nên cần tải thêm nhãn test.
+* **Nguồn của nhãn test:** gói **100K Images** trên trang chính thức https://bdd-data.berkeley.edu/download.html. Gói này giải nén thành `100k/{train,val,test}`, mỗi ảnh kèm một file JSON nhãn (trên máy: `ai_router/data/100k/`).
+* File cần tải: `kaggle_build_phase/test_labels_dataset/bdd100k_labels_images_test.json` (72.5 MB; 20.000 ảnh, 367.728 box), được gộp từ `ai_router/data/100k/test/*.json` bằng `_src/make_test_labels.py`.
 * Trên Kaggle: **Datasets → New Dataset**, kéo file vào, đặt tên `bdd100k-test-labels`, chọn **Private**, rồi **Create**.
 * Mở dataset vừa tạo → **Settings → Sharing**: thêm tài khoản Kaggle của các thành viên.
 
@@ -67,7 +68,6 @@ Import `Verify_Ensemble.ipynb` → **Add Input → Notebook Output** của 3 not
 
 ## Giới hạn đã biết
 * Chưa chạy thử trên Kaggle. Các script đã được chạy thử trên GPU cục bộ (1 GPU, vài trăm ảnh, vài bước): chuẩn bị dữ liệu, đo tốc độ, train, chốt chặn thời gian, lưu, kiểm tra theo lớp và theo nhóm điều kiện. **Chế độ 2 GPU (`torchrun` DDP) chưa được chạy thử.**
-* Chưa xác minh được nguồn phát hành của bộ nhãn BDD test trong `ai_router/data`; nên ghi lại nguồn tải để trích dẫn.
 * Detector của build phase không lọc theo chuyến đi (`train_filtered = False`). Bài báo cần train lại trên `Train_filtered` (`HYPOTHESIS_CHAIN.md`); khi có `train_exclude.txt`, chỉ cần thêm file đó vào Input.
 
 ## Sửa notebook
