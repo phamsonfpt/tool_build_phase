@@ -1,0 +1,198 @@
+
+== rho=0.3 FP=hal | trần Cov = 0.900 | tỷ trọng ảo giác trong FP = 0.82
+  B1_conf            Cov=0.384 (±0.022)  Yield=1.00  VR=0.000   
+  B2_ens_conf        Cov=0.431 (±0.029)  Yield=1.00  VR=0.000   
+  B4_maha            Cov=0.041 (±0.010)  Yield=1.00  VR=0.000   
+  P0_var_v12         Cov=0.034 (±0.006)  Yield=1.00  VR=0.000   
+  A1_ens_maha        Cov=0.087 (±0.013)  Yield=1.00  VR=0.000   
+  A3_max             Cov=0.126 (±0.019)  Yield=1.00  VR=0.000   
+  P2_mean_plus_sd    Cov=0.129 (±0.016)  Yield=1.00  VR=0.000   {'lam': 2.0}
+  H_single_hybrid    Cov=0.735 (±0.013)  Yield=1.00  VR=0.000   {'kappa': 0.5}
+  H_ens_hybrid       Cov=0.819 (±0.008)  Yield=1.00  VR=0.000  <- tốt nhất {'lam': 2.0, 'kappa': 0.5}
+
+== rho=0.3 FP=mixed | trần Cov = 0.863 | tỷ trọng ảo giác trong FP = 0.50
+  B1_conf            Cov=0.456 (±0.026)  Yield=1.00  VR=0.000   
+  B2_ens_conf        Cov=0.503 (±0.030)  Yield=1.00  VR=0.000   
+  B4_maha            Cov=0.029 (±0.007)  Yield=1.00  VR=0.002   
+  P0_var_v12         Cov=0.020 (±0.002)  Yield=1.00  VR=0.002   
+  A1_ens_maha        Cov=0.039 (±0.006)  Yield=1.00  VR=0.000   
+  A3_max             Cov=0.045 (±0.005)  Yield=1.00  VR=0.000   
+  P2_mean_plus_sd    Cov=0.041 (±0.005)  Yield=1.00  VR=0.000   {'lam': 0.0}
+  H_single_hybrid    Cov=0.633 (±0.019)  Yield=1.00  VR=0.000   {'kappa': 0.5}
+  H_ens_hybrid       Cov=0.708 (±0.015)  Yield=1.00  VR=0.000  <- tốt nhất {'lam': 0.0, 'kappa': 0.5}
+
+== rho=0.3 FP=loc | trần Cov = 0.788 | tỷ trọng ảo giác trong FP = 0.14
+  B1_conf            Cov=0.459 (±0.009)  Yield=1.00  VR=0.000   
+  B2_ens_conf        Cov=0.516 (±0.006)  Yield=1.00  VR=0.000   
+  B4_maha            Cov=0.016 (±0.002)  Yield=1.00  VR=0.004   
+  P0_var_v12         Cov=0.008 (±0.001)  Yield=1.00  VR=0.000   
+  A1_ens_maha        Cov=0.018 (±0.001)  Yield=1.00  VR=0.000   
+  A3_max             Cov=0.018 (±0.001)  Yield=1.00  VR=0.000   
+  P2_mean_plus_sd    Cov=0.018 (±0.001)  Yield=1.00  VR=0.000   {'lam': 0.0}
+  H_single_hybrid    Cov=0.504 (±0.009)  Yield=1.00  VR=0.000   {'kappa': 0.25}
+  H_ens_hybrid       Cov=0.567 (±0.005)  Yield=1.00  VR=0.000  <- tốt nhất {'lam': 0.0, 'kappa': 0.25}
+
+== rho=0.7 FP=hal | trần Cov = 0.900 | tỷ trọng ảo giác trong FP = 0.82
+  B1_conf            Cov=0.390 (±0.028)  Yield=1.00  VR=0.000   
+  B2_ens_conf        Cov=0.400 (±0.046)  Yield=1.00  VR=0.000   
+  B4_maha            Cov=0.044 (±0.009)  Yield=1.00  VR=0.000   
+  P0_var_v12         Cov=0.037 (±0.004)  Yield=1.00  VR=0.000   
+  A1_ens_maha        Cov=0.065 (±0.010)  Yield=1.00  VR=0.000   
+  A3_max             Cov=0.090 (±0.012)  Yield=1.00  VR=0.000   
+  P2_mean_plus_sd    Cov=0.105 (±0.017)  Yield=1.00  VR=0.000   {'lam': 2.0}
+  H_single_hybrid    Cov=0.733 (±0.011)  Yield=1.00  VR=0.000   {'kappa': 0.5}
+  H_ens_hybrid       Cov=0.793 (±0.009)  Yield=1.00  VR=0.000  <- tốt nhất {'lam': 2.0, 'kappa': 1.0}
+
+== rho=0.7 FP=mixed | trần Cov = 0.863 | tỷ trọng ảo giác trong FP = 0.50
+  B1_conf            Cov=0.479 (±0.016)  Yield=1.00  VR=0.000   
+  B2_ens_conf        Cov=0.499 (±0.012)  Yield=1.00  VR=0.000   
+  B4_maha            Cov=0.031 (±0.002)  Yield=1.00  VR=0.002   
+  P0_var_v12         Cov=0.016 (±0.002)  Yield=1.00  VR=0.000   
+  A1_ens_maha        Cov=0.035 (±0.004)  Yield=1.00  VR=0.002   
+  A3_max             Cov=0.040 (±0.004)  Yield=1.00  VR=0.000   
+  P2_mean_plus_sd    Cov=0.041 (±0.003)  Yield=1.00  VR=0.000   {'lam': 2.0}
+  H_single_hybrid    Cov=0.617 (±0.011)  Yield=1.00  VR=0.000   {'kappa': 0.5}
+  H_ens_hybrid       Cov=0.673 (±0.007)  Yield=1.00  VR=0.000  <- tốt nhất {'lam': 2.0, 'kappa': 0.5}
+
+== rho=0.7 FP=loc | trần Cov = 0.789 | tỷ trọng ảo giác trong FP = 0.14
+  B1_conf            Cov=0.460 (±0.015)  Yield=1.00  VR=0.000   
+  B2_ens_conf        Cov=0.486 (±0.013)  Yield=1.00  VR=0.000   
+  B4_maha            Cov=0.015 (±0.002)  Yield=1.00  VR=0.000   
+  P0_var_v12         Cov=0.008 (±0.001)  Yield=1.00  VR=0.000   
+  A1_ens_maha        Cov=0.017 (±0.001)  Yield=1.00  VR=0.000   
+  A3_max             Cov=0.017 (±0.002)  Yield=1.00  VR=0.002   
+  P2_mean_plus_sd    Cov=0.016 (±0.002)  Yield=1.00  VR=0.002   {'lam': 1.0}
+  H_single_hybrid    Cov=0.504 (±0.009)  Yield=1.00  VR=0.000   {'kappa': 0.25}
+  H_ens_hybrid       Cov=0.532 (±0.011)  Yield=1.00  VR=0.000  <- tốt nhất {'lam': 1.0, 'kappa': 0.25}
+
+== rho=0.95 FP=hal | trần Cov = 0.900 | tỷ trọng ảo giác trong FP = 0.82
+  B1_conf            Cov=0.374 (±0.014)  Yield=1.00  VR=0.000   
+  B2_ens_conf        Cov=0.382 (±0.027)  Yield=1.00  VR=0.000   
+  B4_maha            Cov=0.039 (±0.009)  Yield=1.00  VR=0.000   
+  P0_var_v12         Cov=0.039 (±0.004)  Yield=1.00  VR=0.002   
+  A1_ens_maha        Cov=0.041 (±0.006)  Yield=1.00  VR=0.000   
+  A3_max             Cov=0.049 (±0.009)  Yield=1.00  VR=0.000   
+  P2_mean_plus_sd    Cov=0.056 (±0.011)  Yield=1.00  VR=0.000   {'lam': 0.5}
+  H_single_hybrid    Cov=0.728 (±0.015)  Yield=1.00  VR=0.000   {'kappa': 0.5}
+  H_ens_hybrid       Cov=0.752 (±0.016)  Yield=1.00  VR=0.000  <- tốt nhất {'lam': 0.5, 'kappa': 0.5}
+
+== rho=0.95 FP=mixed | trần Cov = 0.862 | tỷ trọng ảo giác trong FP = 0.50
+  B1_conf            Cov=0.439 (±0.015)  Yield=1.00  VR=0.000   
+  B2_ens_conf        Cov=0.446 (±0.015)  Yield=1.00  VR=0.000   
+  B4_maha            Cov=0.027 (±0.002)  Yield=1.00  VR=0.004   
+  P0_var_v12         Cov=0.019 (±0.002)  Yield=1.00  VR=0.000   
+  A1_ens_maha        Cov=0.029 (±0.003)  Yield=1.00  VR=0.000   
+  A3_max             Cov=0.031 (±0.003)  Yield=1.00  VR=0.002   
+  P2_mean_plus_sd    Cov=0.031 (±0.005)  Yield=1.00  VR=0.000   {'lam': 1.0}
+  H_single_hybrid    Cov=0.618 (±0.004)  Yield=1.00  VR=0.000   {'kappa': 0.5}
+  H_ens_hybrid       Cov=0.629 (±0.002)  Yield=1.00  VR=0.000  <- tốt nhất {'lam': 1.0, 'kappa': 0.5}
+
+== rho=0.95 FP=loc | trần Cov = 0.788 | tỷ trọng ảo giác trong FP = 0.14
+  B1_conf            Cov=0.452 (±0.014)  Yield=1.00  VR=0.000   
+  B2_ens_conf        Cov=0.452 (±0.015)  Yield=1.00  VR=0.000   
+  B4_maha            Cov=0.014 (±0.002)  Yield=1.00  VR=0.002   
+  P0_var_v12         Cov=0.008 (±0.001)  Yield=1.00  VR=0.002   
+  A1_ens_maha        Cov=0.014 (±0.002)  Yield=1.00  VR=0.002   
+  A3_max             Cov=0.015 (±0.001)  Yield=1.00  VR=0.000   
+  P2_mean_plus_sd    Cov=0.015 (±0.001)  Yield=1.00  VR=0.000   {'lam': 2.0}
+  H_single_hybrid    Cov=0.488 (±0.016)  Yield=1.00  VR=0.000   {'kappa': 0.25}
+  H_ens_hybrid       Cov=0.491 (±0.022)  Yield=1.00  VR=0.000  <- tốt nhất {'lam': 2.0, 'kappa': 0.25}
+
+== rho=0.7 FP=hal delta_loc=1.0 | trần Cov = 0.901 | tỷ trọng ảo giác trong FP = 0.82
+  B1_conf            Cov=0.389 (±0.027)  Yield=1.00  VR=0.000   
+  B2_ens_conf        Cov=0.397 (±0.018)  Yield=1.00  VR=0.000   
+  B4_maha            Cov=0.075 (±0.006)  Yield=1.00  VR=0.000   
+  P0_var_v12         Cov=0.035 (±0.004)  Yield=1.00  VR=0.000   
+  A1_ens_maha        Cov=0.127 (±0.015)  Yield=1.00  VR=0.000   
+  A3_max             Cov=0.234 (±0.038)  Yield=1.00  VR=0.000   
+  P2_mean_plus_sd    Cov=0.314 (±0.022)  Yield=1.00  VR=0.000   {'lam': 2.0}
+  H_single_hybrid    Cov=0.772 (±0.003)  Yield=1.00  VR=0.000   {'kappa': 1.0}
+  H_ens_hybrid       Cov=0.838 (±0.005)  Yield=1.00  VR=0.000  <- tốt nhất {'lam': 2.0, 'kappa': 1.0}
+
+== rho=0.7 FP=mixed delta_loc=1.0 | trần Cov = 0.863 | tỷ trọng ảo giác trong FP = 0.50
+  B1_conf            Cov=0.434 (±0.021)  Yield=1.00  VR=0.000   
+  B2_ens_conf        Cov=0.464 (±0.020)  Yield=1.00  VR=0.000   
+  B4_maha            Cov=0.106 (±0.019)  Yield=1.00  VR=0.000   
+  P0_var_v12         Cov=0.020 (±0.003)  Yield=1.00  VR=0.002   
+  A1_ens_maha        Cov=0.138 (±0.020)  Yield=1.00  VR=0.000   
+  A3_max             Cov=0.173 (±0.014)  Yield=1.00  VR=0.000   
+  P2_mean_plus_sd    Cov=0.170 (±0.019)  Yield=1.00  VR=0.000   {'lam': 1.0}
+  H_single_hybrid    Cov=0.706 (±0.016)  Yield=1.00  VR=0.000   {'kappa': 0.5}
+  H_ens_hybrid       Cov=0.743 (±0.009)  Yield=1.00  VR=0.000  <- tốt nhất {'lam': 1.0, 'kappa': 1.0}
+
+== rho=0.7 FP=loc delta_loc=1.0 | trần Cov = 0.788 | tỷ trọng ảo giác trong FP = 0.14
+  B1_conf            Cov=0.451 (±0.011)  Yield=1.00  VR=0.000   
+  B2_ens_conf        Cov=0.478 (±0.004)  Yield=1.00  VR=0.000   
+  B4_maha            Cov=0.082 (±0.011)  Yield=1.00  VR=0.000   
+  P0_var_v12         Cov=0.007 (±0.001)  Yield=1.00  VR=0.000   
+  A1_ens_maha        Cov=0.095 (±0.013)  Yield=1.00  VR=0.000   
+  A3_max             Cov=0.102 (±0.015)  Yield=1.00  VR=0.000   
+  P2_mean_plus_sd    Cov=0.104 (±0.017)  Yield=1.00  VR=0.000   {'lam': 1.0}
+  H_single_hybrid    Cov=0.588 (±0.009)  Yield=1.00  VR=0.000   {'kappa': 0.5}
+  H_ens_hybrid       Cov=0.617 (±0.008)  Yield=1.00  VR=0.000  <- tốt nhất {'lam': 1.0, 'kappa': 0.5}
+
+== rho=0.7 FP=hal b_h=0.8 | trần Cov = 0.902 | tỷ trọng ảo giác trong FP = 0.82
+  B1_conf            Cov=0.356 (±0.028)  Yield=1.00  VR=0.000   
+  B2_ens_conf        Cov=0.380 (±0.021)  Yield=1.00  VR=0.000   
+  B4_maha            Cov=0.147 (±0.027)  Yield=1.00  VR=0.000   
+  P0_var_v12         Cov=0.012 (±0.002)  Yield=1.00  VR=0.002   
+  A1_ens_maha        Cov=0.153 (±0.021)  Yield=1.00  VR=0.000   
+  A3_max             Cov=0.145 (±0.015)  Yield=1.00  VR=0.000   
+  P2_mean_plus_sd    Cov=0.136 (±0.010)  Yield=1.00  VR=0.000   {'lam': 0.0}
+  H_single_hybrid    Cov=0.759 (±0.008)  Yield=1.00  VR=0.000   {'kappa': 0.5}
+  H_ens_hybrid       Cov=0.764 (±0.007)  Yield=1.00  VR=0.000  <- tốt nhất {'lam': 0.0, 'kappa': 0.5}
+
+== rho=0.7 FP=mixed b_h=0.8 | trần Cov = 0.862 | tỷ trọng ảo giác trong FP = 0.50
+  B1_conf            Cov=0.478 (±0.057)  Yield=1.00  VR=0.000   
+  B2_ens_conf        Cov=0.497 (±0.035)  Yield=1.00  VR=0.000   
+  B4_maha            Cov=0.041 (±0.006)  Yield=1.00  VR=0.000   
+  P0_var_v12         Cov=0.010 (±0.001)  Yield=1.00  VR=0.000   
+  A1_ens_maha        Cov=0.043 (±0.005)  Yield=1.00  VR=0.002   
+  A3_max             Cov=0.043 (±0.005)  Yield=1.00  VR=0.000   
+  P2_mean_plus_sd    Cov=0.042 (±0.005)  Yield=1.00  VR=0.000   {'lam': 0.25}
+  H_single_hybrid    Cov=0.654 (±0.018)  Yield=1.00  VR=0.000   {'kappa': 0.5}
+  H_ens_hybrid       Cov=0.668 (±0.019)  Yield=1.00  VR=0.000  <- tốt nhất {'lam': 0.25, 'kappa': 0.5}
+
+== rho=0.7 FP=loc b_h=0.8 | trần Cov = 0.789 | tỷ trọng ảo giác trong FP = 0.14
+  B1_conf            Cov=0.461 (±0.010)  Yield=1.00  VR=0.000   
+  B2_ens_conf        Cov=0.477 (±0.005)  Yield=1.00  VR=0.000   
+  B4_maha            Cov=0.017 (±0.002)  Yield=1.00  VR=0.004   
+  P0_var_v12         Cov=0.008 (±0.001)  Yield=1.00  VR=0.000   
+  A1_ens_maha        Cov=0.018 (±0.002)  Yield=1.00  VR=0.000   
+  A3_max             Cov=0.017 (±0.002)  Yield=1.00  VR=0.002   
+  P2_mean_plus_sd    Cov=0.018 (±0.001)  Yield=1.00  VR=0.002   {'lam': 0.5}
+  H_single_hybrid    Cov=0.510 (±0.008)  Yield=1.00  VR=0.000   {'kappa': 0.25}
+  H_ens_hybrid       Cov=0.530 (±0.005)  Yield=1.00  VR=0.000  <- tốt nhất {'lam': 0.5, 'kappa': 0.25}
+
+== rho=0.7 FP=hal r_cl=0.6 | trần Cov = 0.901 | tỷ trọng ảo giác trong FP = 0.82
+  B1_conf            Cov=0.388 (±0.026)  Yield=1.00  VR=0.000   
+  B2_ens_conf        Cov=0.414 (±0.031)  Yield=1.00  VR=0.000   
+  B4_maha            Cov=0.038 (±0.005)  Yield=1.00  VR=0.000   
+  P0_var_v12         Cov=0.037 (±0.003)  Yield=1.00  VR=0.000   
+  A1_ens_maha        Cov=0.056 (±0.010)  Yield=1.00  VR=0.000   
+  A3_max             Cov=0.083 (±0.015)  Yield=1.00  VR=0.000   
+  P2_mean_plus_sd    Cov=0.100 (±0.014)  Yield=1.00  VR=0.000   {'lam': 2.0}
+  H_single_hybrid    Cov=0.690 (±0.009)  Yield=1.00  VR=0.000   {'kappa': 0.5}
+  H_ens_hybrid       Cov=0.761 (±0.005)  Yield=1.00  VR=0.000  <- tốt nhất {'lam': 2.0, 'kappa': 0.5}
+
+== rho=0.7 FP=mixed r_cl=0.6 | trần Cov = 0.862 | tỷ trọng ảo giác trong FP = 0.50
+  B1_conf            Cov=0.454 (±0.015)  Yield=1.00  VR=0.000   
+  B2_ens_conf        Cov=0.479 (±0.016)  Yield=1.00  VR=0.000   
+  B4_maha            Cov=0.028 (±0.005)  Yield=1.00  VR=0.000   
+  P0_var_v12         Cov=0.018 (±0.002)  Yield=1.00  VR=0.002   
+  A1_ens_maha        Cov=0.033 (±0.006)  Yield=1.00  VR=0.002   
+  A3_max             Cov=0.035 (±0.008)  Yield=1.00  VR=0.004   
+  P2_mean_plus_sd    Cov=0.036 (±0.009)  Yield=1.00  VR=0.002   {'lam': 2.0}
+  H_single_hybrid    Cov=0.576 (±0.008)  Yield=1.00  VR=0.000   {'kappa': 0.25}
+  H_ens_hybrid       Cov=0.612 (±0.018)  Yield=1.00  VR=0.000  <- tốt nhất {'lam': 2.0, 'kappa': 0.25}
+
+== rho=0.7 FP=loc r_cl=0.6 | trần Cov = 0.787 | tỷ trọng ảo giác trong FP = 0.14
+  B1_conf            Cov=0.462 (±0.016)  Yield=1.00  VR=0.000   
+  B2_ens_conf        Cov=0.480 (±0.019)  Yield=1.00  VR=0.000   
+  B4_maha            Cov=0.016 (±0.001)  Yield=1.00  VR=0.002   
+  P0_var_v12         Cov=0.008 (±0.001)  Yield=1.00  VR=0.000   
+  A1_ens_maha        Cov=0.016 (±0.001)  Yield=1.00  VR=0.000   
+  A3_max             Cov=0.017 (±0.001)  Yield=1.00  VR=0.000   
+  P2_mean_plus_sd    Cov=0.018 (±0.001)  Yield=1.00  VR=0.000   {'lam': 2.0}
+  H_single_hybrid    Cov=0.465 (±0.016)  Yield=1.00  VR=0.000   {'kappa': 0.25}
+  H_ens_hybrid       Cov=0.487 (±0.021)  Yield=1.00  VR=0.000  <- tốt nhất {'lam': 2.0, 'kappa': 0.25}
