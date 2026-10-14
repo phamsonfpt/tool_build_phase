@@ -141,6 +141,8 @@ if __name__ == "__main__":
     with open(DATA_STATS) as f:
         stats = json.load(f)
     train_items = expand_rfs(items, SEED)
+    with open(COMPACT["val"]) as f:
+        val_monitor = [r for r in json.load(f) if r["monitor"]]  # 1.000 ảnh val cố định, CHỈ để vẽ đường cong loss
     processor = RTDetrImageProcessor.from_pretrained("PekingU/rtdetr_r50vd")
     model = build_model()
 
@@ -157,7 +159,10 @@ if __name__ == "__main__":
         per_device_train_batch_size=PER_GPU_BATCH, gradient_accumulation_steps=ACCUM,
         learning_rate=LR, lr_scheduler_type="cosine", warmup_steps=min(1000, max(1, steps // 20)),
         max_grad_norm=0.1, fp16=torch.cuda.is_available(),
-        eval_strategy="no",                   # không đánh giá trong lúc train; kiểm tra trên build_check sau khi train
+        # Val CHỈ ĐỂ XEM: đo loss trên 1.000 ảnh val mỗi 2.000 bước để thấy overfit. Không chọn checkpoint theo
+        # val (load_best_model_at_end=False) và không có early stopping: mô hình lưu ra luôn là bản cuối cùng.
+        eval_strategy="no" if BENCH else "steps", eval_steps=int(os.environ.get("EVAL_STEPS", 2000)), prediction_loss_only=True,
+        per_device_eval_batch_size=PER_GPU_BATCH, load_best_model_at_end=False,
         save_strategy="no" if BENCH else "steps", save_steps=2000, save_total_limit=2,
         logging_steps=50, report_to="none", disable_tqdm=False,
         dataloader_num_workers=NUM_WORKERS, dataloader_persistent_workers=NUM_WORKERS > 0,
@@ -165,6 +170,7 @@ if __name__ == "__main__":
     )
     speed = Speed()
     trainer = Trainer(model=model, args=args, train_dataset=BDDDet(train_items, processor, augment=True),
+                      eval_dataset=None if BENCH else BDDDet(val_monitor, processor, augment=False),
                       data_collator=collate_fn, optimizers=(optimizer, None),
                       callbacks=[speed] if BENCH else [TimeGuard()])
     eff_batch = PER_GPU_BATCH * ACCUM * WORLD
@@ -195,7 +201,7 @@ if __name__ == "__main__":
                             epochs_done=trainer.state.global_step * eff_batch / len(train_items),
                             lr=LR, lr_backbone=LR_BACKBONE, effective_batch=eff_batch, world=WORLD,
                             classes=BDD_CLASSES, rfs_t=stats["rfs_t"], images_per_epoch=len(train_items),
-                            split_rule=stats["split_rule"],
+                            split_rule=stats["split_rule"], val_usage="chỉ để xem: không chọn checkpoint, không chỉnh siêu tham số",
                             n_images=stats["n_images"], train_filtered=stats["train_filtered"],
                             kept_boxes_train=stats["kept_boxes"]["train"], weights_sha256=weights_sha256(sd),
                             last_log=trainer.state.log_history[-1],
@@ -203,5 +209,11 @@ if __name__ == "__main__":
                             finished_utc=datetime.datetime.utcnow().isoformat())
             with open(os.path.join(WORK, f"expert_{EXPERT_ID}_manifest.json"), "w") as f:
                 json.dump(manifest, f, indent=2)
+            # Đường cong loss: train (mỗi 50 bước) và val (mỗi 2.000 bước), chỉ để xem
+            with open(os.path.join(WORK, f"expert_{EXPERT_ID}_loss_curve.csv"), "w") as f:
+                f.write("step,train_loss,val_loss\n")
+                for h in trainer.state.log_history:
+                    if "loss" in h or "eval_loss" in h:
+                        f.write(f"{h.get('step')},{h.get('loss', '')},{h.get('eval_loss', '')}\n")
             print(f"[V] Đã lưu {pth}, {final_dir}/ và expert_{EXPERT_ID}_manifest.json")
             print(f"    {manifest['epochs_done']:.2f} epoch | sha256 trọng số: {manifest['weights_sha256'][:16]}…")

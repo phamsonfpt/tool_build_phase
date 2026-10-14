@@ -109,6 +109,7 @@ Cần kiểm tra lại các con số sau bước P1 của H1 (số ride proxy th
 | Đầu phân loại | Sigmoid (varifocal) | H2 | Tài liệu cũ, `min_conf.py`: softmax |
 | Tín hiệu tiềm ẩn | $\bar\zeta + \lambda s_\zeta$ trên đủ 256 chiều, chuẩn hóa robust theo từng mô hình | H2 Mục 5.9 | H1 ký hiệu $\tau_{\text{fcd}}$ nhưng không định nghĩa lại; `fcd_variance.py` cài đặt khác hẳn |
 | Đường đi của H1 | 3 chiều $(\tau_{\text{cls}}, \tau_{\text{loc}}, \tau_{\text{fcd}})$, dựng Pareto | H1 Mục 6.2 | Cần định nghĩa $\tau_{\text{loc}}$ và $\tau_{\text{fcd}}$ theo tín hiệu của H2 (Mục 5) |
+| Cách dùng BDD val ở build phase | **Chỉ để xem**: loss theo dõi trên 1.000 ảnh và báo cáo từng lớp; không chọn checkpoint, không chỉnh siêu tham số (manifest ghi `val_usage`) | `kaggle_build_phase/README.md` | **Sai lệch so với H1** (H1 yêu cầu không xem nhãn hộp của Val trước khi đăng ký). Nếu bài báo dùng Val làm Evaluation pool, phải công bố sai lệch này. Nếu gói Info có dữ liệu của test, nên chuyển Evaluation pool sang test để tránh hoàn toàn |
 | Biên SESOI | H2: $\gamma = 5$ pp Coverage; H3: chưa có | H2 | H3 cũ: 1.5% mAP với kiểm định t |
 
 ---

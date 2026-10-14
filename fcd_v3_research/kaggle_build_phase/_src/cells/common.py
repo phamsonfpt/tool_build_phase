@@ -2,11 +2,12 @@
 # ==============================================================================
 # CẤU HÌNH DÙNG CHUNG (chuẩn bị dữ liệu, huấn luyện, kiểm tra)
 #
-# Cách dùng dữ liệu BDD100K ở build phase (phương án B):
-#   BDD train (69.863 ảnh có nhãn) -> "train"       : huấn luyện detector, dùng TOÀN BỘ
-#   BDD test  (20.000 ảnh có nhãn) -> "build_cal"   : nửa thứ nhất, hiệu chuẩn LTT của pipeline
-#                                  -> "build_check" : nửa thứ hai, kiểm tra từng lớp và edge case
-#   BDD val   (10.000 ảnh)         -> KHÔNG ĐỌC     : giữ nguyên làm tập đánh giá cho bài báo (H1/H2)
+# Cách dùng dữ liệu BDD100K ở build phase:
+#   BDD train (69.863 ảnh có nhãn) -> "train" : huấn luyện detector, dùng TOÀN BỘ
+#   BDD val   (10.000 ảnh có nhãn) -> "val"   : CHỈ ĐỂ XEM: đường cong loss trong lúc train và báo cáo
+#                                               từng lớp sau khi train. Không chọn checkpoint, không chỉnh
+#                                               siêu tham số theo val, để val vẫn dùng được cho bài báo.
+#   BDD test (20.000 ảnh)          -> KHÔNG ĐỌC : giữ cho bài báo hoặc cho bước hiệu chuẩn sau này
 # ==============================================================================
 import os, json, glob, hashlib
 
@@ -26,13 +27,14 @@ CATEGORY_NORMALIZER = {
 SEEDS = {1: 42, 2: 142, 3: 242}
 
 WORK = os.environ.get("WORK_DIR", "/kaggle/working")
-SPLITS = ("train", "build_cal", "build_check")
+SPLITS = ("train", "val")
 COMPACT = {s: os.path.join(WORK, f"bdd_det_{s}_compact.json") for s in SPLITS}
 DATA_STATS = os.path.join(WORK, "data_stats.json")
 
-def test_half(name):
-    """Chia BDD test thành hai nửa cố định theo hash tên ảnh (giống nhau với mọi người, mọi lần chạy)."""
-    return "build_cal" if int(hashlib.md5(name.encode()).hexdigest(), 16) % 2 == 0 else "build_check"
+# Một tập con cố định 1.000 ảnh val (chọn theo hash tên ảnh) để đo loss trong lúc train cho nhanh;
+# báo cáo từng lớp sau khi train dùng toàn bộ 10.000 ảnh val.
+def in_val_monitor(name):
+    return int(hashlib.md5(name.encode()).hexdigest(), 16) % 10 == 0
 
 # (Tùy chọn) danh sách ảnh train phải loại, một tên ảnh mỗi dòng (dùng cho bài báo, giao thức A2 của H1).
 EXCLUDE_LIST_CANDIDATES = ["/kaggle/input/*/train_exclude.txt", "/kaggle/input/*/*/train_exclude.txt",
@@ -46,9 +48,9 @@ def find_exclude_list():
     return None
 
 def find_bdd():
-    """Tìm nhãn và ảnh của BDD train và BDD test trong /kaggle/input (mọi dataset đã Add Input).
-    Có thể chỉ định thẳng bằng biến môi trường TRAIN_JSON, TRAIN_IMG, TEST_JSON, TEST_IMG."""
-    found = {k: os.environ.get(k) for k in ("TRAIN_JSON", "TRAIN_IMG", "TEST_JSON", "TEST_IMG")}
+    """Tìm nhãn và ảnh của BDD train và BDD val trong /kaggle/input.
+    Có thể chỉ định thẳng bằng biến môi trường TRAIN_JSON, TRAIN_IMG, VAL_JSON, VAL_IMG."""
+    found = {k: os.environ.get(k) for k in ("TRAIN_JSON", "TRAIN_IMG", "VAL_JSON", "VAL_IMG")}
     if all(found.values()):
         return found
     for root, dirs, files in os.walk("/kaggle/input"):
@@ -56,11 +58,14 @@ def find_bdd():
         for f in files:
             if f.endswith("labels_images_train.json"):
                 found["TRAIN_JSON"] = found["TRAIN_JSON"] or os.path.join(root, f)
-            if f.endswith("labels_images_test.json"):
-                found["TEST_JSON"] = found["TEST_JSON"] or os.path.join(root, f)
-        for split in ("train", "test"):
+            if f.endswith("labels_images_val.json"):
+                found["VAL_JSON"] = found["VAL_JSON"] or os.path.join(root, f)
+        for split in ("train", "val"):
             key = f"{split.upper()}_IMG"
-            if not found[key] and r.endswith(f"100k/{split}") and any(x.endswith(".jpg") for x in os.listdir(root)[:50]):
+            # Bản Kaggle để một phần ảnh trong thư mục con (ví dụ test/trainA), nên chấp nhận thư mục
+            # images/100k/<split> dù ảnh không nằm trực tiếp ở đó; image_map() quét đệ quy.
+            if not found[key] and r.endswith(f"100k/{split}") and (
+                    "images" in r or any(x.endswith(".jpg") for x in os.listdir(root)[:50])):
                 found[key] = root
     return found
 

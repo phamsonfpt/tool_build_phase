@@ -1,7 +1,7 @@
 %%writefile prepare_data.py
 # ==============================================================================
 # CHUẨN BỊ DỮ LIỆU (tự bỏ qua nếu đã có kết quả)
-#  - BDD train -> "train"; BDD test -> "build_cal" / "build_check" (chia đôi theo hash). BDD val không đọc.
+#  - BDD train -> "train"; BDD val -> "val" (chỉ để xem). BDD test không đọc.
 #  - Giữ TOÀN BỘ box của 10 lớp; chỉ bỏ box suy biến (rộng hoặc cao <= 0.5 px).
 #  - Đếm box gốc và box giữ lại theo lớp; dừng lại nếu có box bị mất vì lý do khác.
 #  - Tính hệ số lấy mẫu lặp (Repeat Factor Sampling; Gupta et al., 2019) cho lớp hiếm của tập train.
@@ -20,9 +20,8 @@ for k, v in P.items():
     print(f"[*] {k:10s}: {v}")
 missing = [k for k, v in P.items() if not v]
 assert not missing, (
-    f"Thiếu {missing}. Cần Add Input: (1) bộ BDD100K có 'bdd100k_labels_images_train.json', "
-    "'images/100k/train' và 'images/100k/test'; (2) dataset nhãn test chứa 'bdd100k_labels_images_test.json' "
-    "(xem README). Tất cả thành viên phải dùng cùng dữ liệu, nên notebook dừng thay vì tự đổi cách chia.")
+    f"Thiếu {missing}. Cần Add Input bộ BDD100K (ví dụ solesensei_bdd100k) có "
+    "'bdd100k_labels_images_train.json', 'bdd100k_labels_images_val.json', 'images/100k/train', 'images/100k/val'.")
 
 def image_map(d):
     m = {}
@@ -43,7 +42,7 @@ raw_cnt = collections.Counter(); degen_cnt = collections.Counter(); other_cats =
 kept = {s: collections.Counter() for s in SPLITS}
 out = {s: [] for s in SPLITS}
 info = collections.Counter(); max_boxes = 0
-for source, json_key, img_key in (("bdd_train", "TRAIN_JSON", "TRAIN_IMG"), ("bdd_test", "TEST_JSON", "TEST_IMG")):
+for source, json_key, img_key in (("bdd_train", "TRAIN_JSON", "TRAIN_IMG"), ("bdd_val", "VAL_JSON", "VAL_IMG")):
     img_map = image_map(P[img_key])
     with open(P[json_key], encoding="utf-8") as f:
         raw = json.load(f)
@@ -56,7 +55,7 @@ for source, json_key, img_key in (("bdd_train", "TRAIN_JSON", "TRAIN_IMG"), ("bd
             info[f"{source}: nhãn không có ảnh"] += 1; continue
         if source == "bdd_train" and name in exclude:
             info["bdd_train: loại trừ"] += 1; continue
-        split = "train" if source == "bdd_train" else test_half(name)
+        split = "train" if source == "bdd_train" else "val"
         boxes = []
         for o in raw_objects(item):
             if 'box2d' not in o:
@@ -72,7 +71,8 @@ for source, json_key, img_key in (("bdd_train", "TRAIN_JSON", "TRAIN_IMG"), ("bd
                 degen_cnt[cat] += 1
         info[f"{source}: ảnh không có box"] += not boxes
         max_boxes = max(max_boxes, len(boxes))
-        out[split].append({"file": path, "name": name, "boxes": boxes, "attributes": item.get("attributes", {})})
+        out[split].append({"file": path, "name": name, "boxes": boxes, "attributes": item.get("attributes", {}),
+                           "monitor": split == "val" and in_val_monitor(name)})
     # Ảnh có trong thư mục nhưng không có mục nào trong file nhãn: bỏ qua, vì mọi object trong ảnh sẽ bị coi là nền.
     unlabeled = sorted(set(img_map) - labeled)
     info[f"{source}: ảnh không có nhãn"] = len(unlabeled)
@@ -94,8 +94,9 @@ for s in SPLITS:
 kept_all = collections.Counter()
 for s in SPLITS:
     kept_all.update(kept[s])
-stats = dict(sources={k: v for k, v in P.items()}, split_rule="train = BDD train; build_cal/build_check = "
-             "BDD test chia theo md5(tên ảnh) % 2; BDD val không dùng",
+stats = dict(sources={k: v for k, v in P.items()}, split_rule="train = toàn bộ BDD train; val = BDD val, chỉ để xem "
+             "(loss theo dõi trên tập con md5(tên ảnh) % 10 == 0, báo cáo từng lớp trên toàn bộ val); BDD test không đọc",
+             n_val_monitor=sum(r["monitor"] for r in out["val"]),
              n_images={s: len(out[s]) for s in SPLITS}, info=dict(info), exclude_list=excl_path,
              train_filtered=bool(excl_path), max_boxes_per_image=max_boxes, raw_boxes=dict(raw_cnt),
              kept_boxes={s: dict(kept[s]) for s in SPLITS}, degenerate_boxes=dict(degen_cnt),
@@ -107,10 +108,9 @@ with open(DATA_STATS, "w") as f:
 print("\n[*] Số ảnh: " + " | ".join(f"{s}: {len(out[s])}" for s in SPLITS))
 for k, v in sorted(info.items()):
     print(f"    {k}: {v}")
-print(f"\n{'lớp':14s} {'box gốc':>9s} {'train':>9s} {'build_cal':>10s} {'build_check':>12s} {'suy biến':>9s} {'lặp RFS':>8s}")
+print(f"\n{'lớp':14s} {'box gốc':>9s} {'train':>9s} {'val':>9s} {'suy biến':>9s} {'lặp RFS':>8s}")
 for c in BDD_CLASSES:
-    print(f"{c:14s} {raw_cnt[c]:9d} {kept['train'][c]:9d} {kept['build_cal'][c]:10d} {kept['build_check'][c]:12d} "
-          f"{degen_cnt[c]:9d} {r_c[c]:8.2f}")
+    print(f"{c:14s} {raw_cnt[c]:9d} {kept['train'][c]:9d} {kept['val'][c]:9d} {degen_cnt[c]:9d} {r_c[c]:8.2f}")
 assert all(raw_cnt[c] == kept_all[c] + degen_cnt[c] for c in BDD_CLASSES), "Có box bị mất ngoài lý do suy biến!"
 print(f"[V] Mọi box của 10 lớp đều được giữ (trừ box suy biến). Nhiều box nhất trong 1 ảnh: {max_boxes}. "
       f"Ảnh train/epoch sau RFS ≈ {round(stats['train_images_per_epoch'])}")

@@ -1,6 +1,6 @@
 %%writefile check_classes.py
 # ==============================================================================
-# KIỂM TRA SAU KHI TRAIN trên build_check (nửa BDD test, không dùng khi train):
+# KIỂM TRA SAU KHI TRAIN trên toàn bộ BDD val (CHỈ ĐỂ XEM, không dùng để chọn hay chỉnh gì):
 #  (1) recall/precision theo từng lớp -> mô hình đã học đủ 10 lớp chưa
 #  (2) recall theo nhóm điều kiện (thời tiết, thời điểm, loại cảnh) -> edge case
 #  (3) so sánh với các chuyên gia khác (nếu có trong Input) -> có phải bản sao không
@@ -23,7 +23,7 @@ dev = "cuda" if torch.cuda.is_available() else "cpu"
 final_dir = os.path.join(WORK, f"expert_{EXPERT_ID}_final")
 model = RTDetrForObjectDetection.from_pretrained(final_dir).to(dev).eval()
 proc = RTDetrImageProcessor.from_pretrained(final_dir)
-with open(COMPACT["build_check"]) as f:
+with open(COMPACT["val"]) as f:
     items = json.load(f)[:N_IMG]
 
 def iou(a, b):
@@ -57,7 +57,7 @@ for k in range(0, len(items), 16):
             s = strata[(a, r.get("attributes", {}).get(a, "?"))]
             s[0] += 1; s[1] += img_gt; s[2] += img_tp
 
-print(f"[*] Chuyên gia {EXPERT_ID}: {len(items)} ảnh build_check (nửa BDD test, không dùng khi train), ngưỡng 0.3, IoU 0.5")
+print(f"[*] Chuyên gia {EXPERT_ID}: {len(items)} ảnh BDD val (không dùng khi train; chỉ để xem), ngưỡng 0.3, IoU 0.5")
 print(f"\n{'lớp':14s} {'GT':>7s} {'dự đoán':>8s} {'recall':>7s} {'precision':>9s}")
 weak = []
 for c, n in enumerate(BDD_CLASSES):

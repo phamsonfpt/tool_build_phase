@@ -9,34 +9,29 @@ Ba notebook (mỗi notebook một chuyên gia, `EXPERT_ID` điền sẵn) huấn
 | `Train_RTDETR_Ensemble_Expert3.ipynb` | 3 | 242 | thành viên C |
 | `Verify_Ensemble.ipynb` | kiểm tra cả 3 | — | ai cũng được, sau cùng |
 
-**Dữ liệu:** BDD train (69.863 ảnh) dùng toàn bộ để train. BDD test (20.000 ảnh) chia đôi theo hash tên ảnh thành `build_cal` (hiệu chuẩn LTT) và `build_check` (kiểm tra từng lớp và edge case). **BDD val (10.000 ảnh) không bao giờ được đọc**, vì nó là tập đánh giá cho bài báo.
+**Dữ liệu:** chỉ cần bộ `solesensei_bdd100k` trên Kaggle, không phải tải gì thêm.
+* **BDD train** (69.863 ảnh): dùng toàn bộ để train.
+* **BDD val** (10.000 ảnh): **chỉ để xem**. Dùng cho đường cong loss trong lúc train (1.000 ảnh cố định) và báo cáo từng lớp sau khi train. **Không** chọn checkpoint, **không** chỉnh epoch hay learning rate theo val. Mô hình lưu ra luôn là bản cuối cùng. Nhờ vậy val vẫn dùng được cho bài báo; cách dùng này phải được công bố (`HYPOTHESIS_CHAIN.md`, Mục 4).
+* **BDD test** (20.000 ảnh): không đọc. Giữ cho bài báo hoặc cho bước hiệu chuẩn LTT sau này, tùy kết quả kiểm tra gói Info.
 
 Mỗi chuyên gia mất khoảng 8.5 giờ GPU (T4 x2). Ba người chạy song song trên ba tài khoản, mỗi người dùng hạn mức của mình.
 
 ---
 
-## A. Người phụ trách: chuẩn bị một lần (khoảng 20 phút)
+## A. Người phụ trách: chuẩn bị một lần (khoảng 15 phút)
 
-**1. Tải nhãn BDD test lên Kaggle**
-
-Trong bộ BDD100K trên Kaggle (`solesensei_bdd100k`), thư mục `bdd100k_labels_release` chỉ có file nhãn train và val (đã kiểm tra ngày 14/10/2026), nên cần tải thêm nhãn test.
-* **Nguồn của nhãn test:** gói **100K Images** trên trang chính thức https://bdd-data.berkeley.edu/download.html. Gói này giải nén thành `100k/{train,val,test}`, mỗi ảnh kèm một file JSON nhãn (trên máy: `ai_router/data/100k/`).
-* File cần tải: `kaggle_build_phase/test_labels_dataset/bdd100k_labels_images_test.json` (72.5 MB; 20.000 ảnh, 367.728 box), được gộp từ `ai_router/data/100k/test/*.json` bằng `_src/make_test_labels.py`.
-* Trên Kaggle: **Datasets → New Dataset**, kéo file vào, đặt tên `bdd100k-test-labels`, chọn **Private**, rồi **Create**.
-* Mở dataset vừa tạo → **Settings → Sharing**: thêm tài khoản Kaggle của các thành viên.
-
-**2. Tạo 3 notebook trên Kaggle**
+**Tạo 3 notebook trên Kaggle**
 
 Với mỗi file `Train_RTDETR_Ensemble*.ipynb`:
 1. **Create → New Notebook → File → Import Notebook** → chọn file.
-2. **Add Input**: thêm `solesensei_bdd100k`, rồi thêm `bdd100k-test-labels`. Bộ BDD100K phải có `images/100k/test`; nếu không có, hãy thêm một bộ BDD100K khác có ảnh test.
+2. **Add Input**: thêm `solesensei_bdd100k`.
 3. Thanh bên phải: **Accelerator = GPU T4 x2**, **Internet = On**.
 4. **Save Version → Quick Save** (chỉ lưu, chưa chạy).
 5. **Share**: thêm thành viên được giao chuyên gia này (quyền xem là đủ).
 
 ## B. Thành viên: 3 thao tác
 1. Mở link notebook được giao → **Copy & Edit**.
-2. Nhìn thanh bên phải: GPU T4 x2, Internet On, Input có 2 dataset. Nếu Kaggle không giữ GPU khi copy, chọn lại **GPU T4 x2**.
+2. Nhìn thanh bên phải: GPU T4 x2, Internet On, Input có `solesensei_bdd100k`. Nếu Kaggle không giữ GPU khi copy, chọn lại **GPU T4 x2**.
 3. **Save Version → Save** (để mặc định *Save & Run All*). Có thể tắt máy; kết quả nằm ở tab **Output** của phiên bản đó.
 
 Nếu thiếu GPU, Internet hay dữ liệu, notebook **dừng ngay trong phút đầu** với lời nhắc cụ thể, nên không tốn quota. Bật Internet cần tài khoản Kaggle đã xác minh số điện thoại.
@@ -52,9 +47,10 @@ Import `Verify_Ensemble.ipynb` → **Add Input → Notebook Output** của 3 not
 | `expert_K.pth` | `state_dict` (nạp bằng `torch.load(..., weights_only=True)`) |
 | `expert_K_final/` | Mô hình và processor định dạng HuggingFace (`from_pretrained`) |
 | `expert_K_manifest.json` | seed, số bước và epoch đã chạy, batch, sha256 trọng số, nguồn dữ liệu, phiên bản thư viện |
-| `expert_K_class_report.txt` | Recall và precision theo lớp; recall theo thời tiết, thời điểm, loại cảnh (trên `build_check`) |
+| `expert_K_class_report.txt` | Recall và precision theo lớp; recall theo thời tiết, thời điểm, loại cảnh (trên val, chỉ để xem) |
+| `expert_K_loss_curve.csv` | Loss train (mỗi 50 bước) và val (mỗi 2.000 bước, trên 1.000 ảnh val) |
 | `data_stats.json` | Số box gốc và giữ lại theo lớp và theo tập, ảnh không có nhãn, hệ số lấy mẫu lặp |
-| `bdd_det_{train,build_cal,build_check}_compact.json` | Danh sách ảnh và box của từng tập |
+| `bdd_det_{train,val}_compact.json` | Danh sách ảnh và box của từng tập |
 | `expert_K/checkpoint-*` | Checkpoint để tiếp tục train nếu phiên bị dừng sớm |
 
 ## Các quyết định thiết kế
@@ -64,11 +60,14 @@ Import `Verify_Ensemble.ipynb` → **Add Input → Notebook Output** của 3 not
 * **Đa dạng giữa các chuyên gia:** seed được truyền vào `TrainingArguments(seed, data_seed)`, khiến thứ tự dữ liệu, augmentation (lật ngang, đổi màu) và làm tròn của lấy mẫu lặp đều khác nhau. Notebook kiểm tra báo lỗi nếu hai chuyên gia trùng trọng số; đây là lỗi đã xảy ra với 5 checkpoint M29.
 * **Thời gian:** đo tốc độ trong 40 bước, đặt `max_steps` cho vừa `TRAIN_HOURS` (8 giờ) với lịch learning rate cosine, cộng chốt chặn tự lưu và dừng ở 11 giờ.
 * **Siêu tham số:** AdamW, learning rate 1e-4 (backbone 1e-5), warmup, gradient clipping 0.1, fp16, ảnh 640×640, batch hiệu dụng 16. Khởi tạo đầu phân loại từ COCO cho 8/10 lớp.
-* **Dữ liệu giống nhau với mọi thành viên:** nếu thiếu nhãn hoặc ảnh test, notebook **dừng** thay vì tự đổi cách chia, để 3 chuyên gia luôn được train và kiểm tra trên cùng dữ liệu.
+* **Dữ liệu giống nhau với mọi thành viên:** nếu thiếu nhãn hoặc ảnh của train/val, notebook **dừng** ngay, để 3 chuyên gia luôn được train và kiểm tra trên cùng dữ liệu.
 
 ## Giới hạn đã biết
 * Chưa chạy thử trên Kaggle. Các script đã được chạy thử trên GPU cục bộ (1 GPU, vài trăm ảnh, vài bước): chuẩn bị dữ liệu, đo tốc độ, train, chốt chặn thời gian, lưu, kiểm tra theo lớp và theo nhóm điều kiện. **Chế độ 2 GPU (`torchrun` DDP) chưa được chạy thử.**
 * Detector của build phase không lọc theo chuyến đi (`train_filtered = False`). Bài báo cần train lại trên `Train_filtered` (`HYPOTHESIS_CHAIN.md`); khi có `train_exclude.txt`, chỉ cần thêm file đó vào Input.
+
+## Nhãn BDD test (chưa dùng)
+`test_labels_dataset/` và `_src/make_test_labels.py` được giữ lại phòng khi cần nhãn test sau này (ví dụ hiệu chuẩn LTT hoặc bài báo). Nhãn lấy từ gói **100K Images** chính thức trên bdd-data.berkeley.edu; bộ Kaggle không có nhãn test.
 
 ## Sửa notebook
 Không sửa trực tiếp file `.ipynb`. Hãy sửa trong `_src/cells/*.py`, rồi tạo lại cả 4 notebook:

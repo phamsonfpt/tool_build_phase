@@ -13,23 +13,23 @@ def intro(k):
 
 ## Thành viên nhóm: chỉ cần 3 thao tác
 1. Mở notebook được giao → **Copy & Edit**.
-2. Nhìn thanh bên phải: *Accelerator = GPU T4 x2*, *Internet = On*, và mục *Input* có **2 dataset** (BDD100K và nhãn BDD test). Nếu thiếu, notebook sẽ dừng ngay trong phút đầu kèm lời nhắc cụ thể, không tốn quota.
+2. Nhìn thanh bên phải: *Accelerator = GPU T4 x2*, *Internet = On*, và mục *Input* có dataset **BDD100K** (`solesensei_bdd100k`). Nếu thiếu, notebook sẽ dừng ngay trong phút đầu kèm lời nhắc cụ thể, không tốn quota.
 3. **Save Version → Save** (để mặc định *Save & Run All*). Có thể đóng trình duyệt; khoảng 8.5 giờ sau, kết quả nằm ở tab *Output*.
 
 Không sửa gì trong notebook. `EXPERT_ID = {k}` đã được điền sẵn.
 
 ## Notebook tự làm các bước sau
 1. **Kiểm tra môi trường:** GPU, Internet, phiên bản `transformers`, và đủ dữ liệu.
-2. **Chuẩn bị dữ liệu.** Giữ **mọi box của 10 lớp**, rồi chia:
-   * **BDD train** (69.863 ảnh) → `train`: dùng toàn bộ để huấn luyện.
-   * **BDD test** (20.000 ảnh) → `build_cal` / `build_check`: chia đôi theo hash tên ảnh, giống nhau ở mọi người và mọi lần chạy.
-   * **BDD val** (10.000 ảnh) → **không đọc**, vì để dành cho bài báo.
+2. **Chuẩn bị dữ liệu.** Giữ **mọi box của 10 lớp**:
+   * **BDD train** (69.863 ảnh) → train: dùng toàn bộ.
+   * **BDD val** (10.000 ảnh) → **chỉ để xem**: đường cong loss trong lúc train (trên 1.000 ảnh cố định) và báo cáo từng lớp sau khi train. Không chọn checkpoint, không chỉnh siêu tham số theo val, để val vẫn dùng được cho bài báo.
+   * **BDD test** → không đọc.
 3. **Đo tốc độ** trong 40 bước, rồi tự chọn số bước train cho vừa `TRAIN_HOURS` = 8 giờ (vừa giới hạn 12 giờ mỗi phiên và hạn mức GPU khoảng 30 giờ mỗi tuần của Kaggle).
 4. **Train** với seed riêng của chuyên gia {k}. Có chốt chặn: tự lưu và dừng nếu phiên chạy tới 11 giờ.
-5. **Kiểm tra** trên `build_check` (khoảng 10.000 ảnh): recall và precision theo từng lớp, recall theo thời tiết, thời điểm trong ngày và loại cảnh.
+5. **Kiểm tra** trên toàn bộ val: recall và precision theo từng lớp, recall theo thời tiết, thời điểm trong ngày và loại cảnh.
 
 ## Kết quả trong Output
-`expert_{k}.pth`, `expert_{k}_final/` (định dạng HuggingFace), `expert_{k}_manifest.json` (seed, số epoch, sha256 trọng số), `expert_{k}_class_report.txt`, `data_stats.json`, và `bdd_det_build_cal_compact.json` (dùng để hiệu chuẩn LTT ở giai đoạn sau).
+`expert_{k}.pth`, `expert_{k}_final/` (định dạng HuggingFace), `expert_{k}_manifest.json` (seed, số epoch, sha256 trọng số), `expert_{k}_class_report.txt`, `expert_{k}_loss_curve.csv` (loss train và val theo bước), `data_stats.json`.
 """
 
 def config(k):
@@ -76,7 +76,7 @@ import json, shutil
 !BENCH=1 torchrun --nproc_per_node={n_gpu} train.py
 b = json.load(open(f"/kaggle/working/bench_{EXPERT_ID}.json"))
 shutil.rmtree(f"/kaggle/working/bench_tmp_{EXPERT_ID}", ignore_errors=True)
-MAX_STEPS = int(TRAIN_HOURS * 3600 * b["steps_per_sec"] * 0.95)   # chừa 5% cho lưu checkpoint
+MAX_STEPS = int(TRAIN_HOURS * 3600 * b["steps_per_sec"] * 0.90)   # chừa 10% cho lưu checkpoint và đo loss val
 epochs = MAX_STEPS * b["effective_batch"] / b["images_per_epoch"]
 os.environ["MAX_STEPS"] = str(MAX_STEPS)
 print(f"[*] {b['steps_per_sec'] * b['effective_batch']:.1f} ảnh/giây -> {MAX_STEPS} bước ≈ {epochs:.1f} epoch trong {TRAIN_HOURS} giờ")
