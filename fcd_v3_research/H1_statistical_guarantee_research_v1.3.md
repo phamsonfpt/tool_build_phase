@@ -30,7 +30,9 @@ Trong quy trình gán nhãn chủ động (Active Learning) và tự động gá
 
 > **Hypothesis 1a (The PAC Risk Control Guarantee):**
 > *Khi đơn vị thống kê được thiết lập tại cấp độ cụm độc lập (Ride-level Cluster, hoặc Block / Super-block nếu quy tắc R-unit ở Experiment A yêu cầu gộp; xem Assumption A1), quy trình Learn-then-Test (LTT) kết hợp Fixed-Sequence Testing trên một đường đi tham số cố định tiên nghiệm thiết lập ngưỡng lọc $\hat{\tau}$ kiểm soát kỳ vọng rủi ro quần thể $\mathcal{R}(\hat{\tau}) \le \alpha = 0.02$ với độ tin cậy hữu hạn mẫu $1 - \delta \ge 0.95$ trên phân phối kiểm thử cùng phân phối ($\mathcal{P}$):*
+>
 > $$\mathbb{P}_{\mathcal{D}_{\text{cal}} \sim \mathcal{P}^N}\left(\mathcal{R}(\hat{\tau}) \le \alpha\right) \ge 1 - \delta$$
+>
 > *Bảo chứng được kiểm chứng trên các nhóm dữ liệu **chưa từng xuất hiện** trong tập hiệu chuẩn ở cấp super-block, tức ô 5 km × ngày lịch (held-out theo super-block, Mục 8.2), vì đây là kịch bản triển khai thật: ngưỡng được dùng trên các chuyến đi mới.*
 > *Kiểm chứng H1a gồm hai phần tách biệt: (i) bảo chứng không bị vi phạm trên dữ liệu thật (C2); (ii) tiền đề A1 đúng ở cấp super-block, đo trực tiếp bằng design effect thực nghiệm (C2b). Phần (ii) là cần thiết vì HB đủ bảo thủ để C2 vẫn đạt ngay cả khi A1 bị vi phạm vừa phải (Mục 5.6); khi đó bảo chứng quan sát được là xấp xỉ chứ không còn là hệ quả của Theorem 1.*
 
@@ -40,7 +42,9 @@ Trong quy trình gán nhãn chủ động (Active Learning) và tự động gá
 
 > **Hypothesis 1c (Non-Vacuity):**
 > *Với detector $\mathcal{M}$ và đường đi $\Lambda_{1D}$ đã chọn, quy trình không rỗng với xác suất cao tại cỡ mẫu hiệu chuẩn đã đăng ký $N$ (mặc định $1.500$; nhỏ hơn nếu quy tắc R-unit buộc giảm, Mục 8.1):*
+>
 > $$\mathbb{P}_{\mathcal{D}_{\text{cal}} \sim \mathcal{P}^N}\left(\hat{\tau} \ne \emptyset\right) \ge 1 - \beta, \quad \beta = 0.15$$
+>
 > *và khi $\hat\tau \ne \emptyset$, lượng nhãn giả đúng mà $\hat\tau$ tạo ra không tầm thường so với cách chọn ngưỡng thông thường không có bảo chứng (baseline plug-in, bước P3, Mục 8.0): tỉ lệ độ phủ tương đối $\rho_{\text{cov}}(\hat\tau) \ge \gamma_{\text{cov}}$ (định nghĩa và ngưỡng ở Mục 8.2, chỉ số C3b). Điều kiện thứ hai loại trừ trường hợp $\hat\tau \ne \emptyset$ nhưng chỉ chấp nhận một lượng box không đáng kể.*
 > *Đây là tính chất của cặp $(\mathcal{M}, \Lambda_{1D})$, không phải hệ quả của lý thuyết LTT. Thất bại của H1c không bác bỏ H1a: bảo chứng vẫn hợp lệ nhưng không mang thông tin thực tiễn.*
 
@@ -81,15 +85,21 @@ Nghiên cứu này thuộc dòng công trình về suy diễn phi tham số khi 
    * *Vùng bỏ qua:* nếu nhãn có vùng ignore/crowd, dự đoán có IoA (diện tích giao chia diện tích dự đoán) $\ge 0.5$ với một vùng như vậy bị loại khỏi cả $N_i^{\text{acc}}$ và $V_i$. Số dự đoán bị loại được báo cáo. (Nhãn Detection 100K dạng JSON từng ảnh không có vùng ignore, nên quy tắc này chỉ áp dụng cho nhãn MOT.)
 1. **Ma trận chi phí:** Với mỗi cặp $(\hat{b}_j, b_k^{\text{gt}})$, tính $\text{IoU}(\hat{b}_j, b_k^{\text{gt}})$.
 2. **Quy tắc ghép cặp tham lam:** Sắp xếp các dự đoán theo điểm tin cậy giảm dần. Mỗi dự đoán lần lượt được ghép với nhãn chuẩn chưa ghép có IoU lớn nhất (khi IoU bằng nhau, chọn nhãn đứng trước theo thứ tự cố định trong file nhãn, để phép chọn luôn xác định duy nhất) thỏa mãn
+
    $$\text{class}(\hat{b}_j) = \text{class}(b_k^{\text{gt}}) \quad \land \quad \text{IoU}(\hat{b}_j, b_k^{\text{gt}}) \ge \theta_{\text{IoU}}$$
+
    và khi đó được công nhận là True Positive (TP); mỗi ground truth $b_k^{\text{gt}}$ chỉ được ghép cặp tối đa một lần.
 3. **Định nghĩa False Positive:**
+
    $$\hat{b}_j \text{ là FP} \iff \hat{b}_j \text{ không được ghép với bất kỳ } b_k^{\text{gt}} \text{ nào thỏa mãn đồng thời hai điều kiện trên.}$$
-4. **Phân rã FP (chỉ để báo cáo):** mỗi FP ở ngưỡng $\theta_{\text{IoU}}$ đang dùng được xếp vào đúng một loại, dựa trên IoU lớn nhất của nó với các nhãn chuẩn cùng lớp (kể cả nhãn đã bị dự đoán khác ghép): $V_i^{\text{halluc}}$ đếm các FP có IoU lớn nhất $< 0.5$ (ảo giác hoặc sai lớp); $V_i^{\text{loc}}$ đếm các FP có IoU lớn nhất $\ge 0.5$ (đúng đối tượng nhưng lệch vị trí, hoặc phát hiện trùng lặp). Theo định nghĩa $V_i = V_i^{\text{halluc}} + V_i^{\text{loc}}$. Phân rã này cho biết rủi ro đến từ ảo giác hay từ độ chính xác định vị.
+
+   4. **Phân rã FP (chỉ để báo cáo):** mỗi FP ở ngưỡng $\theta_{\text{IoU}}$ đang dùng được xếp vào đúng một loại, dựa trên IoU lớn nhất của nó với các nhãn chuẩn cùng lớp (kể cả nhãn đã bị dự đoán khác ghép): $V_i^{\text{halluc}}$ đếm các FP có IoU lớn nhất $< 0.5$ (ảo giác hoặc sai lớp); $V_i^{\text{loc}}$ đếm các FP có IoU lớn nhất $\ge 0.5$ (đúng đối tượng nhưng lệch vị trí, hoặc phát hiện trùng lặp). Theo định nghĩa $V_i = V_i^{\text{halluc}} + V_i^{\text{loc}}$. Phân rã này cho biết rủi ro đến từ ảo giác hay từ độ chính xác định vị.
 
 > **Khóa cứng tiên nghiệm (A priori Protocol):** Ngưỡng ghép mặc định là $\theta_{\text{IoU}} = 0.75$ (COCO strict regime). Vì ngưỡng này gộp ảo giác với lệch vị trí nhẹ và có thể khiến H1c thất bại vì lý do không liên quan đến khung LTT, giá trị cuối cùng $\theta_{\text{IoU}} \in \{0.75, 0.5\}$ được chọn bởi **một quy tắc cố định ngay bây giờ** và chỉ áp dụng trên Meta-Train (bước P3, Mục 8.0), trước khi mở bất kỳ dữ liệu hiệu chuẩn/kiểm thử nào:
 > * Giữ $\theta_{\text{IoU}} = 0.75$ nếu trên Meta-Train tồn tại $\tau \in G$ với $\widehat{\text{FDP}}_{\text{meta}}(\tau) \le r^*(\tau)$ và $\rho_{\text{cov,meta}}(\tau) \ge 0.6$, với $\rho_{\text{cov,meta}}$ là độ phủ trên Meta-Train chia cho độ phủ của baseline plug-in $\tau_{\text{base}}$ ở cùng $\theta$ (bước P3, Mục 8.0), và
+>
 >   $$r^*(\tau) = \frac{k_{\max}(N)}{N} - 1.645\,\frac{\hat\sigma(\tau)}{\sqrt{N}}$$
+>
 >   trong đó $k_{\max}(N)/N$ là mức rủi ro thực nghiệm tối đa HB chứng nhận được tại cỡ mẫu đã đăng ký (0.012 tại $N = 1.500$, bảng 5.4) và $\hat\sigma(\tau)$ là độ lệch chuẩn của $\text{FDP}_i(\tau)$ giữa các đơn vị của Meta-Train;
 > * Ngược lại, dùng $\theta_{\text{IoU}} = 0.5$.
 >
@@ -105,7 +115,9 @@ Nghiên cứu này thuộc dòng công trình về suy diễn phi tham số khi 
 * **Hạn chế của Macro-FDP (được giám sát bằng chỉ số mô tả):** Đơn vị có $N_i^{\text{acc}} = 0$ được tính $\text{FDP}_i = 0$, và đơn vị có 1 box nặng ngang đơn vị có hàng trăm box. Ngưỡng càng chặt thì càng nhiều đơn vị rỗng, kéo Macro-FDP xuống mà không phản ánh chất lượng pool nhãn giả. Nếu các cảnh dày đặc vừa có nhiều box được chấp nhận vừa có FDP cao, Micro-FDP có thể vượt $\alpha$ trong khi Macro-FDP vẫn đạt. Vì vậy Exp B báo cáo kèm Micro-FDP, tỉ lệ đơn vị rỗng và tương quan Spearman giữa $N_i^{\text{acc}}$ và $\text{FDP}_i$ tại $\hat\tau$ (chỉ số D3, Mục 8.2). Các chỉ số này không thuộc bảo chứng của Theorem 1.
 * **Cầu nối toán học qua Hằng số Tiên nghiệm:**
   Nếu muốn kiểm soát tỷ lệ lỗi của toàn bộ pool dữ liệu nhãn giả $\mathbb{E}\left[\sum V_i\right] / \mathbb{E}\left[\sum N_i^{\text{acc}}\right] \le \alpha$, ta có thể định nghĩa hàm mất mát phụ trợ bị chặn:
+
   $$L_i(\tau) \triangleq \frac{V_i(\tau) - \alpha N_i^{\text{acc}}(\tau)}{C_{\text{max}}} + \alpha$$
+
   trong đó $C_{\text{max}} = Q_{\text{max}} \times K_{\text{max}}^{\text{frames}}$ là **hằng số vật lý tiên nghiệm** ($Q_{\text{max}} = 300$ là số lượng object queries tối đa của kiến trúc RT-DETR, $K_{\text{max}}^{\text{frames}}$ là số keyframe tối đa trong một cụm).
   Khi đó $\mathbb{E}[L_i(\tau)] \le \alpha \iff \mathbb{E}[V_i(\tau)] \le \alpha \mathbb{E}[N_i^{\text{acc}}(\tau)] \iff \text{Micro-FDP} \le \alpha$ ở mức kỳ vọng.
   *(Ghi chú phương pháp luận: Do $L_i$ dồn rất mạnh quanh $\alpha$ và có phương sai nhỏ, các bất đẳng thức Hoeffding/Bentkus không khai thác phương sai sẽ bị bảo thủ đáng kể trên hàm loss này. Để kiểm soát chặt chẽ Micro-FDP với năng lực thống kê cao, các bất đẳng thức thích ứng phương sai dựa trên lý thuyết đánh cược (testing-by-betting martingales; Waudby-Smith & Ramdas, 2024) sẽ được xem xét ở các công trình mở rộng. Trong phạm vi H1, Macro-FDP được chọn làm chỉ số mục tiêu chính xác).*
@@ -123,7 +135,9 @@ Mọi kết quả ở Mục V–VII chỉ cần thống kê của đơn vị $Z_
 
 * **Assumption A1 (Independent Statistical Units):**
   Đơn vị thống kê cơ bản $U_i \in \mathcal{U}$ là một **chuyến đi độc lập (Ride)**, hoặc một **nhóm không gian-thời gian (Block hoặc Super-block, định nghĩa ở bước P1, Mục 8.0)** nếu chẩn đoán ở Experiment A (Mục 8.1, quy tắc R-unit) cho thấy cần gộp các chuyến đi cùng nhóm. Các đơn vị $U_1, \dots, U_N$ được giả định rút độc lập từ phân phối $\mathcal{P}$ trên **đơn vị đã chọn**:
+
   $$U_i \overset{\text{i.i.d.}}{\sim} \mathcal{P}, \quad \forall i \in \{1, \dots, N\}$$
+
   *(Nguồn dữ liệu & giới hạn xác minh): Theo mô tả của Yu et al. (2020), BDD100K gồm 100.000 video clips từ hơn 50.000 chuyến đi. BDD100K không công bố Ride ID hay Driver ID dưới dạng trường riêng, nhưng tên video có dạng `<tiền tố 8 hex>-<hậu tố 8 hex>` và tiền tố hoạt động như ID chuyến đi: 100.000 video ứng với 60.138 tiền tố (1,66 video mỗi tiền tố, khớp con số công bố), và các split chính thức rời rạc theo tiền tố (train và Val chung đúng 1 tiền tố, so với 49% ride của Val nếu chia ngẫu nhiên theo video; bước P1, Mục XI). Vì vậy **ride = tiền tố tên video**. Đây là suy luận có bằng chứng mạnh nhưng chưa được nhóm tác giả BDD100K xác nhận; nếu có metadata GPS/thời gian, bước P1 kiểm tra thêm rằng các video cùng tiền tố liền nhau về thời gian. Số đơn vị của Val đếm được ở P1 là $\hat n = 5.930$ ride (9.995 ảnh, sau khi loại 1 ride chung với train), với $\tilde m = 2.85$ video mỗi ride.*
   *(Clip thiếu metadata): Clip không có GPS hoặc thời gian bị loại khỏi pool đánh giá; $\mathcal{P}$ khi đó là phân phối của các clip có metadata. Tỉ lệ bị loại và phân phối các thuộc tính cảnh (thời tiết, loại cảnh, thời điểm trong ngày) của nhóm bị loại so với nhóm còn lại được báo cáo. Nếu tỉ lệ bị loại vượt 10%, chạy thêm phân tích độ nhạy coi mỗi clip thiếu metadata là một đơn vị riêng.*
   *(Cấu trúc phụ thuộc còn lại): Các chuyến đi có thể tương quan theo vị trí và thời gian. Hai cấp nhóm lồng nhau được định nghĩa ở bước P1 (Mục 8.0) từ metadata GPS/thời gian (file `bdd100k_info`): block (ô 1 km × khung 2 giờ) và super-block (ô 5 km × ngày lịch). Nếu bản dữ liệu dùng cho nghiên cứu không có metadata này, hai cấp nhóm không dựng được, đơn vị là ride, và tương quan giữa các ride được ghi là chưa kiểm được (C2b Không kiểm định được, Mục IX). Experiment A đo ICC ở hai cấp này và Moran's $I$ giữa các super-block để quyết định mức gộp đơn vị (quy tắc R-unit, Mục 8.1). Tương quan **giữa** các super-block kề nhau không thể loại bỏ bằng thiết kế lấy mẫu; nó được xem là rủi ro dư của A1 và được kiểm tra đầu-cuối bằng nhánh **B-block** của Experiment B (held-out theo super-block, Mục 8.2).*
@@ -132,11 +146,15 @@ Mọi kết quả ở Mục V–VII chỉ cần thống kê của đơn vị $Z_
 
 * **Assumption A2 (Detector Independence & Non-Leakage Protocol):**
   Mô hình Object Detector $\mathcal{M}$ được huấn luyện hoàn tất và đóng băng trọng số trước khi thực hiện hiệu chuẩn. Tập huấn luyện $\mathcal{D}_{\text{train}}$ và tập hiệu chuẩn/kiểm thử $\mathcal{D}_{\text{cal}} \cup \mathcal{D}_{\text{test}}$ là hoàn toàn rời rạc ở cấp độ Ride/Video clip:
+
   $$\text{Rides}(\mathcal{D}_{\text{train}}) \cap \text{Rides}(\mathcal{D}_{\text{cal}} \cup \mathcal{D}_{\text{test}}) = \emptyset$$
+
   Không có bất kỳ frame nào (kể cả keyframe tại giây thứ 10 hay các frame lân cận trong cùng video clip) thuộc tập huấn luyện xuất hiện trong tập hiệu chuẩn hoặc tập kiểm thử.
   *(Giao thức thực thi):* Các clip MOT của BDD100K được giả định là trích từ cùng kho video với bộ Detection 100K, nên keyframe của một clip MOT có thể nằm trong $\text{Train}_{\text{det}}^{70\text{K}}$. Giả định này **chưa được xác minh** (bộ MOT không có trong dữ liệu của lần chạy ở Mục XI) và phải được kiểm bằng cách đối chiếu tên video giữa hai bộ, theo từng split, trước khi chạy Exp C. Nếu đúng, một detector huấn luyện trên toàn bộ 100K train đã thấy keyframe của các clip MOT tương ứng và vi phạm A2 cho chính các clip đó trong Exp C.
   *(Rò rỉ cấp chuyến đi, đã xác minh ở P1):* bản 1.2 giả định BDD100K chia train/val theo video nên phần lớn chuyến đi trong Val có clip anh em trong train. Dữ liệu bác bỏ giả định này: các split chính thức rời rạc theo ride (tiền tố tên video, A1), train và Val chỉ chung 1 ride. Vì vậy detector được huấn luyện trên
+
   $$\text{Train}_{\text{filtered}} = \text{Train}_{\text{det}}^{70\text{K}} \setminus \left(\text{Rides}_{\text{Val}} \cup \text{Rides}_{\text{MOT}^{\star}} \cup \text{Meta-Train}\right)$$
+
   trong đó $\text{Rides}_{\text{Val}}$ là các clip train cùng tiền tố với một clip Val (ở BDD100K: đúng 1 ride), $\text{MOT}^{\star}$ là các clip MOT dùng cho Exp C (mọi clip train cùng ride với chúng bị loại, kể cả chính keyframe của chúng), và Meta-Train là tập dùng để dựng các đường đi (Mục 8.0). Nếu có metadata GPS/thời gian, loại thêm vùng chắn rò rỉ một bước (bước P1) để bắt các ride bị tách nhầm thành hai tiền tố. Việc loại được thực hiện **ở cấp chuyến đi, không ở cấp super-block**: quần thể mục tiêu của H1a là các chuyến đi mới trong cùng các khu vực vận hành, nên huấn luyện trên cùng thành phố là điều bình thường khi triển khai thật, còn huấn luyện trên chính chuyến đi đó thì không. Không đặt trần cho tỉ lệ bị loại, vì tính hợp lệ được ưu tiên hơn chất lượng detector (vốn chỉ ảnh hưởng H1c).
   *(Detector hiện có của dự án):* ba expert `expert_{1,2,3}.pth` được huấn luyện trên Kaggle với keyframe 100K train (69.863/70.000 ảnh ghép được nhãn). Chúng thỏa A2 cho Val và cho split test 100K: hai split này không dùng để cập nhật trọng số, và kiểm tra ghi nhớ ở P3.0 cho precision trên ảnh train chỉ cao hơn Meta-Train tối đa 1.1 điểm % (IoU 0.75). Vì đã học trên toàn bộ 100K train, chúng chỉ dùng được cho Exp C với các clip MOT có video không thuộc 100K train; nếu số clip đó không đủ cho lưới $N_{\text{cluster}}$ đã đăng ký, Exp C cần detector huấn luyện lại trên $\text{Train}_{\text{filtered}}$.
   *(Rò rỉ dư không loại được):* hai nguồn còn lại: (i) cùng một tài xế đóng góp nhiều ride (tiền tố là ride, không phải tài xế); (ii) các ride train và Val khác nhau nhưng cùng khu vực, cùng ngày. Cả hai ảnh hưởng như nhau đến tập hiệu chuẩn và tập kiểm thử nên Exp B không phát hiện được; chúng không làm sai bảo chứng trên quần thể Val nhưng có thể làm Val "dễ" hơn các chuyến hoàn toàn mới. Nguồn (ii) được định lượng bằng phân tích độ nhạy D8 (Mục 8.2) khi có metadata GPS/thời gian; nguồn (i) không đo được (giới hạn ở A1).
@@ -151,7 +169,9 @@ Mọi kết quả ở Mục V–VII chỉ cần thống kê của đơn vị $Z_
     > **Lemma A4 (Tính đơn điệu của quy tắc ghép tham lam).** *Với cùng một tập dự đoán (đã sắp theo confidence) và hai tập nhãn chuẩn $S' \subseteq S$, số FP khi ghép với $S'$ không nhỏ hơn số FP khi ghép với $S$.*
     >
     > *Chứng minh.* Chỉ cần xét $S' = S \setminus \{g\}$, rồi lặp lại cho từng nhãn bị bỏ. Chạy quy tắc tham lam song song trên $S$ và $S'$ với cùng thứ tự dự đoán (thứ tự theo confidence không phụ thuộc nhãn chuẩn). Gọi $A_t, A'_t$ là tập nhãn chuẩn còn trống trước dự đoán thứ $t$. Ta chứng minh bằng quy nạp bất biến
+>
     > $$A'_t \subseteq A_t \quad \text{và} \quad |A_t \setminus A'_t| \le 1.$$
+>
     > Ban đầu $A'_0 = A_0 \setminus \{g\}$ nên bất biến đúng. Tại bước $t$, tính hợp lệ của một cặp (cùng lớp, IoU $\ge \theta_{\text{IoU}}$) không phụ thuộc vào lần chạy. Gọi $x$ là nhãn hợp lệ được chọn trong $A_t$ và $x'$ là nhãn tương ứng trong $A'_t$ (có thể không tồn tại). Nhờ quy tắc phá hòa cố định ở Mục 2.1, phép chọn là "phần tử đứng đầu theo một thứ tự toàn phần cố định", nên được xác định duy nhất.
     > * Nếu $x \in A'_t$: vì $A'_t \subseteq A_t$ nên $x' = x$; cả hai lần chạy cùng bỏ $x$, bất biến giữ nguyên.
     > * Nếu $x \notin A'_t$: $x$ là phần tử duy nhất của $A_t \setminus A'_t$, nên $A'_t \subseteq A_t \setminus \{x\} = A_{t+1}$. Do đó $A'_{t+1} = A'_t \setminus \{x'\} \subseteq A_{t+1}$, và $A_{t+1} \setminus A'_{t+1} \subseteq \{x'\}$ có tối đa một phần tử.
@@ -160,7 +180,9 @@ Mọi kết quả ở Mục V–VII chỉ cần thống kê của đơn vị $Z_
     > Vì $A'_t \subseteq A_t$ ở mọi bước, mỗi khi lần chạy trên $S'$ ghép được dự đoán thứ $t$ thì lần chạy trên $S$ cũng ghép được dự đoán đó. Vậy $\text{TP}(S') \le \text{TP}(S)$, tương đương $\text{FP}(S') \ge \text{FP}(S)$. $\blacksquare$
 
     Áp dụng với $S$ là tập nhãn đúng và $S'$ là tập nhãn quan sát được (bị bỏ sót), ta có $V_i^{\text{obs}}(\tau) \ge V_i^{\text{true}}(\tau)$ với mọi đơn vị và mọi $\tau$, trong khi $N_i^{\text{acc}}(\tau)$ không đổi. Do đó
+
     $$\mathcal{R}_{\text{observed}}(\tau) \ge \mathcal{R}_{\text{true}}(\tau), \quad \forall \tau \in \Lambda$$
+
     và kiểm soát $\mathcal{R}_{\text{observed}}(\hat{\tau}) \le \alpha$ kéo theo $\mathcal{R}_{\text{true}}(\hat{\tau}) \le \alpha$.
   * **Nhãn thừa hoặc gán sai lớp (phản bảo thủ):** một hộp nhãn chuẩn vẽ ở chỗ không có vật thể, hoặc một nhãn sai lớp trùng với dự đoán sai lớp, có thể biến một FP thật thành TP. Chiều sai số này làm $\mathcal{R}_{\text{observed}}$ thấp hơn $\mathcal{R}_{\text{true}}$. Chúng tôi giả định loại sai số này hiếm trong BDD100K. *(Khuyến nghị, không bắt buộc):* kiểm tra thủ công một mẫu ngẫu nhiên đăng ký trước (ví dụ 300 box được tính là TP tại $\tau_{\text{ref}}$ trên Meta-Train) và báo cáo tỉ lệ TP giả.
   
@@ -195,12 +217,17 @@ CƠ CHẾ LÀM MÉO MÓ THỐNG KÊ KHI CHIA THEO FRAME:
 Khi gom $M_{\text{intra}}$ frames liền kề từ cùng các chuỗi video vào tập hiệu chuẩn, các quan sát có tương quan dương mạnh ($\rho_{\text{intra}} > 0$).
 
 Theo lý thuyết lấy mẫu theo cụm (Kish, 1965):
+
 $$\text{Design Effect: } D_{\text{eff}} = 1 + (M_{\text{intra}} - 1)\rho_{\text{intra}}$$
+
 **Cỡ mẫu hiệu dụng thực tế:**
+
 $$N_{\text{eff}} = \frac{N_{\text{nominal}}}{D_{\text{eff}}} = \frac{N_{\text{nominal}}}{1 + (M_{\text{intra}} - 1)\rho_{\text{intra}}}$$
 
 * **Hậu quả đối với Bất đẳng thức Tập trung:** Khi một nghiên cứu tính toán trên $N_{\text{nominal}} = 4.000$ frames từ 20 video clips ($M_{\text{intra}} = 200$) với giả định minh họa $\rho_{\text{intra}} \approx 0.60$ (sẽ được thay thế bằng số liệu thực nghiệm đo từ Exp A):
+
   $$D_{\text{eff}} \approx 1 + (199 \times 0.60) \approx 120.4 \implies N_{\text{eff}} \approx \frac{4.000}{120.4} \approx 33 \text{ mẫu độc lập!}$$
+
   Nếu áp dụng Hoeffding/Bentkus trên $N_{\text{nominal}} = 4.000$ thay vì $N_{\text{eff}} \approx 33$, biên an toàn UCB bị thu hẹp nhân tạo tới $\sqrt{120.4} \approx 11$ lần. Thuật toán ảo tưởng rằng mình có độ tin cậy cực cao và chọn một ngưỡng $\tau^*$ quá lỏng. Hệ quả dự đoán là xác suất vi phạm trên các video mới vượt xa $\delta$; độ lớn của mức vượt trần chưa được biết và sẽ được đo ở Experiment C (xem thêm Mục 5.4).
 * **Giới hạn của công thức Kish:** Công thức trên giả định tương quan đều giữa mọi cặp frame trong cụm. Tương quan thực tế giữa các frame giảm dần theo khoảng cách thời gian, nên $D_{\text{eff}}$ tính theo ICC chỉ là xấp xỉ; Exp A báo cáo kèm hàm tự tương quan theo độ trễ (Mục 8.1).
 * **ICC nhỏ không có nghĩa là design effect nhỏ:** khi mỗi frame chỉ có vài box, FDP theo frame chứa nhiễu nhị thức lớn nên ICC của nó thường nhỏ (mô phỏng: 0.04–0.21), trong khi $D_{\text{eff}} = 1 + (M-1)\,\text{ICC}$ vẫn lớn vì $M = 200$ (mô phỏng: 9–42) và đủ làm bảo chứng sụp đổ. Vì vậy tiêu chí C4 đặt trên $D_{\text{eff}}^{\text{frame}}$, không đặt trên ICC.
@@ -219,22 +246,29 @@ Vì các biến ngẫu nhiên $Z_i(\tau) \in [0, 1]$ là **i.i.d.** (theo Assump
 
 ### 5.1. Dạng Hoeffding-Bennett (Kullback-Leibler Form)
 Thay vì dùng dạng sub-Gaussian lỏng $\exp(-2Nt^2)$, khung LTT (Angelopoulos et al., 2021/2025) sử dụng dạng phân kỳ Kullback-Leibler, là dạng chặt nhất trong bất đẳng thức gốc của Hoeffding (1963, Theorem 1):
+
 $$p_{\text{Hoeff}}(\tau) = \exp\left(-N \cdot d_{\text{KL}}\left(\widehat{\mathcal{R}}_N(\tau) \wedge \alpha,\, \alpha\right)\right)$$
+
 với $d_{\text{KL}}(a, b) = a \ln\frac{a}{b} + (1-a)\ln\frac{1-a}{1-b}$.
 
 ### 5.2. Bất đẳng thức Bentkus (2004) & Dạng Hoeffding-Bentkus (HB)
 **Theorem (Bentkus Comparison Theorem — Bentkus, 2004, Theorem 1.1).** Cho $X_1, \dots, X_N$ i.i.d. trong $[0, 1]$ với kỳ vọng $\mu = \mathbb{E}[X_i]$. 
 Với mọi ngưỡng rủi ro $r \in [0, 1]$ và mọi phân phối có rủi ro thực tế $\mathcal{R} > r$, tại bất kỳ mức sai số thực nghiệm $s \in [0, 1]$, xác suất đuôi dưới của trung bình mẫu $\widehat{\mathcal{R}}_N = \frac{1}{N}\sum_{i=1}^N X_i$ được chặn trên bởi đuôi của phân phối nhị thức (thông qua phép đối xứng trên các biến phản chiếu $1 - X_i$):
+
 $$\mathbb{P}_{\mathcal{R} > r}\left(\widehat{\mathcal{R}}_N \le s\right) \le c_1 \cdot \mathbb{P}\left(\text{Bin}(N, r) \le \lceil N s \rceil\right)$$
+
 với hằng số $c_1 = e \approx 2.71828$ như được chuẩn hóa và sử dụng trong khung LTT (Angelopoulos et al., 2021/2025).
 *(Bước nối từ $\mathcal{R}$ sang $r$):* Định lý gốc, áp dụng cho các biến phản chiếu, so sánh với $\text{Bin}(N, \mathcal{R})$, trong đó $\mathcal{R}$ là rủi ro thật. Vì hàm $p \mapsto \mathbb{P}(\text{Bin}(N, p) \le k)$ giảm theo $p$ và $\mathcal{R} > r$, ta có $\mathbb{P}(\text{Bin}(N, \mathcal{R}) \le k) \le \mathbb{P}(\text{Bin}(N, r) \le k)$, cho ra dạng trên.
 *(Ghi chú làm tròn):* Định lý gốc của Bentkus so sánh với đuôi nhị thức được nội suy log-tuyến tính giữa các số nguyên. Vì $Z_i$ không nhận giá trị nguyên nên $Ns$ thường không nguyên; chặn trên an toàn của đuôi nội suy là đuôi nhị thức tại $\lceil Ns \rceil$, đúng như dạng dùng trong LTT. Dùng $\lfloor Ns \rfloor$ sẽ cho p-value nhỏ hơn mức hợp lệ (anti-conservative). Khi $Ns$ nguyên hai dạng trùng nhau, nên các bảng 5.3 và 5.4 (tính tại $\widehat{\mathcal{R}}_N = k/N$) không đổi. Trong mô phỏng (E1), hai dạng cho xác suất bác bỏ dưới $H_0$ gần như trùng nhau và đều $\le \delta$, vì nhánh Hoeffding-KL và độ bảo thủ chung của HB chiếm ưu thế; dạng $\lceil Ns \rceil$ được giữ vì là dạng hợp lệ về lý thuyết.
 
 Thay $r = \alpha$ và đánh giá tại giá trị thống kê quan sát được $s = \widehat{\mathcal{R}}_N(\tau)$, ta thu được p-value Bentkus kiểm định $H_0: \mathcal{R}(\tau) > \alpha$:
+
 $$p_{\text{Bentkus}}(\tau) = \min\left(1,\; e \cdot \sum_{k=0}^{\lceil N \widehat{\mathcal{R}}_N(\tau) \rceil} \binom{N}{k} \alpha^k (1-\alpha)^{N-k}\right)$$
 
 **Bất đẳng thức Hoeffding-Bentkus kết hợp (HB Bound):**
+
 $$p_{\text{HB}}(\tau) \triangleq \min\left(p_{\text{Hoeff}}(\tau),\, p_{\text{Bentkus}}(\tau)\right)$$
+
 *Cơ sở toán học của tính hợp lệ:* Giá trị cực tiểu $p_{\text{HB}}$ là một p-value hợp lệ không phải vì "lấy min của hai p-value bất kỳ", mà bởi vì cả $p_{\text{Hoeff}}$ và $p_{\text{Bentkus}}$ đều là các cận trên hợp lệ của **cùng một hàm xác suất đuôi dưới** $\mathbb{P}_{\mathcal{R} > \alpha}(\widehat{\mathcal{R}}_N \le s)$, và cả hai đều đơn điệu tăng theo thống kê thực nghiệm $s = \widehat{\mathcal{R}}_N(\tau)$. Do đó, chặn trên nhỏ hơn giữa hai cận vẫn kiểm soát đúng xác suất sai lầm loại I, đảm bảo tính super-uniform dưới $H_0$.
 
 ### 5.3. Bảng Tính Toán Biên An Toàn Thực Tế ($N = 1.500, \alpha = 0.02, \delta = 0.05$)
@@ -288,7 +322,9 @@ Bảng này cũng cho thấy vì sao Exp C không dùng $\alpha = 0.02$: với $
 ### 5.6. Biên Chịu Đựng Tương Quan của HB (Dependence Tolerance)
 
 HB được thiết kế cho trường hợp xấu nhất là $Z_i$ nhị phân. Với FDP thật, mỗi đơn vị có nhiều box nên $\text{Var}(Z)$ nhỏ hơn nhiều so với $\alpha(1-\alpha)$ (mô phỏng: 0.2–0.7 lần). Phần dư này tạo ra một biên chịu đựng tương quan, ước lượng bằng lập luận xấp xỉ chuẩn: tại cỡ mẫu $N$, HB chỉ chứng nhận khi $\widehat{\mathcal{R}}_N \le k_{\max}(N)/N < \alpha$, nên một điểm có rủi ro thật vừa vượt $\alpha$ chỉ bị bác bỏ nhầm khi $\widehat{\mathcal{R}}_N$ lệch xuống ít nhất $\alpha - k_{\max}(N)/N$. Nếu $\text{Var}(\widehat{\mathcal{R}}_N) = D_{\text{eff}}\,\sigma_\alpha^2 / N$ thì xác suất đó không quá $\delta$ khi
+
 $$D_{\text{eff}} \le D^* \triangleq \frac{N\,\big(\alpha - k_{\max}(N)/N\big)^2}{z_{1-\delta}^2\,\sigma_\alpha^2},$$
+
 với $\sigma_\alpha^2$ là phương sai của $Z$ tại điểm đầu tiên của đường đi có rủi ro vượt $\alpha$. Tại $N = 1.500$: $\alpha - k_{\max}/N = 0.008$.
 
 * **Đây là xấp xỉ, không phải định lý.** Bảo chứng chính xác của Theorem 1 chỉ có dưới A1. $D^*$ dùng để (i) đặt ngưỡng cho quy tắc R-unit (Mục 8.1) và (ii) diễn giải kết quả khi C2b phát hiện vi phạm A1 (Mục IX).
@@ -305,6 +341,7 @@ với $\sigma_\alpha^2$ là phương sai của $Z$ tại điểm đầu tiên c�
 Xét bài toán kiểm định giả thuyết: $H_0(\tau): \mathcal{R}(\tau) > \alpha$ vs. $H_1(\tau): \mathcal{R}(\tau) \le \alpha$.
 
 **Định nghĩa p-value qua UCB Inversion:**
+
 $$p(\tau) \triangleq \inf \left\{ \delta' \in (0, 1] :\; \text{UCB}_{\delta'}(\tau) \le \alpha \right\} \quad (\text{với quy ước } \inf \emptyset = 1)$$
 
 Giả định $\text{UCB}_{\delta'}(\tau)$ là hàm không tăng và liên tục phải theo $\delta'$, giá trị infimum được xác định chặt chẽ.
@@ -312,14 +349,20 @@ Giả định $\text{UCB}_{\delta'}(\tau)$ là hàm không tăng và liên tục
 **Tính Đối Ngẫu Toán Học Giữa p-value Trực Tiếp và UCB:**
 Vì p-value kiểm định $p_{\text{HB}}(r;\, \widehat{\mathcal{R}}_N(\tau))$ là hàm không tăng theo ngưỡng rủi ro giả định $r$, vùng bác bỏ $H_0: \mathcal{R} > r$ tại mức ý nghĩa $\delta$ là tập $\{r \in [0, 1] : p_{\text{HB}}(r;\, \widehat{\mathcal{R}}_N(\tau)) \le \delta\}$.
 Upper Confidence Bound chính là mức chặn rủi ro nhỏ nhất mà ta có thể chứng nhận an toàn tại độ tin cậy $1 - \delta$:
+
 $$\text{UCB}_\delta^{\text{HB}}(\tau) \triangleq \inf \left\{ r \in [0, 1] :\; p_{\text{HB}}(r;\, \widehat{\mathcal{R}}_N(\tau)) \le \delta \right\}$$
+
 Do tính đơn điệu của hàm xác suất đuôi, phép đối ngẫu nghịch đảo kiểm định (test inversion duality) được bảo toàn chuẩn xác:
+
 $$\text{UCB}_\delta^{\text{HB}}(\tau) \le \alpha \iff p_{\text{HB}}(\alpha;\, \widehat{\mathcal{R}}_N(\tau)) \le \delta$$
 
 **Chứng minh tính hợp lệ (Super-uniform under Null):**
 Dưới $H_0(\tau)$, ta có $\mathcal{R}(\tau) > \alpha$. Với mọi $u \in (0, 1)$:
+
 $$\mathbb{P}\left(p(\tau) \le u\right) = \mathbb{P}\left(\inf\{\delta' : \text{UCB}_{\delta'}(\tau) \le \alpha\} \le u\right) \le \mathbb{P}\left(\text{UCB}_u(\tau) \le \alpha\right)$$
+
 Vì $\mathcal{R}(\tau) > \alpha$, biến cố $\{\text{UCB}_u(\tau) \le \alpha\}$ kéo theo biến cố $\{\text{UCB}_u(\tau) < \mathcal{R}(\tau)\}$. Theo định nghĩa của UCB mức $u$:
+
 $$\mathbb{P}\left(\text{UCB}_u(\tau) < \mathcal{R}(\tau)\right) \le u \implies \mathbb{P}_{H_0}\left(p(\tau) \le u\right) \le u \quad \forall u \in (0, 1) \quad \blacksquare$$
 
 ### 6.2. Hiệu Chuẩn Đa Tham số Hợp Lệ (Valid Multi-Parameter Calibration)
@@ -327,7 +370,9 @@ $$\mathbb{P}\left(\text{UCB}_u(\tau) < \mathcal{R}(\tau)\right) \le u \implies \
 
 #### Phương án Khuyên dùng: Tuyến đường Đơn điệu Tiên nghiệm (Pre-registered 1D Pareto Path)
 1. **Thiết lập đường đi 1D (Assumption A5):** Trên tập Meta-Train riêng biệt, sắp xếp không gian tham số thành một dãy 1D hữu hạn gồm $K$ điểm:
+
    $$\Lambda_{1D} = \{\tau^{(1)}, \tau^{(2)}, \dots, \tau^{(K)}\}$$
+
    theo thứ tự giảm dần về độ bảo thủ (Coverage tăng dần, FDP dự kiến tăng dần).
 
    **Thuật toán dựng $\Lambda_{1D}$: Truy vết Biên Pareto (Pareto Frontier Tracing) trên Meta-Train.**
@@ -335,7 +380,9 @@ $$\mathbb{P}\left(\text{UCB}_u(\tau) < \mathcal{R}(\tau)\right) \le u \implies \
    * *Định nghĩa vận hành của ba thành phần (dùng trong lần chạy ở Mục XI; H2 có thể thay $s_{\text{fcd}}$ bằng tín hiệu của nó):* với box $b$ của detector $\mathcal{M}$ và các thành viên còn lại của ensemble, $s_{\text{cls}}(b)$ là điểm lớp của $\mathcal{M}$; $s_{\text{loc}}(b)$ là trung bình trên các thành viên khác của IoU lớn nhất giữa $b$ và box của thành viên đó có điểm $\ge 0.1$ (bằng 0 nếu không có); $s_{\text{fcd}}(b)$ là trung bình của $1 - \cos$ giữa đặc trưng decoder của $b$ và của box khớp (bằng 1 nếu không khớp). Box được chấp nhận khi $s_{\text{cls}} \ge \tau_{\text{cls}}$, $s_{\text{loc}} \ge \tau_{\text{loc}}$ và $s_{\text{fcd}} \le \tau_{\text{fcd}}$; lưới của $\tau_{\text{fcd}}$ là các phân vị 100/90/75/50/25% của $s_{\text{fcd}}$ trên Meta-Train. Vì điều kiện chấp nhận đơn điệu theo $\tau_{\text{cls}}$, phép ghép tham lam (Mục 2.1) chỉ cần chạy một lần cho mỗi cặp $(\tau_{\text{loc}}, \tau_{\text{fcd}})$: kết quả ghép của một box chỉ phụ thuộc các box chấp nhận có điểm cao hơn.
    * Với mỗi $\tau \in G$, ước lượng trên Meta-Train (đơn vị ride, cùng $\mathcal{C}_{\text{eval}}$ và $\theta_{\text{IoU}}$ đã chọn ở Mục 2.1): $\widehat{\text{FDP}}_{\text{meta}}(\tau)$ là Macro-FDP, và $\widehat{\text{Cov}}_{\text{meta}}(\tau)$ là tỉ lệ đối tượng GT được phủ bởi box chấp nhận đúng (cùng định nghĩa với C3b, Mục 8.2).
    * Với lưới rủi ro tăng dần $0 < \alpha_1 < \dots < \alpha_K$ (phần lõi nằm dưới $\alpha$, phần kéo dài vượt qua $\alpha$, xem bên dưới):
+
      $$\tau^{(k)} = \arg\max_{\tau \in G} \widehat{\text{Cov}}_{\text{meta}}(\tau) \quad \text{s.t.} \quad \widehat{\text{FDP}}_{\text{meta}}(\tau) \le \alpha_k$$
+
      Phá hòa bằng quy tắc cố định (ví dụ: chọn $\tau$ có $\widehat{\text{FDP}}_{\text{meta}}$ nhỏ hơn); bỏ các bước không khả thi và loại các điểm trùng nhau liên tiếp.
    * **Lưới rủi ro, gồm phần lõi và phần kéo dài (đăng ký cùng nhau):**
      * *Phần lõi (nơi kỳ vọng đạt chứng nhận):* vì tại $N = 1.500$ HB chỉ chứng nhận được $\widehat{\mathcal{R}}_N \lesssim 0.012$ (bảng 5.4), lõi được đặt dày từ $0.002$ đến $u(N) = \min\big(0.015,\; k_{\max}(N)/N + 0.003\big)$ (làm tròn xuống bội của $0.001$) với bước $0.001$; tại $N = 1.500$ là $0.002$–$0.015$, $K_{\text{lõi}} = 14$. Cận trên tự co lại khi quy tắc R-unit buộc giảm $N$.
@@ -359,7 +406,9 @@ $$\mathbb{P}\left(\text{UCB}_u(\tau) < \mathcal{R}(\tau)\right) \le u \implies \
      * Nếu $p(\tau^{(j)}) > \delta$: **DỪNG LẠI NGAY LẬP TỨC (STOP)**.
 3. **Quy ước Tập Bác bỏ Rỗng (Empty Rejection Fallback):**
    Nếu ngay tại điểm đầu tiên $j = 1$ mà $p(\tau^{(1)}) > \delta$, thuật toán không bác bỏ được giả thuyết nào. Khi đó, hệ thống kích hoạt chế độ Fail-safe:
+
    $$\hat{\tau} = \emptyset \implies \text{Không tự động gán nhãn bất kỳ box nào } (N_i^{\text{acc}} = 0 \implies \text{FDP} = 0 \le \alpha)$$
+
    đảm bảo rủi ro không bao giờ bị vượt ngưỡng ngay cả trong kịch bản xấu nhất.
 
 #### Phương án Phụ: Chia Fold Hiệu Chuẩn (Folded Sample Splitting)
@@ -367,11 +416,14 @@ $$\mathbb{P}\left(\text{UCB}_u(\tau) < \mathcal{R}(\tau)\right) \le u \implies \
 *Giả sử tập hiệu chuẩn được phân hoạch thành 3 fold rời rạc độc lập $\mathcal{D}_{\text{cal}} = \mathcal{D}_{\text{cal}}^{(1)} \cup \mathcal{D}_{\text{cal}}^{(2)} \cup \mathcal{D}_{\text{cal}}^{(3)}$ với kích thước mỗi fold là $N/3$. Giả sử Fold 1 dùng để chọn $\hat{\tau}_{\text{cls}}$, Fold 2 dùng để chọn $\hat{\tau}_{\text{loc}}$, và Fold 3 dùng để kiểm định đường đi 1D cố định tiên nghiệm của tham số còn lại $\Lambda_{\text{fcd}} = (\tau_{\text{fcd}}^{(1)}, \dots, \tau_{\text{fcd}}^{(M)})$ thông qua Fixed-Sequence LTT tại mức sai số $\delta$.*
 
 *Khi đó, ngưỡng kết hợp $\hat{\tau} = (\hat{\tau}_{\text{cls}}, \hat{\tau}_{\text{loc}}, \hat{\tau}_{\text{fcd}})$ kiểm soát chặt chẽ kỳ vọng rủi ro quần thể:*
+
 $$\mathbb{P}\left(\mathcal{R}(\hat{\tau}) \le \alpha\right) \ge 1 - \delta$$
 
 *Chứng minh:*
 Điều kiện hóa trên dữ liệu của Fold 1 và Fold 2, các tham số nuisance $(\hat{\tau}_{\text{cls}}, \hat{\tau}_{\text{loc}})$ trở thành các hằng số cố định tất định. Do tính độc lập giữa các fold ($\mathcal{D}_{\text{cal}}^{(3)} \perp \mathcal{D}_{\text{cal}}^{(1)}, \mathcal{D}_{\text{cal}}^{(2)}$), dãy giả thuyết kiểm định trên Fold 3 là hoàn toàn cố định có điều kiện. Áp dụng Theorem 1 trên tập dữ liệu Fold 3, ta có:
+
 $$\mathbb{P}\left(\mathcal{R}(\hat{\tau}) > \alpha \;\middle|\; \mathcal{D}_{\text{cal}}^{(1)},\, \mathcal{D}_{\text{cal}}^{(2)}\right) \le \delta$$
+
 Lấy kỳ vọng toàn phần theo phân phối của Fold 1 và Fold 2 thu được kết quả vô điều kiện: $\mathbb{P}(\mathcal{R}(\hat{\tau}) > \alpha) \le \delta \implies \mathbb{P}(\mathcal{R}(\hat{\tau}) \le \alpha) \ge 1 - \delta$. $\blacksquare$
 
 *(Đánh đổi về Hiệu suất Mẫu - Sample Efficiency Trade-off):* Mặc dù Folded Splitting giải quyết triệt để sự phụ thuộc tham số mà không cần đường đi 3D tiên nghiệm, kích thước hiệu chuẩn trên fold kiểm định bị giảm xuống $N_{\text{test-fold}} = N / 3 = 500$. Tại $N = 500, \alpha = 0.02, \delta = 0.05$, bất đẳng thức HB đòi hỏi rủi ro thực nghiệm khắt khe $\widehat{\mathcal{R}}_{500} \le 0.006$ ($k \le 3 / 500$), khiến năng lực thống kê (Yield) bị suy giảm đáng kể so với việc chạy Fixed-Sequence 1D trên toàn bộ $N = 1.500$.
@@ -384,7 +436,9 @@ Lấy kỳ vọng toàn phần theo phân phối của Fold 1 và Fold 2 thu đ�
 > *Giả sử các Giả định A1, A2 và A5 thỏa mãn, với thống kê đơn vị $Z_i(\tau) \in [0, 1]$ bất kỳ (Mục 2.3). Gọi $\hat{\tau} \in \Lambda_{1D} \cup \{\emptyset\}$ là ngưỡng được lựa chọn bởi thuật toán Fixed-Sequence LTT chạy trên đường đi $\Lambda_{1D}$ tại mức trần rủi ro danh nghĩa $\alpha$ và ngân sách sai số $\delta$.*
 >
 > *Khi đó, kỳ vọng rủi ro quần thể trên phân phối $\mathcal{P}$ được kiểm soát chặt chẽ với xác suất ít nhất $1 - \delta$:*
+>
 > $$\boxed{\mathbb{P}_{\mathcal{D}_{\text{cal}} \sim \mathcal{P}^N}\left(\mathcal{R}(\hat{\tau}) \le \alpha\right) \ge 1 - \delta}$$
+>
 > *với $\mathcal{R}(\hat{\tau}) \triangleq \mathbb{E}_{U \sim \mathcal{P}}[Z(U;\, \hat{\tau})]$.*
 
 *Vai trò của các giả định:* Chứng minh chỉ dùng A1 (các $Z_i$ i.i.d.), A2 (detector cố định nên $Z_i(\tau)$ là hàm tất định của $U_i$) và A5 (đường đi không phụ thuộc $\mathcal{D}_{\text{cal}}$). A3 không cần cho định lý mà cần để kết quả đo trên tập kiểm thử phản ánh đúng $\mathcal{R}$ trên $\mathcal{P}$. A4 chỉ phục vụ việc diễn giải rủi ro quan sát được so với rủi ro thật. Định lý áp dụng nguyên dạng cho Experiment C khi thay $\Lambda_{1D}$ bằng $\Lambda_{1D}^{C}$ và $\alpha$ bằng $\alpha_C$. Bảo chứng là xác suất **biên** theo phân phối của $\mathcal{D}_{\text{cal}}$, không phải bảo chứng có điều kiện trên một tập hiệu chuẩn cụ thể (về sự phân biệt này, xem Vovk, 2012); Exp B ước lượng đúng đại lượng biên này bằng cách lặp lại phép rút tập hiệu chuẩn.
@@ -401,8 +455,11 @@ Lấy kỳ vọng toàn phần theo phân phối của Fold 1 và Fold 2 thu đ�
    * Để thuật toán chọn bất kỳ ngưỡng không an toàn nào ($\hat{\tau} \in \mathcal{H}_0$), điều kiện cần bắt buộc là nó phải bác bỏ thành công giả thuyết null tại điểm $j^*$.
    * Thật vậy, nếu $H_0(\tau^{(j^*)})$ không bị bác bỏ, thuật toán dừng ngay tại bước $j^*$ và chỉ trả về các ngưỡng có chỉ số $j < j^*$ (vốn dĩ an toàn vì $j^* = \min \mathcal{H}_0$).
 5. **Đánh giá Xác suất Vi phạm:**
+
    $$\mathbb{P}(\mathcal{E}_{\text{violate}}) \le \mathbb{P}\left(\text{Reject } H_0(\tau^{(j^*)})\right) = \mathbb{P}\left(p(\tau^{(j^*)}) \le \delta\right)$$
+
    Vì $j^* \in \mathcal{H}_0$, $H_0(\tau^{(j^*)})$ là một null đúng. Theo Section 6.1, $p(\tau^{(j^*)})$ là super-uniform:
+
    $$\mathbb{P}_{H_0}\left(p(\tau^{(j^*)}) \le \delta\right) \le \delta \implies \mathbb{P}(\mathcal{R}(\hat{\tau}) > \alpha) \le \delta \quad \blacksquare$$
 
 ---
@@ -499,11 +556,15 @@ Các bước dưới đây được thực hiện **theo đúng thứ tự**. M�
 * **Thời điểm chạy:** tầng 2 chạy trong bước P3, trước khi đăng ký, vì kết quả của nó (đơn vị và $N$) quyết định cách dựng đường đi cuối cùng; tầng 1 dùng nhãn MOT nên chạy sau khi đăng ký.
 * **Điểm tham chiếu (chọn theo mức rủi ro lưới, không theo chỉ số vị trí):** $\tau_{\text{ref}}$ là điểm của đường đi tạm $\Lambda_{1D}^{(0)}$ có $\alpha_k = 0.008$, tức điểm giữa phần lõi tại $N = 1.500$ ($\Lambda_{1D}^{(0)}$ chỉ cần phần lõi); dùng cho tầng 2, và báo cáo thêm ICC tại điểm giữa phần lõi của $\Lambda_{1D}$ cuối cùng. $\tau_{\text{ref}}^{C}$ là điểm của $\Lambda_{1D}^{C}$ có $\alpha_k^C = 0.050$; dùng cho tầng 1, vì tầng 1 phục vụ H1b và Exp C. Nếu bước lưới đó bị loại khi dựng đường đi (không khả thi hoặc trùng điểm), dùng điểm có mức rủi ro lưới gần nhất. Báo cáo thêm tại các điểm phần tư của phần lõi mỗi đường đi. Chọn theo mức rủi ro giữ nguyên vị trí điểm tham chiếu như trước khi thêm phần kéo dài. Tương quan được đo trên **chính đại lượng mà LTT kiểm soát** (FDP tại các ngưỡng trên đường đi), không phải trên điểm tin cậy chung chung.
 * **Tầng 1 (Within-Video, dữ liệu MOT):** Với mỗi clip và mỗi frame, tính $\text{FDP}_{c,t}(\tau_{\text{ref}}^{C})$. Tính ICC bằng ANOVA:
+
   $$\text{ICC} = \frac{\text{MSB} - \text{MSW}}{\text{MSB} + (M - 1)\text{MSW}}$$
+
   với khoảng tin cậy 95% bằng bootstrap theo clip, và $D_{\text{eff}}^{\text{frame}} = 1 + (M - 1)\widehat{\text{ICC}}_{\text{frame}}$. Báo cáo kèm hàm tự tương quan trung bình theo độ trễ (1–50 frame) vì tương quan thực tế giảm dần theo khoảng cách thời gian (Mục 4.1). ICC tại $\tau_{\text{ref}}$ của $\Lambda_{1D}$ và ICC của điểm tin cậy dự đoán được báo cáo như chỉ số mô tả phụ.
 * **Tầng 2 (Between-Rides, Meta-Train):** ICC được ước lượng trên Meta-Train thay vì trên một phần của Val. Meta-Train độc lập với dữ liệu đánh giá, detector không được huấn luyện trên nó, và **gần** cùng phân phối với Val vì BDD100K chia train/val ngẫu nhiên. Phân phối không hoàn toàn trùng nhau: việc loại các chuyến liên kết với Val/MOT ở P2 lấy bớt dữ liệu train ở đúng các khu vực và thời điểm mà Val dày đặc. Vì vậy báo cáo so sánh phân phối thuộc tính cảnh (vùng địa lý theo ô 5 km, thời tiết, loại cảnh, khung giờ) giữa Meta-Train và Val (D6). Khác biệt lớn được nêu như giới hạn của quy tắc R-unit và của vị trí rủi ro dọc đường đi; trường hợp xấu nhất (đường đi không còn null đúng nào trên Val) bị bắt bởi điều kiện kiểm định được ở Mục IX. ICC là tương quan giữa từng cặp nên không phụ thuộc mật độ chuyến đi, còn kích thước cụm hiệu dụng $\tilde m$ vẫn tính trên Evaluation pool (bước P1). Meta-Train vừa dùng để dựng đường đi vừa dùng để đo ICC; điều này không ảnh hưởng tính hợp lệ vì R-unit chỉ chọn đơn vị và nhánh B-block kiểm tra đầu-cuối.
   1. **ICC theo cấp nhóm.** Với $\ell \in \{\text{block}, \text{super-block}\}$, ước lượng trên Meta-Train $\widehat{\text{ICC}}_{\ell}$ của $\text{FDP}_i(\tau_{\text{ref}})$ (đơn vị là ride, nhóm theo cấp $\ell$) bằng ước lượng ANOVA cho cụm kích thước không đều (hệ số $n_0$), với cận trên 95% $\widehat{\text{ICC}}_{\ell}^{\,\text{upper}}$ từ bootstrap theo super-block. Đặt
+
      $$D_{\text{eff}}^{\ell} = 1 + (\tilde m_{\ell} - 1)\,\widehat{\text{ICC}}_{\ell}^{\,\text{upper}}$$
+
      với $\tilde m_{\ell}$ là kích thước cụm hiệu dụng của cấp $\ell$ trong Evaluation pool (bước P1). Nếu phần lớn nhóm ở cấp $\ell$ chỉ chứa một ride thì $\tilde m_\ell \approx 1$ và $D_{\text{eff}}^{\ell} \approx 1$; điều này phản ánh đúng thực tế là tương quan trong nhóm đơn lẻ không ảnh hưởng đến phương sai, chứ không phải điều kiện bị thỏa mãn một cách tầm thường.
   2. **ICC cấp block trong super-block.** Coi block là đơn vị (FDP gộp trên toàn block), ước lượng tương tự $\widehat{\text{ICC}}_{\text{sb}|\text{b}}$ và $D_{\text{eff}}^{\text{sb}|\text{b}}$ với $\tilde m$ tính theo số block mỗi super-block.
   3. **Moran's $I$ liên super-block.** Đo tương quan không gian còn lại *giữa* các super-block, loại mà phép chia held-out theo super-block không loại bỏ được. Ma trận trọng số: $k$ láng giềng gần nhất theo tọa độ GPS của đơn vị ($k = 8$), chuẩn hóa theo hàng, và **chỉ giữ các cặp láng giềng thuộc hai super-block khác nhau**. Khoảng tin cậy xấp xỉ 95%: $\hat I \pm 1.96\,\widehat{\text{SD}}(I)$, với $\widehat{\text{SD}}(I)$ tính theo phương sai dưới giả thuyết ngẫu nhiên hóa (Cliff & Ord, 1981). Đây là xấp xỉ thông dụng; cận trên chỉ dùng để gắn cờ rủi ro dư, không quyết định đơn vị.
@@ -535,14 +596,18 @@ Các bước dưới đây được thực hiện **theo đúng thứ tự**. M�
 * **Đại lượng ước lượng và CI cho Violation Rate:** Mỗi tập hiệu chuẩn được rút không hoàn lại từ Evaluation pool, nên Exp B ước lượng xác suất vi phạm **có điều kiện trên Evaluation pool**, coi phân phối thực nghiệm của pool là quần thể (xem phạm vi suy diễn bên dưới). Khi cố định pool, các phân hoạch được ngẫu nhiên hóa độc lập nên **i.i.d.**; chồng lấn giữa các phân hoạch không tạo ra phụ thuộc. Phụ thuộc chỉ nằm **trong** một phân hoạch: ba vòng của cùng phân hoạch có tập hiệu chuẩn rời nhau, nên phụ thuộc lẫn nhau vì chúng chia nhau cùng một pool. Vì vậy CI chính thức dùng **bootstrap theo phân hoạch** (resample $P$ phân hoạch có hoàn lại, percentile 95% hai phía), và Clopper-Pearson trên $B$ vòng (coi như độc lập) chỉ được báo cáo để tham chiếu. **Chống suy biến (bản 1.3):** khi không vòng nào vi phạm, bootstrap percentile cho CI $[0, 0]$, tức khẳng định độ chính xác vô hạn. CI chính thức vì vậy là hợp của CI bootstrap và CI Clopper-Pearson tính với $x = \text{round}(\widehat{\text{VR}} \cdot P)$ trên cỡ mẫu $P$ (số phân hoạch độc lập, không phải $B$): không bao giờ chính xác hơn $P$ quan sát độc lập. Với $P = 334$ và không có vi phạm, CI là $[0, 0.011]$. Cùng quy tắc áp dụng cho mọi VR ở Exp C; CI của trung vị $\rho_{\text{cov}}$ (C3b) cũng bootstrap theo phân hoạch.
 * **Rủi ro dọc đường đi trên Evaluation pool (cho điều kiện kiểm định được T1):** sau khi chạy xong, tính $\mathcal{R}_{\text{pool}}(\tau^{(k)})$, trung bình $\text{FDP}_j(\tau^{(k)})$ trên toàn Evaluation pool, cho mọi điểm của $\Lambda_{1D}$. Vì Exp B coi phân phối thực nghiệm của pool là quần thể (xem đại lượng ước lượng ở trên), đây chính là rủi ro thật của từng điểm trong khung suy diễn của Exp B. Đặt $\mathcal{H}_0^{\text{pool}} = \{k : \mathcal{R}_{\text{pool}}(\tau^{(k)}) > \alpha\}$ và $j^*_{\text{pool}} = \min \mathcal{H}_0^{\text{pool}}$. Với mỗi vòng, ghi nhận vòng đó có kiểm định tới $j^*_{\text{pool}}$ hay không (tức mọi điểm trước đó đều bị bác bỏ). Tỉ lệ vòng kiểm định tới $j^*_{\text{pool}}$ cho biết phép thử có thực sự đặt quy trình trước một null đúng hay không (D7).
 * **Design effect thực nghiệm (cho C2b, phép kiểm trực tiếp A1 ở cấp super-block):** tại điểm $\tau_{A1}$ của $\Lambda_{1D}$ có mức rủi ro lưới $\alpha_k = \alpha$ (điểm nằm sát ranh giới vi phạm), tính $\widehat{\mathcal{R}}^{(b)}_{\text{cal}}(\tau_{A1})$ ở mọi vòng của cả hai nhánh, rồi đặt
+
   $$\hat D_{\text{eff}}^{\text{emp}} = \frac{\widehat{\text{Var}}_{\text{B-block}}\big(\widehat{\mathcal{R}}_{\text{cal}}(\tau_{A1})\big)}{\widehat{\text{Var}}_{\text{B-rand}}\big(\widehat{\mathcal{R}}_{\text{cal}}(\tau_{A1})\big)}$$
+
   với CI 95% bằng bootstrap theo phân hoạch (resample độc lập các phân hoạch của mỗi nhánh). Khi A1 đúng, lấy mẫu theo trọn super-block không làm tăng phương sai nên tỉ số xấp xỉ 1; khi các đơn vị cùng super-block tương quan, tỉ số xấp xỉ design effect ở cấp super-block. Báo cáo thêm tỉ số tại $\tau_{\text{ref}}$. *Kiểm bằng mô phỏng (E10b):* khi A1 đúng, tỉ số tại $\alpha_k = \alpha$ nằm trong khoảng 0.89–1.12 qua 16 pool; khi A1 sai với design effect lý thuyết 1.5–3, tỉ số là 1.9–4.5. Tại $\tau_{\text{ref}}$ (E4, E5b, E10b), tỉ số khi A1 đúng nằm trong khoảng 0.85–1.18 qua 42 pool, và phép kiểm kém nhạy hơn. Phép kiểm này nhạy hơn nhiều so với C2 và so với chênh lệch VR giữa hai nhánh (D2).
 * **Chỉ số quyết định:**
   1. **Violation Rate (C2, H1a):** $\widehat{\text{VR}} = \frac{1}{B}\sum e_b$ của nhánh B-block, kèm CI. Quy tắc ba vùng ở Mục IX.
   2. **Design effect thực nghiệm (C2b, A1):** $\hat D_{\text{eff}}^{\text{emp}}$ kèm CI. Quy tắc ba vùng ở Mục IX.
   3. **Tỷ lệ Không Rỗng (C3, H1c):** $\text{Yield} = \frac{1}{B}\sum \mathbb{1}[\hat{\tau}_b \ne \emptyset]$ của B-block. Tiêu chí: $\ge 85\%$.
   4. **Độ phủ Nhãn giả Tương đối (C3b, H1c):** đo trên tập kiểm thử của từng vòng B-block tại $\hat\tau_b$, chỉ với các vòng có $\hat\tau_b \ne \emptyset$:
+
      $$\text{Cov}(\tau) = \frac{\sum_j \text{TP}_j(\tau)}{\sum_j M_j}, \qquad \rho_{\text{cov}}(\hat\tau_b) = \frac{\text{Cov}(\hat\tau_b)}{\text{Cov}(\tau_{\text{base}})}$$
+
      với $\text{TP}_j(\tau)$ là số box chấp nhận được ghép đúng (quy tắc 2.1), $M_j$ là số đối tượng GT thuộc $\mathcal{C}_{\text{eval}}$ của đơn vị $j$, và $\tau_{\text{base}}$ là baseline plug-in cố định ở bước P3 (không có bảo chứng). Macro-FDP của $\tau_{\text{base}}$ trên tập kiểm thử được báo cáo kèm, cho biết baseline thông thường có thực sự giữ được mức 2% trên dữ liệu mới hay không. Tiêu chí: $\text{Median}_b\, \rho_{\text{cov}}(\hat\tau_b) \ge \gamma_{\text{cov}} = 0.5$, tức LTT giữ được ít nhất một nửa độ phủ của cách chọn ngưỡng thông thường ở cùng mức rủi ro danh nghĩa. Chỉ số tương đối được dùng thay cho ngưỡng tuyệt đối kiểu "$\ge 1$ box/đơn vị", vì ảnh BDD100K thường có nhiều đối tượng nên ngưỡng tuyệt đối gần như luôn đạt và không mang thông tin.
 * **Chỉ số mô tả (báo cáo, không dùng để quyết định):**
   * **D1:** Phân vị 95% và trung vị của $\mathcal{R}_{\text{pool}}(\hat\tau_b)$ và của rủi ro trên tập kiểm thử $\mathcal{R}_b$ (B-block); khoảng bảo thủ $\Delta_{\text{gap}} = \alpha - \text{Median}\,\mathcal{R}_{\text{pool}}(\hat\tau_b)$; tỉ lệ vòng có $\mathcal{R}_b > \alpha$ (mô tả kịch bản triển khai, chịu hiệu ứng phần bù).
@@ -561,7 +626,9 @@ Exp C so sánh cách xử lý tương quan nội cụm trên **cùng dữ liệu
 **Mức rủi ro $\alpha_C = 0.10$.** H1b là mệnh đề về cơ chế: bỏ qua tương quan nội cụm thì bảo chứng sụp đổ. Mệnh đề này không gắn với mức vận hành $\alpha = 0.02$ của H1a. Nếu giữ $\alpha = 0.02$, Arm 1 trả về $\emptyset$ ở hầu hết các mức $N_{\text{cluster}}$ khả dụng (bảng 5.4: không chứng nhận được ở 20 và 100; ở 200 cần cả 40.000 frame không có FP nào), và C5 chỉ còn cho thấy "quy trình từ chối gán nhãn thì không vi phạm". Đó không phải bằng chứng rằng hiệu chuẩn theo cụm khắc phục được vấn đề. Bộ MOT chỉ có 1.600 clip nên không thể tăng $N_{\text{cluster}}$ để bù. Với $\alpha_C = 0.10$ (bảng 5.5), Arm 1 có ngưỡng chứng nhận được không tầm thường ở mọi $N_{\text{cluster}} \ge 100$, nên C5 so sánh hai quy trình cùng thực sự gán nhãn. Cơ chế được kiểm chứng không phụ thuộc $\alpha$: ở mọi mức $\alpha$, ngưỡng chứng nhận theo $N_{\text{nominal}}$ tiến sát $\alpha$ (so sánh bảng 5.4 và 5.5). Exp C được chạy bổ sung ở $\alpha = 0.02$ với $\Lambda_{1D}$, chỉ để mô tả (D5).
 
 **Đại lượng mục tiêu chung.** Cả ba arm cùng kiểm soát và cùng được đánh giá theo rủi ro trung bình theo frame (Mục 2.3):
+
 $$\mathcal{R}_{\text{frame}}(\tau) = \mathbb{E}_c\left[Z_c(\tau)\right], \qquad Z_c(\tau) = \frac{1}{M}\sum_{t=1}^{M}\text{FDP}_{c,t}(\tau)$$
+
 Vì mỗi clip có đúng $M$ frame, $\mathcal{R}_{\text{frame}}$ bằng kỳ vọng FDP của một frame ngẫu nhiên. Do đó Arm 2 (coi frame là đơn vị) và Arm 1 (coi clip là đơn vị với thống kê $Z_c$) ước lượng **cùng một** đại lượng, và chênh lệch giữa hai arm chỉ đến từ việc có tính đến tương quan nội cụm hay không. Rủi ro thật của mỗi $\hat\tau_b$ được đo bằng $\mathcal{R}^{C}_{\text{pool}}(\hat\tau_b)$, trung bình $Z_c(\hat\tau_b)$ trên toàn bộ clip MOT dùng trong Exp C (cùng lý do như Mục 8.2); trung bình trên các clip kiểm thử được báo cáo kèm như chỉ số mô tả. Mọi arm dùng đường đi $\Lambda_{1D}^{C}$.
 
 **Phân hoạch.** Nhóm held-out của MOT là super-block (cùng định nghĩa với Val, bước P1). Mỗi phân hoạch hoán vị ngẫu nhiên các nhóm, cắt $K = \lfloor 0.75\, n_C / N_{\text{cluster}} \rfloor$ tập hiệu chuẩn rời nhau ($n_C = |\text{MOT}^\star|$; $K = \lfloor 1.200 / N_{\text{cluster}} \rfloor$ khi $n_C = 1.600$; mức $N_{\text{cluster}}$ nào có $K < 1$ bị bỏ và báo cáo), mỗi tập gồm các nhóm liên tiếp cho đến khi đạt ít nhất $N_{\text{cluster}}$ clip (nhóm cuối giữ trọn; báo cáo $N_b$ thực tế). Tập kiểm thử (Unseen Test) của vòng $b$ là **mọi clip không thuộc** $\mathcal{D}_{\text{cal}}^{(b)}$, nên luôn có khoảng 800 clip trở lên. Biến cố vi phạm là $e_b = \mathbb{1}[\mathcal{R}^{C}_{\text{pool}}(\hat\tau_b) > \alpha_C]$, như Mục 8.2.

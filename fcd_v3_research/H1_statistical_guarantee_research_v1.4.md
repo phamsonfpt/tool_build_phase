@@ -31,7 +31,9 @@ Trong gán nhãn giả có chọn lọc cho phát hiện vật thể trên xe t�
 ### 1.2. Ba mệnh đề
 
 > **H1a (bảo chứng PAC).** Với đơn vị thống kê $U$ do quy tắc R-unit chọn (chuyến đi, hoặc super-block), quy trình Fixed-Sequence LTT trên đường đi $\Lambda_{1D}$ cố định tiên nghiệm chọn ra $\hat\tau$ thỏa
+>
 > $$\mathbb{P}_{\mathcal{D}_{\text{cal}} \sim \mathcal{P}^N}\big(\mathcal{R}(\hat\tau) \le \alpha\big) \ge 1 - \delta, \qquad \alpha = 0.02,\ \delta = 0.05,$$
+>
 > và bảo chứng này **đứng vững khi ngưỡng được dùng trên các khu vực-ngày (super-block) không có trong tập hiệu chuẩn**.
 > *Kiểm chứng:* C0 (cài đặt), C2 trên nhánh B-block và C2b (tiền đề A1 ở cấp super-block), Mục VIII.
 
@@ -39,7 +41,9 @@ Trong gán nhãn giả có chọn lọc cho phát hiện vật thể trên xe t�
 > *Kiểm chứng:* C4, C5 ở mức $\alpha_C = 0.10$ trên bộ MOT 2020.
 
 > **H1c (không tầm thường).** Với detector $\mathcal{M}$ và $\Lambda_{1D}$ đã chọn:
+>
 > $$\mathbb{P}(\hat\tau \ne \emptyset) \ge 1 - \beta,\ \beta = 0.15, \qquad \operatorname{Median}_b\, \rho_{\text{cov}}(\hat\tau_b) \ge \gamma_{\text{cov}} = 0.5,$$
+>
 > với $\rho_{\text{cov}}$ là độ phủ của $\hat\tau$ chia cho độ phủ của baseline plug-in trên cùng lưới (Mục VI.6).
 > *Kiểm chứng:* C3, C3b. Thất bại của H1c không bác bỏ H1a.
 
@@ -74,11 +78,15 @@ Về các công trình suy diễn phi tham số trên dữ liệu không trao đ
 Mỗi expert $e \in \{1, 2, 3\}$ là một RT-DETR (Mục III.3). Với keyframe $x_v$, expert $e$ trả về 300 truy vấn $q$, mỗi truy vấn có box $b_q^{e}$, điểm lớp car $s_q^{e} = \sigma(\ell_{q,\ell^*}^{e})$ (sigmoid của logit tại chỉ số lớp $\ell^*$, Mục VI.7) và đặc trưng decoder $h_q^{e} \in \mathbb{R}^{256}$. Detector đang kiểm định là $\mathcal{M} = $ expert anchor $a$; tập còn lại là $E' = \{1,2,3\} \setminus \{a\}$.
 
 Với mỗi truy vấn $q$ của anchor có $s_q^{a} \ge 0.004$:
+
 $$s_{\text{cls}}(q) = s_q^{a}, \qquad s_{\text{loc}}(q) = \frac{1}{\lvert E' \rvert}\sum_{e \in E'} \max_{q' : s_{q'}^{e} \ge 0.1} \operatorname{IoU}(b_q^{a}, b_{q'}^{e}),$$
+
 $$s_{\text{fcd}}(q) = \frac{1}{\lvert E' \rvert}\sum_{e \in E'} \begin{cases} 1 - \cos\big(h_q^{a}, h_{q^\star_e}^{e}\big) & \text{nếu } \max \operatorname{IoU} > 0 \\ 1 & \text{ngược lại,}\end{cases}$$
+
 với $q^\star_e$ là truy vấn của expert $e$ đạt IoU lớn nhất (quy ước $\max \emptyset = 0$).
 
 **Tập chấp nhận** tại $\tau = (\tau_{\text{cls}}, \tau_{\text{loc}}, \tau_{\text{fcd}})$:
+
 $$\mathcal{A}_v(\tau) = \{q : s_{\text{cls}}(q) \ge \tau_{\text{cls}},\ s_{\text{loc}}(q) \ge \tau_{\text{loc}},\ s_{\text{fcd}}(q) \le \tau_{\text{fcd}}\}.$$
 
 $s_{\text{fcd}}$ ở đây là định nghĩa vận hành cho H1; H2 có thể thay bằng tín hiệu riêng. Tính hợp lệ của H1 không phụ thuộc chất lượng tín hiệu (Theorem 1 chỉ cần A5).
@@ -86,6 +94,7 @@ $s_{\text{fcd}}$ ở đây là định nghĩa vận hành cho H1; H2 có thể t
 ### 2.3. Ghép cặp và FP
 
 Quy tắc ghép tham lam (giữ nguyên bản 1.2): sắp các box chấp nhận theo $s_{\text{cls}}$ giảm dần; mỗi box ghép với nhãn chưa dùng cùng lớp có IoU lớn nhất và $\ge \theta_{\text{IoU}}$; hòa thì chọn nhãn đứng trước trong file. Gọi $\text{TP}_v(\tau)$ là số box được ghép,
+
 $$V_v(\tau) = \lvert \mathcal{A}_v(\tau) \rvert - \text{TP}_v(\tau), \qquad V_v^{\text{halluc}}(\tau) = \#\{q \in \mathcal{A}_v(\tau) \text{ không ghép}: \max_k \operatorname{IoU}(b_q, b_k^{\text{gt}}) < 0.5\}.$$
 
 *Tính chất tiền tố.* Vì $\mathcal{A}_v(\tau)$ đơn điệu theo $\tau_{\text{cls}}$ và việc ghép một box chỉ phụ thuộc các box có điểm cao hơn, kết quả ghép tại mọi $\tau_{\text{cls}}$ là tiền tố của một lần ghép duy nhất cho mỗi cặp $(\tau_{\text{loc}}, \tau_{\text{fcd}})$.
@@ -161,8 +170,11 @@ Lý do dùng Pool T làm phép thử xác nhận: các quy tắc mới của b�
 ### 5.1. p-value Hoeffding-Bentkus
 
 Kiểm định $H_0(\tau): \mathcal{R}(\tau) > \alpha$ với $s = \widehat{\mathcal{R}}_N(\tau)$:
+
 $$p_{\text{Hoeff}} = \exp\big(-N\, d_{\text{KL}}(s \wedge \alpha, \alpha)\big), \qquad d_{\text{KL}}(a, b) = a\ln\frac{a}{b} + (1-a)\ln\frac{1-a}{1-b},$$
+
 $$p_{\text{Bentkus}} = \min\Big(1,\ e \cdot \mathbb{P}\big(\text{Bin}(N, \alpha) \le \lceil N s \rceil\big)\Big), \qquad p_{\text{HB}} = \min(p_{\text{Hoeff}}, p_{\text{Bentkus}}).$$
+
 Nguồn: Hoeffding (1963, Định lý 1, dạng KL), Bentkus (2004, Định lý 1.1), kết hợp thành HB ở Bates et al. (2021) và Angelopoulos et al. (2025).
 
 ### 5.2. Ngưỡng chứng nhận tối đa
@@ -204,7 +216,9 @@ Bảo chứng là xác suất biên theo $\mathcal{D}_{\text{cal}}$, không ph�
 > **Mệnh đề 3 (chia fold).** Chia $\mathcal{D}_{\text{cal}}$ thành 3 fold độc lập; fold 1, 2 chọn $\hat\tau_{\text{cls}}, \hat\tau_{\text{loc}}$, fold 3 chạy fixed-sequence trên $\tau_{\text{fcd}}$. Khi đó $\mathbb{P}(\mathcal{R}(\hat\tau) > \alpha) \le \delta$. *Chứng minh:* điều kiện hóa trên fold 1, 2 rồi áp dụng Theorem 1 trên fold 3 (như bản 1.2). Phương án phụ; tại $N/3 = 500$, $k_{\max} = 3$.
 
 > **Mệnh đề 4 (tính hợp lệ có điều kiện trên pool hữu hạn).** Cố định một pool $\Pi$ với các giá trị $\{Z_r(\tau)\}_{r \in \Pi}$, cùng $\mathcal{M}$ và $\Lambda_{1D}$ (độc lập với phép rút). Rút $\mathcal{D}_{\text{cal}}$ là mẫu ngẫu nhiên đơn giản không hoàn lại $N$ đơn vị từ $\Pi$. Khi đó, với $\hat\tau$ của Fixed-Sequence LTT dùng p-value Hoeffding-KL,
+>
 > $$\mathbb{P}\big(\mathcal{R}_{\Pi}(\hat\tau) > \alpha\big) \le \delta,$$
+>
 > bất kể cấu trúc tương quan giữa các đơn vị trong $\Pi$.
 
 *Chứng minh.* Như Theorem 1 với $\mathcal{R}$ thay bằng $\mathcal{R}_\Pi$, chỉ cần p-value hợp lệ khi lấy mẫu không hoàn lại. Hoeffding (1963, Định lý 4): với $f$ lồi liên tục, $\mathbb{E} f(\text{tổng mẫu không hoàn lại}) \le \mathbb{E} f(\text{tổng mẫu có hoàn lại})$ từ cùng tổng thể. Cận Chernoff–Hoeffding cho đuôi dưới dùng $f(x) = e^{-\lambda x}$ lồi, nên dạng KL của $p_{\text{Hoeff}}$ vẫn hợp lệ (xem thêm Serfling, 1974; Bardenet & Maillard, 2015). Mẫu có hoàn lại từ $\Pi$ là i.i.d. với kỳ vọng $\mathcal{R}_\Pi$. $\blacksquare$
@@ -226,17 +240,25 @@ $L_r(\tau) = \big(V_r(\tau) - \alpha N_r^{\text{acc}}(\tau)\big)/C_{\max} + \alp
 ### 5.9. Design effect và ICC
 
 Với cụm kích thước không đều $m_g$:
+
 $$\tilde m = \frac{\sum_g m_g^2}{\sum_g m_g}, \qquad D_{\text{eff}} = 1 + (\tilde m - 1)\,\rho_{\text{ICC}}$$
+
 (Kish, 1965; dạng cụm không đều: Eldridge et al., 2006). ICC ước lượng bằng ANOVA một chiều cho cụm không đều (Searle et al., 1992; Donner, 1986):
+
 $$\widehat{\text{ICC}} = \frac{\text{MSB} - \text{MSW}}{\text{MSB} + (n_0 - 1)\text{MSW}}, \qquad n_0 = \frac{1}{G - 1}\Big(n - \frac{\sum_g m_g^2}{n}\Big).$$
+
 **Design effect thực nghiệm** (C2b, D10): tại điểm $\tau_{A1}$ của $\Lambda_{1D}$ có mức lưới $\alpha_k = \alpha$,
+
 $$\hat D_{\text{eff}}^{\text{emp}} = \frac{\widehat{\operatorname{Var}}_{\text{B-block}}\big(\widehat{\mathcal{R}}_{\text{cal}}(\tau_{A1})\big)}{\widehat{\operatorname{Var}}_{\text{B-rand}}\big(\widehat{\mathcal{R}}_{\text{cal}}(\tau_{A1})\big)},$$
+
 CI bằng bootstrap độc lập theo phân hoạch của từng nhánh (Field & Welsh, 2007, cho lý do lấy mẫu lại ở cấp cụm).
 
 ### 5.10. Biên chịu đựng tương quan (xấp xỉ, không phải định lý)
 
 Giả sử $\widehat{\mathcal{R}}_N \approx \mathcal{N}\big(\mathcal{R}, D_{\text{eff}}\sigma_\alpha^2/N\big)$ (CLT cho trung bình mẫu cụm; Lehmann, 1999). HB chỉ chứng nhận khi $\widehat{\mathcal{R}}_N \le k_{\max}(N)/N$, nên một điểm có $\mathcal{R}$ vừa vượt $\alpha$ bị chấp nhận nhầm với xác suất $\le \delta$ khi
+
 $$D_{\text{eff}} \le D^* \triangleq \frac{N\,\big(\alpha - k_{\max}(N)/N\big)^2}{z_{1-\delta}^2\, \sigma_\alpha^2},$$
+
 với $\sigma_\alpha^2$ là phương sai của $Z$ tại điểm đầu tiên của $\Lambda_{1D}$ vượt $\alpha$. $D^*_C$ tính tương tự cho arm frame của Exp C. Mô phỏng (E7) cho thấy $D^*$ đúng chiều nhưng không bảo thủ đồng đều, nên mọi quy tắc dùng nó đều kèm biên an toàn $D_{\text{thr}} = \min(2, \hat D^*)$.
 
 ### 5.11. Khoảng tin cậy
@@ -258,19 +280,25 @@ với $\sigma_\alpha^2$ là phương sai của $Z$ tại điểm đầu tiên c�
 ### 6.2. Quy tắc chạm và quy tắc độ phân giải
 
 Đặt $\widehat{\text{FDP}}_{\text{meta}}(\tau) = \mathcal{R}_{\mathcal{M}}(\tau)$. Đi xuống thang $t = 0.05, 0.0495, \dots, 0.004$ và dừng ở
+
 $$t_{\min} = \max\Big\{t : \max_{\tau \in G(t)} \widehat{\text{FDP}}_{\text{meta}}(\tau) \ge 2\alpha_C\Big\}, \qquad G(t) = \{\tau : \tau_{\text{cls}} \ge t\}.$$
+
 $G = G(t_{\min})$ chứa **mọi** mức của thang từ $t_{\min}$ trở lên (quy tắc độ phân giải). Đăng ký kèm độ phân giải thực tế: rủi ro Meta-Train của điểm cuối $\le \alpha$ và điểm đầu $> \alpha$ trên $\Lambda_{1D}$, và tương tự quanh $\alpha_C$ trên $\Lambda^C_{1D}$. *Lý do:* điểm số DETR fine-tune có dạng hai đỉnh (Meta-Train: 2,0–2,8 truy vấn/ảnh có điểm $\ge 0.05$ nhưng 11,3–13,3 truy vấn có điểm $\ge 0.005$). Lưới $\tau_{\text{cls}} \ge 0.05$ chỉ chạm Macro-FDP 0.014–0.022; lưới thô tạo khoảng nhảy rủi ro quanh $\alpha$ làm phép thử mất năng lực (ablation D11).
 
 ### 6.3. Chọn $\theta_{\text{IoU}}$
 
 Giữ $\theta_{\text{IoU}} = 0.75$ nếu tồn tại $\tau \in G$ với $\widehat{\text{FDP}}_{\text{meta}}(\tau) \le r^*(\tau)$ và $\rho_{\text{cov,meta}}(\tau) \ge 0.6$, trong đó
+
 $$r^*(\tau) = \frac{k_{\max}(N)}{N} - z_{0.95}\frac{\hat\sigma(\tau)}{\sqrt N};$$
+
 ngược lại dùng 0.5.
 
 ### 6.4. Truy vết biên Pareto
 
 Với lưới rủi ro tăng dần $(\alpha_k)$:
+
 $$\tau^{(k)} = \operatorname*{arg\,max}_{\tau \in G,\ \widehat{\text{FDP}}_{\text{meta}}(\tau) \le \alpha_k} \widehat{\operatorname{Cov}}_{\text{meta}}(\tau),$$
+
 phá hòa theo $\widehat{\text{FDP}}_{\text{meta}}$ nhỏ hơn rồi theo chỉ số lưới; bỏ bước không khả thi và điểm trùng liên tiếp.
 * **$\Lambda_{1D}$** ($\alpha = 0.02$): lõi $0.002 \to u(N)$ bước 0.001 với $u(N) = \min\big(0.015,\ \lfloor 1000\,(k_{\max}(N)/N + 0.003)\rfloor/1000\big)$; kéo dài $u(N) + 0.001 \to 0.030$ bước 0.001 rồi $0.0325 \to 0.040$ bước 0.0025.
 * **$\Lambda_{1D}^{C}$** ($\alpha_C = 0.10$): $0.005 \to 0.090$ bước 0.005; $0.0925 \to 0.120$ bước 0.0025; $0.13 \to 0.20$ bước 0.01.
@@ -282,8 +310,10 @@ $\tau_{\text{ref}}$: điểm có mức lưới gần 0.008 nhất trên đườn
 ### 6.6. Baseline
 
 * **$\tau_{\text{base}}^{G}$ (dùng cho C3b, mới ở bản 1.4):** plug-in không bảo chứng trên **cùng** lưới: $\tau_{\text{base}}^{G} = \arg\max_{\tau \in G,\ \widehat{\text{FDP}}_{\text{meta}}(\tau) \le \alpha} \widehat{\operatorname{Cov}}_{\text{meta}}(\tau)$, tức điểm Pareto tại mức $\alpha$. Khi đó
-$$\rho_{\text{cov}}(\hat\tau_b) = \frac{\operatorname{Cov}(\hat\tau_b;\ \Pi \setminus \mathcal{D}_{\text{cal}}^{(b)})}{\operatorname{Cov}(\tau_{\text{base}}^{G};\ \Pi \setminus \mathcal{D}_{\text{cal}}^{(b)})}$$
-đo đúng **cái giá của bảo chứng**: phần độ phủ mất đi khi đòi hỏi chứng nhận thay vì chỉ ước lượng điểm.
+
+  $$\rho_{\text{cov}}(\hat\tau_b) = \frac{\operatorname{Cov}(\hat\tau_b;\ \Pi \setminus \mathcal{D}_{\text{cal}}^{(b)})}{\operatorname{Cov}(\tau_{\text{base}}^{G};\ \Pi \setminus \mathcal{D}_{\text{cal}}^{(b)})}$$
+
+  đo đúng **cái giá của bảo chứng**: phần độ phủ mất đi khi đòi hỏi chứng nhận thay vì chỉ ước lượng điểm.
 * **$\tau_{\text{base}}^{\text{cls}}$ (mô tả):** chỉ lọc confidence, ngưỡng nhỏ nhất trên $\{0.05, \dots, 0.95, 0.99\}$ có $\widehat{\text{FDP}}_{\text{meta}} \le \alpha$ (baseline của bản 1.3).
 
 ### 6.7. Chỉ số lớp (P3.0)
