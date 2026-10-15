@@ -27,6 +27,7 @@ Không sửa gì trong notebook. `EXPERT_ID = {k}` đã được điền sẵn.
 3. **Đo tốc độ** trong 40 bước, rồi tự chọn số bước train cho vừa `TRAIN_HOURS` = 8 giờ (vừa giới hạn 12 giờ mỗi phiên và hạn mức GPU khoảng 30 giờ mỗi tuần của Kaggle).
 4. **Train** với seed riêng của chuyên gia {k}. Có chốt chặn: tự lưu và dừng nếu phiên chạy tới 11 giờ.
 5. **Kiểm tra** trên toàn bộ val: recall và precision theo từng lớp, recall theo thời tiết, thời điểm trong ngày và loại cảnh.
+6. **Thống kê tiềm ẩn** trên khoảng 10.000 ảnh train: `expert_{k}_centroids.pt` theo định dạng M29 (chuyên gia 1 có thêm bản `centroids.pt`) và `expert_{k}_latent_stats.pt` cho H2.
 
 ## Kết quả trong Output
 `expert_{k}.pth`, `expert_{k}_final/` (định dạng HuggingFace), `expert_{k}_manifest.json` (seed, số epoch, sha256 trọng số), `expert_{k}_class_report.txt`, `expert_{k}_loss_curve.csv` (loss train và val theo bước), `data_stats.json`.
@@ -152,6 +153,8 @@ for k in (1, 2, 3):
              md("## Huấn luyện"), code(rd("train.py")), code(bench),
              code("# TRAIN (đọc MAX_STEPS từ cell trên)\n!torchrun --nproc_per_node={n_gpu} train.py\n"),
              md("## Kiểm tra từng lớp và edge case"), code(rd("check.py")), code("!python check_classes.py {EXPERT_ID}\n"),
+             md("## Thống kê không gian tiềm ẩn (centroids.pt cho M29, latent_stats.pt cho H2)"),
+             code(rd("latent.py")), code("!python latent_stats.py {EXPERT_ID}\n"),
              code(summary)]
     name = "Train_RTDETR_Ensemble.ipynb" if k == 1 else f"Train_RTDETR_Ensemble_Expert{k}.ipynb"
     save(cells, os.path.join(out, name))

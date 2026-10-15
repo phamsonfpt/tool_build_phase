@@ -48,6 +48,8 @@ Import `Verify_Ensemble.ipynb` → **Add Input → Notebook Output** của 3 not
 | `expert_K_final/` | Mô hình và processor định dạng HuggingFace (`from_pretrained`) |
 | `expert_K_manifest.json` | seed, số bước và epoch đã chạy, batch, sha256 trọng số, nguồn dữ liệu, phiên bản thư viện |
 | `expert_K_class_report.txt` | Recall và precision theo lớp; recall theo thời tiết, thời điểm, loại cảnh (trên val, chỉ để xem) |
+| `expert_K_centroids.pt` (chuyên gia 1: thêm `centroids.pt`) | Định dạng M29 Mục 4.B: `pca` (sklearn, 256→64), `centroids` μ_k, `inv_covs` Σ_k⁻¹ (+1e-6 I) theo lớp, tính bằng Max-IoU (IoU ≥ 0.5, đúng lớp) trên khoảng 10.000 ảnh train. Lớp có dưới 192 vector dùng hiệp phương sai co rút (`shrunk_classes`). Chứa object sklearn nên phải nạp với `weights_only=False` |
+| `expert_K_latent_stats.pt` | Cho tín hiệu FCD của H2 (chỉ tensor, nạp với `weights_only=True`): tâm lớp 256D, precision của hiệp phương sai gộp Ledoit-Wolf, trung vị/MAD của khoảng cách Mahalanobis trên các vector TP |
 | `expert_K_probe.csv` | Điểm tin cậy cao nhất trung bình và số box > 0.3 trên 32 ảnh train cố định, mỗi 2.000 bước (kiểm tra sớm) |
 | `expert_K_loss_curve.csv` | Loss train (mỗi 50 bước) và val (mỗi 2.000 bước, trên 1.000 ảnh val) |
 | `data_stats.json` | Số box gốc và giữ lại theo lớp và theo tập, ảnh không có nhãn, hệ số lấy mẫu lặp |
