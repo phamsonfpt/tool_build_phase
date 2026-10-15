@@ -24,7 +24,7 @@ CATEGORY_NORMALIZER = {
 
 # Seed riêng của từng chuyên gia. Phải truyền vào TrainingArguments(seed=..., data_seed=...),
 # vì Trainer gọi lại set_seed(args.seed) khi khởi tạo và sẽ ghi đè mọi seed đặt trước đó.
-SEEDS = {1: 42, 2: 142, 3: 242}
+SEEDS = {1: 42, 2: 142, 3: 242, 9: 999}   # 9 = bản chạy thử (canary), kết quả không dùng
 
 WORK = os.environ.get("WORK_DIR", "/kaggle/working")
 SPLITS = ("train", "val")

@@ -8,6 +8,7 @@ Ba notebook (mỗi notebook một chuyên gia, `EXPERT_ID` điền sẵn) huấn
 | `Train_RTDETR_Ensemble_Expert2.ipynb` | 2 | 142 | thành viên B |
 | `Train_RTDETR_Ensemble_Expert3.ipynb` | 3 | 242 | thành viên C |
 | `Verify_Ensemble.ipynb` | kiểm tra cả 3 | — | ai cũng được, sau cùng |
+| `Train_RTDETR_Canary.ipynb` | **chạy thử** (mã 9) | 999 | một người, **trước tiên** (khoảng 1.5–2 giờ GPU) |
 
 **Dữ liệu:** chỉ cần bộ `solesensei_bdd100k` trên Kaggle, không phải tải gì thêm.
 * **BDD train** (69.863 ảnh): dùng toàn bộ để train.
@@ -17,6 +18,15 @@ Ba notebook (mỗi notebook một chuyên gia, `EXPERT_ID` điền sẵn) huấn
 Mỗi chuyên gia mất khoảng 9 giờ GPU (T4 x2): khoảng 8 giờ train, phần còn lại cho chuẩn bị dữ liệu, kiểm tra trên val và thống kê tiềm ẩn trên toàn bộ tập train. Ba chuyên gia tổng cộng khoảng 27 giờ, vừa hạn mức khoảng 30 giờ/tuần của một tài khoản; nếu mỗi người chạy trên tài khoản của mình thì không lo hết quota. Ba người chạy song song trên ba tài khoản, mỗi người dùng hạn mức của mình.
 
 ---
+
+## 0. Chạy thử trước (bắt buộc)
+Trước khi tốn khoảng 27 giờ GPU cho 3 chuyên gia, chạy `Train_RTDETR_Canary.ipynb` (cùng cách thiết lập như mục A và B). Notebook này chạy **đúng toàn bộ quy trình** (chuẩn bị dữ liệu, 2 GPU, bản vá loss, probe, kiểm tra trên val, thống kê tiềm ẩn trên toàn bộ tập train), chỉ train khoảng 0.9 giờ. Kết quả có tên `expert_9_*` và **không dùng cho ensemble**.
+
+Xem **cell cuối cùng (Kiểm tra tổng)**:
+* **ĐẠT:** cho 3 notebook chuyên gia chạy.
+* **KHÔNG ĐẠT:** gửi lại các dòng `[X]`, cùng `expert_9_probe.csv` và `expert_9_class_report.txt`.
+
+Cả 3 notebook chính thức cũng có cell Kiểm tra tổng này ở cuối. Khi chúng chạy xong, xem cell đó trước khi dùng mô hình.
 
 ## A. Người phụ trách: chuẩn bị một lần (khoảng 15 phút)
 

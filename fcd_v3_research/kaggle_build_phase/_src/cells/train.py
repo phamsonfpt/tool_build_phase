@@ -278,6 +278,7 @@ if __name__ == "__main__":
                             classes=BDD_CLASSES, rfs_t=stats["rfs_t"], images_per_epoch=len(train_items),
                             split_rule=stats["split_rule"], val_usage="chỉ để xem: không chọn checkpoint, không chỉnh siêu tham số",
                             rtdetr_loss_fix="tách query khử nhiễu khỏi loss của lớp decoder cuối (lỗi transformers)",
+                            loss_fix_calls=_LOSS_FIX_SEEN["n"],
                             stopped_early=trainer.state.global_step < steps,
                             n_images=stats["n_images"], train_filtered=stats["train_filtered"],
                             kept_boxes_train=stats["kept_boxes"]["train"], weights_sha256=weights_sha256(sd),

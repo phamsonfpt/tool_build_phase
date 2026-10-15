@@ -33,12 +33,23 @@ Không sửa gì trong notebook. `EXPERT_ID = {k}` đã được điền sẵn.
 `expert_{k}.pth`, `expert_{k}_final/` (định dạng HuggingFace), `expert_{k}_manifest.json` (seed, số epoch, sha256 trọng số), `expert_{k}_class_report.txt`, `expert_{k}_loss_curve.csv` (loss train và val theo bước), `data_stats.json`.
 """
 
-def config(k):
+CANARY_INTRO = """# 🧪 CHẠY THỬ (canary): kiểm tra toàn bộ quy trình trước khi train 3 chuyên gia thật
+
+Chạy **đúng** quy trình của notebook chính thức, chỉ khác hai điểm: **train khoảng 0.9 giờ** thay vì 8 giờ, và dùng mã chuyên gia **9** (seed 999), nên mọi file kết quả có tên `expert_9_*` và không thể bị nhầm với 3 chuyên gia thật. **Kết quả của bản này không dùng cho ensemble.**
+
+**Tổng thời gian:** khoảng 1.5–2 giờ GPU (chuẩn bị dữ liệu, đo tốc độ, train 0.9 giờ, kiểm tra trên val, thống kê tiềm ẩn trên toàn bộ tập train).
+
+**Cách chạy:** giống notebook chính thức (gắn `solesensei_bdd100k`, GPU T4 x2, Internet On, rồi **Save Version → Save**).
+
+**Cách đọc kết quả:** xem **cell cuối cùng (Kiểm tra tổng)**. Nếu in **ĐẠT**, cho 3 chuyên gia chính thức chạy. Nếu **KHÔNG ĐẠT**, gửi lại các dòng `[X]` cùng file `expert_9_probe.csv` và `expert_9_class_report.txt`.
+"""
+
+def config(k, hours=8.0):
     return f"""# ==============================================================================
 # CẤU HÌNH (đã điền sẵn cho chuyên gia {k}; thường không cần sửa)
 # ==============================================================================
-EXPERT_ID = {k}       # seed: 1 -> 42, 2 -> 142, 3 -> 242
-TRAIN_HOURS = 8.0   # quỹ thời gian cho riêng bước train
+EXPERT_ID = {k}       # seed: 1 -> 42, 2 -> 142, 3 -> 242 (9 = chạy thử, seed 999)
+TRAIN_HOURS = {hours}   # quỹ thời gian cho riêng bước train
 NUM_WORKERS = 2     # đặt 0 nếu dataloader bị treo
 RESUME_FROM = ""    # để trống; chỉ dùng khi tiếp tục từ checkpoint-* của một phiên trước
 
@@ -155,16 +166,16 @@ def save(cells, path, gpu=True):
         json.dump(nb, f, ensure_ascii=False, indent=1)
 
 out = sys.argv[1]  # thư mục src/ của dự án
-for k in (1, 2, 3):
-    cells = [md(intro(k)), code(config(k)), code(env_check),
+for k in (1, 2, 3, 9):
+    cells = [md(CANARY_INTRO if k == 9 else intro(k)), code(config(k, 0.9 if k == 9 else 8.0)), code(env_check),
              md("## Chuẩn bị dữ liệu"), code(rd("common.py")), code(rd("prepare.py")), code("!python prepare_data.py\n"),
              md("## Huấn luyện"), code(rd("train.py")), code(bench),
              code("# TRAIN (đọc MAX_STEPS từ cell trên)\n!torchrun --nproc_per_node={n_gpu} train.py\n"),
              md("## Kiểm tra từng lớp và edge case"), code(rd("check.py")), code("!python check_classes.py {EXPERT_ID}\n"),
              md("## Thống kê không gian tiềm ẩn (centroids.pt cho M29, latent_stats.pt cho H2)"),
              code(rd("latent.py")), code(LATENT_RUN),
-             code(summary)]
-    name = "Train_RTDETR_Ensemble.ipynb" if k == 1 else f"Train_RTDETR_Ensemble_Expert{k}.ipynb"
+             code(summary), md("## Kiểm tra tổng (ĐẠT / KHÔNG ĐẠT)"), code(rd("final_check.py"))]
+    name = {1: "Train_RTDETR_Ensemble.ipynb", 9: "Train_RTDETR_Canary.ipynb"}.get(k, f"Train_RTDETR_Ensemble_Expert{k}.ipynb")
     save(cells, os.path.join(out, name))
 vcells = [md("# Kiểm tra ensemble 3 chuyên gia\nAdd Input → *Notebook Output* của 3 notebook chuyên gia, rồi **Run All** (không cần GPU)."),
           code(verify_src)]
