@@ -48,10 +48,24 @@ Import `Verify_Ensemble.ipynb` → **Add Input → Notebook Output** của 3 not
 | `expert_K_final/` | Mô hình và processor định dạng HuggingFace (`from_pretrained`) |
 | `expert_K_manifest.json` | seed, số bước và epoch đã chạy, batch, sha256 trọng số, nguồn dữ liệu, phiên bản thư viện |
 | `expert_K_class_report.txt` | Recall và precision theo lớp; recall theo thời tiết, thời điểm, loại cảnh (trên val, chỉ để xem) |
+| `expert_K_probe.csv` | Điểm tin cậy cao nhất trung bình và số box > 0.3 trên 32 ảnh train cố định, mỗi 2.000 bước (kiểm tra sớm) |
 | `expert_K_loss_curve.csv` | Loss train (mỗi 50 bước) và val (mỗi 2.000 bước, trên 1.000 ảnh val) |
 | `data_stats.json` | Số box gốc và giữ lại theo lớp và theo tập, ảnh không có nhãn, hệ số lấy mẫu lặp |
 | `bdd_det_{train,val}_compact.json` | Danh sách ảnh và box của từng tập |
 | `expert_K/checkpoint-*` | Checkpoint để tiếp tục train nếu phiên bị dừng sớm |
+
+## Lỗi đã sửa (15/10/2026): mô hình không đưa ra dự đoán nào
+Lần chạy đầu của chuyên gia 2 cho **0 dự đoán** trên val, dù loss vẫn giảm. Nguyên nhân là một lỗi của `transformers` (có ở cả 4.57 và 5.16):
+* Trong `RTDetrForObjectDetectionLoss`, query khử nhiễu (denoising) chỉ được tách khỏi các lớp decoder phụ.
+* Loss của **lớp decoder cuối**, chính là lớp dùng khi suy luận, vẫn ghép GT trên cả 498 query (300 query thật cộng 198 query khử nhiễu). GT vì thế bị ghép vào query khử nhiễu, vốn nằm sát GT.
+* 300 query thật của lớp cuối chỉ nhận mục tiêu "nền", nên điểm tin cậy khi suy luận bị ép về khoảng 0.01–0.04, trong khi box vẫn học tốt (IoU trung vị 0.77).
+
+`train.py` vá lỗi này bằng cách tách query khử nhiễu trước khi tính loss của lớp cuối, giống code gốc của RT-DETR. Bản vá đã được kiểm trên cả hai phiên bản: `loss_vfl` báo ra khớp với VFL tính trên đúng 300 query thật. Notebook cũng có thêm:
+* **ScoreProbe:** dừng train nếu điểm tin cậy tụt dưới 0.1 từ bước 4.000.
+* **NanGuard:** dừng khi loss là NaN hoặc Inf.
+* **Cố định `transformers==5.16.1`.**
+
+**Mọi checkpoint train trước bản vá đều phải train lại.**
 
 ## Các quyết định thiết kế
 * **Không giới hạn object:** giữ mọi `box2d` của 10 lớp, chỉ bỏ box suy biến (≤ 0.5 px). Notebook dừng nếu tổng số box giữ lại cộng số box suy biến khác số box gốc.

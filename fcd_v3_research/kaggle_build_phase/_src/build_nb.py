@@ -61,10 +61,12 @@ try:
 except Exception as e:
     raise RuntimeError("Không có Internet (cần để tải trọng số PekingU/rtdetr_r50vd): Settings -> Internet -> On") from e
 import transformers
-from packaging.version import Version
-if Version(transformers.__version__) < Version("4.44"):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "-q", "transformers>=4.44", "accelerate"])
-    print("[*] Đã nâng cấp transformers (các script chạy ở tiến trình riêng nên dùng ngay bản mới).")
+# Cố định đúng phiên bản đã kiểm chứng (bản vá loss trong train.py đã được kiểm trên 4.57 và 5.16.1),
+# để cả 3 chuyên gia chạy trên cùng thư viện.
+TRANSFORMERS_VERSION = "5.16.1"
+if transformers.__version__ != TRANSFORMERS_VERSION:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "-q", f"transformers=={TRANSFORMERS_VERSION}"])
+    print(f"[*] Đã cài transformers {TRANSFORMERS_VERSION} (các script chạy ở tiến trình riêng nên dùng ngay bản này).")
 else:
     print(f"[V] transformers {transformers.__version__}")
 """

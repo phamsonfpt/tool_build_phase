@@ -33,6 +33,32 @@ RESUME_FROM = os.environ.get("RESUME_FROM") or None
 OUT_DIR = os.path.join(WORK, f"expert_{EXPERT_ID}" if not BENCH else f"bench_tmp_{EXPERT_ID}")
 transformers.set_seed(SEED)
 
+# ------------------------------------------------------------------------------
+# SỬA LỖI CỦA TRANSFORMERS (có ở 4.57 và 5.16): trong RTDetrForObjectDetectionLoss, query khử nhiễu (denoising)
+# chỉ được tách khỏi các lớp decoder phụ; loss của lớp decoder CUỐI vẫn dùng logits/pred_boxes gồm cả
+# query khử nhiễu (300 + 198 = 498 query). Bộ ghép Hungarian vì thế ghép GT vào query khử nhiễu (vốn nằm sát GT),
+# 300 query thật của lớp cuối chỉ nhận mục tiêu "nền", và điểm phân loại khi suy luận bị ép về ~0.
+# (Đây là nguyên nhân chuyên gia 2 lần đầu có 0 dự đoán trên val.) Code gốc RT-DETR tách trước khi ghép.
+# ------------------------------------------------------------------------------
+import transformers.loss.loss_utils as _hf_loss_utils
+_HF_RTDETR_LOSS = _hf_loss_utils.LOSS_MAPPING["RTDetrForObjectDetection"]
+_LOSS_FIX_SEEN = {"n": 0}
+
+def rtdetr_loss_fixed(logits, labels, device, pred_boxes, config, outputs_class=None, outputs_coord=None,
+                      *args, denoising_meta_values=None, **kwargs):
+    if denoising_meta_values is not None:
+        n_dn = denoising_meta_values["dn_num_split"][0]  # thứ tự: [query khử nhiễu, query thật]
+        logits, pred_boxes = logits[:, n_dn:], pred_boxes[:, n_dn:]
+        if _LOSS_FIX_SEEN["n"] == 0:
+            assert logits.shape[1] == config.num_queries, (logits.shape, config.num_queries)
+            print(f"[V] Đã tách {n_dn} query khử nhiễu khỏi loss của lớp decoder cuối "
+                  f"(còn {logits.shape[1]} query thật).", flush=True)
+        _LOSS_FIX_SEEN["n"] += 1
+    return _HF_RTDETR_LOSS(logits, labels, device, pred_boxes, config, outputs_class, outputs_coord,
+                           *args, denoising_meta_values=denoising_meta_values, **kwargs)
+
+_hf_loss_utils.LOSS_MAPPING["RTDetrForObjectDetection"] = rtdetr_loss_fixed
+
 
 class BDDDet(Dataset):
     """Augmentation ngẫu nhiên (lật ngang, độ sáng/tương phản/bão hòa) vừa tăng độ bền vừa là nguồn
@@ -128,6 +154,55 @@ class Speed(TrainerCallback):
         self.t[state.global_step] = time.time()
 
 
+class NanGuard(TrainerCallback):
+    """Dừng ngay nếu loss được ghi log không hữu hạn (NaN/Inf). Loss log đã được gộp giữa các GPU,
+    nên mọi tiến trình nhận cùng giá trị và dừng cùng lúc."""
+    def on_log(self, args, state, control, logs=None, **kw):
+        v = (logs or {}).get("loss")
+        if v is not None and not math.isfinite(v):
+            print(f"[X] Loss = {v} ở bước {state.global_step}: dừng train.", flush=True)
+            control.should_training_stop = True
+
+
+PROBE_EVERY = int(os.environ.get("PROBE_EVERY", 2000))
+PROBE_MIN_STEP = int(os.environ.get("PROBE_MIN_STEP", 4000))
+
+
+class ScoreProbe(TrainerCallback):
+    """Kiểm tra sớm: mỗi PROBE_EVERY bước, chạy suy luận trên 32 ảnh TRAIN cố định (không dùng val) và ghi
+    điểm tin cậy cao nhất trung bình + số box > 0.3 vào expert_K_probe.csv. Một mô hình đang học bình thường
+    giữ điểm này cao (ban đầu khoảng 0.85). Từ bước PROBE_MIN_STEP, nếu điểm < 0.1 thì mô hình đang suy biến
+    (như lỗi loss đã sửa ở trên): dừng ngay để không tốn quota. Mọi GPU chạy cùng phép đo trên cùng trọng số
+    nên đưa ra cùng quyết định, không cần trao đổi."""
+    def __init__(self, items, processor):
+        self.proc = processor
+        self.ims = [Image.open(r["file"]).convert("RGB") for r in items[:32]]
+        self.path = os.path.join(WORK, f"expert_{EXPERT_ID}_probe.csv")
+
+    def on_step_end(self, args, state, control, model=None, **kw):
+        if state.global_step % PROBE_EVERY:
+            return
+        m = model.module if hasattr(model, "module") else model
+        was_training = m.training
+        m.eval()
+        with torch.no_grad(), torch.autocast(device_type="cuda", dtype=torch.float16, enabled=torch.cuda.is_available()):
+            inp = self.proc(images=self.ims, return_tensors="pt").to(next(m.parameters()).device)
+            out = m(pixel_values=inp["pixel_values"])
+        s = out.logits.float().sigmoid().amax(dim=-1)                 # [ảnh, query]
+        mean_max = s.amax(dim=1).mean().item(); n_box = int((s > 0.3).sum())
+        if was_training:
+            m.train()
+        if state.is_world_process_zero:
+            new = not os.path.exists(self.path)
+            with open(self.path, "a") as f:
+                f.write(("step,mean_max_score,boxes_over_0.3\n" if new else "") + f"{state.global_step},{mean_max:.4f},{n_box}\n")
+            print(f"[probe] bước {state.global_step}: điểm cao nhất TB {mean_max:.3f}, box > 0.3: {n_box}", flush=True)
+        if state.global_step >= PROBE_MIN_STEP and (not math.isfinite(mean_max) or mean_max < 0.1):
+            if state.is_world_process_zero:
+                print(f"[X] Điểm tin cậy suy biến ({mean_max:.3f} < 0.1): dừng train. Xem expert_{EXPERT_ID}_probe.csv.", flush=True)
+            control.should_training_stop = True
+
+
 def weights_sha256(sd):
     h = hashlib.sha256()
     for k in sorted(sd):
@@ -172,7 +247,7 @@ if __name__ == "__main__":
     trainer = Trainer(model=model, args=args, train_dataset=BDDDet(train_items, processor, augment=True),
                       eval_dataset=None if BENCH else BDDDet(val_monitor, processor, augment=False),
                       data_collator=collate_fn, optimizers=(optimizer, None),
-                      callbacks=[speed] if BENCH else [TimeGuard()])
+                      callbacks=[speed] if BENCH else [TimeGuard(), NanGuard(), ScoreProbe(items, processor)])
     eff_batch = PER_GPU_BATCH * ACCUM * WORLD
     if trainer.is_world_process_zero():
         print("=" * 70)
@@ -202,6 +277,8 @@ if __name__ == "__main__":
                             lr=LR, lr_backbone=LR_BACKBONE, effective_batch=eff_batch, world=WORLD,
                             classes=BDD_CLASSES, rfs_t=stats["rfs_t"], images_per_epoch=len(train_items),
                             split_rule=stats["split_rule"], val_usage="chỉ để xem: không chọn checkpoint, không chỉnh siêu tham số",
+                            rtdetr_loss_fix="tách query khử nhiễu khỏi loss của lớp decoder cuối (lỗi transformers)",
+                            stopped_early=trainer.state.global_step < steps,
                             n_images=stats["n_images"], train_filtered=stats["train_filtered"],
                             kept_boxes_train=stats["kept_boxes"]["train"], weights_sha256=weights_sha256(sd),
                             last_log=trainer.state.log_history[-1],
