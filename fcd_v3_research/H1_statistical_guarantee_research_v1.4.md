@@ -32,17 +32,21 @@ Trong gán nhãn giả có chọn lọc cho phát hiện vật thể trên xe t�
 
 > **H1a (bảo chứng PAC).** Với đơn vị thống kê $U$ do quy tắc R-unit chọn (chuyến đi, hoặc super-block), quy trình Fixed-Sequence LTT trên đường đi $\Lambda_{1D}$ cố định tiên nghiệm chọn ra $\hat\tau$ thỏa
 >
-> $$\mathbb{P}_{\mathcal{D}_{\text{cal}} \sim \mathcal{P}^N}\big(\mathcal{R}(\hat\tau) \le \alpha\big) \ge 1 - \delta, \qquad \alpha = 0.02,\ \delta = 0.05,$$
+> $$
+> \mathbb{P}_{\mathcal{D}_{\text{cal}} \sim \mathcal{P}^N}\big(\mathcal{R}(\hat\tau) \le \alpha\big) \ge 1 - \delta, \qquad \alpha = 0.02,~\delta = 0.05,
+> $$
 >
 > và bảo chứng này **đứng vững khi ngưỡng được dùng trên các khu vực-ngày (super-block) không có trong tập hiệu chuẩn**.
 > *Kiểm chứng:* C0 (cài đặt), C2 trên nhánh B-block và C2b (tiền đề A1 ở cấp super-block), Mục VIII.
 
-> **H1b (sụp đổ khi chia theo frame).** Coi các frame của cùng một video là độc lập làm cỡ mẫu hiệu dụng sụp đổ ($N_{\text{eff}} \ll N_{\text{nominal}}$) và gây rò rỉ ngữ cảnh, khiến LTT tính theo số frame danh nghĩa vi phạm bảo chứng với xác suất vượt rõ $\delta$ trên video mới. Cơ chế này được dự đoán xảy ra khi design effect theo frame vượt biên chịu đựng của HB: $D_{\text{eff}}^{\text{frame}} > D^*_C$ (Mục 5.10).
+> **H1b (sụp đổ khi chia theo frame).** Coi các frame của cùng một video là độc lập làm cỡ mẫu hiệu dụng sụp đổ ($N_{\text{eff}} \ll N_{\text{nominal}}$) và gây rò rỉ ngữ cảnh, khiến LTT tính theo số frame danh nghĩa vi phạm bảo chứng với xác suất vượt rõ $\delta$ trên video mới. Cơ chế này được dự đoán xảy ra khi design effect theo frame vượt biên chịu đựng của HB: $D_{\text{eff}}^{\text{frame}} > D^{\ast}_C$ (Mục 5.10).
 > *Kiểm chứng:* C4, C5 ở mức $\alpha_C = 0.10$ trên bộ MOT 2020.
 
 > **H1c (không tầm thường).** Với detector $\mathcal{M}$ và $\Lambda_{1D}$ đã chọn:
 >
-> $$\mathbb{P}(\hat\tau \ne \emptyset) \ge 1 - \beta,\ \beta = 0.15, \qquad \operatorname{Median}_b\, \rho_{\text{cov}}(\hat\tau_b) \ge \gamma_{\text{cov}} = 0.5,$$
+> $$
+> \mathbb{P}(\hat\tau \ne \emptyset) \ge 1 - \beta,~\beta = 0.15, \qquad \operatorname{Median}_b\thinspace  \rho_{\text{cov}}(\hat\tau_b) \ge \gamma_{\text{cov}} = 0.5,
+> $$
 >
 > với $\rho_{\text{cov}}$ là độ phủ của $\hat\tau$ chia cho độ phủ của baseline plug-in trên cùng lưới (Mục VI.6).
 > *Kiểm chứng:* C3, C3b. Thất bại của H1c không bác bỏ H1a.
@@ -52,7 +56,7 @@ Trong gán nhãn giả có chọn lọc cho phát hiện vật thể trên xe t�
 LTT hợp lệ dưới i.i.d. là kết quả đã chứng minh (Bates et al., 2021; Angelopoulos et al., 2025). H1a là điều kiện tiên quyết cho H2 và H3, không phải đóng góp mới. Đóng góp của H1 nằm ở:
 1. **H1b:** định lượng mức sụp đổ của bảo chứng khi bỏ qua tương quan theo thời gian của video, trên cùng detector và cùng dữ liệu.
 2. **Giao thức chọn đơn vị thống kê** cho dữ liệu video lái xe (R-unit, B-block, C2b) và phép thử đầu-cuối của nó.
-3. **Biên chịu đựng tương quan của HB** ($D^*$) đo trên dữ liệu thật.
+3. **Biên chịu đựng tương quan của HB** ($D^{\ast}$) đo trên dữ liệu thật.
 4. **Phương pháp kiểm chứng một tuyên bố kiểm soát rủi ro:** đường đi kéo dài qua mức trần, quy tắc chạm và độ phân giải của lưới, điều kiện năng lực bằng đối chứng dương (T1b, T2b), và việc tách kiểm tra cài đặt (C0) khỏi kiểm định thực nghiệm (C2 trên B-block).
 
 Về các công trình suy diễn phi tham số trên dữ liệu không trao đổi được (Barber et al., 2023; Oliveira et al., 2024): H1 không đề xuất bất đẳng thức mới cho dữ liệu phụ thuộc, mà chọn lại đơn vị thống kê để phục hồi i.i.d. và kiểm chứng lựa chọn đó.
@@ -65,29 +69,35 @@ Về các công trình suy diễn phi tham số trên dữ liệu không trao đ
 
 | Ký hiệu | Ý nghĩa |
 |---|---|
-| $v$ | một video BDD100K (clip 40 giây); $x_v$ là keyframe tại giây 10, $\mathcal{Y}_v = \{(b_k^{\text{gt}}, c_k)\}$ là nhãn box của keyframe |
+| $v$ | một video BDD100K (clip 40 giây); $x_v$ là keyframe tại giây 10, $\mathcal{Y}_v = \lbrace (b_k^{\text{gt}}, c_k)\rbrace$ là nhãn box của keyframe |
 | $r(v)$ | chuyến đi của $v$ (`rideID`) |
-| $U_r = \{v : r(v) = r\}$ | đơn vị chuyến đi; $m_r = \lvert U_r \rvert$ |
+| $U_r = \lbrace v : r(v) = r\rbrace$ | đơn vị chuyến đi; $m_r = \lvert U_r \rvert$ |
 | $\text{blk}(r), \text{sb}(r)$ | block và super-block của chuyến đi $r$ (Mục VII.P1) |
-| $\mathcal{C}_{\text{eval}}$ | tập lớp đánh giá; với các expert hiện có $\mathcal{C}_{\text{eval}} = \{\text{car}\}$ |
+| $\mathcal{C}_{\text{eval}}$ | tập lớp đánh giá; với các expert hiện có $\mathcal{C}_{\text{eval}} = \lbrace \text{car}\rbrace$ |
 | $\Pi$ | một pool đánh giá (tập hữu hạn đơn vị); $n = \lvert \Pi \rvert$ |
 | $\mathcal{D}_{\text{cal}}$ | tập hiệu chuẩn, $N$ đơn vị |
 
 ### 2.2. Detector, ensemble và tín hiệu
 
-Mỗi expert $e \in \{1, 2, 3\}$ là một RT-DETR (Mục III.3). Với keyframe $x_v$, expert $e$ trả về 300 truy vấn $q$, mỗi truy vấn có box $b_q^{e}$, điểm lớp car $s_q^{e} = \sigma(\ell_{q,\ell^*}^{e})$ (sigmoid của logit tại chỉ số lớp $\ell^*$, Mục VI.7) và đặc trưng decoder $h_q^{e} \in \mathbb{R}^{256}$. Detector đang kiểm định là $\mathcal{M} = $ expert anchor $a$; tập còn lại là $E' = \{1,2,3\} \setminus \{a\}$.
+Mỗi expert $e \in \lbrace 1, 2, 3\rbrace$ là một RT-DETR (Mục III.3). Với keyframe $x_v$, expert $e$ trả về 300 truy vấn $q$, mỗi truy vấn có box $b_q^{e}$, điểm lớp car $s_q^{e} = \sigma(\ell_{q,\ell^{\ast}}^{e})$ (sigmoid của logit tại chỉ số lớp $\ell^{\ast}$, Mục VI.7) và đặc trưng decoder $h_q^{e} \in \mathbb{R}^{256}$. Detector đang kiểm định $\mathcal{M}$ là expert anchor $a$; tập còn lại là $E' = \lbrace 1,2,3\rbrace  \setminus \lbrace a\rbrace$.
 
 Với mỗi truy vấn $q$ của anchor có $s_q^{a} \ge 0.004$:
 
-$$s_{\text{cls}}(q) = s_q^{a}, \qquad s_{\text{loc}}(q) = \frac{1}{\lvert E' \rvert}\sum_{e \in E'} \max_{q' : s_{q'}^{e} \ge 0.1} \operatorname{IoU}(b_q^{a}, b_{q'}^{e}),$$
+$$
+s_{\text{cls}}(q) = s_q^{a}, \qquad s_{\text{loc}}(q) = \frac{1}{\lvert E' \rvert}\sum_{e \in E'} \max_{q' : s_{q'}^{e} \ge 0.1} \operatorname{IoU}(b_q^{a}, b_{q'}^{e}),
+$$
 
-$$s_{\text{fcd}}(q) = \frac{1}{\lvert E' \rvert}\sum_{e \in E'} \begin{cases} 1 - \cos\big(h_q^{a}, h_{q^\star_e}^{e}\big) & \text{nếu } \max \operatorname{IoU} > 0 \\ 1 & \text{ngược lại,}\end{cases}$$
+$$
+s_{\text{fcd}}(q) = \frac{1}{\lvert E' \rvert}\sum_{e \in E'} d_e(q), \qquad d_e(q) = 1 - \cos\big(h_q^{a}, h_{q^\star_e}^{e}\big)
+$$
 
-với $q^\star_e$ là truy vấn của expert $e$ đạt IoU lớn nhất (quy ước $\max \emptyset = 0$).
+với $q^\star_e$ là truy vấn của expert $e$ đạt IoU lớn nhất với box $q$; nếu không có truy vấn nào của expert $e$ chồng lên $q$ (IoU lớn nhất bằng 0, quy ước $\max \emptyset = 0$) thì đặt $d_e(q) = 1$.
 
 **Tập chấp nhận** tại $\tau = (\tau_{\text{cls}}, \tau_{\text{loc}}, \tau_{\text{fcd}})$:
 
-$$\mathcal{A}_v(\tau) = \{q : s_{\text{cls}}(q) \ge \tau_{\text{cls}},\ s_{\text{loc}}(q) \ge \tau_{\text{loc}},\ s_{\text{fcd}}(q) \le \tau_{\text{fcd}}\}.$$
+$$
+\mathcal{A}_v(\tau) = \lbrace q : s_{\text{cls}}(q) \ge \tau_{\text{cls}},~s_{\text{loc}}(q) \ge \tau_{\text{loc}},~s_{\text{fcd}}(q) \le \tau_{\text{fcd}}\rbrace .
+$$
 
 $s_{\text{fcd}}$ ở đây là định nghĩa vận hành cho H1; H2 có thể thay bằng tín hiệu riêng. Tính hợp lệ của H1 không phụ thuộc chất lượng tín hiệu (Theorem 1 chỉ cần A5).
 
@@ -95,15 +105,21 @@ $s_{\text{fcd}}$ ở đây là định nghĩa vận hành cho H1; H2 có thể t
 
 Quy tắc ghép tham lam (giữ nguyên bản 1.2): sắp các box chấp nhận theo $s_{\text{cls}}$ giảm dần; mỗi box ghép với nhãn chưa dùng cùng lớp có IoU lớn nhất và $\ge \theta_{\text{IoU}}$; hòa thì chọn nhãn đứng trước trong file. Gọi $\text{TP}_v(\tau)$ là số box được ghép,
 
-$$V_v(\tau) = \lvert \mathcal{A}_v(\tau) \rvert - \text{TP}_v(\tau), \qquad V_v^{\text{halluc}}(\tau) = \#\{q \in \mathcal{A}_v(\tau) \text{ không ghép}: \max_k \operatorname{IoU}(b_q, b_k^{\text{gt}}) < 0.5\}.$$
+$$
+V_v(\tau) = \lvert \mathcal{A}_v(\tau) \rvert - \text{TP}_v(\tau), \qquad V_v^{\text{halluc}}(\tau) = \lvert\lbrace q \in \mathcal{A}_v(\tau) \text{ không ghép}: \max_k \operatorname{IoU}(b_q, b_k^{\text{gt}}) < 0.5\rbrace\rvert .
+$$
 
 *Tính chất tiền tố.* Vì $\mathcal{A}_v(\tau)$ đơn điệu theo $\tau_{\text{cls}}$ và việc ghép một box chỉ phụ thuộc các box có điểm cao hơn, kết quả ghép tại mọi $\tau_{\text{cls}}$ là tiền tố của một lần ghép duy nhất cho mỗi cặp $(\tau_{\text{loc}}, \tau_{\text{fcd}})$.
 
 ### 2.4. Thống kê đơn vị và rủi ro
 
-$$N_r^{\text{acc}}(\tau) = \sum_{v \in U_r} \lvert \mathcal{A}_v(\tau) \rvert, \quad V_r(\tau) = \sum_{v \in U_r} V_v(\tau), \quad Z_r(\tau) = \text{FDP}_r(\tau) = \frac{V_r(\tau)}{\max(N_r^{\text{acc}}(\tau), 1)} \in [0, 1].$$
+$$
+N_r^{\text{acc}}(\tau) = \sum_{v \in U_r} \lvert \mathcal{A}_v(\tau) \rvert, \quad V_r(\tau) = \sum_{v \in U_r} V_v(\tau), \quad Z_r(\tau) = \text{FDP}_r(\tau) = \frac{V_r(\tau)}{\max(N_r^{\text{acc}}(\tau), 1)} \in [0, 1].
+$$
 
-$$\mathcal{R}(\tau) = \mathbb{E}_{U \sim \mathcal{P}}[Z_U(\tau)], \qquad \widehat{\mathcal{R}}_N(\tau) = \frac{1}{N}\sum_{i=1}^{N} Z_i(\tau), \qquad \mathcal{R}_{\Pi}(\tau) = \frac{1}{\lvert \Pi \rvert}\sum_{r \in \Pi} Z_r(\tau).$$
+$$
+\mathcal{R}(\tau) = \mathbb{E}_{U \sim \mathcal{P}}[Z_U(\tau)], \qquad \widehat{\mathcal{R}}_N(\tau) = \frac{1}{N}\sum_{i=1}^{N} Z_i(\tau), \qquad \mathcal{R}_{\Pi}(\tau) = \frac{1}{\lvert \Pi \rvert}\sum_{r \in \Pi} Z_r(\tau).
+$$
 
 **Micro-FDP** (mô tả): $\text{FDP}_{\text{pool}}(\tau; S) = \sum_{r \in S} V_r / \max(\sum_{r \in S} N_r^{\text{acc}}, 1)$.
 
@@ -139,7 +155,7 @@ $$\mathcal{R}(\tau) = \mathbb{E}_{U \sim \mathcal{P}}[Z_U(\tau)], \qquad \wideha
 | Vai trò | Nguồn | Kích thước | Dùng cho | Trạng thái nhãn |
 |---|---|---|---|---|
 | Huấn luyện detector | 100K train | 69.863 ảnh khớp nhãn (Kaggle) | trọng số expert | đã dùng để huấn luyện |
-| Meta-Train $\mathcal{M}$ | 3.000 ride ngẫu nhiên của split test | 5.027 ảnh | P3.0, lưới, θ, đường đi, baseline, $D^*$ | đã đọc (hợp lệ) |
+| Meta-Train $\mathcal{M}$ | 3.000 ride ngẫu nhiên của split test | 5.027 ảnh | P3.0, lưới, θ, đường đi, baseline, $D^{\ast}$ | đã đọc (hợp lệ) |
 | Pool V | toàn bộ BDD Val trừ 1 ride chung với train | 5.930 ride, 9.995 ảnh, 2.349 super-block | Exp A tầng 2, kiểm tra công cụ, lặp lại thăm dò | đã đọc ở bản 1.3 → chỉ thăm dò và chẩn đoán |
 | **Pool T** | split test trừ Meta-Train, có metadata | **9.033 ride**, 2.943 super-block | **kiểm định xác nhận H1a, H1c** | **chưa đọc** |
 | MOT$^\star$ | MOT 2020 train+val, trừ clip có ride trong tập huấn luyện của $\mathcal{M}_C$ | tối đa 1.600 clip × 200 frame | Exp A tầng 1, Exp C (H1b) | chưa tải |
@@ -171,15 +187,19 @@ Lý do dùng Pool T làm phép thử xác nhận: các quy tắc mới của b�
 
 Kiểm định $H_0(\tau): \mathcal{R}(\tau) > \alpha$ với $s = \widehat{\mathcal{R}}_N(\tau)$:
 
-$$p_{\text{Hoeff}} = \exp\big(-N\, d_{\text{KL}}(s \wedge \alpha, \alpha)\big), \qquad d_{\text{KL}}(a, b) = a\ln\frac{a}{b} + (1-a)\ln\frac{1-a}{1-b},$$
+$$
+p_{\text{Hoeff}} = \exp\big(-N\thinspace  d_{\text{KL}}(s \wedge \alpha, \alpha)\big), \qquad d_{\text{KL}}(a, b) = a\ln\frac{a}{b} + (1-a)\ln\frac{1-a}{1-b},
+$$
 
-$$p_{\text{Bentkus}} = \min\Big(1,\ e \cdot \mathbb{P}\big(\text{Bin}(N, \alpha) \le \lceil N s \rceil\big)\Big), \qquad p_{\text{HB}} = \min(p_{\text{Hoeff}}, p_{\text{Bentkus}}).$$
+$$
+p_{\text{Bentkus}} = \min\Big(1,~e \cdot \mathbb{P}\big(\text{Bin}(N, \alpha) \le \lceil N s \rceil\big)\Big), \qquad p_{\text{HB}} = \min(p_{\text{Hoeff}}, p_{\text{Bentkus}}).
+$$
 
 Nguồn: Hoeffding (1963, Định lý 1, dạng KL), Bentkus (2004, Định lý 1.1), kết hợp thành HB ở Bates et al. (2021) và Angelopoulos et al. (2025).
 
 ### 5.2. Ngưỡng chứng nhận tối đa
 
-$k_{\max}(N) = \max\{k : p_{\text{HB}}(k/N) \le \delta\}$. Giá trị (đã kiểm bằng code độc lập, `test_h1core.py`):
+$k_{\max}(N) = \max\lbrace k : p_{\text{HB}}(k/N) \le \delta\rbrace$. Giá trị (đã kiểm bằng code độc lập, `test_h1core.py`):
 
 | $N$ | 148 | 149 | 400 | 800 | 1.500 | 4.000 | 80.000 |
 |---|---|---|---|---|---|---|---|
@@ -193,7 +213,7 @@ Mốc $N \ge 149$ đến từ nhánh Hoeffding-KL: tại $s = 0$, $p_{\text{Hoef
 
 ### 5.3. Đối ngẫu p-value và UCB
 
-$\text{UCB}_\delta(\tau) = \inf\{r : p_{\text{HB}}(r; s) \le \delta\}$, và $\text{UCB}_\delta(\tau) \le \alpha \iff p_{\text{HB}}(\alpha; s) \le \delta$ do $p_{\text{HB}}$ đơn điệu theo $r$. Đây là phép nghịch đảo kiểm định chuẩn (Lehmann & Romano, 2005, Ch. 3).
+$\text{UCB}_\delta(\tau) = \inf\lbrace r : p_{\text{HB}}(r; s) \le \delta\rbrace$, và $\text{UCB}_\delta(\tau) \le \alpha \iff p_{\text{HB}}(\alpha; s) \le \delta$ do $p_{\text{HB}}$ đơn điệu theo $r$. Đây là phép nghịch đảo kiểm định chuẩn (Lehmann & Romano, 2005, Ch. 3).
 
 ### 5.4. Fixed-Sequence LTT
 
@@ -203,7 +223,7 @@ Với $\Lambda_{1D} = (\tau^{(1)}, \dots, \tau^{(K)})$: với $j = 1, 2, \dots$,
 
 > **Theorem 1.** Giả sử A1, A2, A5, và $Z_i(\tau) \in [0, 1]$. Khi đó $\mathbb{P}\big(\mathcal{R}(\hat\tau) > \alpha\big) \le \delta$, với quy ước $\mathcal{R}(\emptyset) = 0$.
 
-*Chứng minh.* Gọi $\mathcal{H}_0 = \{j : \mathcal{R}(\tau^{(j)}) > \alpha\}$; do A5, $\mathcal{H}_0$ là tập cố định. Nếu $\mathcal{H}_0 = \emptyset$ thì vi phạm bất khả. Ngược lại đặt $j^* = \min \mathcal{H}_0$. Fixed-sequence chỉ chọn được một điểm thuộc $\mathcal{H}_0$ nếu đã bác bỏ $H_0(\tau^{(j^*)})$, nên $\mathbb{P}(\mathcal{R}(\hat\tau) > \alpha) \le \mathbb{P}(p(\tau^{(j^*)}) \le \delta) \le \delta$, bất đẳng thức cuối do $p_{\text{HB}}$ là p-value hợp lệ dưới A1 (Mục 5.1). $\blacksquare$ (Cùng cấu trúc chứng minh với Angelopoulos et al., 2025, cho trường hợp fixed sequence.)
+*Chứng minh.* Gọi $\mathcal{H}_0 = \lbrace j : \mathcal{R}(\tau^{(j)}) > \alpha\rbrace$; do A5, $\mathcal{H}_0$ là tập cố định. Nếu $\mathcal{H}_0 = \emptyset$ thì vi phạm bất khả. Ngược lại đặt $j^{\ast} = \min \mathcal{H}_0$. Fixed-sequence chỉ chọn được một điểm thuộc $\mathcal{H}_0$ nếu đã bác bỏ $H_0(\tau^{(j^{\ast})})$, nên $\mathbb{P}(\mathcal{R}(\hat\tau) > \alpha) \le \mathbb{P}(p(\tau^{(j^{\ast})}) \le \delta) \le \delta$, bất đẳng thức cuối do $p_{\text{HB}}$ là p-value hợp lệ dưới A1 (Mục 5.1). $\blacksquare$ (Cùng cấu trúc chứng minh với Angelopoulos et al., 2025, cho trường hợp fixed sequence.)
 
 Bảo chứng là xác suất biên theo $\mathcal{D}_{\text{cal}}$, không phải bảo chứng có điều kiện trên một tập hiệu chuẩn cụ thể (Vovk, 2012).
 
@@ -211,13 +231,15 @@ Bảo chứng là xác suất biên theo $\mathcal{D}_{\text{cal}}$, không ph�
 
 > **Mệnh đề 2 (thiết kế dựa trên dữ liệu độc lập).** Nếu $G$, $\theta_{\text{IoU}}$, $\Lambda_{1D}$ và đơn vị thống kê là hàm đo được của một tập dữ liệu $\mathcal{S}$ độc lập với $\mathcal{D}_{\text{cal}}$, thì Theorem 1 vẫn đúng.
 
-*Chứng minh.* Điều kiện hóa trên $\mathcal{S}$, mọi thành phần của thiết kế cố định, Theorem 1 cho $\mathbb{P}(\mathcal{R}(\hat\tau) > \alpha \mid \mathcal{S}) \le \delta$; lấy kỳ vọng. Đây là lập luận tách dữ liệu chuẩn (Cox, 1975). $\blacksquare$ Hệ quả: quy tắc chạm, quy tắc độ phân giải, quy tắc $r^*$, P3.0 (chỉ dùng Meta-Train) và R-unit (dùng Pool V, rời rạc với Pool T) không làm mất tính hợp lệ trên Pool T. Các điều kiện T1, T1b, T2, T2b và quy tắc CI chỉ ảnh hưởng **quyết định**, không ảnh hưởng $\hat\tau$, nên cũng không ảnh hưởng tính hợp lệ.
+*Chứng minh.* Điều kiện hóa trên $\mathcal{S}$, mọi thành phần của thiết kế cố định, Theorem 1 cho $\mathbb{P}(\mathcal{R}(\hat\tau) > \alpha \mid \mathcal{S}) \le \delta$; lấy kỳ vọng. Đây là lập luận tách dữ liệu chuẩn (Cox, 1975). $\blacksquare$ Hệ quả: quy tắc chạm, quy tắc độ phân giải, quy tắc $r^{\ast}$, P3.0 (chỉ dùng Meta-Train) và R-unit (dùng Pool V, rời rạc với Pool T) không làm mất tính hợp lệ trên Pool T. Các điều kiện T1, T1b, T2, T2b và quy tắc CI chỉ ảnh hưởng **quyết định**, không ảnh hưởng $\hat\tau$, nên cũng không ảnh hưởng tính hợp lệ.
 
 > **Mệnh đề 3 (chia fold).** Chia $\mathcal{D}_{\text{cal}}$ thành 3 fold độc lập; fold 1, 2 chọn $\hat\tau_{\text{cls}}, \hat\tau_{\text{loc}}$, fold 3 chạy fixed-sequence trên $\tau_{\text{fcd}}$. Khi đó $\mathbb{P}(\mathcal{R}(\hat\tau) > \alpha) \le \delta$. *Chứng minh:* điều kiện hóa trên fold 1, 2 rồi áp dụng Theorem 1 trên fold 3 (như bản 1.2). Phương án phụ; tại $N/3 = 500$, $k_{\max} = 3$.
 
-> **Mệnh đề 4 (tính hợp lệ có điều kiện trên pool hữu hạn).** Cố định một pool $\Pi$ với các giá trị $\{Z_r(\tau)\}_{r \in \Pi}$, cùng $\mathcal{M}$ và $\Lambda_{1D}$ (độc lập với phép rút). Rút $\mathcal{D}_{\text{cal}}$ là mẫu ngẫu nhiên đơn giản không hoàn lại $N$ đơn vị từ $\Pi$. Khi đó, với $\hat\tau$ của Fixed-Sequence LTT dùng p-value Hoeffding-KL,
+> **Mệnh đề 4 (tính hợp lệ có điều kiện trên pool hữu hạn).** Cố định một pool $\Pi$ với các giá trị $\lbrace Z_r(\tau)\rbrace _{r \in \Pi}$, cùng $\mathcal{M}$ và $\Lambda_{1D}$ (độc lập với phép rút). Rút $\mathcal{D}_{\text{cal}}$ là mẫu ngẫu nhiên đơn giản không hoàn lại $N$ đơn vị từ $\Pi$. Khi đó, với $\hat\tau$ của Fixed-Sequence LTT dùng p-value Hoeffding-KL,
 >
-> $$\mathbb{P}\big(\mathcal{R}_{\Pi}(\hat\tau) > \alpha\big) \le \delta,$$
+> $$
+> \mathbb{P}\big(\mathcal{R}_{\Pi}(\hat\tau) > \alpha\big) \le \delta,
+> $$
 >
 > bất kể cấu trúc tương quan giữa các đơn vị trong $\Pi$.
 
@@ -235,21 +257,27 @@ Bảo chứng là xác suất biên theo $\mathcal{D}_{\text{cal}}$, không ph�
 
 ### 5.8. Micro-FDP qua hàm mất mát phụ
 
-$L_r(\tau) = \big(V_r(\tau) - \alpha N_r^{\text{acc}}(\tau)\big)/C_{\max} + \alpha$, với $C_{\max} = Q_{\max} K_{\max}^{\text{frames}}$; $\mathbb{E}[L] \le \alpha \iff \mathbb{E}[V] \le \alpha\, \mathbb{E}[N^{\text{acc}}]$. Không dùng trong H1 vì HB rất bảo thủ trên $L$; hướng mở rộng: bất đẳng thức thích ứng phương sai (Waudby-Smith & Ramdas, 2024).
+$L_r(\tau) = \big(V_r(\tau) - \alpha N_r^{\text{acc}}(\tau)\big)/C_{\max} + \alpha$, với $C_{\max} = Q_{\max} K_{\max}^{\text{frames}}$; $\mathbb{E}[L] \le \alpha \iff \mathbb{E}[V] \le \alpha\thinspace  \mathbb{E}[N^{\text{acc}}]$. Không dùng trong H1 vì HB rất bảo thủ trên $L$; hướng mở rộng: bất đẳng thức thích ứng phương sai (Waudby-Smith & Ramdas, 2024).
 
 ### 5.9. Design effect và ICC
 
 Với cụm kích thước không đều $m_g$:
 
-$$\tilde m = \frac{\sum_g m_g^2}{\sum_g m_g}, \qquad D_{\text{eff}} = 1 + (\tilde m - 1)\,\rho_{\text{ICC}}$$
+$$
+\tilde m = \frac{\sum_g m_g^2}{\sum_g m_g}, \qquad D_{\text{eff}} = 1 + (\tilde m - 1)\thinspace \rho_{\text{ICC}}
+$$
 
 (Kish, 1965; dạng cụm không đều: Eldridge et al., 2006). ICC ước lượng bằng ANOVA một chiều cho cụm không đều (Searle et al., 1992; Donner, 1986):
 
-$$\widehat{\text{ICC}} = \frac{\text{MSB} - \text{MSW}}{\text{MSB} + (n_0 - 1)\text{MSW}}, \qquad n_0 = \frac{1}{G - 1}\Big(n - \frac{\sum_g m_g^2}{n}\Big).$$
+$$
+\widehat{\text{ICC}} = \frac{\text{MSB} - \text{MSW}}{\text{MSB} + (n_0 - 1)\text{MSW}}, \qquad n_0 = \frac{1}{G - 1}\Big(n - \frac{\sum_g m_g^2}{n}\Big).
+$$
 
 **Design effect thực nghiệm** (C2b, D10): tại điểm $\tau_{A1}$ của $\Lambda_{1D}$ có mức lưới $\alpha_k = \alpha$,
 
-$$\hat D_{\text{eff}}^{\text{emp}} = \frac{\widehat{\operatorname{Var}}_{\text{B-block}}\big(\widehat{\mathcal{R}}_{\text{cal}}(\tau_{A1})\big)}{\widehat{\operatorname{Var}}_{\text{B-rand}}\big(\widehat{\mathcal{R}}_{\text{cal}}(\tau_{A1})\big)},$$
+$$
+\hat D_{\text{eff}}^{\text{emp}} = \frac{\widehat{\operatorname{Var}}_{\text{B-block}}\big(\widehat{\mathcal{R}}_{\text{cal}}(\tau_{A1})\big)}{\widehat{\operatorname{Var}}_{\text{B-rand}}\big(\widehat{\mathcal{R}}_{\text{cal}}(\tau_{A1})\big)},
+$$
 
 CI bằng bootstrap độc lập theo phân hoạch của từng nhánh (Field & Welsh, 2007, cho lý do lấy mẫu lại ở cấp cụm).
 
@@ -257,9 +285,11 @@ CI bằng bootstrap độc lập theo phân hoạch của từng nhánh (Field &
 
 Giả sử $\widehat{\mathcal{R}}_N \approx \mathcal{N}\big(\mathcal{R}, D_{\text{eff}}\sigma_\alpha^2/N\big)$ (CLT cho trung bình mẫu cụm; Lehmann, 1999). HB chỉ chứng nhận khi $\widehat{\mathcal{R}}_N \le k_{\max}(N)/N$, nên một điểm có $\mathcal{R}$ vừa vượt $\alpha$ bị chấp nhận nhầm với xác suất $\le \delta$ khi
 
-$$D_{\text{eff}} \le D^* \triangleq \frac{N\,\big(\alpha - k_{\max}(N)/N\big)^2}{z_{1-\delta}^2\, \sigma_\alpha^2},$$
+$$
+D_{\text{eff}} \le D^{\ast} \triangleq \frac{N\thinspace \big(\alpha - k_{\max}(N)/N\big)^2}{z_{1-\delta}^2\thinspace  \sigma_\alpha^2},
+$$
 
-với $\sigma_\alpha^2$ là phương sai của $Z$ tại điểm đầu tiên của $\Lambda_{1D}$ vượt $\alpha$. $D^*_C$ tính tương tự cho arm frame của Exp C. Mô phỏng (E7) cho thấy $D^*$ đúng chiều nhưng không bảo thủ đồng đều, nên mọi quy tắc dùng nó đều kèm biên an toàn $D_{\text{thr}} = \min(2, \hat D^*)$.
+với $\sigma_\alpha^2$ là phương sai của $Z$ tại điểm đầu tiên của $\Lambda_{1D}$ vượt $\alpha$. $D^{\ast}_C$ tính tương tự cho arm frame của Exp C. Mô phỏng (E7) cho thấy $D^{\ast}$ đúng chiều nhưng không bảo thủ đồng đều, nên mọi quy tắc dùng nó đều kèm biên an toàn $D_{\text{thr}} = \min(2, \hat D^{\ast})$.
 
 ### 5.11. Khoảng tin cậy
 
@@ -273,23 +303,27 @@ với $\sigma_\alpha^2$ là phương sai của $Z$ tại điểm đầu tiên c�
 
 ### 6.1. Lưới ứng viên
 
-* $\tau_{\text{cls}}$: thang $\{0.004, 0.0045, \dots, 0.05\}$ (bước 0.0005) $\cup \{0.10, 0.15, \dots, 0.95, 0.97, 0.99\}$.
-* $\tau_{\text{loc}} \in \{0, 0.5, 0.6, 0.7, 0.8, 0.9\}$.
-* $\tau_{\text{fcd}} \in \{+\infty, q_{0.90}, q_{0.75}, q_{0.50}, q_{0.25}\}$, với $q_p$ là phân vị của $s_{\text{fcd}}$ trên các box Meta-Train có $s_{\text{cls}} \ge 0.3$.
+* $\tau_{\text{cls}}$: thang $\lbrace 0.004, 0.0045, \dots, 0.05\rbrace$ (bước 0.0005) $\cup \lbrace 0.10, 0.15, \dots, 0.95, 0.97, 0.99\rbrace$.
+* $\tau_{\text{loc}} \in \lbrace 0, 0.5, 0.6, 0.7, 0.8, 0.9\rbrace$.
+* $\tau_{\text{fcd}} \in \lbrace +\infty, q_{0.90}, q_{0.75}, q_{0.50}, q_{0.25}\rbrace$, với $q_p$ là phân vị của $s_{\text{fcd}}$ trên các box Meta-Train có $s_{\text{cls}} \ge 0.3$.
 
 ### 6.2. Quy tắc chạm và quy tắc độ phân giải
 
 Đặt $\widehat{\text{FDP}}_{\text{meta}}(\tau) = \mathcal{R}_{\mathcal{M}}(\tau)$. Đi xuống thang $t = 0.05, 0.0495, \dots, 0.004$ và dừng ở
 
-$$t_{\min} = \max\Big\{t : \max_{\tau \in G(t)} \widehat{\text{FDP}}_{\text{meta}}(\tau) \ge 2\alpha_C\Big\}, \qquad G(t) = \{\tau : \tau_{\text{cls}} \ge t\}.$$
+$$
+t_{\min} = \max\Big\lbrace t : \max_{\tau \in G(t)} \widehat{\text{FDP}}_{\text{meta}}(\tau) \ge 2\alpha_C\Big\rbrace , \qquad G(t) = \lbrace \tau : \tau_{\text{cls}} \ge t\rbrace .
+$$
 
 $G = G(t_{\min})$ chứa **mọi** mức của thang từ $t_{\min}$ trở lên (quy tắc độ phân giải). Đăng ký kèm độ phân giải thực tế: rủi ro Meta-Train của điểm cuối $\le \alpha$ và điểm đầu $> \alpha$ trên $\Lambda_{1D}$, và tương tự quanh $\alpha_C$ trên $\Lambda^C_{1D}$. *Lý do:* điểm số DETR fine-tune có dạng hai đỉnh (Meta-Train: 2,0–2,8 truy vấn/ảnh có điểm $\ge 0.05$ nhưng 11,3–13,3 truy vấn có điểm $\ge 0.005$). Lưới $\tau_{\text{cls}} \ge 0.05$ chỉ chạm Macro-FDP 0.014–0.022; lưới thô tạo khoảng nhảy rủi ro quanh $\alpha$ làm phép thử mất năng lực (ablation D11).
 
 ### 6.3. Chọn $\theta_{\text{IoU}}$
 
-Giữ $\theta_{\text{IoU}} = 0.75$ nếu tồn tại $\tau \in G$ với $\widehat{\text{FDP}}_{\text{meta}}(\tau) \le r^*(\tau)$ và $\rho_{\text{cov,meta}}(\tau) \ge 0.6$, trong đó
+Giữ $\theta_{\text{IoU}} = 0.75$ nếu tồn tại $\tau \in G$ với $\widehat{\text{FDP}}_{\text{meta}}(\tau) \le r^{\ast}(\tau)$ và $\rho_{\text{cov,meta}}(\tau) \ge 0.6$, trong đó
 
-$$r^*(\tau) = \frac{k_{\max}(N)}{N} - z_{0.95}\frac{\hat\sigma(\tau)}{\sqrt N};$$
+$$
+r^{\ast}(\tau) = \frac{k_{\max}(N)}{N} - z_{0.95}\frac{\hat\sigma(\tau)}{\sqrt N};
+$$
 
 ngược lại dùng 0.5.
 
@@ -297,10 +331,12 @@ ngược lại dùng 0.5.
 
 Với lưới rủi ro tăng dần $(\alpha_k)$:
 
-$$\tau^{(k)} = \operatorname*{arg\,max}_{\tau \in G,\ \widehat{\text{FDP}}_{\text{meta}}(\tau) \le \alpha_k} \widehat{\operatorname{Cov}}_{\text{meta}}(\tau),$$
+$$
+\tau^{(k)} = \arg\max_{\tau \in G,~\widehat{\text{FDP}}_{\text{meta}}(\tau) \le \alpha_k} \widehat{\operatorname{Cov}}_{\text{meta}}(\tau),
+$$
 
 phá hòa theo $\widehat{\text{FDP}}_{\text{meta}}$ nhỏ hơn rồi theo chỉ số lưới; bỏ bước không khả thi và điểm trùng liên tiếp.
-* **$\Lambda_{1D}$** ($\alpha = 0.02$): lõi $0.002 \to u(N)$ bước 0.001 với $u(N) = \min\big(0.015,\ \lfloor 1000\,(k_{\max}(N)/N + 0.003)\rfloor/1000\big)$; kéo dài $u(N) + 0.001 \to 0.030$ bước 0.001 rồi $0.0325 \to 0.040$ bước 0.0025.
+* **$\Lambda_{1D}$** ($\alpha = 0.02$): lõi $0.002 \to u(N)$ bước 0.001 với $u(N) = \min\big(0.015,~\lfloor 1000\thinspace (k_{\max}(N)/N + 0.003)\rfloor/1000\big)$; kéo dài $u(N) + 0.001 \to 0.030$ bước 0.001 rồi $0.0325 \to 0.040$ bước 0.0025.
 * **$\Lambda_{1D}^{C}$** ($\alpha_C = 0.10$): $0.005 \to 0.090$ bước 0.005; $0.0925 \to 0.120$ bước 0.0025; $0.13 \to 0.20$ bước 0.01.
 
 ### 6.5. Điểm tham chiếu
@@ -309,16 +345,18 @@ $\tau_{\text{ref}}$: điểm có mức lưới gần 0.008 nhất trên đườn
 
 ### 6.6. Baseline
 
-* **$\tau_{\text{base}}^{G}$ (dùng cho C3b, mới ở bản 1.4):** plug-in không bảo chứng trên **cùng** lưới: $\tau_{\text{base}}^{G} = \arg\max_{\tau \in G,\ \widehat{\text{FDP}}_{\text{meta}}(\tau) \le \alpha} \widehat{\operatorname{Cov}}_{\text{meta}}(\tau)$, tức điểm Pareto tại mức $\alpha$. Khi đó
+* **$\tau_{\text{base}}^{G}$ (dùng cho C3b, mới ở bản 1.4):** plug-in không bảo chứng trên **cùng** lưới: $\tau_{\text{base}}^{G} = \arg\max_{\tau \in G,~\widehat{\text{FDP}}_{\text{meta}}(\tau) \le \alpha} \widehat{\operatorname{Cov}}_{\text{meta}}(\tau)$, tức điểm Pareto tại mức $\alpha$. Khi đó
 
-  $$\rho_{\text{cov}}(\hat\tau_b) = \frac{\operatorname{Cov}(\hat\tau_b;\ \Pi \setminus \mathcal{D}_{\text{cal}}^{(b)})}{\operatorname{Cov}(\tau_{\text{base}}^{G};\ \Pi \setminus \mathcal{D}_{\text{cal}}^{(b)})}$$
+  $$
+  \rho_{\text{cov}}(\hat\tau_b) = \frac{\operatorname{Cov}(\hat\tau_b;~\Pi \setminus \mathcal{D}_{\text{cal}}^{(b)})}{\operatorname{Cov}(\tau_{\text{base}}^{G};~\Pi \setminus \mathcal{D}_{\text{cal}}^{(b)})}
+  $$
 
   đo đúng **cái giá của bảo chứng**: phần độ phủ mất đi khi đòi hỏi chứng nhận thay vì chỉ ước lượng điểm.
-* **$\tau_{\text{base}}^{\text{cls}}$ (mô tả):** chỉ lọc confidence, ngưỡng nhỏ nhất trên $\{0.05, \dots, 0.95, 0.99\}$ có $\widehat{\text{FDP}}_{\text{meta}} \le \alpha$ (baseline của bản 1.3).
+* **$\tau_{\text{base}}^{\text{cls}}$ (mô tả):** chỉ lọc confidence, ngưỡng nhỏ nhất trên $\lbrace 0.05, \dots, 0.95, 0.99\rbrace$ có $\widehat{\text{FDP}}_{\text{meta}} \le \alpha$ (baseline của bản 1.3).
 
 ### 6.7. Chỉ số lớp (P3.0)
 
-Trên 300 ảnh Meta-Train: $\ell^* = \arg\max_\ell \#\{q : \sigma(\ell_{q,\ell}) \ge 0.5,\ \max_k \operatorname{IoU}(b_q, b_k^{\text{car}}) \ge 0.5\}$. Kiểm tra ghi nhớ: so precision tại $\ell^*$ trên 150 ảnh 100K train với 150 ảnh Meta-Train.
+Trên 300 ảnh Meta-Train: $\ell^{\ast} = \arg\max_\ell \lvert\lbrace q : \sigma(\ell_{q,\ell}) \ge 0.5,~\max_k \operatorname{IoU}(b_q, b_k^{\text{car}}) \ge 0.5\rbrace\rvert$. Kiểm tra ghi nhớ: so precision tại $\ell^{\ast}$ trên 150 ảnh 100K train với 150 ảnh Meta-Train.
 
 ---
 
@@ -329,7 +367,7 @@ Trên 300 ảnh Meta-Train: $\ell^* = \arg\max_\ell \#\{q : \sigma(\ell_{q,\ell}
 1. Ride = `rideID`; xác minh tiền tố tên video ↔ `rideID` một-một; báo cáo số ride, phân bố số clip mỗi ride, khoảng cách thời gian giữa các clip cùng ride.
 2. **Vị trí và thời điểm của ride:** fix GPS đầu tiên và `startTime` của clip sớm nhất trong ride.
 3. **Giờ địa phương:** vùng theo hộp kinh-vĩ độ đăng ký trước: America/Los_Angeles (kinh độ $-130$ đến $-100$), America/New_York ($-90$ đến $-60$), Asia/Jerusalem (kinh độ 29–40, vĩ độ 27–36); ngoài các hộp: UTC (44 video).
-4. **Lưới không gian chung gốc:** $x = 111.32\cos(\varphi_{\text{ref}})\,\lambda$, $y = 110.574\,\varphi$ (km), $\varphi_{\text{ref}}$ cố định theo vùng (40.7 / 37.8 / 32.0). **Block** = ô $\lfloor x \rfloor, \lfloor y \rfloor$ × ngày × khung 2 giờ địa phương; **super-block** = ô $\lfloor x/5 \rfloor, \lfloor y/5 \rfloor$ × ngày lịch địa phương. Mỗi block nằm trọn trong một super-block.
+4. **Lưới không gian chung gốc:** $x = 111.32\cos(\varphi_{\text{ref}})\thinspace \lambda$, $y = 110.574\thinspace \varphi$ (km), $\varphi_{\text{ref}}$ cố định theo vùng (40.7 / 37.8 / 32.0). **Block** = ô $\lfloor x \rfloor, \lfloor y \rfloor$ × ngày × khung 2 giờ địa phương; **super-block** = ô $\lfloor x/5 \rfloor, \lfloor y/5 \rfloor$ × ngày lịch địa phương. Mỗi block nằm trọn trong một super-block.
 5. **Quy tắc tách:** super-block chứa hơn 5% số ride của pool được tách theo khung 6 giờ, rồi 2 giờ. (Pool T: super-block lớn nhất 46 ride = 0,5%, không cần tách.)
 6. Đếm cho từng pool: số ride, số super-block, $\tilde m$ và kích thước lớn nhất ở từng cấp; tỉ lệ ride có chung super-block với tập huấn luyện detector.
 
@@ -343,18 +381,18 @@ $\mathcal{M}$ = expert_1 (đăng ký là detector chính); expert_2, expert_3 l�
 
 1. **P3.0** chỉ số lớp và kiểm tra ghi nhớ (Mục 6.7).
 2. Lưới, quy tắc chạm và độ phân giải, $\theta_{\text{IoU}}$, $\Lambda_{1D}$, $\Lambda_{1D}^C$, $\tau_{\text{base}}^{G}$, $\tau_{\text{base}}^{\text{cls}}$ (Mục VI).
-3. $\hat D^*$ tại $N$ cuối cùng; $\hat D^*_C$ cho từng $N_{\text{cluster}}$.
+3. $\hat D^{\ast}$ tại $N$ cuối cùng; $\hat D^{\ast}_C$ cho từng $N_{\text{cluster}}$.
 4. **Exp A tầng 2 trên Pool V** (Pool V rời rạc với Pool T, nên dùng làm Diagnostic pool không ảnh hưởng tính hợp lệ, Mệnh đề 2): tại $\tau_{\text{ref}}$, $\widehat{\text{ICC}}_{\text{blk}}$, $\widehat{\text{ICC}}_{\text{sb}}$ của $Z_r$ (đơn vị ride, nhóm theo block/super-block), cận trên 95% bằng bootstrap theo super-block; $\widehat{\text{ICC}}_{\text{sb}\mid\text{blk}}$; Moran's $I$ liên super-block với 8 láng giềng gần nhất, chỉ giữ cặp thuộc hai super-block khác nhau, CI theo giả thuyết ngẫu nhiên hóa (Moran, 1950; Cliff & Ord, 1981).
-5. **Quy tắc R-unit** với $\tilde m$ của **Pool T**: $D_{\text{eff}}^{\ell} = 1 + (\tilde m_\ell^{T} - 1)\widehat{\text{ICC}}_\ell^{\text{upper}}$, $D_{\text{thr}} = \min(2, \hat D^*)$:
+5. **Quy tắc R-unit** với $\tilde m$ của **Pool T**: $D_{\text{eff}}^{\ell} = 1 + (\tilde m_\ell^{T} - 1)\widehat{\text{ICC}}_\ell^{\text{upper}}$, $D_{\text{thr}} = \min(2, \hat D^{\ast})$:
    * nếu $D_{\text{eff}}^{\text{blk}} \le D_{\text{thr}}$ và $D_{\text{eff}}^{\text{sb}} \le D_{\text{thr}}$: đơn vị = ride, $N = 1.500$;
    * ngược lại, nếu $D_{\text{eff}}^{\text{sb}\mid\text{blk}} \le D_{\text{thr}}$ và khả thi: đơn vị = block;
    * ngược lại: đơn vị = super-block, $N = 800$ (Pool T có 2.943 super-block; $3 \times 800 + 3 \le 2.943$).
    Với $\tilde m_{\text{sb}}^{T} = 8.93$, giữ đơn vị ride đòi hỏi $\widehat{\text{ICC}}_{\text{sb}}^{\text{upper}} \le 0.126$.
-6. **Năng lực của C2b** (trên Pool V): pool tổng hợp từ ride của Pool V, xếp ride vào super-block theo hạng của $Z(\tau_{A1})$ cộng nhiễu Gauss để đạt $D_{\text{eff}} \in \{1, 1.5, 2, 3\}$; 50 pool mỗi mức. Yêu cầu: tỉ lệ C2b Bác bỏ dưới 5% khi $D_{\text{eff}} = 1$ và trên 80% khi $D_{\text{eff}} = 2$.
+6. **Năng lực của C2b** (trên Pool V): pool tổng hợp từ ride của Pool V, xếp ride vào super-block theo hạng của $Z(\tau_{A1})$ cộng nhiễu Gauss để đạt $D_{\text{eff}} \in \lbrace 1, 1.5, 2, 3\rbrace$; 50 pool mỗi mức. Yêu cầu: tỉ lệ C2b Bác bỏ dưới 5% khi $D_{\text{eff}} = 1$ và trên 80% khi $D_{\text{eff}} = 2$.
 
 ### P4. Đăng ký
 
-`registration_<detector>.json` (SHA-256) gồm: $\mathcal{C}_{\text{eval}}$, $\ell^*$, lưới $G$ và $t_{\min}$, $\theta_{\text{IoU}}$, $\Lambda_{1D}$, $\Lambda_{1D}^C$, $\tau_{\text{base}}^G$, $\tau_{\text{base}}^{\text{cls}}$, $\hat D^*$, $\hat D^*_C$, kết quả R-unit (đơn vị, $N$), năng lực C2b, định nghĩa block/super-block, danh sách ride của Pool T, $P$, $K$, $\gamma_{\text{cov}}$, và toàn bộ Mục VIII. Nhãn Pool T chỉ được đọc sau khi file đăng ký tồn tại.
+`registration_<detector>.json` (SHA-256) gồm: $\mathcal{C}_{\text{eval}}$, $\ell^{\ast}$, lưới $G$ và $t_{\min}$, $\theta_{\text{IoU}}$, $\Lambda_{1D}$, $\Lambda_{1D}^C$, $\tau_{\text{base}}^G$, $\tau_{\text{base}}^{\text{cls}}$, $\hat D^{\ast}$, $\hat D^{\ast}_C$, kết quả R-unit (đơn vị, $N$), năng lực C2b, định nghĩa block/super-block, danh sách ride của Pool T, $P$, $K$, $\gamma_{\text{cov}}$, và toàn bộ Mục VIII. Nhãn Pool T chỉ được đọc sau khi file đăng ký tồn tại.
 
 ### Exp A tầng 1 (MOT$^\star$, sau đăng ký)
 
@@ -366,7 +404,7 @@ Tại $\tau_{\text{ref}}^{C}$: ICC của $\text{FDP}_{c,t}$ theo clip (ANOVA, $M
   * **B-rand:** hoán vị đơn vị, cắt 3 tập rời nhau đúng $N$ đơn vị.
   * **B-block:** hoán vị super-block, cắt tuần tự thành 3 tập, mỗi tập gồm các super-block liên tiếp tới khi đạt $\ge N$ đơn vị (super-block cuối giữ trọn, $N_b \in [N, N + m_{\max})$).
 * **Mỗi vòng $b$:** chạy Fixed-Sequence LTT với $N_b$ thực tế, được $\hat\tau_b$; $e_b = \mathbb{1}[\mathcal{R}_{\Pi}(\hat\tau_b) > \alpha]$ ($e_b = 0$ nếu $\hat\tau_b = \emptyset$); $\mathcal{R}_b$ = rủi ro trên phần bù (mô tả).
-* **Điều kiện kiểm định được:** $\mathcal{H}_0^{\Pi} = \{k : \mathcal{R}_\Pi(\tau^{(k)}) > \alpha\}$, $j^*_\Pi = \min \mathcal{H}_0^\Pi$ (T1); quy trình plug-in $\hat\tau^{\text{plug}}_b = \tau^{(\max\{k : \widehat{\mathcal{R}}_{\text{cal}}(\tau^{(k)}) \le \alpha\})}$ trên cùng các tập hiệu chuẩn của B-block (T1b).
+* **Điều kiện kiểm định được:** $\mathcal{H}_0^{\Pi} = \lbrace k : \mathcal{R}_\Pi(\tau^{(k)}) > \alpha\rbrace$, $j^{\ast}_\Pi = \min \mathcal{H}_0^\Pi$ (T1); quy trình plug-in $\hat\tau^{\text{plug}}_b = \tau^{(\max\lbrace k : \widehat{\mathcal{R}}_{\text{cal}}(\tau^{(k)}) \le \alpha\rbrace )}$ trên cùng các tập hiệu chuẩn của B-block (T1b).
 * **Chỉ số:**
   * C0 = VR của B-rand (kiểm tra cài đặt; Mệnh đề 4 bảo đảm VR $\le \delta$).
   * C2 = VR của B-block.
@@ -379,7 +417,7 @@ Tại $\tau_{\text{ref}}^{C}$: ICC của $\text{FDP}_{c,t}$ theo clip (ANOVA, $M
   * D3: Micro-FDP, tỉ lệ đơn vị rỗng, Spearman$(N^{\text{acc}}, \text{FDP})$, rủi ro của hai baseline trên tập kiểm thử.
   * D4: tỉ lệ FP do ảo giác.
   * D6: mọi ước lượng Exp A.
-  * D7: $\mathcal{R}_\Pi$ dọc đường đi, $j^*_\Pi$, tỉ lệ vòng kiểm định tới $j^*_\Pi$.
+  * D7: $\mathcal{R}_\Pi$ dọc đường đi, $j^{\ast}_\Pi$, tỉ lệ vòng kiểm định tới $j^{\ast}_\Pi$.
   * D8: rủi ro tại $\hat\tau_b$ của ride có chung super-block với tập huấn luyện detector so với ride không chung; và của 1.664 ride thuộc super-block mới so với Pool V và Meta-Train (688 ride mới so với cả tập huấn luyện).
   * D9: VR của plug-in và của LTT giả vờ cỡ mẫu ×4…×256.
   * D10: kiểm tra công cụ C2b ở cấp ảnh-trong-ride.
@@ -393,17 +431,17 @@ Chạy lại đúng thiết kế trên Pool V với B-block thật. Kết quả 
 
 ### Exp C (H1b, MOT$^\star$ với $\mathcal{M}_C$, $\alpha_C = 0.10$)
 
-* **Phân hoạch:** nhóm held-out là super-block; $N_{\text{cluster}} \in \{20, 100, 200, 400, 800\}$, $K = \lfloor 0.75\, n_C / N_{\text{cluster}}\rfloor$, $P$ sao cho $B \approx 1.000$ ($P \ge 50$).
-* **Arm 1 (Cluster-LTT):** LTT trên $\{Z_c\}$ với $N = N_{\text{cluster}}$.
-* **Arm 2 (Dense Frame-LTT):** LTT trên $\{\text{FDP}_{c,t}\}$ coi là độc lập, $N_{\text{nom}} = 200\,N_{\text{cluster}}$.
+* **Phân hoạch:** nhóm held-out là super-block; $N_{\text{cluster}} \in \lbrace 20, 100, 200, 400, 800\rbrace$, $K = \lfloor 0.75\thinspace  n_C / N_{\text{cluster}}\rfloor$, $P$ sao cho $B \approx 1.000$ ($P \ge 50$).
+* **Arm 1 (Cluster-LTT):** LTT trên $\lbrace Z_c\rbrace$ với $N = N_{\text{cluster}}$.
+* **Arm 2 (Dense Frame-LTT):** LTT trên $\lbrace \text{FDP}_{c,t}\rbrace$ coi là độc lập, $N_{\text{nom}} = 200\thinspace N_{\text{cluster}}$.
 * **Arm 3 (rò rỉ ghép cặp):** mỗi clip chia ngẫu nhiên 100/100 frame thành Cal và Leaked Test; cùng $\hat\tau_{\text{leaked}}$ đo $\text{FDP}_{\text{leaked}}$ và $\text{FDP}_{\text{unseen}}$; $\Delta_{\text{leak}} = \text{FDP}_{\text{unseen}} - \text{FDP}_{\text{leaked}}$.
-* **Vi phạm:** $e_b = \mathbb{1}[\mathcal{R}^C_{\Pi}(\hat\tau_b) > \alpha_C]$, $\mathcal{R}^C_\Pi = $ trung bình $Z_c$ trên toàn MOT$^\star$.
+* **Vi phạm:** $e_b = \mathbb{1}[\mathcal{R}^C_{\Pi}(\hat\tau_b) > \alpha_C]$, $\mathcal{R}^C_\Pi =$ trung bình $Z_c$ trên toàn MOT$^\star$.
 * **T2:** $\mathcal{H}_0^{C,\Pi} \ne \emptyset$; **T2b:** plug-in theo frame (điểm cuối có trung bình FDP frame trên tập hiệu chuẩn $\le \alpha_C$) có cận dưới CI của VR $> \delta$ ở ít nhất hai mức thuộc $E$.
 * **Chạy bổ sung:** $\alpha = 0.02$ (mô tả); stress OOD cho Arm 1.
 
 ### Exp C′ (đối chứng âm trên keyframe)
 
-Cùng giao thức Exp C trên các ride của Pool V có $\ge 2$ keyframe, $M = 2$. Dự đoán: $D_{\text{eff}}^{\text{frame}} \approx 1 < \hat D^*_C$, arm frame không vi phạm, tiêu chí không chấp nhận nhầm H1b.
+Cùng giao thức Exp C trên các ride của Pool V có $\ge 2$ keyframe, $M = 2$. Dự đoán: $D_{\text{eff}}^{\text{frame}} \approx 1 < \hat D^{\ast}_C$, arm frame không vi phạm, tiêu chí không chấp nhận nhầm H1b.
 
 ---
 
@@ -418,8 +456,8 @@ Nguyên tắc: Chấp nhận cần bằng chứng đủ chính xác; Bác bỏ c
 | **C2b** | $\hat D_{\text{eff}}^{\text{emp}}$ tại $\tau_{A1}$ | cận trên $\le 1.5$ | cận dưới $> 1.3$ | Không kết luận |
 | **C3** | Yield B-block | $\ge 0.85$ | $< 0.85$ | — |
 | **C3b** | Trung vị $\rho_{\text{cov}}$ (baseline $\tau_{\text{base}}^G$) | $\ge 0.5$ | $< 0.5$ | — |
-| **C4** | $D_{\text{eff}}^{\text{frame}}$ tại $\tau_{\text{ref}}^C$ | cận dưới $\ge \max(5, \hat D^*_C)$ | cận trên $< 2$ | Không kết luận |
-| **C5** | VR Arm 2 so với Arm 1 trên $E = \{N_{\text{cluster}} \in \{100,200,400\} : \text{Yield}_{\text{Arm1}} \ge 0.5\}$ | $\lvert E \rvert \ge 2$ và với mọi mức thuộc $E$: cận dưới VR Arm 2 $> 0.05$, cận trên VR Arm 1 $\le 0.065$ | $\lvert E \rvert \ge 2$ và ở ít nhất 2 mức: cận trên VR Arm 2 $\le 0.065$ (cần T2b) | Không kết luận |
+| **C4** | $D_{\text{eff}}^{\text{frame}}$ tại $\tau_{\text{ref}}^C$ | cận dưới $\ge \max(5, \hat D^{\ast}_C)$ | cận trên $< 2$ | Không kết luận |
+| **C5** | VR Arm 2 so với Arm 1 trên $E = \lbrace N_{\text{cluster}} \in \lbrace 100,200,400\rbrace  : \text{Yield}_{\text{Arm1}} \ge 0.5\rbrace$ | $\lvert E \rvert \ge 2$ và với mọi mức thuộc $E$: cận dưới VR Arm 2 $> 0.05$, cận trên VR Arm 1 $\le 0.065$ | $\lvert E \rvert \ge 2$ và ở ít nhất 2 mức: cận trên VR Arm 2 $\le 0.065$ (cần T2b) | Không kết luận |
 
 **H1a (Pool T):**
 * C0 Bác bỏ ⇒ **LỖI CÀI ĐẶT**: không kết luận gì, sửa code và chạy lại (không đổi đăng ký).
@@ -477,7 +515,7 @@ Ba loại bằng chứng được tách bạch: **(T)** chứng minh toán học
 | E5 | Phép thử có năng lực bắt quy trình sai | plug-in không bảo chứng VR 12–48%; LTT giả vờ cỡ mẫu ×16–×64: 1–26% | Xác nhận T1b cần thiết; nhất quán với lý thuyết |
 | E6 | Ablation lưới thô làm mất năng lực | expert_2: null đầu tiên 0.0286, plug-in VR 0.001 | Cơ sở thực nghiệm của quy tắc độ phân giải và T1b |
 | E7 | H1c đạt (với baseline cũ) | Yield 100%; $\rho_{\text{cov}}$ 0.99–1.10; độ phủ tuyệt đối ~0.19 | Thăm dò; C3b cần chạy lại với $\tau_{\text{base}}^G$ trên Pool T |
-| E8 | $\hat D^* \approx 4.5$; $\operatorname{Var}(Z) \approx 0.4\,\alpha(1-\alpha)$ | 3 detector | Giá trị đầu vào cho R-unit |
+| E8 | $\hat D^{\ast} \approx 4.5$; $\operatorname{Var}(Z) \approx 0.4\thinspace \alpha(1-\alpha)$ | 3 detector | Giá trị đầu vào cho R-unit |
 | E9 | Đối chứng âm Exp C′ | $D_{\text{eff}}^{\text{frame}} \approx 1.0$; arm frame không vi phạm dù plug-in vi phạm 26–44%; C4′, C5′ Bác bỏ | Tiêu chí không chấp nhận nhầm H1b khi không có tương quan; không nói gì về H1b ở cấp MOT |
 | E10 | Lưới $\tau_{\text{cls}} \ge 0.05$ không chạm $2\alpha_C$ | max Macro-FDP 0.014–0.022 | Cơ sở của quy tắc chạm |
 
@@ -489,7 +527,7 @@ Ba loại bằng chứng được tách bạch: **(T)** chứng minh toán học
 | O2 | **A1 ở cấp super-block** | Như trên | C2b trên Pool T; Moran's $I$ |
 | O3 | **H1b** | Chưa có bộ MOT có nhãn; detector hiện có vi phạm A2 với clip MOT nằm trong 100K train | Tải MOT 2020 (ảnh train+val, nhãn box track); huấn luyện $\mathcal{M}_C$; chạy Exp A tầng 1 và Exp C |
 | O4 | Nhánh Bentkus của Mệnh đề 4 (lấy mẫu không hoàn lại) | Lập luận phác thảo, chưa kiểm chi tiết | Viết đầy đủ chứng minh qua thứ tự lồi, hoặc chỉ dùng nhánh Hoeffding-KL cho phân tích pool (bảo thủ hơn) |
-| O5 | $D^*$ là xấp xỉ chuẩn | Không phải định lý; mô phỏng cho thấy không bảo thủ đồng đều | Cận không tiệm cận (ví dụ Berry–Esseen cho trung bình cụm) hoặc giữ vai trò thước đo cỡ độ lớn kèm biên an toàn |
+| O5 | $D^{\ast}$ là xấp xỉ chuẩn | Không phải định lý; mô phỏng cho thấy không bảo thủ đồng đều | Cận không tiệm cận (ví dụ Berry–Esseen cho trung bình cụm) hoặc giữ vai trò thước đo cỡ độ lớn kèm biên an toàn |
 | O6 | Tương quan cùng tài xế | Không có ID tài xế | Không khắc phục được; nêu là giới hạn |
 | O7 | Nhãn thừa/sai lớp (chiều phản bảo thủ của A4) | Chưa kiểm | Kiểm tra thủ công mẫu 300 box TP (khuyến nghị) |
 | O8 | Tổng quát hóa ra ngoài lớp car, ra detector khác, ra ngoài quần thể BDD100K 2017 (NY, Bay Area, Tel Aviv) | Detector một lớp; phạm vi dữ liệu | Detector đa lớp; dữ liệu khác |

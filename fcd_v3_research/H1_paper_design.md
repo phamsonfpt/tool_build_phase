@@ -137,7 +137,7 @@ Giải pháp cho Mục 1.3 là **hiệu chuẩn trên đơn vị gần độc l�
 | Chuyến đi (`rideID`) | Có: 60.137 chuyến đi, khớp một-một với tiền tố tên video trên 99.999 video | Đơn vị mặc định (H1a) |
 | Super-block (5 km × ngày địa phương) | Có, từ GPS và giờ ghi hình | Đơn vị dự phòng nếu chuyến đi còn tương quan; nhóm held-out cho phép thử chính |
 
-Quy tắc chọn đơn vị (**R-unit**) đo tương quan nội cụm (ICC) ở cấp super-block trên một pool chẩn đoán riêng, đổi ra design effect $1 + (\tilde m - 1)\,\text{ICC}$ (Kish, 1965; Eldridge et al., 2006), rồi giữ đơn vị chuyến đi nếu design effect nhỏ hơn biên an toàn.
+Quy tắc chọn đơn vị (**R-unit**) đo tương quan nội cụm (ICC) ở cấp super-block trên một pool chẩn đoán riêng, đổi ra design effect $1 + (\tilde m - 1)\thinspace \text{ICC}$ (Kish, 1965; Eldridge et al., 2006), rồi giữ đơn vị chuyến đi nếu design effect nhỏ hơn biên an toàn.
 
 ### 2.5. Dựng đường đi ngưỡng
 
@@ -224,12 +224,12 @@ flowchart TB
 
 | Mã | Metric | Định nghĩa | Chấp nhận | Bác bỏ | Dẫn chứng phương pháp |
 |---|---|---|---|---|---|
-| C0 | VR B-rand | Tỉ lệ lần $\mathcal{R}_{\text{pool}}(\hat\tau) > 2\%$ khi rút theo chuyến đi | cận trên CI ≤ 6,5% | cận dưới > 5% ⇒ lỗi code | Hoeffding (1963); Serfling (1974) |
+| C0 | VR B-rand | Tỉ lệ lần $\mathcal{R}_{\text{pool}}(\hat\tau) > 0.02$ khi rút theo chuyến đi | cận trên CI ≤ 6,5% | cận dưới > 5% ⇒ lỗi code | Hoeffding (1963); Serfling (1974) |
 | C2 | VR B-block | Như C0, rút theo trọn super-block | cận trên ≤ 6,5% | cận dưới > 5% | Angelopoulos et al. (2025) |
 | C2b | Design effect thực nghiệm | Var(rủi ro hiệu chuẩn, B-block) / Var(…, B-rand) tại ngưỡng ở mức α | cận trên ≤ 1,5 | cận dưới > 1,3 | Kish (1965); Field & Welsh (2007) |
 | C3 | Yield | Tỉ lệ lần $\hat\tau \ne \emptyset$ | ≥ 85% | < 85% | Angelopoulos et al. (2025) |
 | C3b | Độ phủ tương đối $\rho_{\text{cov}}$ | Độ phủ của $\hat\tau$ / độ phủ của plug-in trên cùng lưới (trung vị) | ≥ 0,5 | < 0,5 | Bates et al. (2021): cái giá của bảo chứng |
-| C4 | $D_{\text{eff}}^{\text{frame}}$ | $1 + (M-1)\,\text{ICC}_{\text{frame}}$, M = 200 | cận dưới ≥ max(5, $D^*_C$) | cận trên < 2 | Kish (1965); Donner (1986) |
+| C4 | $D_{\text{eff}}^{\text{frame}}$ | $1 + (M-1)\thinspace \text{ICC}_{\text{frame}}$, M = 200 | cận dưới ≥ max(5, $D^{\ast}_C$) | cận trên < 2 | Kish (1965); Donner (1986) |
 | C5 | VR Arm 2 so với Arm 1 | Trên các mức N_cluster mà Arm 1 có Yield ≥ 50% | Arm 2 > 5% và Arm 1 ≤ 6,5% ở mọi mức | Arm 2 ≤ 6,5% ở ≥ 2 mức | Hurlbert (1984) |
 
 **(b) Metrics điều kiện kiểm định được:** bảo đảm phép thử có khả năng thất bại.
@@ -244,14 +244,14 @@ flowchart TB
 
 | Nhóm | Metric | Mục đích | Dẫn chứng |
 |---|---|---|---|
-| Rủi ro | Trung vị, p95 của $\mathcal{R}_{\text{pool}}(\hat\tau)$; $\Delta_{\text{gap}} = 2\% - \text{trung vị}$ | Mức bảo thủ của LTT | — |
+| Rủi ro | Trung vị, p95 của $\mathcal{R}_{\text{pool}}(\hat\tau)$; $\Delta_{\text{gap}} = 0.02 - \text{trung vị}$ | Mức bảo thủ của LTT | — |
 | Rủi ro | Micro-FDP (gộp mọi box) | Macro-FDP có thể thấp hơn Micro-FDP khi cảnh đông có nhiều box sai | Benjamini & Hochberg (1995) cho khái niệm FDR |
 | Rủi ro | Tỉ lệ chuyến đi rỗng; Spearman(số box, FDP) | Cơ chế Macro/Micro lệch nhau | — |
 | Loại lỗi | Tỉ lệ FP do ảo giác/sai lớp (IoU < 0,5) và do lệch vị trí (IoU ≥ 0,5) | Rủi ro đến từ đâu | Hoiem et al. (2012); Bolya et al. (2020) |
 | Hữu ích | Độ phủ tuyệt đối, số box chấp nhận mỗi chuyến đi | Lượng nhãn giả thực tế | Lin et al. (2014) |
 | Detector | AP50, AP75, recall, D-ECE | Chất lượng và hiệu chỉnh của detector | Lin et al. (2014); Küppers et al. (2020) |
 | Phụ thuộc | ICC ở cấp ảnh-trong-chuyến, block, super-block; Moran's I giữa super-block kề nhau | Cấu trúc tương quan | Searle et al. (1992); Moran (1950); Cliff & Ord (1981) |
-| Phụ thuộc | Biên chịu đựng $D^*$ | Design effect mà HB còn chịu được | Kish (1965); Lehmann (1999) |
+| Phụ thuộc | Biên chịu đựng $D^{\ast}$ | Design effect mà HB còn chịu được | Kish (1965); Lehmann (1999) |
 | Năng lực | VR của LTT giả vờ cỡ mẫu ×4…×256 | Phép thử nhạy tới mức nào | Lipsitch et al. (2010) |
 | Rò rỉ | Rủi ro của chuyến đi có / không chung khu vực-ngày với tập train; $\Delta_{\text{leak}}$ của Arm 3 | Rò rỉ dư và rò rỉ ngữ cảnh | Kapoor & Narayanan (2023) |
 | Bền vững | Rủi ro theo nhóm: đêm, mưa/tuyết, cao tốc | Ứng viên stress-test OOD | Yu et al. (2020) |
@@ -312,7 +312,7 @@ flowchart TD
 | FP do ảo giác/sai lớp | 46% | 54% | 45% | Còn lại là lệch vị trí |
 | ICC ảnh cùng chuyến | ≈ 0 | ≈ 0 | ≈ 0 | Đơn vị chuyến đi đủ thô ở cấp trong chuyến |
 | Tỉ số phương sai (công cụ C2b) | 1,03 | 1,05 | 1,02 | Không báo động giả |
-| $D^*$ | 4,61 | 4,52 | 4,62 | Biên chịu đựng của HB |
+| $D^{\ast}$ | 4,61 | 4,52 | 4,62 | Biên chịu đựng của HB |
 | Exp C′: arm frame / plug-in | 0% / 26–41% | 0% / 31–44% | 0% / 28–44% | Không có tương quan thì không sụp đổ |
 
 **Đã chứng minh:** tính hợp lệ của LTT dưới giả định độc lập (định lý, có trích dẫn); đơn vị chuyến đi bằng `rideID` chính thức; công cụ đo và đối chứng hoạt động trên dữ liệu thật.
