@@ -1,0 +1,11 @@
+flowchart LR
+    subgraph BR["B-rand: rút theo chuyến đi"]
+        R1["Chuyến đi ngẫu nhiên<br/>từ mọi khu vực-ngày"]
+    end
+    subgraph BB["B-block: rút theo trọn khu vực-ngày"]
+        B1["Super-block A, C, F...<br/>→ hiệu chuẩn"]
+        B2["Super-block B, D, E...<br/>→ chưa thấy"]
+    end
+    BR --> C0["C0: kiểm tra cài đặt<br/>(đúng theo định lý)"]
+    BB --> C2["C2: phép thử thực nghiệm<br/>của H1a"]
+    BR & BB --> C2b["C2b: tỉ số phương sai<br/>B-block / B-rand"]

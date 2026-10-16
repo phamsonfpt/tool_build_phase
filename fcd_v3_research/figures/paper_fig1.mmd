@@ -1,0 +1,7 @@
+flowchart LR
+    F["Frame<br/>(5 frame/giây)"] -->|"thuộc"| C["Clip video<br/>40 giây"]
+    C -->|"thuộc"| R["Chuyến đi<br/>(rideID)"]
+    R -->|"thuộc"| S["Khu vực-ngày<br/>(super-block 5 km × 1 ngày)"]
+    F -.->|"tương quan rất cao<br/>(cùng cảnh)"| F
+    R -.->|"tương quan vừa<br/>(cùng tuyến, ánh sáng)"| R
+    S -.->|"tương quan yếu?<br/>(cùng thời tiết, khu vực)"| S

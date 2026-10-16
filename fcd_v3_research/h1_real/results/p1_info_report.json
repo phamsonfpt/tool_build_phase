@@ -1,0 +1,70 @@
+{
+ "ride_id": {
+  "videos_with_rideID": 99999,
+  "rideIDs": 60137,
+  "prefix_rideID_one_to_one": true,
+  "within_ride_gap_minutes": {
+   "0.1": 1.2,
+   "0.5": 21.6,
+   "0.9": 113.6,
+   "0.99": 299.4
+  },
+  "within_ride_gap_max_minutes": 2051.0
+ },
+ "timezones": {
+  "Asia/Jerusalem": 8519,
+  "America/New_York": 79272,
+  "America/Los_Angeles": 12062,
+  "UTC": 44
+ },
+ "unparseable_info_files": 1,
+ "videos_without_gps": 103,
+ "pool_V": {
+  "rides": 5930,
+  "rides_with_metadata": 5926,
+  "super_blocks": 2349,
+  "m_tilde_super_block": 6.4650691866351675,
+  "max_super_block": 29,
+  "blocks": 5821,
+  "m_tilde_block": 1.0374620317246035,
+  "max_block": 4
+ },
+ "pool_M": {
+  "rides": 3000,
+  "rides_with_metadata": 2996,
+  "super_blocks": 1541,
+  "m_tilde_super_block": 3.7096128170894525,
+  "max_super_block": 15,
+  "blocks": 2960,
+  "m_tilde_block": 1.0240320427236316,
+  "max_block": 2
+ },
+ "pool_T": {
+  "rides": 9041,
+  "rides_with_metadata": 9033,
+  "super_blocks": 2943,
+  "m_tilde_super_block": 8.93091996014613,
+  "max_super_block": 46,
+  "blocks": 8809,
+  "m_tilde_block": 1.0518100298904018,
+  "max_block": 4
+ },
+ "pool_Train": {
+  "rides": 42166,
+  "rides_with_metadata": 42122,
+  "super_blocks": 6662,
+  "m_tilde_super_block": 39.57808271212193,
+  "max_super_block": 180,
+  "blocks": 37532,
+  "m_tilde_block": 1.2707848630169507,
+  "max_block": 6
+ },
+ "overlap": {
+  "V_rides_sharing_super_block_with_detector_train": 0.9161322983462706,
+  "T_rides_sharing_super_block_with_detector_train": 0.9173032215210893,
+  "T_rides_sharing_super_block_with_V": 0.7718365991364995,
+  "T_rides_in_super_blocks_new_to_V_and_M": 1664,
+  "T_rides_in_super_blocks_new_to_V_M_and_train": 688
+ },
+ "feasibility_T_N1500_K3": true
+}
