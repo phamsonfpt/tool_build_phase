@@ -224,12 +224,12 @@ flowchart TB
 
 | Mã | Metric | Định nghĩa | Chấp nhận | Bác bỏ | Dẫn chứng phương pháp |
 |---|---|---|---|---|---|
-| C0 | VR B-rand | Tỉ lệ lần $\mathcal{R}_{\text{pool}}(\hat\tau) > 0.02$ khi rút theo chuyến đi | cận trên CI ≤ 6,5% | cận dưới > 5% ⇒ lỗi code | Hoeffding (1963); Serfling (1974) |
+| C0 | VR B-rand | Tỉ lệ lần $\mathcal{R}_ {\text{pool}}(\hat\tau) > 0.02$ khi rút theo chuyến đi | cận trên CI ≤ 6,5% | cận dưới > 5% ⇒ lỗi code | Hoeffding (1963); Serfling (1974) |
 | C2 | VR B-block | Như C0, rút theo trọn super-block | cận trên ≤ 6,5% | cận dưới > 5% | Angelopoulos et al. (2025) |
 | C2b | Design effect thực nghiệm | Var(rủi ro hiệu chuẩn, B-block) / Var(…, B-rand) tại ngưỡng ở mức α | cận trên ≤ 1,5 | cận dưới > 1,3 | Kish (1965); Field & Welsh (2007) |
 | C3 | Yield | Tỉ lệ lần $\hat\tau \ne \emptyset$ | ≥ 85% | < 85% | Angelopoulos et al. (2025) |
-| C3b | Độ phủ tương đối $\rho_{\text{cov}}$ | Độ phủ của $\hat\tau$ / độ phủ của plug-in trên cùng lưới (trung vị) | ≥ 0,5 | < 0,5 | Bates et al. (2021): cái giá của bảo chứng |
-| C4 | $D_{\text{eff}}^{\text{frame}}$ | $1 + (M-1)\thinspace \text{ICC}_{\text{frame}}$, M = 200 | cận dưới ≥ max(5, $D^{\ast}_C$) | cận trên < 2 | Kish (1965); Donner (1986) |
+| C3b | Độ phủ tương đối $\rho_ {\text{cov}}$ | Độ phủ của $\hat\tau$ / độ phủ của plug-in trên cùng lưới (trung vị) | ≥ 0,5 | < 0,5 | Bates et al. (2021): cái giá của bảo chứng |
+| C4 | $D_ {\text{eff}}^{\text{frame}}$ | $1 + (M-1)\thinspace \text{ICC}_ {\text{frame}}$, M = 200 | cận dưới ≥ max(5, $D^{\ast}_ C$) | cận trên < 2 | Kish (1965); Donner (1986) |
 | C5 | VR Arm 2 so với Arm 1 | Trên các mức N_cluster mà Arm 1 có Yield ≥ 50% | Arm 2 > 5% và Arm 1 ≤ 6,5% ở mọi mức | Arm 2 ≤ 6,5% ở ≥ 2 mức | Hurlbert (1984) |
 
 **(b) Metrics điều kiện kiểm định được:** bảo đảm phép thử có khả năng thất bại.
@@ -244,7 +244,7 @@ flowchart TB
 
 | Nhóm | Metric | Mục đích | Dẫn chứng |
 |---|---|---|---|
-| Rủi ro | Trung vị, p95 của $\mathcal{R}_{\text{pool}}(\hat\tau)$; $\Delta_{\text{gap}} = 0.02 - \text{trung vị}$ | Mức bảo thủ của LTT | — |
+| Rủi ro | Trung vị, p95 của $\mathcal{R}_ {\text{pool}}(\hat\tau)$; $\Delta_ {\text{gap}} = 0.02 - \text{trung vị}$ | Mức bảo thủ của LTT | — |
 | Rủi ro | Micro-FDP (gộp mọi box) | Macro-FDP có thể thấp hơn Micro-FDP khi cảnh đông có nhiều box sai | Benjamini & Hochberg (1995) cho khái niệm FDR |
 | Rủi ro | Tỉ lệ chuyến đi rỗng; Spearman(số box, FDP) | Cơ chế Macro/Micro lệch nhau | — |
 | Loại lỗi | Tỉ lệ FP do ảo giác/sai lớp (IoU < 0,5) và do lệch vị trí (IoU ≥ 0,5) | Rủi ro đến từ đâu | Hoiem et al. (2012); Bolya et al. (2020) |
@@ -253,7 +253,7 @@ flowchart TB
 | Phụ thuộc | ICC ở cấp ảnh-trong-chuyến, block, super-block; Moran's I giữa super-block kề nhau | Cấu trúc tương quan | Searle et al. (1992); Moran (1950); Cliff & Ord (1981) |
 | Phụ thuộc | Biên chịu đựng $D^{\ast}$ | Design effect mà HB còn chịu được | Kish (1965); Lehmann (1999) |
 | Năng lực | VR của LTT giả vờ cỡ mẫu ×4…×256 | Phép thử nhạy tới mức nào | Lipsitch et al. (2010) |
-| Rò rỉ | Rủi ro của chuyến đi có / không chung khu vực-ngày với tập train; $\Delta_{\text{leak}}$ của Arm 3 | Rò rỉ dư và rò rỉ ngữ cảnh | Kapoor & Narayanan (2023) |
+| Rò rỉ | Rủi ro của chuyến đi có / không chung khu vực-ngày với tập train; $\Delta_ {\text{leak}}$ của Arm 3 | Rò rỉ dư và rò rỉ ngữ cảnh | Kapoor & Narayanan (2023) |
 | Bền vững | Rủi ro theo nhóm: đêm, mưa/tuyết, cao tốc | Ứng viên stress-test OOD | Yu et al. (2020) |
 | Ablation | Đường đi trên lưới thô | Vì sao cần quy tắc độ phân giải | — |
 | Công cụ | Tỉ số phương sai ở cấp ảnh-trong-chuyến so với Kish | Công cụ C2b không báo động giả | Field & Welsh (2007) |
@@ -305,7 +305,7 @@ flowchart TD
 | T1b (VR plug-in) | 47,5% | 11,8% | 28,7% | Phép thử bắt được quy trình sai |
 | LTT giả vờ cỡ mẫu ×16 | 12,0% | 1,0% | 6,5% | Độ nhạy khác nhau theo detector |
 | C3 Yield | 100% | 100% | 100% | Luôn chọn được ngưỡng |
-| $\rho_{\text{cov}}$ (baseline cũ) | 1,06 | 0,99 | 1,10 | Cần chạy lại với baseline mới |
+| $\rho_ {\text{cov}}$ (baseline cũ) | 1,06 | 0,99 | 1,10 | Cần chạy lại với baseline mới |
 | Độ phủ tuyệt đối (IoU 0,75) | 0,188 | 0,181 | 0,194 | Detector recall thấp |
 | Rủi ro tại $\hat\tau$ (trung vị / p95) | 1,02% / 1,46% | 1,10% / 1,45% | 1,19% / 1,43% | Cách trần 2% khoảng 0,8–1 điểm % |
 | Micro-FDP (trung vị) | 1,28% | 1,27% | 1,48% | Vẫn dưới 2% |
