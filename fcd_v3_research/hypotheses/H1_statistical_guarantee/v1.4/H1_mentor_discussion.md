@@ -1,6 +1,6 @@
 # H1 — Kịch bản thảo luận với mentor
 
-*Tài liệu đi kèm: `H1_statistical_guarantee_research_v1.4.md` (thiết kế đầy đủ, công thức, chứng minh) và `H1_real_data_report.md` (số liệu). Bản này chỉ giữ mạch lập luận. SV = sinh viên, M = mentor.*
+*Tài liệu đi kèm: `H1_statistical_guarantee_research.md` (thiết kế đầy đủ, công thức, chứng minh) và `H1_real_data_report.md` (số liệu). Bản này chỉ giữ mạch lập luận. SV = sinh viên, M = mentor.*
 
 ---
 

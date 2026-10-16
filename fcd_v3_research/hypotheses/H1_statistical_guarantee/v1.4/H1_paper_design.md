@@ -1,6 +1,6 @@
 # H1 — Bảo chứng thống kê cho gán nhãn giả trên video lái xe
 
-*Bản trình bày theo cấu trúc bài báo: Vấn đề → Giải pháp → Kiểm chứng. Đặc tả đầy đủ (công thức, chứng minh, quy tắc đăng ký trước) nằm trong `H1_statistical_guarantee_research_v1.4.md`; số liệu nằm trong `H1_real_data_report.md`. Sơ đồ là ảnh PNG trong thư mục `figures/` (mã nguồn Mermaid ở file `.mmd` cùng tên).*
+*Bản trình bày theo cấu trúc bài báo: Vấn đề → Giải pháp → Kiểm chứng. Đặc tả đầy đủ (công thức, chứng minh, quy tắc đăng ký trước) nằm trong `H1_statistical_guarantee_research.md`; số liệu nằm trong `H1_real_data_report.md`. Sơ đồ là ảnh PNG trong thư mục `figures/` (mã nguồn Mermaid ở file `.mmd` cùng tên).*
 
 ---
 

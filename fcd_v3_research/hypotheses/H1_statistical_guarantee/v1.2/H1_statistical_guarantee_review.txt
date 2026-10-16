@@ -1,0 +1,151 @@
+================================================================================
+BẢN ĐÁNH GIÁ BẢO VỆ HỌC THUẬT (PEER REVIEW REPORT)
+Đối tượng thẩm định: Giả thuyết 1 (H1: The Statistical Guarantee Hypothesis)
+Khung đo lường: Learn-then-Test (LTT) kiểm soát FDP trên tập dữ liệu BDD100K
+Tiêu chuẩn đối chiếu: Chuẩn mực bài báo hội nghị/tạp chí hạng A 
+                      (NeurIPS Datasets & Benchmarks Track / IEEE T-IV)
+================================================================================
+
+I. TỔNG QUAN ĐÁNH GIÁ (EXECUTIVE SUMMARY)
+--------------------------------------------------------------------------------
+Đánh giá chung: XUẤT SẮC (MANUSCRIPT-GRADE).
+Văn bản nghiên cứu hiện tại đã hoàn toàn lột xác so với các bản thảo sơ khai. 
+Khung lý thuyết và thiết kế thực nghiệm đã chuyển hóa từ một hệ thống lập luận 
+cảm tính thành một công trình toán học có cấu trúc chứng minh chặt chẽ, tiền đề 
+tường minh và cơ chế kiểm chứng thực nghiệm có khả năng bác bỏ (falsifiable).
+
+4 ĐIỂM CẢI TIẾN ĐẮT GIÁ NHẤT TRONG BẢN MỚI:
+1. Phân tách bộ ba giả thuyết (H1a – H1b – H1c):
+   - H1a: Tính hợp lệ toán học của bảo chứng PAC (LTT + Fixed Sequence).
+   - H1b: Cơ chế vật lý làm sụp đổ việc chia theo Frame (suy giảm cỡ mẫu hiệu dụng + rò rỉ).
+   - H1c: Tính không tầm thường (Non-Vacuity) của detector cụ thể.
+   => Ý nghĩa: Tránh bẫy ngụy biện khi detector quá yếu dẫn đến không chọn được nhãn nào 
+      (tau = empty). Điều đó không làm sai LTT, mà chỉ phản ánh detector chưa đủ tốt.
+
+2. Bảng 5.4 (Scaling k_max theo cỡ mẫu N):
+   - Đóng góp giải thích sâu sắc nhất về mặt toán học.
+   - Chỉ ra cơ chế vì sao Frame-split gây họa: khi N_nominal bị thổi phồng từ 33 lên 
+     4.000 hoặc 80.000, ngưỡng được chứng nhận bị đẩy sát trần alpha (0.0153 và 0.0190).
+     Từ đó, rủi ro thực tế dao động quanh mức ranh giới, biến xác suất vi phạm thành 
+     một phép tung đồng xu (~30-50%) thay vì được chặn dưới 5%.
+
+3. Quy tắc R-unit trong Assumption A1:
+   - Xóa bỏ hoàn toàn sự mâu thuẫn giữa Ride ID và Spatio-Temporal Block.
+   - Biến việc chọn đơn vị thống kê thành một quy trình chẩn đoán tiên nghiệm 
+     dựa trên D_eff^block và Moran's I.
+
+4. Arm 3 Paired Leakage trong Experiment C:
+   - Thiết kế đo đồng thời trên Leaked Test và Unseen Test trên cùng một ngưỡng tau_hat 
+     vạch trần trực quan hiệu ứng "nguyền rủa của người chiến thắng" (winner's curse) 
+     và rò rỉ bối cảnh.
+
+
+II. ĐÁNH GIÁ CHI TIẾT TỪNG TRỤ CỘT LÝ THUYẾT & THỰC NGHIỆM
+--------------------------------------------------------------------------------
+1. Tính Toàn Vẹn Toán Học (Mathematical Soundness) — Điểm: 9.5/10
+   - Theorem 1: Chứng minh đứng vững tuyệt đối. Việc đưa Assumption A5 vào tiền đề 
+     bảo đảm chỉ số j* = min H_0 là tất định và độc lập với D_cal. Quy tắc dừng của 
+     Fixed-Sequence testing đảm bảo sai lầm loại I của toàn bộ quy trình quy về đúng 
+     một kiểm định đơn duy nhất tại j*, triệt tiêu hoàn toàn hình phạt đa kiểm định 
+     mà không cần Bonferroni.
+   - Proposition 3 (Folded Sample Splitting): Chứng minh thông qua điều kiện hóa trên 
+     Fold 1 và Fold 2 rất chuẩn xác. Phân tích đi kèm về sự suy giảm năng lực thống kê 
+     tại N/3 = 500 (k <= 3/500) thể hiện sự trung thực học thuật cao.
+   - Định nghĩa UCB & Tính đối ngẫu (Mục 6.1): Chiều bất đẳng thức đã được sửa đúng:
+     UCB = inf { r in [0, 1] : p_HB(r; R_hat) <= delta }. 
+     Mối liên hệ đối ngẫu UCB <= alpha <=> p(alpha) <= delta hoàn toàn khớp nhau.
+   - Công thức Bentkus (Mục 5.2): Đã phân định rạch ròi giữa biến ngẫu nhiên lý thuyết 
+     R_hat_N và giá trị thực nghiệm quan sát được s = R_hat_N(tau).
+
+2. Thiết Kế Thực Nghiệm & Kiểm Soát Thiên Kiến (Empirical Protocol) — Điểm: 9.0/10
+   - Experiment A (Chẩn đoán 2 tầng): Đo ICC ở cấp Frame (Within-Video) và cấp Block 
+     (Between-Rides) kèm Moran's I là thiết kế mẫu mực của lý thuyết lấy mẫu cụm (Kish, 1965).
+   - Experiment B (Monte Carlo có kiểm soát): Nhận diện hiện tượng phụ thuộc yếu do 
+     chồng lấn 36% và chuyển sang bootstrap theo phân hoạch (partition-level bootstrap) 
+     để tính CI cho Violation Rate là cải tiến phương pháp luận rất thông minh, 
+     tránh việc Clopper-Pearson bị hẹp quá mức (anti-conservative).
+   - Experiment C (Swept-Cluster Benchmark): Quét N_cluster in {20, 100, 200, 400, 800} 
+     cho thấy rõ điểm "bật/tắt" năng lực thống kê của LTT và sự thất bại liên tục của Frame-LTT.
+
+3. Ma Trận Quyết Định (Decision Matrix) — Điểm: 9.5/10
+   - Bổ sung cột "Không kết luận" (Inconclusive) cho C4 và C5 giúp bao phủ trọn vẹn 
+     100% không gian kết quả thực nghiệm mà không còn bất kỳ khoảng trống logic nào.
+   - Phân định rõ: C3 thất bại không làm sai H1a, chỉ kết luận hệ thống thiếu tính 
+     thực tiễn (uninformative).
+
+
+III. 5 ĐIỂM MÙ KỸ THUẬT TIỀM ẨN CẦN LƯU Ý (CRITICAL BLIND SPOTS)
+--------------------------------------------------------------------------------
+Khi đưa ra bảo vệ trước các chuyên gia về Computer Vision và Thống kê ứng dụng, 
+cần lưu ý 5 chi tiết kỹ thuật tinh vi sau:
+
+[ĐIỂM MÙ 1]: Nguy Cơ Rò Rỉ Ẩn Giữa Tập MOT và Tập Train Của Detector (Assumption A2 vs Mục 8.0)
+- Thực tế BDD100K:
+  * Bộ 100K Detection chuẩn chứa 100.000 keyframe (70K train, 10K val, 20K test).
+  * Bộ 1.600 video MOT (1.400 train, 200 val) được trích từ chính kho 100.000 video này!
+  * Nếu detector RT-DETR M được huấn luyện trên BDD100K 70K Train Detection chuẩn, 
+    mô hình này rất có thể ĐÃ NHÌN THẤY keyframe tại giây thứ 10 của các video clip trong tập MOT Train!
+- Hậu quả: Nếu lấy 1.200 clip từ tập MOT làm Cal-pool trong Exp C mà detector đã từng 
+  học qua keyframe của các clip đó, Assumption A2 bị vi phạm (rò rỉ dữ liệu qua trọng số mô hình).
+- Khuyến nghị: Quy định rõ giao thức tiền huấn luyện:
+  "Detector M phải được huấn luyện trên tập: Train_filtered = Train_det_70K \ Videos_MOT".
+
+[ĐIỂM MÙ 2]: Bản Chất Toán Học Của Cột Mốc N ≈ 149 Trong Bảng 5.4
+- Trong Bảng 5.4, dòng N = 150, 200 có ghi chú: "cỡ mẫu tối thiểu N >= 149 (0.98^N <= 0.05)".
+- Lưu ý giải tích:
+  * Nếu dùng riêng Bentkus: p_Bentkus = e * (1 - alpha)^N. Do có thừa số e, 
+    điều kiện e * 0.98^N <= 0.05 đòi hỏi N >= 198!
+  * Tuy nhiên, vì LTT dùng bound kết hợp p_HB = min(p_Hoeff, p_Bentkus), và nhánh Hoeffding-KL 
+    tại R_hat = 0 có dạng:
+    p_Hoeff = exp(-N * d_KL(0, 0.02)) = exp(-N * ln(1/0.98)) = 0.98^N (không có e!).
+    Do đó, tại N = 149, p_Hoeff <= 0.05 => p_HB <= 0.05.
+- Khuyến nghị: Thêm chú thích nhỏ ở Bảng 5.4 để giải thích rõ mốc 149 đến từ nhánh Hoeffding-KL, 
+  tránh để reviewer thắc mắc về hằng số e của Bentkus.
+
+[ĐIỂM MÙ 3]: Thuật Toán Xây Dựng Tuyến Đường 1D (Lambda_1D) Trên Meta-Train
+- Assumption A5 yêu cầu Lambda_1D cố định trước khi nhìn tập Cal. Tuy nhiên không gian tham số 
+  gồm 3 chiều: tau = (tau_cls, tau_loc, tau_fcd).
+- Nếu chọn một đường đi 1D không đơn điệu về rủi ro, Fixed-Sequence testing sẽ gặp điểm vi phạm 
+  quá sớm và dừng lại ngay, làm suy giảm nghiêm trọng Yield (H1c).
+- Khuyến nghị: Định nghĩa cụ thể thuật toán tạo Lambda_1D là "Truy vết đường biên Pareto" 
+  (Pareto Frontier Tracing) trên tập Meta-Train:
+  tau^(k) = argmax Coverage_meta(tau)  s.t.  FDP_meta(tau) <= alpha_k
+  với lưới rủi ro tăng dần 0 < alpha_1 < ... < alpha_K = alpha.
+
+[ĐIỂM MÙ 4]: Bổ Sung Ràng Buộc "Mật Độ Nhãn Giả" Vào H1c (Box Coverage Density)
+- Tiêu chí C3 hiện tại chỉ yêu cầu Yield >= 85% (tức tau_hat != empty).
+- Rủi ro biên: Nếu tau_hat != empty nhưng tại ngưỡng đó mô hình chỉ chấp nhận trung bình 
+  0.01 box/video (100 video mới có 1 nhãn giả), hệ thống đạt C3 về toán nhưng vô dụng trong thực tế!
+- Khuyến nghị: Bổ sung chỉ số phụ song hành vào H1c:
+  "Mật độ box chấp nhận: E[N_i^acc(tau_hat)] >= 1.0 box/unit (hoặc >= 50% so với baseline)".
+
+[ĐIỂM MÙ 5]: Giới Hạn Quần Thể Hữu Hạn Trong Experiment B (Finite Population Bootstrap)
+- Rút N = 1.500 từ pool n_cal-pool ≈ 4.200 đo lường phương sai chọn mẫu có điều kiện trên tập pool đó.
+- Cần giữ phát biểu khiêm tốn rằng đây là kiểm chứng PAC trên phân phối thực nghiệm của tập Val BDD100K.
+
+
+IV. BẢNG TỔNG HỢP KIẾN NGHỊ CHỈNH SỬA NHỎ (ACTION ITEMS)
+--------------------------------------------------------------------------------
+1. Mục 8.0 & A2:
+   - Hiện tại: Chưa nêu rõ cách lọc video MOT khỏi 70K Train Detection.
+   - Kiến nghị: Thêm giao thức Train_filtered = Train_det \ Videos_MOT.
+2. Bảng 5.4:
+   - Hiện tại: Mốc N >= 149 dễ bị nhầm là quên hằng số e của Bentkus.
+   - Kiến nghị: Chú thích rõ mốc 149 do Hoeffding-KL kích hoạt khi R_hat = 0.
+3. Mục 6.2 (A5):
+   - Hiện tại: Chưa mô tả chi tiết thuật toán tạo Lambda_1D từ lưới 3D.
+   - Kiến nghị: Quy định thuật toán Pareto Frontier Tracing trên Meta-Train.
+4. H1c & C3:
+   - Hiện tại: Chỉ đo Yield (tau_hat != empty), chưa chặn trường hợp quá ít box.
+   - Kiến nghị: Bổ sung điều kiện mật độ box >= 1.0 box/unit.
+
+
+V. KẾT LUẬN CHUNG (FINAL VERDICT)
+--------------------------------------------------------------------------------
+Tài liệu H1 (The Statistical Guarantee Hypothesis) hiện tại đã đạt trình độ lý thuyết 
+và thực nghiệm hoàn chỉnh cho một bài báo khoa học đỉnh cao. 
+Toàn bộ nội dung này hoàn toàn xứng đáng làm Chương Cơ sở Lý thuyết & Phương pháp Luận 
+(Theoretical Foundations & Measurement Framework) trong Paper. 
+
+Khung đo lường này đã sẵn sàng để đem đi triển khai thực nghiệm kiểm chứng trên mã nguồn!
+================================================================================

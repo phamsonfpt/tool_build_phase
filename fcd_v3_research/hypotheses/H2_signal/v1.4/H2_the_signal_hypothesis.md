@@ -4,7 +4,7 @@
 **Phiên bản 1.4 — Bản nháp đăng ký trước (Pre-registration Draft), 14/10/2026.**  
 *Tài liệu nghiên cứu thuộc dự án FCD Autonomous Driving Active Learning Benchmark.*  
 *Hội nghị / Tạp chí Mục tiêu: IEEE Transactions on Intelligent Vehicles (T-IV) / NeurIPS (Datasets and Benchmarks Track).*  
-*Tài liệu liên quan:* `HYPOTHESIS_CHAIN.md` (chuỗi logic H1 → H2 → H3 và các điểm cần đồng bộ), `H2_simulation_report.md` (mô phỏng so sánh các phương án thiết kế), `H2_the_signal_hypothesis_v1.2_backup.md` (bản 1.2).
+*Tài liệu liên quan:* `../../shared/HYPOTHESIS_CHAIN.md` (chuỗi logic H1 → H2 → H3 và các điểm cần đồng bộ), `H2_simulation_report.md` (mô phỏng so sánh các phương án thiết kế), `../v1.2/H2_the_signal_hypothesis.md` (bản 1.2).
 
 *Thay đổi ở bản 1.4 (dựa trên mô phỏng S1–S2 và cấu hình detector thực tế):*
 1. **Ensemble cố định là 3 detector có sẵn** (`ai_router/experiments/expert_{1,2,3}.pth`). Bỏ pool 5 mô hình của bản 1.3; còn 3 cấu hình, mỗi cấu hình dùng một mô hình làm anchor. Mục 0 ghi lại cấu hình huấn luyện thực tế và các hệ quả: chỉ có lớp `car`, seed bị ghi đè, huấn luyện trên toàn bộ tập train.
@@ -31,7 +31,7 @@ Tài liệu dưới đây viết cho trường hợp tổng quát $C = |\mathcal
 
 ---
 
-### BẢN ĐỒ QUAN HỆ VỚI H1, H3 (chi tiết ở `HYPOTHESIS_CHAIN.md`)
+### BẢN ĐỒ QUAN HỆ VỚI H1, H3 (chi tiết ở `../../shared/HYPOTHESIS_CHAIN.md`)
 * **Nhận từ H1:** định nghĩa đơn vị (quy tắc R-unit), $N$, $\theta_{\text{IoU}}$, $\mathcal{C}_{\text{eval}}$, lưới rủi ro và thuật toán dựng đường đi, các phân hoạch B-block của Exp B, quy tắc C2. **Điều kiện tiên quyết:** H1a không bị Bác bỏ. Nếu H1a bị Bác bỏ, H2 chỉ được báo cáo như phân tích mô tả.
 * **Giao cho H3:** tín hiệu $U^\star$ dùng để định tuyến (chọn theo quy tắc đăng ký trước ở Mục 9.2), cùng quy trình hiệu chuẩn. H3 không dùng lại tập đánh giá của H2 để đo mAP.
 
@@ -270,7 +270,7 @@ Chạy sau bước P3 của H1 và trước bước P4 của H1. Không chạm v
 * Cân bằng compute: tín hiệu đề xuất so với B7, và B2 so với B7.
 * Kiểm dự đoán P1 và P2 bằng $\bar r_\zeta$ và tỷ số độ phân tán FP/TP đo trên Evaluation pool.
 * **Track C:** đường đi 2 chiều $(\tau_{\text{conf}}, \tau_{\text{latent}})$ theo thuật toán Pareto của H1. Track này kiểm tra xem phép kết hợp tuyến tính trong $U_{\text{fcd}}$ có làm mất Coverage so với một ranh giới 2 chiều tổng quát hơn hay không.
-* **Đường đi 3 chiều của H1** $(\tau_{\text{cls}}, \tau_{\text{loc}}, \tau_{\text{fcd}})$, tức vùng chấp nhận dạng giao của ba ngưỡng, với $\tau_{\text{loc}}$ đặt trên $1 - \overline{\text{IoU}}$ và $\tau_{\text{fcd}}$ đặt trên $\bar\zeta + \lambda s_\zeta$ (`HYPOTHESIS_CHAIN.md`, Mục 4). Phép so sánh này nối kết quả H2 với đường đi mà H1 dùng để kiểm chứng bảo chứng.
+* **Đường đi 3 chiều của H1** $(\tau_{\text{cls}}, \tau_{\text{loc}}, \tau_{\text{fcd}})$, tức vùng chấp nhận dạng giao của ba ngưỡng, với $\tau_{\text{loc}}$ đặt trên $1 - \overline{\text{IoU}}$ và $\tau_{\text{fcd}}$ đặt trên $\bar\zeta + \lambda s_\zeta$ (`../../shared/HYPOTHESIS_CHAIN.md`, Mục 4). Phép so sánh này nối kết quả H2 với đường đi mà H1 dùng để kiểm chứng bảo chứng.
 
 ### 8.3. H2-C: Phân rã FP tại $\hat\tau$
 Cho từng tín hiệu: tỷ lệ ảo giác HR, số FP mỗi loại trên 1.000 TP, và chỉ số Jaccard giữa tập FP được chấp nhận của tín hiệu đề xuất và của B1. Dự đoán (chỉ về chiều): thành phần tiềm ẩn làm giảm số FP ảo giác trên 1.000 TP nhiều hơn so với số FP lệch vị trí.
@@ -320,7 +320,7 @@ Cho từng tín hiệu: tỷ lệ ảo giác HR, số FP mỗi loại trên 1.00
 ### 9.2. Quy tắc chọn tín hiệu giao cho H3 (đăng ký trước)
 1. Nếu C-H2-Final là Chấp nhận: $U^\star = U_{\text{fcd}}$.
 2. Ngược lại, $U^\star$ là tín hiệu có $\hat\Delta$ lớn nhất so với B1 trong tập $\{B1, B2, B7, B8, U_{\text{fcd}}\}$, **với điều kiện** tín hiệu đó Đạt so với mọi tín hiệu rẻ hơn trong tập. Thứ tự chi phí: B1 = B8 < B7 = B2 = $U_{\text{fcd}}$ về số lượt forward; B8 đắt hơn B1 một phép tính khoảng cách. Nếu không tín hiệu nào thỏa, $U^\star = U_{\text{conf}}$.
-3. Việc chọn $U^\star$ dùng dữ liệu Val của H2. Vì vậy H3 **không** được đo mAP trên Val, và phải hiệu chuẩn lại LTT trên dữ liệu mới ở mỗi vòng AL (`HYPOTHESIS_CHAIN.md`, Mục 3).
+3. Việc chọn $U^\star$ dùng dữ liệu Val của H2. Vì vậy H3 **không** được đo mAP trên Val, và phải hiệu chuẩn lại LTT trên dữ liệu mới ở mỗi vòng AL (`../../shared/HYPOTHESIS_CHAIN.md`, Mục 3).
 
 ---
 
