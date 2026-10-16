@@ -1,0 +1,13 @@
+flowchart TD
+    C0{"C0 đạt?"} -->|"không"| BUG["LỖI CÀI ĐẶT → sửa code"]
+    C0 -->|"có"| T1{"T1 thỏa?"}
+    T1 -->|"không"| NT["KHÔNG KIỂM ĐỊNH ĐƯỢC"]
+    T1 -->|"có"| C2{"C2"}
+    C2 -->|"Bác bỏ"| REJ["H1a BÁC BỎ<br/>(chẩn đoán bằng C2b)"]
+    C2 -->|"Chấp nhận"| T1B{"T1b thỏa?"}
+    T1B -->|"không"| NT
+    T1B -->|"có"| C2B{"C2b"}
+    C2B -->|"Chấp nhận"| ACC["H1a CHẤP NHẬN"]
+    C2B -->|"Bác bỏ, nhưng<br/>D_eff ≤ D_thr"| TOL["CHẤP NHẬN NHỜ<br/>BIÊN CHỊU ĐỰNG"]
+    C2B -->|"còn lại /<br/>không chạy được"| INC["KHÔNG KẾT LUẬN"]
+    C2 -->|"không rõ"| INC

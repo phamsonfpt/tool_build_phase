@@ -1,0 +1,7 @@
+flowchart LR
+    G["Lưới 3 chiều G<br/>(τ_cls × τ_loc × τ_fcd)"] --> RE["Quy tắc chạm:<br/>hạ τ_cls tới khi rủi ro<br/>Meta-Train ≥ 2α_C"]
+    RE --> RS["Quy tắc độ phân giải:<br/>bước 0,0005 dưới 0,05"]
+    RS --> PF["Truy vết biên Pareto:<br/>max độ phủ s.t. FDP ≤ α_k"]
+    PF --> LC["Phần lõi<br/>(α_k ≤ 1,5%)"]
+    PF --> LE["Phần kéo dài<br/>(vượt 2%, tới 4%)"]
+    LC & LE --> LAM["Đường đi Λ cố định<br/>→ đăng ký trước"]

@@ -1,0 +1,7 @@
+flowchart TB
+    CL["N_cluster clip MOT<br/>× 200 frame có nhãn"] --> A1["Arm 1: Cluster-LTT<br/>đơn vị = clip (N)"]
+    CL --> A2["Arm 2: Frame-LTT<br/>đơn vị = frame (200·N, coi độc lập)"]
+    CL --> A3["Arm 3: chia frame 50/50<br/>cal / leaked test"]
+    A1 --> V1["VR Arm 1<br/>(dự đoán ≤ 5%)"]
+    A2 --> V2["VR Arm 2<br/>(dự đoán ≫ 5%)"]
+    A3 --> DL["Δ_leak = FDP clip mới − FDP frame rò rỉ<br/>(dự đoán > 0)"]

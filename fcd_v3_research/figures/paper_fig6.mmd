@@ -1,0 +1,16 @@
+flowchart TB
+    subgraph DATA["BDD100K 100K + Info"]
+        TR["Train 70K<br/>→ huấn luyện detector"]
+        MT["Meta-Train<br/>3.000 chuyến đi (split test)"]
+        PV["Pool V = Val<br/>5.930 chuyến đi"]
+        PT["Pool T<br/>9.033 chuyến đi (split test)<br/>CHƯA đọc nhãn"]
+        MOT["MOT 2020<br/>(chưa tải)"]
+    end
+    MT --> P3["P3: lưới, θ_IoU, đường đi,<br/>baseline, D*"]
+    PV --> EA["Exp A tầng 2:<br/>ICC block / super-block → R-unit"]
+    P3 & EA --> REG[["ĐĂNG KÝ<br/>registration.json + SHA-256"]]
+    REG --> EB["Exp B trên Pool T<br/>(xác nhận H1a, H1c)"]
+    PT --> EB
+    MOT --> EC["Exp C (H1b)<br/>với detector huấn luyện lại"]
+    REG --> EC
+    PV --> EXP["Exp B, Exp C′ trên Pool V<br/>(chỉ thăm dò)"]

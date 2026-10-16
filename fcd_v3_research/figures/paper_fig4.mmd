@@ -1,0 +1,8 @@
+flowchart TD
+    START(["k = 1 (ngưỡng chặt nhất)"]) --> PV["Tính p-value Hoeffding–Bentkus<br/>từ FDP trung bình trên tập hiệu chuẩn"]
+    PV --> Q{"p ≤ 0,05?"}
+    Q -->|"có: đủ bằng chứng FDP ≤ 2%"| ACC["τ̂ ← τ(k); k ← k+1"]
+    ACC --> MORE{"Còn ngưỡng?"}
+    MORE -->|"có"| PV
+    MORE -->|"không"| DONE(["Trả về τ̂"])
+    Q -->|"không"| STOP(["DỪNG ngay<br/>trả về τ̂ hiện tại<br/>(hoặc ∅ nếu chưa có)"])

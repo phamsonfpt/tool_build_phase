@@ -1,0 +1,36 @@
+flowchart TB
+    subgraph IN["Đầu vào"]
+        X["Keyframe chưa nhãn"]
+    end
+    subgraph ENS["Ensemble 3 detector RT-DETR"]
+        E1["Expert 1 (anchor)"]
+        E2["Expert 2"]
+        E3["Expert 3"]
+    end
+    subgraph SIG["Ba tín hiệu cho mỗi box"]
+        S1["s_cls: điểm lớp của anchor"]
+        S2["s_loc: IoU đồng thuận với 2 expert còn lại"]
+        S3["s_fcd: độ lệch đặc trưng decoder"]
+    end
+    subgraph CAL["Hiệu chuẩn LTT (một lần, offline)"]
+        P["Đường đi ngưỡng Λ<br/>(dựng trên Meta-Train)"]
+        L["Fixed-Sequence LTT<br/>trên tập hiệu chuẩn theo chuyến đi"]
+        T["Ngưỡng τ̂ có bảo chứng"]
+    end
+    subgraph ZONE["Phân vùng"]
+        G["GREEN: tự gán nhãn<br/>(cam kết FDP ≤ 2%)"]
+        Y["GREY: người duyệt"]
+        R["RED: loại"]
+    end
+    X --> E1 & E2 & E3
+    E1 --> S1
+    E1 & E2 & E3 --> S2
+    E1 & E2 & E3 --> S3
+    P --> L --> T
+    S1 & S2 & S3 --> D{"Box qua cả 3 ngưỡng τ̂?"}
+    T --> D
+    D -->|"có"| G
+    D -->|"không"| Y
+    Y -->|"điểm rất thấp"| R
+    G --> POOL["Pool nhãn giả → huấn luyện vòng sau"]
+    Y --> HUMAN["CVAT: người gán nhãn"] --> POOL

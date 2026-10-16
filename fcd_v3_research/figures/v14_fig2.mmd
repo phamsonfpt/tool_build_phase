@@ -1,0 +1,30 @@
+flowchart TB
+    subgraph G0["Cổng G0 — P1, P2 (không đọc nhãn box)"]
+        P1["P1: rideID, block, super-block,<br/>chia pool, tách super-block lớn"]
+        P2["P2: detector M = expert_1<br/>(expert_2, expert_3 lặp lại; M_C cho Exp C)"]
+    end
+    subgraph G1["Cổng G1 — P3 (Meta-Train và Pool V)"]
+        P30["P3.0: chỉ số lớp,<br/>kiểm tra ghi nhớ"]
+        P3G["Lưới G: quy tắc chạm<br/>+ độ phân giải"]
+        P3T["θ_IoU (quy tắc r*)"]
+        P3P["Đường đi Λ_1D, Λ_1D^C,<br/>baseline τ_base^G, D*, D*_C"]
+        EA["Exp A tầng 2 trên Pool V:<br/>ICC block / super-block, Moran's I"]
+        RU["Quy tắc R-unit:<br/>đơn vị và N cho Pool T"]
+        P30 --> P3G --> P3T --> P3P
+        EA --> RU
+    end
+    REG[["P4: ĐĂNG KÝ<br/>registration.json + SHA-256"]]
+    subgraph G2["Cổng G2 — sau đăng ký"]
+        EB["Exp B trên Pool T:<br/>B-rand → C0; B-block → C2, C2b, C3, C3b; D1–D12"]
+        EV["Exp B trên Pool V<br/>(thăm dò)"]
+        EC["Exp C trên MOT* với M_C:<br/>C4, C5"]
+        ECP["Exp C′<br/>(đối chứng âm)"]
+    end
+    DEC["Ma trận quyết định (Mục VIII)<br/>→ H1a, H1b, H1c"]
+    P1 --> P30
+    P1 --> EA
+    P2 --> P30
+    P3P --> REG
+    RU --> REG
+    REG --> EB & EV & EC & ECP
+    EB & EC --> DEC

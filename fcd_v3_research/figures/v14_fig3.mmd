@@ -1,0 +1,16 @@
+flowchart LR
+    subgraph DATA["BDD100K 100K + Info"]
+        TR["Train 70K"]
+        MT["Meta-Train<br/>3.000 chuyến đi (split test)"]
+        PV["Pool V = Val<br/>5.930 chuyến đi"]
+        PT["Pool T<br/>9.033 chuyến đi (split test)<br/>CHƯA đọc nhãn"]
+        MOT["MOT 2020<br/>(chưa tải)"]
+    end
+    TR --> DET["Huấn luyện 3 expert"]
+    MT --> P3["P3: lưới, θ_IoU, đường đi,<br/>baseline, D*"]
+    PV --> EA["Exp A tầng 2 → R-unit<br/>+ thăm dò"]
+    P3 & EA --> REG[["ĐĂNG KÝ"]]
+    REG --> EB["Exp B xác nhận<br/>(H1a, H1c)"]
+    PT --> EB
+    MOT --> EC["Exp C (H1b)"]
+    REG --> EC

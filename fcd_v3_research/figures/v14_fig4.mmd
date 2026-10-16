@@ -1,0 +1,11 @@
+flowchart LR
+    IMG["Ảnh 640×640"] --> BB["Backbone<br/>ResNet-50-vd"]
+    BB --> ENC["Hybrid encoder<br/>AIFI + CCFF"]
+    ENC --> QS["Chọn 300 truy vấn<br/>(IoU-aware)"]
+    QS --> DEC["Decoder 6 tầng"]
+    DEC --> CLS["Logit lớp → sigmoid<br/>(car ở chỉ số 3)"]
+    DEC --> BOX["Box (cx, cy, w, h)"]
+    DEC --> H["Đặc trưng h ∈ R^256"]
+    CLS --> SCLS["s_cls"]
+    BOX --> SLOC["s_loc = IoU với box<br/>của expert khác"]
+    H --> SFCD["s_fcd = 1 − cos(h, h')<br/>với box khớp của expert khác"]
