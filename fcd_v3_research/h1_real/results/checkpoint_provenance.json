@@ -1,0 +1,28 @@
+{
+ "note": "Checkpoints that produced every H1 result dated 2026-10-14 (v1.3/v1.4 exploratory runs). expert_1_old.pth reproduces the cached Meta-Train predictions (16 images: max score difference 0.002, fp16).",
+ "used_for_h1_results": {
+  "expert_1": {
+   "file_now": "ai_router/experiments/expert_1_old.pth",
+   "sha256": "d93a30f71fc1d5824ccadd26eaea8221849fee55fc461bc4c857b2a0c2f98b76",
+   "classes": 1
+  },
+  "expert_2": {
+   "file_now": "ai_router/experiments/expert_2.pth",
+   "sha256": "f3654dadc7b269db08087a163d984a084f7a9289ff121f4cf1c7245f47dc070b",
+   "classes": 1
+  },
+  "expert_3": {
+   "file_now": "ai_router/experiments/expert_3.pth",
+   "sha256": "57aea44e5b36aebe52c86e5a6bc0b1a0c5253976d41fe3be07e8421b793b5dda",
+   "classes": 1
+  }
+ },
+ "not_yet_used": {
+  "expert_1 (2026-10-16)": {
+   "file": "ai_router/experiments/expert_1.pth",
+   "sha256": "b3bbf9971b7d42185ffe1633e0473ab7e8cad3bf686ae18dd6896161a76b2128",
+   "classes": 10,
+   "trained_on": "full BDD100K train (69,863 images), train_filtered=false, BDD test not read"
+  }
+ }
+}
