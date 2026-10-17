@@ -1,28 +1,49 @@
 {
- "note": "Checkpoints that produced every H1 result dated 2026-10-14 (v1.3/v1.4 exploratory runs). expert_1_old.pth reproduces the cached Meta-Train predictions (16 images: max score difference 0.002, fp16).",
+ "note": "Old single-class experts produced the H1 results dated 2026-10-14 (exploratory). They were removed on 2026-10-17 so that no later run mixes model versions; all H1 runs from now on must use current_experts.",
  "used_for_h1_results": {
   "expert_1": {
-   "file_now": "ai_router/experiments/expert_1_old.pth",
+   "file_now": "removed 2026-10-17 (moved to Recycle Bin); results kept only as history",
    "sha256": "d93a30f71fc1d5824ccadd26eaea8221849fee55fc461bc4c857b2a0c2f98b76",
    "classes": 1
   },
   "expert_2": {
-   "file_now": "ai_router/experiments/expert_2.pth",
+   "file_now": "removed 2026-10-17 (moved to Recycle Bin); results kept only as history",
    "sha256": "f3654dadc7b269db08087a163d984a084f7a9289ff121f4cf1c7245f47dc070b",
    "classes": 1
   },
   "expert_3": {
-   "file_now": "ai_router/experiments/expert_3.pth",
+   "file_now": "removed 2026-10-17 (moved to Recycle Bin); results kept only as history",
    "sha256": "57aea44e5b36aebe52c86e5a6bc0b1a0c5253976d41fe3be07e8421b793b5dda",
    "classes": 1
   }
  },
- "not_yet_used": {
-  "expert_1 (2026-10-16)": {
+ "current_experts": {
+  "expert_1": {
    "file": "ai_router/experiments/expert_1.pth",
-   "sha256": "b3bbf9971b7d42185ffe1633e0473ab7e8cad3bf686ae18dd6896161a76b2128",
+   "file_sha256": "b3bbf9971b7d42185ffe1633e0473ab7e8cad3bf686ae18dd6896161a76b2128",
+   "weights_sha256_manifest": "5db18b210ccfe2e41eab3f2b745928434c25047826c623d94cffdf60a154130a",
+   "seed": 42,
    "classes": 10,
-   "trained_on": "full BDD100K train (69,863 images), train_filtered=false, BDD test not read"
+   "trained_on": "full BDD100K train (69,863 images, 2018 labels), train_filtered=false, BDD test not read",
+   "val_usage": "loss monitoring only; final checkpoint, no selection"
+  },
+  "expert_2": {
+   "file": "ai_router/experiments/expert_2.pth",
+   "file_sha256": "a1cc4ee4d3640b4c9598adee1bb59d9a69a6622f2be8e9d3a9c0ae123e642a26",
+   "weights_sha256_manifest": "91481f4965ab699c62b83a19b30f2c6505203bedb744f7425ed986b387d28deb",
+   "seed": 142,
+   "classes": 10,
+   "trained_on": "full BDD100K train (69,863 images, 2018 labels), train_filtered=false, BDD test not read",
+   "val_usage": "loss monitoring only; final checkpoint, no selection"
+  },
+  "expert_3": {
+   "file": "ai_router/experiments/expert_3.pth",
+   "file_sha256": "aa73adebb9efe87ba9a1a6374ae20d87a2a9523275bc23d8e44e3be0f034d513",
+   "weights_sha256_manifest": "093c4130c66a22bf97b258c2cdbb733089edebc8534586277d9b2895b6b43473",
+   "seed": 242,
+   "classes": 10,
+   "trained_on": "full BDD100K train (69,863 images, 2018 labels), train_filtered=false, BDD test not read",
+   "val_usage": "loss monitoring only; final checkpoint, no selection"
   }
  }
 }
