@@ -1,0 +1,1 @@
+{"t_s": 0.575, "batch": 0, "images": 1, "load_wait_ms": 30.52, "gpu_ms": 538.63, "match_score_ms": 3.47, "route_ms": 1.23, "batch_ms": 573.86, "images_per_s": 1.74, "red": 1, "cuda_alloc_mb": 506.8, "cuda_peak_mb": 630.4, "rss_mb": 2044.8}

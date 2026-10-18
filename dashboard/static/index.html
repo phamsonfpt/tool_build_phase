@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>M29 AI-Router Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.35.2/plotly.min.js" integrity="sha384-cCVCZkAjYNxaYKbM8lsArLznDF/SvMFr1jcZrvOpSTCa0W40ZAdLzHCEulnUa5i7" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="shell">
+  <nav id="side">
+    <div class="brand">M29 AI-Router</div>
+    <div class="sub">BDD100K · 3 expert RT-DETR</div>
+    <a class="nav" href="#/train" data-nav="train"><span class="num">1</span> Dữ liệu train</a>
+    <a class="nav" href="#/test" data-nav="test"><span class="num">2</span> Test ảnh</a>
+    <div class="foot" title="Máy chạy 3 expert. Xanh: sẵn sàng nhận ảnh. Vàng: đang nạp model lên GPU (khoảng 40 giây sau khi mở server) hoặc đang chạy một job. Đỏ: mất kết nối tới server.">
+      <div style="text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px">Máy xử lý ảnh</div>
+      <div class="gpu"><span class="dot" id="gpu-dot"></span><span id="gpu-text">đang kết nối…</span></div>
+      <div id="queue-text"></div>
+    </div>
+  </nav>
+  <main id="main"></main>
+</div>
+<div id="modal"><div class="box" id="modal-box"></div></div>
+<script src="app.js"></script>
+</body>
+</html>

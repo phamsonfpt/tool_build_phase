@@ -1,0 +1,1002 @@
+{"run_id": "50be57e2326c", "span_id": "44cbb847", "parent_id": null, "name": "B0.load_wait", "start_s": 0.000792, "dur_ms": 74.979, "batch": 0, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "04583d0b", "parent_id": null, "name": "B1.to_device", "start_s": 0.075981, "dur_ms": 2.708, "batch": 0}
+{"run_id": "50be57e2326c", "span_id": "249d217e", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 0.078776, "dur_ms": 375.95, "model": 0, "batch": 0}
+{"run_id": "50be57e2326c", "span_id": "f827ef15", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 0.454826, "dur_ms": 359.322, "model": 1, "batch": 0}
+{"run_id": "50be57e2326c", "span_id": "4c692552", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 0.814243, "dur_ms": 364.677, "model": 2, "batch": 0}
+{"run_id": "50be57e2326c", "span_id": "d9bef32a", "parent_id": null, "name": "B1.to_host", "start_s": 1.179034, "dur_ms": 1.037, "batch": 0}
+{"run_id": "50be57e2326c", "span_id": "bcda188b", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 1.180184, "dur_ms": 121.624, "batch": 0, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "8d51afdd", "parent_id": null, "name": "B5.route_fcd", "start_s": 1.301888, "dur_ms": 10.617, "batch": 0, "images": 8, "red": 4}
+{"run_id": "50be57e2326c", "span_id": "78ff77ad", "parent_id": null, "name": "B0.load_wait", "start_s": 1.313125, "dur_ms": 117.776, "batch": 1, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "32ef0897", "parent_id": null, "name": "B1.to_device", "start_s": 1.431107, "dur_ms": 1.94, "batch": 1}
+{"run_id": "50be57e2326c", "span_id": "2a0ffc48", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 1.433121, "dur_ms": 361.99, "model": 0, "batch": 1}
+{"run_id": "50be57e2326c", "span_id": "ed9e57de", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 1.795215, "dur_ms": 362.912, "model": 1, "batch": 1}
+{"run_id": "50be57e2326c", "span_id": "86850fcd", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 2.158223, "dur_ms": 366.296, "model": 2, "batch": 1}
+{"run_id": "50be57e2326c", "span_id": "73f55585", "parent_id": null, "name": "B1.to_host", "start_s": 2.524621, "dur_ms": 0.946, "batch": 1}
+{"run_id": "50be57e2326c", "span_id": "abbd2081", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 2.525656, "dur_ms": 87.154, "batch": 1, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "1ae91357", "parent_id": null, "name": "B5.route_fcd", "start_s": 2.612869, "dur_ms": 7.611, "batch": 1, "images": 8, "red": 4}
+{"run_id": "50be57e2326c", "span_id": "3ea4fc60", "parent_id": null, "name": "B0.load_wait", "start_s": 2.620795, "dur_ms": 76.159, "batch": 2, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "537ef28f", "parent_id": null, "name": "B1.to_device", "start_s": 2.697106, "dur_ms": 1.876, "batch": 2}
+{"run_id": "50be57e2326c", "span_id": "af4fffed", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 2.699047, "dur_ms": 360.649, "model": 0, "batch": 2}
+{"run_id": "50be57e2326c", "span_id": "5e4b5a07", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 3.059786, "dur_ms": 361.311, "model": 1, "batch": 2}
+{"run_id": "50be57e2326c", "span_id": "8a2f351a", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 3.42119, "dur_ms": 363.291, "model": 2, "batch": 2}
+{"run_id": "50be57e2326c", "span_id": "67bcf647", "parent_id": null, "name": "B1.to_host", "start_s": 3.784606, "dur_ms": 1.058, "batch": 2}
+{"run_id": "50be57e2326c", "span_id": "c8b52f39", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 3.785761, "dur_ms": 56.296, "batch": 2, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "b87f4baa", "parent_id": null, "name": "B5.route_fcd", "start_s": 3.842113, "dur_ms": 4.418, "batch": 2, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "a8308ded", "parent_id": null, "name": "B0.load_wait", "start_s": 3.846861, "dur_ms": 76.215, "batch": 3, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "fbecaf13", "parent_id": null, "name": "B1.to_device", "start_s": 3.923224, "dur_ms": 1.986, "batch": 3}
+{"run_id": "50be57e2326c", "span_id": "95a4a1e3", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 3.9253, "dur_ms": 360.726, "model": 0, "batch": 3}
+{"run_id": "50be57e2326c", "span_id": "00aaafed", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 4.286123, "dur_ms": 361.221, "model": 1, "batch": 3}
+{"run_id": "50be57e2326c", "span_id": "1fd60d4e", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 4.647432, "dur_ms": 363.268, "model": 2, "batch": 3}
+{"run_id": "50be57e2326c", "span_id": "cb4a30b1", "parent_id": null, "name": "B1.to_host", "start_s": 5.010813, "dur_ms": 0.981, "batch": 3}
+{"run_id": "50be57e2326c", "span_id": "1bab0fc0", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 5.011879, "dur_ms": 65.382, "batch": 3, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "7b637558", "parent_id": null, "name": "B5.route_fcd", "start_s": 5.077328, "dur_ms": 4.663, "batch": 3, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "a7ea2e74", "parent_id": null, "name": "B0.load_wait", "start_s": 5.082282, "dur_ms": 73.397, "batch": 4, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "430faf4f", "parent_id": null, "name": "B1.to_device", "start_s": 5.1558, "dur_ms": 1.843, "batch": 4}
+{"run_id": "50be57e2326c", "span_id": "1cab1df3", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 5.157702, "dur_ms": 359.756, "model": 0, "batch": 4}
+{"run_id": "50be57e2326c", "span_id": "d7240c73", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 5.517553, "dur_ms": 360.975, "model": 1, "batch": 4}
+{"run_id": "50be57e2326c", "span_id": "7c27b7ea", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 5.878623, "dur_ms": 363.764, "model": 2, "batch": 4}
+{"run_id": "50be57e2326c", "span_id": "638238fc", "parent_id": null, "name": "B1.to_host", "start_s": 6.242505, "dur_ms": 0.945, "batch": 4}
+{"run_id": "50be57e2326c", "span_id": "3c14e5c6", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 6.243529, "dur_ms": 66.956, "batch": 4, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "09f3d421", "parent_id": null, "name": "B5.route_fcd", "start_s": 6.310633, "dur_ms": 5.552, "batch": 4, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "5c81ecd0", "parent_id": null, "name": "B0.load_wait", "start_s": 6.316492, "dur_ms": 76.145, "batch": 5, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "ebeed846", "parent_id": null, "name": "B1.to_device", "start_s": 6.392782, "dur_ms": 1.836, "batch": 5}
+{"run_id": "50be57e2326c", "span_id": "9bf1169f", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 6.394705, "dur_ms": 360.483, "model": 0, "batch": 5}
+{"run_id": "50be57e2326c", "span_id": "bdbd108f", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 6.755283, "dur_ms": 361.69, "model": 1, "batch": 5}
+{"run_id": "50be57e2326c", "span_id": "a1e5082b", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 7.117067, "dur_ms": 370.203, "model": 2, "batch": 5}
+{"run_id": "50be57e2326c", "span_id": "8b24fb8d", "parent_id": null, "name": "B1.to_host", "start_s": 7.487451, "dur_ms": 2.069, "batch": 5}
+{"run_id": "50be57e2326c", "span_id": "76966a4c", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 7.489804, "dur_ms": 126.214, "batch": 5, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "3e9ceb5b", "parent_id": null, "name": "B5.route_fcd", "start_s": 7.616096, "dur_ms": 6.752, "batch": 5, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "f73ccdb2", "parent_id": null, "name": "B0.load_wait", "start_s": 7.623254, "dur_ms": 97.77, "batch": 6, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "bc0bb567", "parent_id": null, "name": "B1.to_device", "start_s": 7.721209, "dur_ms": 1.858, "batch": 6}
+{"run_id": "50be57e2326c", "span_id": "3a777437", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 7.723195, "dur_ms": 367.099, "model": 0, "batch": 6}
+{"run_id": "50be57e2326c", "span_id": "db69dd82", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 8.090432, "dur_ms": 366.455, "model": 1, "batch": 6}
+{"run_id": "50be57e2326c", "span_id": "74a79767", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 8.457045, "dur_ms": 368.409, "model": 2, "batch": 6}
+{"run_id": "50be57e2326c", "span_id": "553a71de", "parent_id": null, "name": "B1.to_host", "start_s": 8.82565, "dur_ms": 0.98, "batch": 6}
+{"run_id": "50be57e2326c", "span_id": "66dc3071", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 8.826708, "dur_ms": 58.807, "batch": 6, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "af139da0", "parent_id": null, "name": "B5.route_fcd", "start_s": 8.885569, "dur_ms": 4.757, "batch": 6, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "fdda92be", "parent_id": null, "name": "B0.load_wait", "start_s": 8.890664, "dur_ms": 72.097, "batch": 7, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "fbc20672", "parent_id": null, "name": "B1.to_device", "start_s": 8.962881, "dur_ms": 1.776, "batch": 7}
+{"run_id": "50be57e2326c", "span_id": "6ed79022", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 8.964738, "dur_ms": 361.146, "model": 0, "batch": 7}
+{"run_id": "50be57e2326c", "span_id": "80eec34c", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 9.326024, "dur_ms": 361.483, "model": 1, "batch": 7}
+{"run_id": "50be57e2326c", "span_id": "2e764617", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 9.687599, "dur_ms": 364.217, "model": 2, "batch": 7}
+{"run_id": "50be57e2326c", "span_id": "adca0d69", "parent_id": null, "name": "B1.to_host", "start_s": 10.051914, "dur_ms": 1.099, "batch": 7}
+{"run_id": "50be57e2326c", "span_id": "1388ae5d", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 10.053096, "dur_ms": 96.615, "batch": 7, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "4d160e13", "parent_id": null, "name": "B5.route_fcd", "start_s": 10.149778, "dur_ms": 4.796, "batch": 7, "images": 8, "red": 0}
+{"run_id": "50be57e2326c", "span_id": "386dd4c8", "parent_id": null, "name": "B0.load_wait", "start_s": 10.154926, "dur_ms": 87.307, "batch": 8, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "414cb85f", "parent_id": null, "name": "B1.to_device", "start_s": 10.242392, "dur_ms": 1.792, "batch": 8}
+{"run_id": "50be57e2326c", "span_id": "9a4dc123", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 10.244242, "dur_ms": 361.422, "model": 0, "batch": 8}
+{"run_id": "50be57e2326c", "span_id": "9297d845", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 10.605759, "dur_ms": 361.639, "model": 1, "batch": 8}
+{"run_id": "50be57e2326c", "span_id": "f9719513", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 10.967497, "dur_ms": 363.733, "model": 2, "batch": 8}
+{"run_id": "50be57e2326c", "span_id": "27f7d4fc", "parent_id": null, "name": "B1.to_host", "start_s": 11.331335, "dur_ms": 1.142, "batch": 8}
+{"run_id": "50be57e2326c", "span_id": "a0cafeec", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 11.332588, "dur_ms": 60.079, "batch": 8, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "4a3bf64e", "parent_id": null, "name": "B5.route_fcd", "start_s": 11.392723, "dur_ms": 6.804, "batch": 8, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "89ee9e01", "parent_id": null, "name": "B0.load_wait", "start_s": 11.399844, "dur_ms": 81.695, "batch": 9, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "228f24e0", "parent_id": null, "name": "B1.to_device", "start_s": 11.481683, "dur_ms": 1.766, "batch": 9}
+{"run_id": "50be57e2326c", "span_id": "a57f8fd4", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 11.483515, "dur_ms": 362.288, "model": 0, "batch": 9}
+{"run_id": "50be57e2326c", "span_id": "8dd26162", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 11.845902, "dur_ms": 364.833, "model": 1, "batch": 9}
+{"run_id": "50be57e2326c", "span_id": "5a408439", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 12.210817, "dur_ms": 369.274, "model": 2, "batch": 9}
+{"run_id": "50be57e2326c", "span_id": "00e17a66", "parent_id": null, "name": "B1.to_host", "start_s": 12.580199, "dur_ms": 1.038, "batch": 9}
+{"run_id": "50be57e2326c", "span_id": "f623a55b", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 12.581329, "dur_ms": 77.555, "batch": 9, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "a7805ccb", "parent_id": null, "name": "B5.route_fcd", "start_s": 12.658936, "dur_ms": 5.22, "batch": 9, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "eb68f444", "parent_id": null, "name": "B0.load_wait", "start_s": 12.664439, "dur_ms": 75.601, "batch": 10, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "02e3d309", "parent_id": null, "name": "B1.to_device", "start_s": 12.74016, "dur_ms": 1.804, "batch": 10}
+{"run_id": "50be57e2326c", "span_id": "bf49c780", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 12.742023, "dur_ms": 363.409, "model": 0, "batch": 10}
+{"run_id": "50be57e2326c", "span_id": "3e7a3c49", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 13.105581, "dur_ms": 362.803, "model": 1, "batch": 10}
+{"run_id": "50be57e2326c", "span_id": "dbc22cc0", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 13.468482, "dur_ms": 366.318, "model": 2, "batch": 10}
+{"run_id": "50be57e2326c", "span_id": "e24efb7e", "parent_id": null, "name": "B1.to_host", "start_s": 13.834906, "dur_ms": 1.273, "batch": 10}
+{"run_id": "50be57e2326c", "span_id": "9190776a", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 13.836272, "dur_ms": 65.888, "batch": 10, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "30a83d67", "parent_id": null, "name": "B5.route_fcd", "start_s": 13.902235, "dur_ms": 5.125, "batch": 10, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "0732710d", "parent_id": null, "name": "B0.load_wait", "start_s": 13.90765, "dur_ms": 73.775, "batch": 11, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "b77c094c", "parent_id": null, "name": "B1.to_device", "start_s": 13.981543, "dur_ms": 1.875, "batch": 11}
+{"run_id": "50be57e2326c", "span_id": "696a116e", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 13.983475, "dur_ms": 360.918, "model": 0, "batch": 11}
+{"run_id": "50be57e2326c", "span_id": "49c197e9", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 14.344487, "dur_ms": 361.144, "model": 1, "batch": 11}
+{"run_id": "50be57e2326c", "span_id": "c4516491", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 14.70572, "dur_ms": 364.617, "model": 2, "batch": 11}
+{"run_id": "50be57e2326c", "span_id": "573f10f9", "parent_id": null, "name": "B1.to_host", "start_s": 15.07045, "dur_ms": 1.182, "batch": 11}
+{"run_id": "50be57e2326c", "span_id": "eaebbbda", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 15.071708, "dur_ms": 88.533, "batch": 11, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "5493c18b", "parent_id": null, "name": "B5.route_fcd", "start_s": 15.160295, "dur_ms": 6.69, "batch": 11, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "c61d6e62", "parent_id": null, "name": "B0.load_wait", "start_s": 15.167277, "dur_ms": 73.92, "batch": 12, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "d3a5710a", "parent_id": null, "name": "B1.to_device", "start_s": 15.241314, "dur_ms": 1.773, "batch": 12}
+{"run_id": "50be57e2326c", "span_id": "34c6671b", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 15.243157, "dur_ms": 360.741, "model": 0, "batch": 12}
+{"run_id": "50be57e2326c", "span_id": "8fe48935", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 15.603999, "dur_ms": 361.836, "model": 1, "batch": 12}
+{"run_id": "50be57e2326c", "span_id": "84fc2c11", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 15.965947, "dur_ms": 363.811, "model": 2, "batch": 12}
+{"run_id": "50be57e2326c", "span_id": "38812551", "parent_id": null, "name": "B1.to_host", "start_s": 16.329859, "dur_ms": 1.183, "batch": 12}
+{"run_id": "50be57e2326c", "span_id": "9878b61f", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 16.331247, "dur_ms": 86.739, "batch": 12, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "aa2a09c6", "parent_id": null, "name": "B5.route_fcd", "start_s": 16.418037, "dur_ms": 7.444, "batch": 12, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "aca45162", "parent_id": null, "name": "B0.load_wait", "start_s": 16.425772, "dur_ms": 74.175, "batch": 13, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "73fcab25", "parent_id": null, "name": "B1.to_device", "start_s": 16.500116, "dur_ms": 1.971, "batch": 13}
+{"run_id": "50be57e2326c", "span_id": "a741f8f9", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 16.50216, "dur_ms": 361.447, "model": 0, "batch": 13}
+{"run_id": "50be57e2326c", "span_id": "5f1aca6c", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 16.863707, "dur_ms": 362.885, "model": 1, "batch": 13}
+{"run_id": "50be57e2326c", "span_id": "1241066c", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 17.226689, "dur_ms": 366.335, "model": 2, "batch": 13}
+{"run_id": "50be57e2326c", "span_id": "491d9313", "parent_id": null, "name": "B1.to_host", "start_s": 17.593146, "dur_ms": 1.069, "batch": 13}
+{"run_id": "50be57e2326c", "span_id": "88741d1b", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 17.594312, "dur_ms": 64.61, "batch": 13, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "60433171", "parent_id": null, "name": "B5.route_fcd", "start_s": 17.658992, "dur_ms": 5.429, "batch": 13, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "18c143d2", "parent_id": null, "name": "B0.load_wait", "start_s": 17.664774, "dur_ms": 73.363, "batch": 14, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "2bcd67ba", "parent_id": null, "name": "B1.to_device", "start_s": 17.738258, "dur_ms": 1.786, "batch": 14}
+{"run_id": "50be57e2326c", "span_id": "5ae746ba", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 17.740095, "dur_ms": 362.494, "model": 0, "batch": 14}
+{"run_id": "50be57e2326c", "span_id": "bc3da02e", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 18.102676, "dur_ms": 362.229, "model": 1, "batch": 14}
+{"run_id": "50be57e2326c", "span_id": "d682d914", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 18.464986, "dur_ms": 365.445, "model": 2, "batch": 14}
+{"run_id": "50be57e2326c", "span_id": "40903e50", "parent_id": null, "name": "B1.to_host", "start_s": 18.830539, "dur_ms": 0.947, "batch": 14}
+{"run_id": "50be57e2326c", "span_id": "243d7ac1", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 18.831577, "dur_ms": 71.132, "batch": 14, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "6ff2ad29", "parent_id": null, "name": "B5.route_fcd", "start_s": 18.902763, "dur_ms": 7.977, "batch": 14, "images": 8, "red": 5}
+{"run_id": "50be57e2326c", "span_id": "d68b16d8", "parent_id": null, "name": "B0.load_wait", "start_s": 18.911043, "dur_ms": 76.981, "batch": 15, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "175d30c5", "parent_id": null, "name": "B1.to_device", "start_s": 18.988164, "dur_ms": 1.991, "batch": 15}
+{"run_id": "50be57e2326c", "span_id": "b33ac2bd", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 18.99022, "dur_ms": 361.25, "model": 0, "batch": 15}
+{"run_id": "50be57e2326c", "span_id": "12591f44", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 19.351559, "dur_ms": 362.175, "model": 1, "batch": 15}
+{"run_id": "50be57e2326c", "span_id": "4ad087b4", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 19.71382, "dur_ms": 364.313, "model": 2, "batch": 15}
+{"run_id": "50be57e2326c", "span_id": "9ccf30c3", "parent_id": null, "name": "B1.to_host", "start_s": 20.078236, "dur_ms": 0.953, "batch": 15}
+{"run_id": "50be57e2326c", "span_id": "61b98d9d", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 20.079271, "dur_ms": 59.658, "batch": 15, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "a81afad6", "parent_id": null, "name": "B5.route_fcd", "start_s": 20.138987, "dur_ms": 3.679, "batch": 15, "images": 8, "red": 0}
+{"run_id": "50be57e2326c", "span_id": "f7388081", "parent_id": null, "name": "B0.load_wait", "start_s": 20.14298, "dur_ms": 72.737, "batch": 16, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "aa2eb3bf", "parent_id": null, "name": "B1.to_device", "start_s": 20.215887, "dur_ms": 1.745, "batch": 16}
+{"run_id": "50be57e2326c", "span_id": "1dde32bd", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 20.217704, "dur_ms": 361.06, "model": 0, "batch": 16}
+{"run_id": "50be57e2326c", "span_id": "6bfcb5ed", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 20.578854, "dur_ms": 361.809, "model": 1, "batch": 16}
+{"run_id": "50be57e2326c", "span_id": "f2b63553", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 20.940749, "dur_ms": 364.314, "model": 2, "batch": 16}
+{"run_id": "50be57e2326c", "span_id": "bd0b0c85", "parent_id": null, "name": "B1.to_host", "start_s": 21.305179, "dur_ms": 1.111, "batch": 16}
+{"run_id": "50be57e2326c", "span_id": "d26dd7ea", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 21.306377, "dur_ms": 74.018, "batch": 16, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "0bf9d479", "parent_id": null, "name": "B5.route_fcd", "start_s": 21.380443, "dur_ms": 5.965, "batch": 16, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "8e5ae2b3", "parent_id": null, "name": "B0.load_wait", "start_s": 21.386703, "dur_ms": 73.759, "batch": 17, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "7f5fe1bc", "parent_id": null, "name": "B1.to_device", "start_s": 21.460592, "dur_ms": 1.875, "batch": 17}
+{"run_id": "50be57e2326c", "span_id": "55f075d5", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 21.46253, "dur_ms": 361.511, "model": 0, "batch": 17}
+{"run_id": "50be57e2326c", "span_id": "29762520", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 21.824137, "dur_ms": 362.519, "model": 1, "batch": 17}
+{"run_id": "50be57e2326c", "span_id": "a7cca147", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 22.186787, "dur_ms": 365.645, "model": 2, "batch": 17}
+{"run_id": "50be57e2326c", "span_id": "fd206975", "parent_id": null, "name": "B1.to_host", "start_s": 22.552541, "dur_ms": 0.977, "batch": 17}
+{"run_id": "50be57e2326c", "span_id": "34f41bd2", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 22.553606, "dur_ms": 75.315, "batch": 17, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "6c80151f", "parent_id": null, "name": "B5.route_fcd", "start_s": 22.628983, "dur_ms": 6.29, "batch": 17, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "909da48e", "parent_id": null, "name": "B0.load_wait", "start_s": 22.635568, "dur_ms": 74.593, "batch": 18, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "5e8678e8", "parent_id": null, "name": "B1.to_device", "start_s": 22.710288, "dur_ms": 1.873, "batch": 18}
+{"run_id": "50be57e2326c", "span_id": "f83f485a", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 22.712218, "dur_ms": 363.431, "model": 0, "batch": 18}
+{"run_id": "50be57e2326c", "span_id": "748b43d0", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 23.075754, "dur_ms": 363.386, "model": 1, "batch": 18}
+{"run_id": "50be57e2326c", "span_id": "15b62a41", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 23.439239, "dur_ms": 366.088, "model": 2, "batch": 18}
+{"run_id": "50be57e2326c", "span_id": "dec7178d", "parent_id": null, "name": "B1.to_host", "start_s": 23.805438, "dur_ms": 1.08, "batch": 18}
+{"run_id": "50be57e2326c", "span_id": "676e2860", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 23.806606, "dur_ms": 57.864, "batch": 18, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "ffed19e6", "parent_id": null, "name": "B5.route_fcd", "start_s": 23.864525, "dur_ms": 4.373, "batch": 18, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "fe181d94", "parent_id": null, "name": "B0.load_wait", "start_s": 23.869298, "dur_ms": 74.427, "batch": 19, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "6bfcd587", "parent_id": null, "name": "B1.to_device", "start_s": 23.943883, "dur_ms": 2.029, "batch": 19}
+{"run_id": "50be57e2326c", "span_id": "a4a0ea2a", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 23.945991, "dur_ms": 361.842, "model": 0, "batch": 19}
+{"run_id": "50be57e2326c", "span_id": "c94e68d3", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 24.307926, "dur_ms": 361.888, "model": 1, "batch": 19}
+{"run_id": "50be57e2326c", "span_id": "62939b63", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 24.66991, "dur_ms": 364.968, "model": 2, "batch": 19}
+{"run_id": "50be57e2326c", "span_id": "ddfe93d0", "parent_id": null, "name": "B1.to_host", "start_s": 25.035038, "dur_ms": 0.988, "batch": 19}
+{"run_id": "50be57e2326c", "span_id": "aea08f2b", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 25.037344, "dur_ms": 58.896, "batch": 19, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "1ebef4ad", "parent_id": null, "name": "B5.route_fcd", "start_s": 25.096321, "dur_ms": 5.392, "batch": 19, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "6cde8a99", "parent_id": null, "name": "B0.load_wait", "start_s": 25.101995, "dur_ms": 72.215, "batch": 20, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "6971b78c", "parent_id": null, "name": "B1.to_device", "start_s": 25.174452, "dur_ms": 1.743, "batch": 20}
+{"run_id": "50be57e2326c", "span_id": "863fdf85", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 25.176256, "dur_ms": 361.305, "model": 0, "batch": 20}
+{"run_id": "50be57e2326c", "span_id": "c7e5ed29", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 25.537652, "dur_ms": 362.235, "model": 1, "batch": 20}
+{"run_id": "50be57e2326c", "span_id": "7920a00d", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 25.899984, "dur_ms": 364.9, "model": 2, "batch": 20}
+{"run_id": "50be57e2326c", "span_id": "cabb4d42", "parent_id": null, "name": "B1.to_host", "start_s": 26.264995, "dur_ms": 0.795, "batch": 20}
+{"run_id": "50be57e2326c", "span_id": "b4137e93", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 26.266429, "dur_ms": 61.512, "batch": 20, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "11394a1a", "parent_id": null, "name": "B5.route_fcd", "start_s": 26.328001, "dur_ms": 6.376, "batch": 20, "images": 8, "red": 4}
+{"run_id": "50be57e2326c", "span_id": "3d0f3414", "parent_id": null, "name": "B0.load_wait", "start_s": 26.334685, "dur_ms": 73.896, "batch": 21, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "8b0650e3", "parent_id": null, "name": "B1.to_device", "start_s": 26.408699, "dur_ms": 2.028, "batch": 21}
+{"run_id": "50be57e2326c", "span_id": "a92a25f2", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 26.410803, "dur_ms": 360.928, "model": 0, "batch": 21}
+{"run_id": "50be57e2326c", "span_id": "265cb29d", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 26.771826, "dur_ms": 362.348, "model": 1, "batch": 21}
+{"run_id": "50be57e2326c", "span_id": "2ee29e63", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 27.134276, "dur_ms": 365.175, "model": 2, "batch": 21}
+{"run_id": "50be57e2326c", "span_id": "d64dfab9", "parent_id": null, "name": "B1.to_host", "start_s": 27.499574, "dur_ms": 1.19, "batch": 21}
+{"run_id": "50be57e2326c", "span_id": "31240543", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 27.501886, "dur_ms": 81.658, "batch": 21, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "03faca8b", "parent_id": null, "name": "B5.route_fcd", "start_s": 27.583621, "dur_ms": 9.729, "batch": 21, "images": 8, "red": 6}
+{"run_id": "50be57e2326c", "span_id": "8ebe12cf", "parent_id": null, "name": "B0.load_wait", "start_s": 27.593708, "dur_ms": 84.189, "batch": 22, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "5dd92206", "parent_id": null, "name": "B1.to_device", "start_s": 27.678042, "dur_ms": 1.823, "batch": 22}
+{"run_id": "50be57e2326c", "span_id": "4f6917b9", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 27.679983, "dur_ms": 364.159, "model": 0, "batch": 22}
+{"run_id": "50be57e2326c", "span_id": "8a1d77e5", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 28.044231, "dur_ms": 364.931, "model": 1, "batch": 22}
+{"run_id": "50be57e2326c", "span_id": "b47d02e2", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 28.409268, "dur_ms": 367.566, "model": 2, "batch": 22}
+{"run_id": "50be57e2326c", "span_id": "9db2fa6a", "parent_id": null, "name": "B1.to_host", "start_s": 28.776962, "dur_ms": 0.913, "batch": 22}
+{"run_id": "50be57e2326c", "span_id": "a5dbd65b", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 28.778659, "dur_ms": 59.557, "batch": 22, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "8ef86bf8", "parent_id": null, "name": "B5.route_fcd", "start_s": 28.838267, "dur_ms": 4.457, "batch": 22, "images": 8, "red": 0}
+{"run_id": "50be57e2326c", "span_id": "fe2da781", "parent_id": null, "name": "B0.load_wait", "start_s": 28.843028, "dur_ms": 75.786, "batch": 23, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "fb17d2bb", "parent_id": null, "name": "B1.to_device", "start_s": 28.918936, "dur_ms": 1.905, "batch": 23}
+{"run_id": "50be57e2326c", "span_id": "88d8df81", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 28.920896, "dur_ms": 363.258, "model": 0, "batch": 23}
+{"run_id": "50be57e2326c", "span_id": "3898c6e6", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 29.284261, "dur_ms": 362.695, "model": 1, "batch": 23}
+{"run_id": "50be57e2326c", "span_id": "897123cf", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 29.647074, "dur_ms": 365.338, "model": 2, "batch": 23}
+{"run_id": "50be57e2326c", "span_id": "af14f601", "parent_id": null, "name": "B1.to_host", "start_s": 30.012517, "dur_ms": 1.055, "batch": 23}
+{"run_id": "50be57e2326c", "span_id": "5a637ca1", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 30.014718, "dur_ms": 69.609, "batch": 23, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "9601fe84", "parent_id": null, "name": "B5.route_fcd", "start_s": 30.084379, "dur_ms": 6.932, "batch": 23, "images": 8, "red": 4}
+{"run_id": "50be57e2326c", "span_id": "fffb95ac", "parent_id": null, "name": "B0.load_wait", "start_s": 30.091619, "dur_ms": 71.387, "batch": 24, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "9d206d17", "parent_id": null, "name": "B1.to_device", "start_s": 30.163122, "dur_ms": 1.872, "batch": 24}
+{"run_id": "50be57e2326c", "span_id": "427a652f", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 30.165048, "dur_ms": 361.041, "model": 0, "batch": 24}
+{"run_id": "50be57e2326c", "span_id": "775060f9", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 30.526179, "dur_ms": 362.006, "model": 1, "batch": 24}
+{"run_id": "50be57e2326c", "span_id": "e4bab9ab", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 30.888314, "dur_ms": 364.814, "model": 2, "batch": 24}
+{"run_id": "50be57e2326c", "span_id": "13b9c5ec", "parent_id": null, "name": "B1.to_host", "start_s": 31.253232, "dur_ms": 0.761, "batch": 24}
+{"run_id": "50be57e2326c", "span_id": "22d5b213", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 31.254707, "dur_ms": 69.962, "batch": 24, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "aabf7c15", "parent_id": null, "name": "B5.route_fcd", "start_s": 31.324719, "dur_ms": 4.89, "batch": 24, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "d263c177", "parent_id": null, "name": "B0.load_wait", "start_s": 31.329897, "dur_ms": 74.735, "batch": 25, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "6d96838b", "parent_id": null, "name": "B1.to_device", "start_s": 31.404751, "dur_ms": 1.856, "batch": 25}
+{"run_id": "50be57e2326c", "span_id": "705c245b", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 31.406716, "dur_ms": 361.594, "model": 0, "batch": 25}
+{"run_id": "50be57e2326c", "span_id": "68120de6", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 31.768407, "dur_ms": 362.159, "model": 1, "batch": 25}
+{"run_id": "50be57e2326c", "span_id": "6a7212a6", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 32.130659, "dur_ms": 364.596, "model": 2, "batch": 25}
+{"run_id": "50be57e2326c", "span_id": "1ea36c0e", "parent_id": null, "name": "B1.to_host", "start_s": 32.495364, "dur_ms": 0.997, "batch": 25}
+{"run_id": "50be57e2326c", "span_id": "d0cd8f48", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 32.497402, "dur_ms": 70.763, "batch": 25, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "74323638", "parent_id": null, "name": "B5.route_fcd", "start_s": 32.568222, "dur_ms": 7.999, "batch": 25, "images": 8, "red": 4}
+{"run_id": "50be57e2326c", "span_id": "e979c728", "parent_id": null, "name": "B0.load_wait", "start_s": 32.576545, "dur_ms": 72.663, "batch": 26, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "e2d257c6", "parent_id": null, "name": "B1.to_device", "start_s": 32.649376, "dur_ms": 1.992, "batch": 26}
+{"run_id": "50be57e2326c", "span_id": "da17fba9", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 32.651464, "dur_ms": 361.652, "model": 0, "batch": 26}
+{"run_id": "50be57e2326c", "span_id": "6c4464a9", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 33.013231, "dur_ms": 362.9, "model": 1, "batch": 26}
+{"run_id": "50be57e2326c", "span_id": "a850552c", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 33.376224, "dur_ms": 365.915, "model": 2, "batch": 26}
+{"run_id": "50be57e2326c", "span_id": "cfc97e83", "parent_id": null, "name": "B1.to_host", "start_s": 33.742339, "dur_ms": 0.964, "batch": 26}
+{"run_id": "50be57e2326c", "span_id": "d4bd0524", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 33.744152, "dur_ms": 65.386, "batch": 26, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "c130e266", "parent_id": null, "name": "B5.route_fcd", "start_s": 33.809593, "dur_ms": 6.075, "batch": 26, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "7169eda9", "parent_id": null, "name": "B0.load_wait", "start_s": 33.815959, "dur_ms": 75.82, "batch": 27, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "e9624252", "parent_id": null, "name": "B1.to_device", "start_s": 33.891907, "dur_ms": 1.97, "batch": 27}
+{"run_id": "50be57e2326c", "span_id": "3a5f0f36", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 33.893937, "dur_ms": 361.41, "model": 0, "batch": 27}
+{"run_id": "50be57e2326c", "span_id": "5f0bb1c4", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 34.255443, "dur_ms": 362.203, "model": 1, "batch": 27}
+{"run_id": "50be57e2326c", "span_id": "d5d6f123", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 34.617766, "dur_ms": 365.715, "model": 2, "batch": 27}
+{"run_id": "50be57e2326c", "span_id": "3e697dbd", "parent_id": null, "name": "B1.to_host", "start_s": 34.983588, "dur_ms": 0.944, "batch": 27}
+{"run_id": "50be57e2326c", "span_id": "126de38a", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 34.985693, "dur_ms": 78.737, "batch": 27, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "87896b6f", "parent_id": null, "name": "B5.route_fcd", "start_s": 35.064487, "dur_ms": 8.237, "batch": 27, "images": 8, "red": 4}
+{"run_id": "50be57e2326c", "span_id": "e3e4341c", "parent_id": null, "name": "B0.load_wait", "start_s": 35.073016, "dur_ms": 75.396, "batch": 28, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "31acc185", "parent_id": null, "name": "B1.to_device", "start_s": 35.148529, "dur_ms": 1.846, "batch": 28}
+{"run_id": "50be57e2326c", "span_id": "4c65c153", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 35.150433, "dur_ms": 361.059, "model": 0, "batch": 28}
+{"run_id": "50be57e2326c", "span_id": "6268e7a6", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 35.511572, "dur_ms": 362.281, "model": 1, "batch": 28}
+{"run_id": "50be57e2326c", "span_id": "6f0842bc", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 35.873944, "dur_ms": 364.655, "model": 2, "batch": 28}
+{"run_id": "50be57e2326c", "span_id": "309ef5a3", "parent_id": null, "name": "B1.to_host", "start_s": 36.238696, "dur_ms": 0.726, "batch": 28}
+{"run_id": "50be57e2326c", "span_id": "191067ef", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 36.240115, "dur_ms": 72.547, "batch": 28, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "2382c19f", "parent_id": null, "name": "B5.route_fcd", "start_s": 36.312739, "dur_ms": 8.184, "batch": 28, "images": 8, "red": 5}
+{"run_id": "50be57e2326c", "span_id": "136765ef", "parent_id": null, "name": "B0.load_wait", "start_s": 36.32127, "dur_ms": 75.72, "batch": 29, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "2fe35e8e", "parent_id": null, "name": "B1.to_device", "start_s": 36.397107, "dur_ms": 1.881, "batch": 29}
+{"run_id": "50be57e2326c", "span_id": "7e044ae9", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 36.399072, "dur_ms": 361.723, "model": 0, "batch": 29}
+{"run_id": "50be57e2326c", "span_id": "e14ea0f1", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 36.760899, "dur_ms": 362.345, "model": 1, "batch": 29}
+{"run_id": "50be57e2326c", "span_id": "75e99e7a", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 37.123336, "dur_ms": 364.837, "model": 2, "batch": 29}
+{"run_id": "50be57e2326c", "span_id": "1841a7e7", "parent_id": null, "name": "B1.to_host", "start_s": 37.488332, "dur_ms": 1.044, "batch": 29}
+{"run_id": "50be57e2326c", "span_id": "bbfe9b88", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 37.49046, "dur_ms": 73.711, "batch": 29, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "d2b367d0", "parent_id": null, "name": "B5.route_fcd", "start_s": 37.564224, "dur_ms": 6.52, "batch": 29, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "48e15e28", "parent_id": null, "name": "B0.load_wait", "start_s": 37.571101, "dur_ms": 72.806, "batch": 30, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "71892d92", "parent_id": null, "name": "B1.to_device", "start_s": 37.644052, "dur_ms": 1.739, "batch": 30}
+{"run_id": "50be57e2326c", "span_id": "90e4db80", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 37.645854, "dur_ms": 361.571, "model": 0, "batch": 30}
+{"run_id": "50be57e2326c", "span_id": "00bad1c4", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 38.007531, "dur_ms": 364.434, "model": 1, "batch": 30}
+{"run_id": "50be57e2326c", "span_id": "0eb2c5f2", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 38.372056, "dur_ms": 369.76, "model": 2, "batch": 30}
+{"run_id": "50be57e2326c", "span_id": "f7010bc7", "parent_id": null, "name": "B1.to_host", "start_s": 38.741918, "dur_ms": 1.014, "batch": 30}
+{"run_id": "50be57e2326c", "span_id": "980013d0", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 38.743581, "dur_ms": 56.425, "batch": 30, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "e574ca1b", "parent_id": null, "name": "B5.route_fcd", "start_s": 38.80012, "dur_ms": 8.184, "batch": 30, "images": 8, "red": 4}
+{"run_id": "50be57e2326c", "span_id": "7237b73e", "parent_id": null, "name": "B0.load_wait", "start_s": 38.808621, "dur_ms": 77.347, "batch": 31, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "c7a7d96a", "parent_id": null, "name": "B1.to_device", "start_s": 38.886092, "dur_ms": 2.121, "batch": 31}
+{"run_id": "50be57e2326c", "span_id": "6d6c0b27", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 38.88829, "dur_ms": 362.37, "model": 0, "batch": 31}
+{"run_id": "50be57e2326c", "span_id": "3f6ef6fa", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 39.250766, "dur_ms": 362.228, "model": 1, "batch": 31}
+{"run_id": "50be57e2326c", "span_id": "debc8ad4", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 39.613172, "dur_ms": 365.032, "model": 2, "batch": 31}
+{"run_id": "50be57e2326c", "span_id": "50f85730", "parent_id": null, "name": "B1.to_host", "start_s": 39.978392, "dur_ms": 1.211, "batch": 31}
+{"run_id": "50be57e2326c", "span_id": "be560626", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 39.980757, "dur_ms": 79.954, "batch": 31, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "83e84fe4", "parent_id": null, "name": "B5.route_fcd", "start_s": 40.060764, "dur_ms": 5.682, "batch": 31, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "dee0f50d", "parent_id": null, "name": "B0.load_wait", "start_s": 40.066747, "dur_ms": 74.448, "batch": 32, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "73c0f2b9", "parent_id": null, "name": "B1.to_device", "start_s": 40.141314, "dur_ms": 1.944, "batch": 32}
+{"run_id": "50be57e2326c", "span_id": "2502f4fe", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 40.143316, "dur_ms": 361.866, "model": 0, "batch": 32}
+{"run_id": "50be57e2326c", "span_id": "b75bd975", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 40.505302, "dur_ms": 362.665, "model": 1, "batch": 32}
+{"run_id": "50be57e2326c", "span_id": "14c20a7b", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 40.868069, "dur_ms": 365.082, "model": 2, "batch": 32}
+{"run_id": "50be57e2326c", "span_id": "3fad4d57", "parent_id": null, "name": "B1.to_host", "start_s": 41.233254, "dur_ms": 0.72, "batch": 32}
+{"run_id": "50be57e2326c", "span_id": "364850a7", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 41.2346, "dur_ms": 44.956, "batch": 32, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "323abf30", "parent_id": null, "name": "B5.route_fcd", "start_s": 41.279615, "dur_ms": 4.685, "batch": 32, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "1af11e6a", "parent_id": null, "name": "B0.load_wait", "start_s": 41.28462, "dur_ms": 73.463, "batch": 33, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "cc697060", "parent_id": null, "name": "B1.to_device", "start_s": 41.358215, "dur_ms": 1.975, "batch": 33}
+{"run_id": "50be57e2326c", "span_id": "657fd672", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 41.360261, "dur_ms": 362.032, "model": 0, "batch": 33}
+{"run_id": "50be57e2326c", "span_id": "7b6da7c5", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 41.722399, "dur_ms": 362.431, "model": 1, "batch": 33}
+{"run_id": "50be57e2326c", "span_id": "13f0e825", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 42.084923, "dur_ms": 365.163, "model": 2, "batch": 33}
+{"run_id": "50be57e2326c", "span_id": "ee1410a8", "parent_id": null, "name": "B1.to_host", "start_s": 42.450189, "dur_ms": 1.104, "batch": 33}
+{"run_id": "50be57e2326c", "span_id": "dc183d38", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 42.45257, "dur_ms": 72.21, "batch": 33, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "66094396", "parent_id": null, "name": "B5.route_fcd", "start_s": 42.524844, "dur_ms": 5.576, "batch": 33, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "a6769260", "parent_id": null, "name": "B0.load_wait", "start_s": 42.530789, "dur_ms": 82.374, "batch": 34, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "09c5afba", "parent_id": null, "name": "B1.to_device", "start_s": 42.613289, "dur_ms": 1.768, "batch": 34}
+{"run_id": "50be57e2326c", "span_id": "55a60800", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 42.615126, "dur_ms": 361.631, "model": 0, "batch": 34}
+{"run_id": "50be57e2326c", "span_id": "7557b883", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 42.97685, "dur_ms": 362.116, "model": 1, "batch": 34}
+{"run_id": "50be57e2326c", "span_id": "54966fa2", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 43.33906, "dur_ms": 366.917, "model": 2, "batch": 34}
+{"run_id": "50be57e2326c", "span_id": "f97d7fdc", "parent_id": null, "name": "B1.to_host", "start_s": 43.70609, "dur_ms": 0.738, "batch": 34}
+{"run_id": "50be57e2326c", "span_id": "75b55276", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 43.707542, "dur_ms": 58.685, "batch": 34, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "32ebb280", "parent_id": null, "name": "B5.route_fcd", "start_s": 43.766287, "dur_ms": 6.134, "batch": 34, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "e32358d7", "parent_id": null, "name": "B0.load_wait", "start_s": 43.772824, "dur_ms": 74.585, "batch": 35, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "3f24d0c1", "parent_id": null, "name": "B1.to_device", "start_s": 43.847553, "dur_ms": 2.156, "batch": 35}
+{"run_id": "50be57e2326c", "span_id": "ce3e33fc", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 43.849784, "dur_ms": 363.507, "model": 0, "batch": 35}
+{"run_id": "50be57e2326c", "span_id": "d102ee7c", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 44.21338, "dur_ms": 363.058, "model": 1, "batch": 35}
+{"run_id": "50be57e2326c", "span_id": "5bc5d9fb", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 44.576536, "dur_ms": 365.873, "model": 2, "batch": 35}
+{"run_id": "50be57e2326c", "span_id": "fcfa4937", "parent_id": null, "name": "B1.to_host", "start_s": 44.942541, "dur_ms": 2.147, "batch": 35}
+{"run_id": "50be57e2326c", "span_id": "ab4fd416", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 44.944832, "dur_ms": 56.299, "batch": 35, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "6d3251a6", "parent_id": null, "name": "B5.route_fcd", "start_s": 45.001183, "dur_ms": 4.381, "batch": 35, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "e030ca99", "parent_id": null, "name": "B0.load_wait", "start_s": 45.00587, "dur_ms": 75.159, "batch": 36, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "4e675ac8", "parent_id": null, "name": "B1.to_device", "start_s": 45.081149, "dur_ms": 1.881, "batch": 36}
+{"run_id": "50be57e2326c", "span_id": "a848b1ce", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 45.083241, "dur_ms": 362.239, "model": 0, "batch": 36}
+{"run_id": "50be57e2326c", "span_id": "37678d33", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 45.445575, "dur_ms": 363.069, "model": 1, "batch": 36}
+{"run_id": "50be57e2326c", "span_id": "779699c3", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 45.808736, "dur_ms": 365.826, "model": 2, "batch": 36}
+{"run_id": "50be57e2326c", "span_id": "043e9a4c", "parent_id": null, "name": "B1.to_host", "start_s": 46.174672, "dur_ms": 1.335, "batch": 36}
+{"run_id": "50be57e2326c", "span_id": "51a2681a", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 46.176098, "dur_ms": 66.184, "batch": 36, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "faff184a", "parent_id": null, "name": "B5.route_fcd", "start_s": 46.242348, "dur_ms": 5.154, "batch": 36, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "fd3e8ac1", "parent_id": null, "name": "B0.load_wait", "start_s": 46.247819, "dur_ms": 76.723, "batch": 37, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "a86c1598", "parent_id": null, "name": "B1.to_device", "start_s": 46.324662, "dur_ms": 1.897, "batch": 37}
+{"run_id": "50be57e2326c", "span_id": "3c761a66", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 46.326623, "dur_ms": 362.036, "model": 0, "batch": 37}
+{"run_id": "50be57e2326c", "span_id": "04f0ebf5", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 46.68876, "dur_ms": 363.373, "model": 1, "batch": 37}
+{"run_id": "50be57e2326c", "span_id": "e28e634d", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 47.052221, "dur_ms": 364.877, "model": 2, "batch": 37}
+{"run_id": "50be57e2326c", "span_id": "c4e74070", "parent_id": null, "name": "B1.to_host", "start_s": 47.417201, "dur_ms": 0.959, "batch": 37}
+{"run_id": "50be57e2326c", "span_id": "20c00c2f", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 47.41828, "dur_ms": 81.446, "batch": 37, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "518861d6", "parent_id": null, "name": "B5.route_fcd", "start_s": 47.499794, "dur_ms": 8.444, "batch": 37, "images": 8, "red": 4}
+{"run_id": "50be57e2326c", "span_id": "6af4dddf", "parent_id": null, "name": "B0.load_wait", "start_s": 47.508529, "dur_ms": 75.371, "batch": 38, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "f931517a", "parent_id": null, "name": "B1.to_device", "start_s": 47.58402, "dur_ms": 1.811, "batch": 38}
+{"run_id": "50be57e2326c", "span_id": "2b1c7927", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 47.585886, "dur_ms": 361.95, "model": 0, "batch": 38}
+{"run_id": "50be57e2326c", "span_id": "0320151e", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 47.947931, "dur_ms": 363.232, "model": 1, "batch": 38}
+{"run_id": "50be57e2326c", "span_id": "271d9b1d", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 48.311286, "dur_ms": 365.595, "model": 2, "batch": 38}
+{"run_id": "50be57e2326c", "span_id": "845f6a14", "parent_id": null, "name": "B1.to_host", "start_s": 48.676989, "dur_ms": 1.019, "batch": 38}
+{"run_id": "50be57e2326c", "span_id": "ce5fe0f4", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 48.6781, "dur_ms": 67.767, "batch": 38, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "cf58cfca", "parent_id": null, "name": "B5.route_fcd", "start_s": 48.745921, "dur_ms": 5.592, "batch": 38, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "84b20520", "parent_id": null, "name": "B0.load_wait", "start_s": 48.751801, "dur_ms": 74.287, "batch": 39, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "ac78930c", "parent_id": null, "name": "B1.to_device", "start_s": 48.82626, "dur_ms": 1.972, "batch": 39}
+{"run_id": "50be57e2326c", "span_id": "48ca9b63", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 48.82829, "dur_ms": 362.977, "model": 0, "batch": 39}
+{"run_id": "50be57e2326c", "span_id": "f4446206", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 49.191366, "dur_ms": 363.855, "model": 1, "batch": 39}
+{"run_id": "50be57e2326c", "span_id": "15578a88", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 49.555367, "dur_ms": 365.327, "model": 2, "batch": 39}
+{"run_id": "50be57e2326c", "span_id": "d0f5eb1e", "parent_id": null, "name": "B1.to_host", "start_s": 49.920807, "dur_ms": 1.042, "batch": 39}
+{"run_id": "50be57e2326c", "span_id": "0ce87875", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 49.921943, "dur_ms": 57.142, "batch": 39, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "c2955496", "parent_id": null, "name": "B5.route_fcd", "start_s": 49.979162, "dur_ms": 4.466, "batch": 39, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "b98a7fa5", "parent_id": null, "name": "B0.load_wait", "start_s": 49.983908, "dur_ms": 71.233, "batch": 40, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "031feff2", "parent_id": null, "name": "B1.to_device", "start_s": 50.055302, "dur_ms": 1.815, "batch": 40}
+{"run_id": "50be57e2326c", "span_id": "325956e1", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 50.057175, "dur_ms": 362.484, "model": 0, "batch": 40}
+{"run_id": "50be57e2326c", "span_id": "10496bce", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 50.419751, "dur_ms": 363.057, "model": 1, "batch": 40}
+{"run_id": "50be57e2326c", "span_id": "0d7fd91f", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 50.78289, "dur_ms": 366.114, "model": 2, "batch": 40}
+{"run_id": "50be57e2326c", "span_id": "c62ba026", "parent_id": null, "name": "B1.to_host", "start_s": 51.149111, "dur_ms": 0.943, "batch": 40}
+{"run_id": "50be57e2326c", "span_id": "b5778f93", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 51.150143, "dur_ms": 58.557, "batch": 40, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "4d36fabb", "parent_id": null, "name": "B5.route_fcd", "start_s": 51.208753, "dur_ms": 4.737, "batch": 40, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "09536d06", "parent_id": null, "name": "B0.load_wait", "start_s": 51.213841, "dur_ms": 76.418, "batch": 41, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "b4cdd49b", "parent_id": null, "name": "B1.to_device", "start_s": 51.29038, "dur_ms": 2.03, "batch": 41}
+{"run_id": "50be57e2326c", "span_id": "eefa349d", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 51.292488, "dur_ms": 361.847, "model": 0, "batch": 41}
+{"run_id": "50be57e2326c", "span_id": "49e55259", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 51.654453, "dur_ms": 363.228, "model": 1, "batch": 41}
+{"run_id": "50be57e2326c", "span_id": "98411c22", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 52.017772, "dur_ms": 365.116, "model": 2, "batch": 41}
+{"run_id": "50be57e2326c", "span_id": "15750b93", "parent_id": null, "name": "B1.to_host", "start_s": 52.382988, "dur_ms": 1.111, "batch": 41}
+{"run_id": "50be57e2326c", "span_id": "834cbd5f", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 52.384184, "dur_ms": 70.023, "batch": 41, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "1455f4b7", "parent_id": null, "name": "B5.route_fcd", "start_s": 52.454275, "dur_ms": 6.046, "batch": 41, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "f3d0041e", "parent_id": null, "name": "B0.load_wait", "start_s": 52.460677, "dur_ms": 78.328, "batch": 42, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "2e041962", "parent_id": null, "name": "B1.to_device", "start_s": 52.539128, "dur_ms": 1.899, "batch": 42}
+{"run_id": "50be57e2326c", "span_id": "59ebbc49", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 52.541096, "dur_ms": 363.803, "model": 0, "batch": 42}
+{"run_id": "50be57e2326c", "span_id": "0f2a21e6", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 52.905006, "dur_ms": 363.274, "model": 1, "batch": 42}
+{"run_id": "50be57e2326c", "span_id": "871fb508", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 53.268378, "dur_ms": 365.131, "model": 2, "batch": 42}
+{"run_id": "50be57e2326c", "span_id": "07a51ae9", "parent_id": null, "name": "B1.to_host", "start_s": 53.633604, "dur_ms": 0.931, "batch": 42}
+{"run_id": "50be57e2326c", "span_id": "66f2fb83", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 53.634619, "dur_ms": 54.847, "batch": 42, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "867590d3", "parent_id": null, "name": "B5.route_fcd", "start_s": 53.689519, "dur_ms": 4.848, "batch": 42, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "ce0bc4a8", "parent_id": null, "name": "B0.load_wait", "start_s": 53.694699, "dur_ms": 75.403, "batch": 43, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "bd8f4416", "parent_id": null, "name": "B1.to_device", "start_s": 53.770281, "dur_ms": 1.989, "batch": 43}
+{"run_id": "50be57e2326c", "span_id": "b25cc0c3", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 53.772338, "dur_ms": 362.964, "model": 0, "batch": 43}
+{"run_id": "50be57e2326c", "span_id": "7bc94402", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 54.135393, "dur_ms": 363.209, "model": 1, "batch": 43}
+{"run_id": "50be57e2326c", "span_id": "f8272097", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 54.498695, "dur_ms": 366.801, "model": 2, "batch": 43}
+{"run_id": "50be57e2326c", "span_id": "ffe5bf32", "parent_id": null, "name": "B1.to_host", "start_s": 54.865598, "dur_ms": 1.168, "batch": 43}
+{"run_id": "50be57e2326c", "span_id": "7190df2f", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 54.866853, "dur_ms": 83.871, "batch": 43, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "b0faf894", "parent_id": null, "name": "B5.route_fcd", "start_s": 54.950797, "dur_ms": 5.174, "batch": 43, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "45776269", "parent_id": null, "name": "B0.load_wait", "start_s": 54.956278, "dur_ms": 75.867, "batch": 44, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "e65f3181", "parent_id": null, "name": "B1.to_device", "start_s": 55.032287, "dur_ms": 1.821, "batch": 44}
+{"run_id": "50be57e2326c", "span_id": "87a33d63", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 55.034199, "dur_ms": 362.723, "model": 0, "batch": 44}
+{"run_id": "50be57e2326c", "span_id": "12461158", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 55.397014, "dur_ms": 363.042, "model": 1, "batch": 44}
+{"run_id": "50be57e2326c", "span_id": "f1ad269c", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 55.760156, "dur_ms": 365.858, "model": 2, "batch": 44}
+{"run_id": "50be57e2326c", "span_id": "656ecc5f", "parent_id": null, "name": "B1.to_host", "start_s": 56.126108, "dur_ms": 0.932, "batch": 44}
+{"run_id": "50be57e2326c", "span_id": "c7b0d316", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 56.127115, "dur_ms": 65.922, "batch": 44, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "607f2187", "parent_id": null, "name": "B5.route_fcd", "start_s": 56.19309, "dur_ms": 4.935, "batch": 44, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "ed61a399", "parent_id": null, "name": "B0.load_wait", "start_s": 56.198313, "dur_ms": 76.708, "batch": 45, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "32939e34", "parent_id": null, "name": "B1.to_device", "start_s": 56.275147, "dur_ms": 1.868, "batch": 45}
+{"run_id": "50be57e2326c", "span_id": "74b55954", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 56.277135, "dur_ms": 362.598, "model": 0, "batch": 45}
+{"run_id": "50be57e2326c", "span_id": "e21e9c70", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 56.639818, "dur_ms": 363.313, "model": 1, "batch": 45}
+{"run_id": "50be57e2326c", "span_id": "ec24ed8d", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 57.003212, "dur_ms": 365.194, "model": 2, "batch": 45}
+{"run_id": "50be57e2326c", "span_id": "fc3d068e", "parent_id": null, "name": "B1.to_host", "start_s": 57.368504, "dur_ms": 1.022, "batch": 45}
+{"run_id": "50be57e2326c", "span_id": "58a41de6", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 57.369612, "dur_ms": 68.747, "batch": 45, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "a2d5b189", "parent_id": null, "name": "B5.route_fcd", "start_s": 57.438415, "dur_ms": 5.255, "batch": 45, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "051fd9ea", "parent_id": null, "name": "B0.load_wait", "start_s": 57.444091, "dur_ms": 74.406, "batch": 46, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "9ea6ad64", "parent_id": null, "name": "B1.to_device", "start_s": 57.518629, "dur_ms": 1.982, "batch": 46}
+{"run_id": "50be57e2326c", "span_id": "0cb563f5", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 57.520717, "dur_ms": 362.464, "model": 0, "batch": 46}
+{"run_id": "50be57e2326c", "span_id": "d9dad39e", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 57.883281, "dur_ms": 363.42, "model": 1, "batch": 46}
+{"run_id": "50be57e2326c", "span_id": "6da0bb34", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 58.246797, "dur_ms": 365.489, "model": 2, "batch": 46}
+{"run_id": "50be57e2326c", "span_id": "dadeb9ca", "parent_id": null, "name": "B1.to_host", "start_s": 58.612407, "dur_ms": 1.076, "batch": 46}
+{"run_id": "50be57e2326c", "span_id": "171a6a34", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 58.613576, "dur_ms": 63.115, "batch": 46, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "fef7e062", "parent_id": null, "name": "B5.route_fcd", "start_s": 58.676758, "dur_ms": 7.213, "batch": 46, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "5aa4a13b", "parent_id": null, "name": "B0.load_wait", "start_s": 58.684306, "dur_ms": 77.017, "batch": 47, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "70d04e8d", "parent_id": null, "name": "B1.to_device", "start_s": 58.761448, "dur_ms": 1.82, "batch": 47}
+{"run_id": "50be57e2326c", "span_id": "d13765cb", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 58.763326, "dur_ms": 362.749, "model": 0, "batch": 47}
+{"run_id": "50be57e2326c", "span_id": "32c48f49", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 59.126176, "dur_ms": 363.343, "model": 1, "batch": 47}
+{"run_id": "50be57e2326c", "span_id": "da03fe89", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 59.489609, "dur_ms": 366.642, "model": 2, "batch": 47}
+{"run_id": "50be57e2326c", "span_id": "3d68ba09", "parent_id": null, "name": "B1.to_host", "start_s": 59.856353, "dur_ms": 0.935, "batch": 47}
+{"run_id": "50be57e2326c", "span_id": "1e7cc79a", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 59.85737, "dur_ms": 70.397, "batch": 47, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "73c34640", "parent_id": null, "name": "B5.route_fcd", "start_s": 59.92782, "dur_ms": 5.467, "batch": 47, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "7653d7ad", "parent_id": null, "name": "B0.load_wait", "start_s": 59.933575, "dur_ms": 74.233, "batch": 48, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "75429e61", "parent_id": null, "name": "B1.to_device", "start_s": 60.007932, "dur_ms": 1.836, "batch": 48}
+{"run_id": "50be57e2326c", "span_id": "ffbe7718", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 60.009836, "dur_ms": 362.278, "model": 0, "batch": 48}
+{"run_id": "50be57e2326c", "span_id": "425afeb0", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 60.3722, "dur_ms": 363.608, "model": 1, "batch": 48}
+{"run_id": "50be57e2326c", "span_id": "d23b33a0", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 60.735977, "dur_ms": 365.549, "model": 2, "batch": 48}
+{"run_id": "50be57e2326c", "span_id": "24ccec1e", "parent_id": null, "name": "B1.to_host", "start_s": 61.101631, "dur_ms": 0.954, "batch": 48}
+{"run_id": "50be57e2326c", "span_id": "f4f50b82", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 61.102669, "dur_ms": 61.618, "batch": 48, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "d18652d7", "parent_id": null, "name": "B5.route_fcd", "start_s": 61.164337, "dur_ms": 5.437, "batch": 48, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "9c850eca", "parent_id": null, "name": "B0.load_wait", "start_s": 61.170076, "dur_ms": 76.469, "batch": 49, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "2c2f1d81", "parent_id": null, "name": "B1.to_device", "start_s": 61.246676, "dur_ms": 1.822, "batch": 49}
+{"run_id": "50be57e2326c", "span_id": "ca904af2", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 61.248568, "dur_ms": 361.444, "model": 0, "batch": 49}
+{"run_id": "50be57e2326c", "span_id": "d6368568", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 61.610103, "dur_ms": 363.469, "model": 1, "batch": 49}
+{"run_id": "50be57e2326c", "span_id": "7cc92cec", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 61.973663, "dur_ms": 365.725, "model": 2, "batch": 49}
+{"run_id": "50be57e2326c", "span_id": "cb2c1dd4", "parent_id": null, "name": "B1.to_host", "start_s": 62.339552, "dur_ms": 1.164, "batch": 49}
+{"run_id": "50be57e2326c", "span_id": "204d62bc", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 62.340794, "dur_ms": 61.557, "batch": 49, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "29651af5", "parent_id": null, "name": "B5.route_fcd", "start_s": 62.402464, "dur_ms": 5.208, "batch": 49, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "18370413", "parent_id": null, "name": "B0.load_wait", "start_s": 62.408098, "dur_ms": 75.327, "batch": 50, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "b49f3332", "parent_id": null, "name": "B1.to_device", "start_s": 62.48355, "dur_ms": 1.771, "batch": 50}
+{"run_id": "50be57e2326c", "span_id": "fe0539c9", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 62.485434, "dur_ms": 362.238, "model": 0, "batch": 50}
+{"run_id": "50be57e2326c", "span_id": "0d06f420", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 62.847775, "dur_ms": 363.143, "model": 1, "batch": 50}
+{"run_id": "50be57e2326c", "span_id": "b698f306", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 63.211016, "dur_ms": 366.137, "model": 2, "batch": 50}
+{"run_id": "50be57e2326c", "span_id": "6a039ec5", "parent_id": null, "name": "B1.to_host", "start_s": 63.577267, "dur_ms": 0.963, "batch": 50}
+{"run_id": "50be57e2326c", "span_id": "5c72e26a", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 63.578317, "dur_ms": 85.231, "batch": 50, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "75f44222", "parent_id": null, "name": "B5.route_fcd", "start_s": 63.663612, "dur_ms": 4.571, "batch": 50, "images": 8, "red": 0}
+{"run_id": "50be57e2326c", "span_id": "141a6cb4", "parent_id": null, "name": "B0.load_wait", "start_s": 63.668487, "dur_ms": 76.336, "batch": 51, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "a8d44d1b", "parent_id": null, "name": "B1.to_device", "start_s": 63.744957, "dur_ms": 1.859, "batch": 51}
+{"run_id": "50be57e2326c", "span_id": "2597b311", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 63.746883, "dur_ms": 362.554, "model": 0, "batch": 51}
+{"run_id": "50be57e2326c", "span_id": "6aca7d62", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 64.109523, "dur_ms": 363.3, "model": 1, "batch": 51}
+{"run_id": "50be57e2326c", "span_id": "7960ee9c", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 64.472913, "dur_ms": 366.644, "model": 2, "batch": 51}
+{"run_id": "50be57e2326c", "span_id": "26eb4936", "parent_id": null, "name": "B1.to_host", "start_s": 64.839682, "dur_ms": 1.461, "batch": 51}
+{"run_id": "50be57e2326c", "span_id": "437b3051", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 64.841248, "dur_ms": 64.571, "batch": 51, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "dca13c7e", "parent_id": null, "name": "B5.route_fcd", "start_s": 64.905878, "dur_ms": 7.11, "batch": 51, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "1a2f9b96", "parent_id": null, "name": "B0.load_wait", "start_s": 64.913299, "dur_ms": 75.264, "batch": 52, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "db5e8511", "parent_id": null, "name": "B1.to_device", "start_s": 64.988687, "dur_ms": 1.817, "batch": 52}
+{"run_id": "50be57e2326c", "span_id": "07f464bf", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 64.990568, "dur_ms": 362.516, "model": 0, "batch": 52}
+{"run_id": "50be57e2326c", "span_id": "2af18d27", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 65.353177, "dur_ms": 363.643, "model": 1, "batch": 52}
+{"run_id": "50be57e2326c", "span_id": "4f23c75e", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 65.716913, "dur_ms": 366.19, "model": 2, "batch": 52}
+{"run_id": "50be57e2326c", "span_id": "d77dd550", "parent_id": null, "name": "B1.to_host", "start_s": 66.083203, "dur_ms": 0.926, "batch": 52}
+{"run_id": "50be57e2326c", "span_id": "ab848711", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 66.084209, "dur_ms": 49.321, "batch": 52, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "a514d6d9", "parent_id": null, "name": "B5.route_fcd", "start_s": 66.13358, "dur_ms": 4.328, "batch": 52, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "54f57cf7", "parent_id": null, "name": "B0.load_wait", "start_s": 66.138388, "dur_ms": 73.661, "batch": 53, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "5e1b5d5b", "parent_id": null, "name": "B1.to_device", "start_s": 66.212178, "dur_ms": 1.87, "batch": 53}
+{"run_id": "50be57e2326c", "span_id": "912d901b", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 66.214103, "dur_ms": 362.905, "model": 0, "batch": 53}
+{"run_id": "50be57e2326c", "span_id": "66b05f82", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 66.577097, "dur_ms": 363.564, "model": 1, "batch": 53}
+{"run_id": "50be57e2326c", "span_id": "2692b240", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 66.940822, "dur_ms": 365.715, "model": 2, "batch": 53}
+{"run_id": "50be57e2326c", "span_id": "504748a8", "parent_id": null, "name": "B1.to_host", "start_s": 67.306678, "dur_ms": 1.099, "batch": 53}
+{"run_id": "50be57e2326c", "span_id": "1f5e80f1", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 67.307869, "dur_ms": 73.806, "batch": 53, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "ea2a68a6", "parent_id": null, "name": "B5.route_fcd", "start_s": 67.381736, "dur_ms": 6.008, "batch": 53, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "55322f7d", "parent_id": null, "name": "B0.load_wait", "start_s": 67.388182, "dur_ms": 75.569, "batch": 54, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "bd939bd2", "parent_id": null, "name": "B1.to_device", "start_s": 67.463886, "dur_ms": 1.885, "batch": 54}
+{"run_id": "50be57e2326c", "span_id": "fb67dd9e", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 67.465845, "dur_ms": 362.328, "model": 0, "batch": 54}
+{"run_id": "50be57e2326c", "span_id": "06efe98a", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 67.828284, "dur_ms": 363.325, "model": 1, "batch": 54}
+{"run_id": "50be57e2326c", "span_id": "39048983", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 68.191701, "dur_ms": 367.394, "model": 2, "batch": 54}
+{"run_id": "50be57e2326c", "span_id": "2783943e", "parent_id": null, "name": "B1.to_host", "start_s": 68.559227, "dur_ms": 1.418, "batch": 54}
+{"run_id": "50be57e2326c", "span_id": "1c6ff0c0", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 68.560768, "dur_ms": 94.214, "batch": 54, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "49f66446", "parent_id": null, "name": "B5.route_fcd", "start_s": 68.655041, "dur_ms": 6.603, "batch": 54, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "9454a9c0", "parent_id": null, "name": "B0.load_wait", "start_s": 68.661988, "dur_ms": 71.583, "batch": 55, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "c185f163", "parent_id": null, "name": "B1.to_device", "start_s": 68.733692, "dur_ms": 1.851, "batch": 55}
+{"run_id": "50be57e2326c", "span_id": "2b951251", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 68.735607, "dur_ms": 364.747, "model": 0, "batch": 55}
+{"run_id": "50be57e2326c", "span_id": "e141b7ab", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 69.100447, "dur_ms": 364.981, "model": 1, "batch": 55}
+{"run_id": "50be57e2326c", "span_id": "544308d9", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 69.46554, "dur_ms": 367.285, "model": 2, "batch": 55}
+{"run_id": "50be57e2326c", "span_id": "ac82608a", "parent_id": null, "name": "B1.to_host", "start_s": 69.833023, "dur_ms": 1.032, "batch": 55}
+{"run_id": "50be57e2326c", "span_id": "c5b80547", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 69.834148, "dur_ms": 55.789, "batch": 55, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "81ccb843", "parent_id": null, "name": "B5.route_fcd", "start_s": 69.889997, "dur_ms": 4.611, "batch": 55, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "d95017de", "parent_id": null, "name": "B0.load_wait", "start_s": 69.894914, "dur_ms": 77.57, "batch": 56, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "efe563d3", "parent_id": null, "name": "B1.to_device", "start_s": 69.972643, "dur_ms": 1.82, "batch": 56}
+{"run_id": "50be57e2326c", "span_id": "c69e811a", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 69.97453, "dur_ms": 363.429, "model": 0, "batch": 56}
+{"run_id": "50be57e2326c", "span_id": "d9210fe0", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 70.338054, "dur_ms": 363.605, "model": 1, "batch": 56}
+{"run_id": "50be57e2326c", "span_id": "e457e324", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 70.701813, "dur_ms": 366.552, "model": 2, "batch": 56}
+{"run_id": "50be57e2326c", "span_id": "6c1ef876", "parent_id": null, "name": "B1.to_host", "start_s": 71.068464, "dur_ms": 1.063, "batch": 56}
+{"run_id": "50be57e2326c", "span_id": "da7de7b0", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 71.069624, "dur_ms": 50.822, "batch": 56, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "cd7a17e8", "parent_id": null, "name": "B5.route_fcd", "start_s": 71.120495, "dur_ms": 4.855, "batch": 56, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "835a020d", "parent_id": null, "name": "B0.load_wait", "start_s": 71.125772, "dur_ms": 73.296, "batch": 57, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "3bb73829", "parent_id": null, "name": "B1.to_device", "start_s": 71.19919, "dur_ms": 1.887, "batch": 57}
+{"run_id": "50be57e2326c", "span_id": "6f8b6d16", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 71.201174, "dur_ms": 361.959, "model": 0, "batch": 57}
+{"run_id": "50be57e2326c", "span_id": "45736e0b", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 71.56321, "dur_ms": 363.442, "model": 1, "batch": 57}
+{"run_id": "50be57e2326c", "span_id": "e82a5031", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 71.926742, "dur_ms": 366.049, "model": 2, "batch": 57}
+{"run_id": "50be57e2326c", "span_id": "7f0ada48", "parent_id": null, "name": "B1.to_host", "start_s": 72.292893, "dur_ms": 0.931, "batch": 57}
+{"run_id": "50be57e2326c", "span_id": "643d7221", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 72.29391, "dur_ms": 72.787, "batch": 57, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "197f7c06", "parent_id": null, "name": "B5.route_fcd", "start_s": 72.366748, "dur_ms": 7.305, "batch": 57, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "fea7bba3", "parent_id": null, "name": "B0.load_wait", "start_s": 72.374629, "dur_ms": 75.346, "batch": 58, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "1eb6e3d4", "parent_id": null, "name": "B1.to_device", "start_s": 72.450094, "dur_ms": 1.997, "batch": 58}
+{"run_id": "50be57e2326c", "span_id": "2e4361a7", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 72.452166, "dur_ms": 362.776, "model": 0, "batch": 58}
+{"run_id": "50be57e2326c", "span_id": "7ed004fa", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 72.815028, "dur_ms": 363.581, "model": 1, "batch": 58}
+{"run_id": "50be57e2326c", "span_id": "c2a2f981", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 73.1787, "dur_ms": 365.704, "model": 2, "batch": 58}
+{"run_id": "50be57e2326c", "span_id": "db06c524", "parent_id": null, "name": "B1.to_host", "start_s": 73.544517, "dur_ms": 1.024, "batch": 58}
+{"run_id": "50be57e2326c", "span_id": "6a169a63", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 73.545631, "dur_ms": 101.678, "batch": 58, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "e25c44fb", "parent_id": null, "name": "B5.route_fcd", "start_s": 73.647376, "dur_ms": 9.687, "batch": 58, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "753e459c", "parent_id": null, "name": "B0.load_wait", "start_s": 73.6574, "dur_ms": 76.85, "batch": 59, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "1a6e266a", "parent_id": null, "name": "B1.to_device", "start_s": 73.734375, "dur_ms": 1.955, "batch": 59}
+{"run_id": "50be57e2326c", "span_id": "46934ebe", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 73.736419, "dur_ms": 362.638, "model": 0, "batch": 59}
+{"run_id": "50be57e2326c", "span_id": "2e0eef90", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 74.099149, "dur_ms": 363.634, "model": 1, "batch": 59}
+{"run_id": "50be57e2326c", "span_id": "3e39a235", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 74.462866, "dur_ms": 365.336, "model": 2, "batch": 59}
+{"run_id": "50be57e2326c", "span_id": "733fe2da", "parent_id": null, "name": "B1.to_host", "start_s": 74.828312, "dur_ms": 1.013, "batch": 59}
+{"run_id": "50be57e2326c", "span_id": "cc112e44", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 74.829411, "dur_ms": 79.872, "batch": 59, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "2d016f96", "parent_id": null, "name": "B5.route_fcd", "start_s": 74.909365, "dur_ms": 6.467, "batch": 59, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "769d22ad", "parent_id": null, "name": "B0.load_wait", "start_s": 74.916381, "dur_ms": 76.778, "batch": 60, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "ba82542b", "parent_id": null, "name": "B1.to_device", "start_s": 74.993341, "dur_ms": 1.895, "batch": 60}
+{"run_id": "50be57e2326c", "span_id": "6d8c0c44", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 74.995301, "dur_ms": 362.729, "model": 0, "batch": 60}
+{"run_id": "50be57e2326c", "span_id": "d2df4cf5", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 75.35813, "dur_ms": 363.21, "model": 1, "batch": 60}
+{"run_id": "50be57e2326c", "span_id": "03c6973d", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 75.721452, "dur_ms": 366.132, "model": 2, "batch": 60}
+{"run_id": "50be57e2326c", "span_id": "4191a187", "parent_id": null, "name": "B1.to_host", "start_s": 76.087689, "dur_ms": 0.943, "batch": 60}
+{"run_id": "50be57e2326c", "span_id": "d27b29f4", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 76.088726, "dur_ms": 78.091, "batch": 60, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "d0add74d", "parent_id": null, "name": "B5.route_fcd", "start_s": 76.166874, "dur_ms": 7.132, "batch": 60, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "f60a00fb", "parent_id": null, "name": "B0.load_wait", "start_s": 76.174332, "dur_ms": 77.171, "batch": 61, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "7a35b712", "parent_id": null, "name": "B1.to_device", "start_s": 76.251631, "dur_ms": 1.736, "batch": 61}
+{"run_id": "50be57e2326c", "span_id": "b415c429", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 76.253425, "dur_ms": 362.412, "model": 0, "batch": 61}
+{"run_id": "50be57e2326c", "span_id": "b12bdc19", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 76.615929, "dur_ms": 363.794, "model": 1, "batch": 61}
+{"run_id": "50be57e2326c", "span_id": "7a19002b", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 76.979831, "dur_ms": 366.393, "model": 2, "batch": 61}
+{"run_id": "50be57e2326c", "span_id": "5a7fc36b", "parent_id": null, "name": "B1.to_host", "start_s": 77.346338, "dur_ms": 1.444, "batch": 61}
+{"run_id": "50be57e2326c", "span_id": "95bc46f3", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 77.347877, "dur_ms": 69.384, "batch": 61, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "f02e50a8", "parent_id": null, "name": "B5.route_fcd", "start_s": 77.417326, "dur_ms": 6.853, "batch": 61, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "4532fc81", "parent_id": null, "name": "B0.load_wait", "start_s": 77.424536, "dur_ms": 76.393, "batch": 62, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "47d1df49", "parent_id": null, "name": "B1.to_device", "start_s": 77.501055, "dur_ms": 1.842, "batch": 62}
+{"run_id": "50be57e2326c", "span_id": "f6bcccd2", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 77.502968, "dur_ms": 362.488, "model": 0, "batch": 62}
+{"run_id": "50be57e2326c", "span_id": "61149302", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 77.865552, "dur_ms": 363.45, "model": 1, "batch": 62}
+{"run_id": "50be57e2326c", "span_id": "15741c1f", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 78.22908, "dur_ms": 365.944, "model": 2, "batch": 62}
+{"run_id": "50be57e2326c", "span_id": "c307fe95", "parent_id": null, "name": "B1.to_host", "start_s": 78.595128, "dur_ms": 0.915, "batch": 62}
+{"run_id": "50be57e2326c", "span_id": "daf8786f", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 78.596207, "dur_ms": 82.673, "batch": 62, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "7cf9fbf3", "parent_id": null, "name": "B5.route_fcd", "start_s": 78.678938, "dur_ms": 8.74, "batch": 62, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "d61bf44d", "parent_id": null, "name": "B0.load_wait", "start_s": 78.688139, "dur_ms": 87.529, "batch": 63, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "95e8db66", "parent_id": null, "name": "B1.to_device", "start_s": 78.775809, "dur_ms": 2.152, "batch": 63}
+{"run_id": "50be57e2326c", "span_id": "f995167d", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 78.778045, "dur_ms": 362.241, "model": 0, "batch": 63}
+{"run_id": "50be57e2326c", "span_id": "4893f610", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 79.140386, "dur_ms": 363.734, "model": 1, "batch": 63}
+{"run_id": "50be57e2326c", "span_id": "b1fe7561", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 79.504217, "dur_ms": 366.06, "model": 2, "batch": 63}
+{"run_id": "50be57e2326c", "span_id": "44b3f49f", "parent_id": null, "name": "B1.to_host", "start_s": 79.870387, "dur_ms": 1.231, "batch": 63}
+{"run_id": "50be57e2326c", "span_id": "b3951d63", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 79.871738, "dur_ms": 68.692, "batch": 63, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "8a23ef3b", "parent_id": null, "name": "B5.route_fcd", "start_s": 79.94051, "dur_ms": 5.124, "batch": 63, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "dab6be1c", "parent_id": null, "name": "B0.load_wait", "start_s": 79.946064, "dur_ms": 84.827, "batch": 64, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "5bd6da9b", "parent_id": null, "name": "B1.to_device", "start_s": 80.031026, "dur_ms": 2.093, "batch": 64}
+{"run_id": "50be57e2326c", "span_id": "0d948970", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 80.033179, "dur_ms": 362.781, "model": 0, "batch": 64}
+{"run_id": "50be57e2326c", "span_id": "cb45b795", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 80.396054, "dur_ms": 363.743, "model": 1, "batch": 64}
+{"run_id": "50be57e2326c", "span_id": "b8d28ea0", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 80.759901, "dur_ms": 366.552, "model": 2, "batch": 64}
+{"run_id": "50be57e2326c", "span_id": "a8560af1", "parent_id": null, "name": "B1.to_host", "start_s": 81.126565, "dur_ms": 1.008, "batch": 64}
+{"run_id": "50be57e2326c", "span_id": "5758c681", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 81.127661, "dur_ms": 78.292, "batch": 64, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "180c60ac", "parent_id": null, "name": "B5.route_fcd", "start_s": 81.20601, "dur_ms": 6.667, "batch": 64, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "d5332bd1", "parent_id": null, "name": "B0.load_wait", "start_s": 81.212962, "dur_ms": 74.216, "batch": 65, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "7b1e9506", "parent_id": null, "name": "B1.to_device", "start_s": 81.287303, "dur_ms": 1.806, "batch": 65}
+{"run_id": "50be57e2326c", "span_id": "fdde8823", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 81.289168, "dur_ms": 362.332, "model": 0, "batch": 65}
+{"run_id": "50be57e2326c", "span_id": "ffbda5e4", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 81.651605, "dur_ms": 363.417, "model": 1, "batch": 65}
+{"run_id": "50be57e2326c", "span_id": "1cdfba6b", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 82.015124, "dur_ms": 365.937, "model": 2, "batch": 65}
+{"run_id": "50be57e2326c", "span_id": "d9d42f3d", "parent_id": null, "name": "B1.to_host", "start_s": 82.381227, "dur_ms": 1.103, "batch": 65}
+{"run_id": "50be57e2326c", "span_id": "68a98f4f", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 82.382411, "dur_ms": 83.044, "batch": 65, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "2be7de10", "parent_id": null, "name": "B5.route_fcd", "start_s": 82.465515, "dur_ms": 7.307, "batch": 65, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "ec1f204d", "parent_id": null, "name": "B0.load_wait", "start_s": 82.473171, "dur_ms": 72.59, "batch": 66, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "c4806492", "parent_id": null, "name": "B1.to_device", "start_s": 82.545888, "dur_ms": 1.833, "batch": 66}
+{"run_id": "50be57e2326c", "span_id": "b057d64d", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 82.547812, "dur_ms": 362.563, "model": 0, "batch": 66}
+{"run_id": "50be57e2326c", "span_id": "9733bda4", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 82.910472, "dur_ms": 363.701, "model": 1, "batch": 66}
+{"run_id": "50be57e2326c", "span_id": "1d09daa9", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 83.274265, "dur_ms": 366.235, "model": 2, "batch": 66}
+{"run_id": "50be57e2326c", "span_id": "0c2736a8", "parent_id": null, "name": "B1.to_host", "start_s": 83.640604, "dur_ms": 1.108, "batch": 66}
+{"run_id": "50be57e2326c", "span_id": "a4b49fef", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 83.641797, "dur_ms": 76.868, "batch": 66, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "75022f10", "parent_id": null, "name": "B5.route_fcd", "start_s": 83.71872, "dur_ms": 7.575, "batch": 66, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "6cf461f2", "parent_id": null, "name": "B0.load_wait", "start_s": 83.726741, "dur_ms": 73.679, "batch": 67, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "c4f4444c", "parent_id": null, "name": "B1.to_device", "start_s": 83.800536, "dur_ms": 1.861, "batch": 67}
+{"run_id": "50be57e2326c", "span_id": "ea9700e8", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 83.802459, "dur_ms": 362.638, "model": 0, "batch": 67}
+{"run_id": "50be57e2326c", "span_id": "440928d2", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 84.165191, "dur_ms": 363.756, "model": 1, "batch": 67}
+{"run_id": "50be57e2326c", "span_id": "a4f38f25", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 84.529033, "dur_ms": 365.865, "model": 2, "batch": 67}
+{"run_id": "50be57e2326c", "span_id": "f54a1774", "parent_id": null, "name": "B1.to_host", "start_s": 84.895178, "dur_ms": 1.377, "batch": 67}
+{"run_id": "50be57e2326c", "span_id": "27ae64c1", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 84.896643, "dur_ms": 80.815, "batch": 67, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "34df60cd", "parent_id": null, "name": "B5.route_fcd", "start_s": 84.977512, "dur_ms": 7.099, "batch": 67, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "188c8ce3", "parent_id": null, "name": "B0.load_wait", "start_s": 84.984974, "dur_ms": 75.797, "batch": 68, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "38d7893b", "parent_id": null, "name": "B1.to_device", "start_s": 85.060911, "dur_ms": 1.769, "batch": 68}
+{"run_id": "50be57e2326c", "span_id": "35e8b5ee", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 85.062752, "dur_ms": 362.309, "model": 0, "batch": 68}
+{"run_id": "50be57e2326c", "span_id": "a4f80d70", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 85.425161, "dur_ms": 363.418, "model": 1, "batch": 68}
+{"run_id": "50be57e2326c", "span_id": "909966d9", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 85.788675, "dur_ms": 366.128, "model": 2, "batch": 68}
+{"run_id": "50be57e2326c", "span_id": "d20adaec", "parent_id": null, "name": "B1.to_host", "start_s": 86.154945, "dur_ms": 1.02, "batch": 68}
+{"run_id": "50be57e2326c", "span_id": "ee64a64b", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 86.15605, "dur_ms": 75.199, "batch": 68, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "c973c3db", "parent_id": null, "name": "B5.route_fcd", "start_s": 86.231306, "dur_ms": 4.735, "batch": 68, "images": 8, "red": 0}
+{"run_id": "50be57e2326c", "span_id": "446f79e1", "parent_id": null, "name": "B0.load_wait", "start_s": 86.236552, "dur_ms": 75.517, "batch": 69, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "cb0b3d6e", "parent_id": null, "name": "B1.to_device", "start_s": 86.312241, "dur_ms": 1.818, "batch": 69}
+{"run_id": "50be57e2326c", "span_id": "13a22357", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 86.314125, "dur_ms": 362.15, "model": 0, "batch": 69}
+{"run_id": "50be57e2326c", "span_id": "04bcdaac", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 86.6764, "dur_ms": 363.314, "model": 1, "batch": 69}
+{"run_id": "50be57e2326c", "span_id": "37b113b3", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 87.039837, "dur_ms": 366.904, "model": 2, "batch": 69}
+{"run_id": "50be57e2326c", "span_id": "6a2df980", "parent_id": null, "name": "B1.to_host", "start_s": 87.406838, "dur_ms": 0.966, "batch": 69}
+{"run_id": "50be57e2326c", "span_id": "66a38b6a", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 87.407887, "dur_ms": 59.214, "batch": 69, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "c736cef9", "parent_id": null, "name": "B5.route_fcd", "start_s": 87.467157, "dur_ms": 5.057, "batch": 69, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "d69ea70e", "parent_id": null, "name": "B0.load_wait", "start_s": 87.472675, "dur_ms": 77.443, "batch": 70, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "9641a03e", "parent_id": null, "name": "B1.to_device", "start_s": 87.550246, "dur_ms": 1.778, "batch": 70}
+{"run_id": "50be57e2326c", "span_id": "6ded99ac", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 87.552095, "dur_ms": 362.476, "model": 0, "batch": 70}
+{"run_id": "50be57e2326c", "span_id": "e78e2886", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 87.914663, "dur_ms": 363.23, "model": 1, "batch": 70}
+{"run_id": "50be57e2326c", "span_id": "b7d000c8", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 88.277986, "dur_ms": 366.049, "model": 2, "batch": 70}
+{"run_id": "50be57e2326c", "span_id": "de5ebc6b", "parent_id": null, "name": "B1.to_host", "start_s": 88.644153, "dur_ms": 1.519, "batch": 70}
+{"run_id": "50be57e2326c", "span_id": "83d569ac", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 88.645795, "dur_ms": 83.429, "batch": 70, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "3d7a1f18", "parent_id": null, "name": "B5.route_fcd", "start_s": 88.729279, "dur_ms": 6.003, "batch": 70, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "d512d407", "parent_id": null, "name": "B0.load_wait", "start_s": 88.735703, "dur_ms": 77.499, "batch": 71, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "54179ca2", "parent_id": null, "name": "B1.to_device", "start_s": 88.813324, "dur_ms": 1.81, "batch": 71}
+{"run_id": "50be57e2326c", "span_id": "457c4a27", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 88.815206, "dur_ms": 362.675, "model": 0, "batch": 71}
+{"run_id": "50be57e2326c", "span_id": "3c982f68", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 89.177979, "dur_ms": 364.041, "model": 1, "batch": 71}
+{"run_id": "50be57e2326c", "span_id": "37085db9", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 89.542135, "dur_ms": 367.109, "model": 2, "batch": 71}
+{"run_id": "50be57e2326c", "span_id": "173063b7", "parent_id": null, "name": "B1.to_host", "start_s": 89.909362, "dur_ms": 1.056, "batch": 71}
+{"run_id": "50be57e2326c", "span_id": "762d04ec", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 89.910502, "dur_ms": 59.18, "batch": 71, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "e928815a", "parent_id": null, "name": "B5.route_fcd", "start_s": 89.969734, "dur_ms": 4.87, "batch": 71, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "6ddda910", "parent_id": null, "name": "B0.load_wait", "start_s": 89.97495, "dur_ms": 75.714, "batch": 72, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "4ad593fc", "parent_id": null, "name": "B1.to_device", "start_s": 90.05078, "dur_ms": 1.778, "batch": 72}
+{"run_id": "50be57e2326c", "span_id": "a0d5118e", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 90.052633, "dur_ms": 362.941, "model": 0, "batch": 72}
+{"run_id": "50be57e2326c", "span_id": "aaedbb4b", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 90.415674, "dur_ms": 363.718, "model": 1, "batch": 72}
+{"run_id": "50be57e2326c", "span_id": "a8e6b23a", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 90.779507, "dur_ms": 366.783, "model": 2, "batch": 72}
+{"run_id": "50be57e2326c", "span_id": "6f6515ac", "parent_id": null, "name": "B1.to_host", "start_s": 91.1464, "dur_ms": 0.961, "batch": 72}
+{"run_id": "50be57e2326c", "span_id": "6fd4e76c", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 91.147449, "dur_ms": 100.41, "batch": 72, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "927be94e", "parent_id": null, "name": "B5.route_fcd", "start_s": 91.247914, "dur_ms": 8.961, "batch": 72, "images": 8, "red": 4}
+{"run_id": "50be57e2326c", "span_id": "79c0b72a", "parent_id": null, "name": "B0.load_wait", "start_s": 91.257201, "dur_ms": 107.639, "batch": 73, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "30df9081", "parent_id": null, "name": "B1.to_device", "start_s": 91.365022, "dur_ms": 1.914, "batch": 73}
+{"run_id": "50be57e2326c", "span_id": "4e9f5958", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 91.367065, "dur_ms": 362.883, "model": 0, "batch": 73}
+{"run_id": "50be57e2326c", "span_id": "11c17345", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 91.730044, "dur_ms": 363.549, "model": 1, "batch": 73}
+{"run_id": "50be57e2326c", "span_id": "a271bb33", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 92.093681, "dur_ms": 366.387, "model": 2, "batch": 73}
+{"run_id": "50be57e2326c", "span_id": "df30f307", "parent_id": null, "name": "B1.to_host", "start_s": 92.460166, "dur_ms": 1.109, "batch": 73}
+{"run_id": "50be57e2326c", "span_id": "10eb0807", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 92.461378, "dur_ms": 76.158, "batch": 73, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "54e00b56", "parent_id": null, "name": "B5.route_fcd", "start_s": 92.537597, "dur_ms": 5.804, "batch": 73, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "0060a070", "parent_id": null, "name": "B0.load_wait", "start_s": 92.543712, "dur_ms": 75.622, "batch": 74, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "4ce012e1", "parent_id": null, "name": "B1.to_device", "start_s": 92.619453, "dur_ms": 1.804, "batch": 74}
+{"run_id": "50be57e2326c", "span_id": "a34a7a16", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 92.621311, "dur_ms": 362.579, "model": 0, "batch": 74}
+{"run_id": "50be57e2326c", "span_id": "69949a4d", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 92.983985, "dur_ms": 364.107, "model": 1, "batch": 74}
+{"run_id": "50be57e2326c", "span_id": "a659d06c", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 93.348187, "dur_ms": 366.467, "model": 2, "batch": 74}
+{"run_id": "50be57e2326c", "span_id": "95c438b1", "parent_id": null, "name": "B1.to_host", "start_s": 93.714898, "dur_ms": 1.053, "batch": 74}
+{"run_id": "50be57e2326c", "span_id": "7e36efc1", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 93.716046, "dur_ms": 76.034, "batch": 74, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "c7f3bad4", "parent_id": null, "name": "B5.route_fcd", "start_s": 93.792137, "dur_ms": 6.207, "batch": 74, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "55dc7457", "parent_id": null, "name": "B0.load_wait", "start_s": 93.798712, "dur_ms": 76.574, "batch": 75, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "21c9729d", "parent_id": null, "name": "B1.to_device", "start_s": 93.875428, "dur_ms": 1.776, "batch": 75}
+{"run_id": "50be57e2326c", "span_id": "8365db82", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 93.877312, "dur_ms": 362.752, "model": 0, "batch": 75}
+{"run_id": "50be57e2326c", "span_id": "86b54868", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 94.240168, "dur_ms": 363.768, "model": 1, "batch": 75}
+{"run_id": "50be57e2326c", "span_id": "1c265bb3", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 94.604032, "dur_ms": 366.697, "model": 2, "batch": 75}
+{"run_id": "50be57e2326c", "span_id": "2a5f6a2a", "parent_id": null, "name": "B1.to_host", "start_s": 94.970837, "dur_ms": 1.124, "batch": 75}
+{"run_id": "50be57e2326c", "span_id": "ac45d037", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 94.972075, "dur_ms": 68.042, "batch": 75, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "b8b04412", "parent_id": null, "name": "B5.route_fcd", "start_s": 95.040165, "dur_ms": 6.723, "batch": 75, "images": 8, "red": 4}
+{"run_id": "50be57e2326c", "span_id": "6cf7b2e7", "parent_id": null, "name": "B0.load_wait", "start_s": 95.047196, "dur_ms": 73.715, "batch": 76, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "0f1c5f9c", "parent_id": null, "name": "B1.to_device", "start_s": 95.121029, "dur_ms": 1.819, "batch": 76}
+{"run_id": "50be57e2326c", "span_id": "a07a91f8", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 95.122937, "dur_ms": 363.481, "model": 0, "batch": 76}
+{"run_id": "50be57e2326c", "span_id": "8f85fed8", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 95.486511, "dur_ms": 363.585, "model": 1, "batch": 76}
+{"run_id": "50be57e2326c", "span_id": "25f38f1f", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 95.850193, "dur_ms": 366.084, "model": 2, "batch": 76}
+{"run_id": "50be57e2326c", "span_id": "8e1746dc", "parent_id": null, "name": "B1.to_host", "start_s": 96.216384, "dur_ms": 0.952, "batch": 76}
+{"run_id": "50be57e2326c", "span_id": "8a3211db", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 96.217424, "dur_ms": 80.202, "batch": 76, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "d8b780fe", "parent_id": null, "name": "B5.route_fcd", "start_s": 96.297684, "dur_ms": 4.837, "batch": 76, "images": 8, "red": 0}
+{"run_id": "50be57e2326c", "span_id": "56745734", "parent_id": null, "name": "B0.load_wait", "start_s": 96.302822, "dur_ms": 76.242, "batch": 77, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "553f54ab", "parent_id": null, "name": "B1.to_device", "start_s": 96.37919, "dur_ms": 1.815, "batch": 77}
+{"run_id": "50be57e2326c", "span_id": "c0d542ff", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 96.381076, "dur_ms": 362.848, "model": 0, "batch": 77}
+{"run_id": "50be57e2326c", "span_id": "c5bc422d", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 96.744016, "dur_ms": 363.6, "model": 1, "batch": 77}
+{"run_id": "50be57e2326c", "span_id": "9d79c696", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 97.107707, "dur_ms": 366.269, "model": 2, "batch": 77}
+{"run_id": "50be57e2326c", "span_id": "d0851467", "parent_id": null, "name": "B1.to_host", "start_s": 97.474081, "dur_ms": 1.153, "batch": 77}
+{"run_id": "50be57e2326c", "span_id": "a58bbbd8", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 97.475326, "dur_ms": 80.633, "batch": 77, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "dd620a2a", "parent_id": null, "name": "B5.route_fcd", "start_s": 97.556014, "dur_ms": 6.913, "batch": 77, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "12a8c78c", "parent_id": null, "name": "B0.load_wait", "start_s": 97.563241, "dur_ms": 73.595, "batch": 78, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "e4d862b1", "parent_id": null, "name": "B1.to_device", "start_s": 97.63696, "dur_ms": 1.839, "batch": 78}
+{"run_id": "50be57e2326c", "span_id": "354132e5", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 97.638887, "dur_ms": 362.498, "model": 0, "batch": 78}
+{"run_id": "50be57e2326c", "span_id": "c2eddc84", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 98.001495, "dur_ms": 363.872, "model": 1, "batch": 78}
+{"run_id": "50be57e2326c", "span_id": "e5b43a36", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 98.365458, "dur_ms": 366.923, "model": 2, "batch": 78}
+{"run_id": "50be57e2326c", "span_id": "266eeaf5", "parent_id": null, "name": "B1.to_host", "start_s": 98.732489, "dur_ms": 0.972, "batch": 78}
+{"run_id": "50be57e2326c", "span_id": "533c1072", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 98.733556, "dur_ms": 103.128, "batch": 78, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "fde2b515", "parent_id": null, "name": "B5.route_fcd", "start_s": 98.836759, "dur_ms": 11.557, "batch": 78, "images": 8, "red": 4}
+{"run_id": "50be57e2326c", "span_id": "8adcf63c", "parent_id": null, "name": "B0.load_wait", "start_s": 98.848735, "dur_ms": 107.896, "batch": 79, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "d77640c2", "parent_id": null, "name": "B1.to_device", "start_s": 98.956827, "dur_ms": 1.973, "batch": 79}
+{"run_id": "50be57e2326c", "span_id": "1cae40c4", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 98.958992, "dur_ms": 363.093, "model": 0, "batch": 79}
+{"run_id": "50be57e2326c", "span_id": "15bba052", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 99.322293, "dur_ms": 363.73, "model": 1, "batch": 79}
+{"run_id": "50be57e2326c", "span_id": "d9a02e5b", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 99.686121, "dur_ms": 366.581, "model": 2, "batch": 79}
+{"run_id": "50be57e2326c", "span_id": "99c4eeab", "parent_id": null, "name": "B1.to_host", "start_s": 100.052808, "dur_ms": 0.945, "batch": 79}
+{"run_id": "50be57e2326c", "span_id": "ddf5c2c5", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 100.053839, "dur_ms": 73.208, "batch": 79, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "fd88c532", "parent_id": null, "name": "B5.route_fcd", "start_s": 100.127106, "dur_ms": 6.252, "batch": 79, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "0e9c8f41", "parent_id": null, "name": "B0.load_wait", "start_s": 100.133696, "dur_ms": 77.872, "batch": 80, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "f4d9ea5e", "parent_id": null, "name": "B1.to_device", "start_s": 100.211687, "dur_ms": 1.805, "batch": 80}
+{"run_id": "50be57e2326c", "span_id": "35f928fb", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 100.213558, "dur_ms": 362.892, "model": 0, "batch": 80}
+{"run_id": "50be57e2326c", "span_id": "97a59156", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 100.576543, "dur_ms": 363.886, "model": 1, "batch": 80}
+{"run_id": "50be57e2326c", "span_id": "0e128ea4", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 100.940532, "dur_ms": 366.692, "model": 2, "batch": 80}
+{"run_id": "50be57e2326c", "span_id": "f82301e6", "parent_id": null, "name": "B1.to_host", "start_s": 101.307341, "dur_ms": 0.993, "batch": 80}
+{"run_id": "50be57e2326c", "span_id": "8e4fa306", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 101.30842, "dur_ms": 73.752, "batch": 80, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "58ff7282", "parent_id": null, "name": "B5.route_fcd", "start_s": 101.382227, "dur_ms": 8.013, "batch": 80, "images": 8, "red": 6}
+{"run_id": "50be57e2326c", "span_id": "9a7bfb4b", "parent_id": null, "name": "B0.load_wait", "start_s": 101.390552, "dur_ms": 73.473, "batch": 81, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "cea23a76", "parent_id": null, "name": "B1.to_device", "start_s": 101.464147, "dur_ms": 1.976, "batch": 81}
+{"run_id": "50be57e2326c", "span_id": "45effb53", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 101.466182, "dur_ms": 363.134, "model": 0, "batch": 81}
+{"run_id": "50be57e2326c", "span_id": "f6291b96", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 101.829412, "dur_ms": 363.442, "model": 1, "batch": 81}
+{"run_id": "50be57e2326c", "span_id": "ad792aca", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 102.192985, "dur_ms": 366.927, "model": 2, "batch": 81}
+{"run_id": "50be57e2326c", "span_id": "0c8ee8a0", "parent_id": null, "name": "B1.to_host", "start_s": 102.560025, "dur_ms": 1.09, "batch": 81}
+{"run_id": "50be57e2326c", "span_id": "6038c06b", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 102.561195, "dur_ms": 77.316, "batch": 81, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "e2f6c683", "parent_id": null, "name": "B5.route_fcd", "start_s": 102.638566, "dur_ms": 6.939, "batch": 81, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "4818615d", "parent_id": null, "name": "B0.load_wait", "start_s": 102.645819, "dur_ms": 74.455, "batch": 82, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "fe3a656d", "parent_id": null, "name": "B1.to_device", "start_s": 102.720384, "dur_ms": 1.945, "batch": 82}
+{"run_id": "50be57e2326c", "span_id": "81d1d5d2", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 102.722405, "dur_ms": 363.102, "model": 0, "batch": 82}
+{"run_id": "50be57e2326c", "span_id": "0e36cb95", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 103.08562, "dur_ms": 363.858, "model": 1, "batch": 82}
+{"run_id": "50be57e2326c", "span_id": "ae6a3e16", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 103.449572, "dur_ms": 366.842, "model": 2, "batch": 82}
+{"run_id": "50be57e2326c", "span_id": "d497b4ff", "parent_id": null, "name": "B1.to_host", "start_s": 103.816522, "dur_ms": 0.944, "batch": 82}
+{"run_id": "50be57e2326c", "span_id": "9a9995b5", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 103.817553, "dur_ms": 82.678, "batch": 82, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "9541ff66", "parent_id": null, "name": "B5.route_fcd", "start_s": 103.900283, "dur_ms": 6.274, "batch": 82, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "e95a79e6", "parent_id": null, "name": "B0.load_wait", "start_s": 103.906855, "dur_ms": 74.863, "batch": 83, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "63681405", "parent_id": null, "name": "B1.to_device", "start_s": 103.981843, "dur_ms": 1.802, "batch": 83}
+{"run_id": "50be57e2326c", "span_id": "0d61faca", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 103.983715, "dur_ms": 363.125, "model": 0, "batch": 83}
+{"run_id": "50be57e2326c", "span_id": "8fd83dc2", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 104.346935, "dur_ms": 363.766, "model": 1, "batch": 83}
+{"run_id": "50be57e2326c", "span_id": "8749457b", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 104.710801, "dur_ms": 366.055, "model": 2, "batch": 83}
+{"run_id": "50be57e2326c", "span_id": "79c2469a", "parent_id": null, "name": "B1.to_host", "start_s": 105.07698, "dur_ms": 1.143, "batch": 83}
+{"run_id": "50be57e2326c", "span_id": "d41d37c8", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 105.078228, "dur_ms": 73.861, "batch": 83, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "3b9f07c0", "parent_id": null, "name": "B5.route_fcd", "start_s": 105.152151, "dur_ms": 6.242, "batch": 83, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "51b26ca6", "parent_id": null, "name": "B0.load_wait", "start_s": 105.158716, "dur_ms": 72.584, "batch": 84, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "2fd86fda", "parent_id": null, "name": "B1.to_device", "start_s": 105.231431, "dur_ms": 1.8, "batch": 84}
+{"run_id": "50be57e2326c", "span_id": "4011a438", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 105.233297, "dur_ms": 362.441, "model": 0, "batch": 84}
+{"run_id": "50be57e2326c", "span_id": "3f9dadc1", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 105.595829, "dur_ms": 362.66, "model": 1, "batch": 84}
+{"run_id": "50be57e2326c", "span_id": "cfd8552d", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 105.9586, "dur_ms": 368.271, "model": 2, "batch": 84}
+{"run_id": "50be57e2326c", "span_id": "c8bc8ff3", "parent_id": null, "name": "B1.to_host", "start_s": 106.326977, "dur_ms": 0.984, "batch": 84}
+{"run_id": "50be57e2326c", "span_id": "a93d50ac", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 106.328044, "dur_ms": 65.264, "batch": 84, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "fcd03b16", "parent_id": null, "name": "B5.route_fcd", "start_s": 106.393372, "dur_ms": 5.345, "batch": 84, "images": 8, "red": 0}
+{"run_id": "50be57e2326c", "span_id": "00b247f2", "parent_id": null, "name": "B0.load_wait", "start_s": 106.399083, "dur_ms": 79.403, "batch": 85, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "1b114da9", "parent_id": null, "name": "B1.to_device", "start_s": 106.478679, "dur_ms": 2.095, "batch": 85}
+{"run_id": "50be57e2326c", "span_id": "db9a269f", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 106.480859, "dur_ms": 363.312, "model": 0, "batch": 85}
+{"run_id": "50be57e2326c", "span_id": "ab3b9781", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 106.844268, "dur_ms": 364.184, "model": 1, "batch": 85}
+{"run_id": "50be57e2326c", "span_id": "00d47e89", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 107.208569, "dur_ms": 366.349, "model": 2, "batch": 85}
+{"run_id": "50be57e2326c", "span_id": "97a9b55f", "parent_id": null, "name": "B1.to_host", "start_s": 107.575027, "dur_ms": 1.25, "batch": 85}
+{"run_id": "50be57e2326c", "span_id": "08baf593", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 107.57637, "dur_ms": 90.116, "batch": 85, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "33fdc37a", "parent_id": null, "name": "B5.route_fcd", "start_s": 107.666545, "dur_ms": 7.304, "batch": 85, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "c7ceae45", "parent_id": null, "name": "B0.load_wait", "start_s": 107.674146, "dur_ms": 74.011, "batch": 86, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "c9135a4d", "parent_id": null, "name": "B1.to_device", "start_s": 107.748277, "dur_ms": 1.743, "batch": 86}
+{"run_id": "50be57e2326c", "span_id": "d4b50688", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 107.750122, "dur_ms": 362.575, "model": 0, "batch": 86}
+{"run_id": "50be57e2326c", "span_id": "8fbb0011", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 108.112793, "dur_ms": 364.565, "model": 1, "batch": 86}
+{"run_id": "50be57e2326c", "span_id": "6c14676e", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 108.477455, "dur_ms": 366.678, "model": 2, "batch": 86}
+{"run_id": "50be57e2326c", "span_id": "2f1d490a", "parent_id": null, "name": "B1.to_host", "start_s": 108.844237, "dur_ms": 0.914, "batch": 86}
+{"run_id": "50be57e2326c", "span_id": "9743c34a", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 108.845231, "dur_ms": 69.967, "batch": 86, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "71e32a97", "parent_id": null, "name": "B5.route_fcd", "start_s": 108.915248, "dur_ms": 6.01, "batch": 86, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "5542c0de", "parent_id": null, "name": "B0.load_wait", "start_s": 108.921574, "dur_ms": 75.423, "batch": 87, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "6daa2837", "parent_id": null, "name": "B1.to_device", "start_s": 108.997138, "dur_ms": 1.914, "batch": 87}
+{"run_id": "50be57e2326c", "span_id": "c505ea64", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 108.999123, "dur_ms": 363.377, "model": 0, "batch": 87}
+{"run_id": "50be57e2326c", "span_id": "05449e4c", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 109.3626, "dur_ms": 363.99, "model": 1, "batch": 87}
+{"run_id": "50be57e2326c", "span_id": "d3ae31ec", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 109.726736, "dur_ms": 366.951, "model": 2, "batch": 87}
+{"run_id": "50be57e2326c", "span_id": "4142696f", "parent_id": null, "name": "B1.to_host", "start_s": 110.093799, "dur_ms": 1.004, "batch": 87}
+{"run_id": "50be57e2326c", "span_id": "53d54a53", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 110.094942, "dur_ms": 78.5, "batch": 87, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "3fb4379e", "parent_id": null, "name": "B5.route_fcd", "start_s": 110.173524, "dur_ms": 7.855, "batch": 87, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "15034d9d", "parent_id": null, "name": "B0.load_wait", "start_s": 110.181779, "dur_ms": 81.433, "batch": 88, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "8fc3e4a9", "parent_id": null, "name": "B1.to_device", "start_s": 110.263397, "dur_ms": 1.79, "batch": 88}
+{"run_id": "50be57e2326c", "span_id": "eab6ac00", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 110.265247, "dur_ms": 363.308, "model": 0, "batch": 88}
+{"run_id": "50be57e2326c", "span_id": "692a8930", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 110.628646, "dur_ms": 364.95, "model": 1, "batch": 88}
+{"run_id": "50be57e2326c", "span_id": "70e30db9", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 110.993691, "dur_ms": 367.427, "model": 2, "batch": 88}
+{"run_id": "50be57e2326c", "span_id": "dd632a0c", "parent_id": null, "name": "B1.to_host", "start_s": 111.361261, "dur_ms": 1.035, "batch": 88}
+{"run_id": "50be57e2326c", "span_id": "4ade4dca", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 111.362404, "dur_ms": 93.726, "batch": 88, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "6aedaf86", "parent_id": null, "name": "B5.route_fcd", "start_s": 111.456189, "dur_ms": 10.375, "batch": 88, "images": 8, "red": 5}
+{"run_id": "50be57e2326c", "span_id": "e47ac779", "parent_id": null, "name": "B0.load_wait", "start_s": 111.466881, "dur_ms": 78.25, "batch": 89, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "c1489210", "parent_id": null, "name": "B1.to_device", "start_s": 111.545262, "dur_ms": 1.92, "batch": 89}
+{"run_id": "50be57e2326c", "span_id": "b3fb9292", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 111.547258, "dur_ms": 364.026, "model": 0, "batch": 89}
+{"run_id": "50be57e2326c", "span_id": "bb5ca0ce", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 111.91139, "dur_ms": 364.441, "model": 1, "batch": 89}
+{"run_id": "50be57e2326c", "span_id": "2cdfc3ce", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 112.27593, "dur_ms": 367.989, "model": 2, "batch": 89}
+{"run_id": "50be57e2326c", "span_id": "74031160", "parent_id": null, "name": "B1.to_host", "start_s": 112.644032, "dur_ms": 1.181, "batch": 89}
+{"run_id": "50be57e2326c", "span_id": "a23a66c0", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 112.645398, "dur_ms": 119.538, "batch": 89, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "3cc4fa4f", "parent_id": null, "name": "B5.route_fcd", "start_s": 112.765028, "dur_ms": 13.503, "batch": 89, "images": 8, "red": 4}
+{"run_id": "50be57e2326c", "span_id": "e3e9e186", "parent_id": null, "name": "B0.load_wait", "start_s": 112.779212, "dur_ms": 102.694, "batch": 90, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "a8cf1c86", "parent_id": null, "name": "B1.to_device", "start_s": 112.882062, "dur_ms": 1.87, "batch": 90}
+{"run_id": "50be57e2326c", "span_id": "32b7e4bd", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 112.883996, "dur_ms": 363.517, "model": 0, "batch": 90}
+{"run_id": "50be57e2326c", "span_id": "693c505a", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 113.247602, "dur_ms": 364.021, "model": 1, "batch": 90}
+{"run_id": "50be57e2326c", "span_id": "4c14c02c", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 113.611716, "dur_ms": 367.621, "model": 2, "batch": 90}
+{"run_id": "50be57e2326c", "span_id": "8c33f15b", "parent_id": null, "name": "B1.to_host", "start_s": 113.979449, "dur_ms": 1.006, "batch": 90}
+{"run_id": "50be57e2326c", "span_id": "cebc7424", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 113.980535, "dur_ms": 63.141, "batch": 90, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "839855c3", "parent_id": null, "name": "B5.route_fcd", "start_s": 114.043728, "dur_ms": 5.924, "batch": 90, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "29b0d4e0", "parent_id": null, "name": "B0.load_wait", "start_s": 114.049977, "dur_ms": 76.605, "batch": 91, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "7e36e886", "parent_id": null, "name": "B1.to_device", "start_s": 114.126698, "dur_ms": 1.798, "batch": 91}
+{"run_id": "50be57e2326c", "span_id": "964982de", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 114.128565, "dur_ms": 362.388, "model": 0, "batch": 91}
+{"run_id": "50be57e2326c", "span_id": "8f295e75", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 114.491035, "dur_ms": 362.734, "model": 1, "batch": 91}
+{"run_id": "50be57e2326c", "span_id": "b6080e78", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 114.854016, "dur_ms": 367.802, "model": 2, "batch": 91}
+{"run_id": "50be57e2326c", "span_id": "44ea6cb2", "parent_id": null, "name": "B1.to_host", "start_s": 115.221939, "dur_ms": 1.03, "batch": 91}
+{"run_id": "50be57e2326c", "span_id": "b7691d21", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 115.223062, "dur_ms": 74.695, "batch": 91, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "c46de44e", "parent_id": null, "name": "B5.route_fcd", "start_s": 115.297839, "dur_ms": 6.253, "batch": 91, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "17226ac9", "parent_id": null, "name": "B0.load_wait", "start_s": 115.304414, "dur_ms": 87.432, "batch": 92, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "733bc8b2", "parent_id": null, "name": "B1.to_device", "start_s": 115.392005, "dur_ms": 1.928, "batch": 92}
+{"run_id": "50be57e2326c", "span_id": "4b736c52", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 115.394055, "dur_ms": 363.972, "model": 0, "batch": 92}
+{"run_id": "50be57e2326c", "span_id": "0b947b7a", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 115.758113, "dur_ms": 364.265, "model": 1, "batch": 92}
+{"run_id": "50be57e2326c", "span_id": "24df6239", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 116.12247, "dur_ms": 366.918, "model": 2, "batch": 92}
+{"run_id": "50be57e2326c", "span_id": "fcd53dea", "parent_id": null, "name": "B1.to_host", "start_s": 116.489505, "dur_ms": 1.096, "batch": 92}
+{"run_id": "50be57e2326c", "span_id": "ea436a9b", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 116.490698, "dur_ms": 103.385, "batch": 92, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "aad4cafa", "parent_id": null, "name": "B5.route_fcd", "start_s": 116.594203, "dur_ms": 6.975, "batch": 92, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "2bac5126", "parent_id": null, "name": "B0.load_wait", "start_s": 116.601598, "dur_ms": 75.131, "batch": 93, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "4c207c8f", "parent_id": null, "name": "B1.to_device", "start_s": 116.676849, "dur_ms": 2.062, "batch": 93}
+{"run_id": "50be57e2326c", "span_id": "313eedca", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 116.678965, "dur_ms": 362.102, "model": 0, "batch": 93}
+{"run_id": "50be57e2326c", "span_id": "be15625c", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 117.041167, "dur_ms": 364.174, "model": 1, "batch": 93}
+{"run_id": "50be57e2326c", "span_id": "c22e38f4", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 117.405437, "dur_ms": 367.108, "model": 2, "batch": 93}
+{"run_id": "50be57e2326c", "span_id": "dbf40de7", "parent_id": null, "name": "B1.to_host", "start_s": 117.772655, "dur_ms": 0.945, "batch": 93}
+{"run_id": "50be57e2326c", "span_id": "e8128247", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 117.77369, "dur_ms": 60.157, "batch": 93, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "4fe4c066", "parent_id": null, "name": "B5.route_fcd", "start_s": 117.8339, "dur_ms": 5.473, "batch": 93, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "f1c3d2e1", "parent_id": null, "name": "B0.load_wait", "start_s": 117.839743, "dur_ms": 78.043, "batch": 94, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "5dd42be9", "parent_id": null, "name": "B1.to_device", "start_s": 117.917916, "dur_ms": 1.733, "batch": 94}
+{"run_id": "50be57e2326c", "span_id": "e03e23d3", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 117.91971, "dur_ms": 363.783, "model": 0, "batch": 94}
+{"run_id": "50be57e2326c", "span_id": "caa0a485", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 118.283586, "dur_ms": 364.818, "model": 1, "batch": 94}
+{"run_id": "50be57e2326c", "span_id": "5860cefd", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 118.648498, "dur_ms": 366.606, "model": 2, "batch": 94}
+{"run_id": "50be57e2326c", "span_id": "5d3d972b", "parent_id": null, "name": "B1.to_host", "start_s": 119.015221, "dur_ms": 0.979, "batch": 94}
+{"run_id": "50be57e2326c", "span_id": "01b015f7", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 119.01629, "dur_ms": 75.038, "batch": 94, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "cb7cc25c", "parent_id": null, "name": "B5.route_fcd", "start_s": 119.091396, "dur_ms": 6.665, "batch": 94, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "024118c1", "parent_id": null, "name": "B0.load_wait", "start_s": 119.098419, "dur_ms": 79.233, "batch": 95, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "8b76e6a1", "parent_id": null, "name": "B1.to_device", "start_s": 119.177781, "dur_ms": 1.82, "batch": 95}
+{"run_id": "50be57e2326c", "span_id": "dab6da9d", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 119.179692, "dur_ms": 363.366, "model": 0, "batch": 95}
+{"run_id": "50be57e2326c", "span_id": "5828fa79", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 119.543145, "dur_ms": 364.229, "model": 1, "batch": 95}
+{"run_id": "50be57e2326c", "span_id": "9ae0de0e", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 119.907457, "dur_ms": 366.863, "model": 2, "batch": 95}
+{"run_id": "50be57e2326c", "span_id": "7ed24605", "parent_id": null, "name": "B1.to_host", "start_s": 120.274429, "dur_ms": 0.997, "batch": 95}
+{"run_id": "50be57e2326c", "span_id": "0d14f603", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 120.275515, "dur_ms": 71.352, "batch": 95, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "9fd2bdc5", "parent_id": null, "name": "B5.route_fcd", "start_s": 120.346924, "dur_ms": 7.596, "batch": 95, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "f70f6da4", "parent_id": null, "name": "B0.load_wait", "start_s": 120.354828, "dur_ms": 77.71, "batch": 96, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "37e6eaae", "parent_id": null, "name": "B1.to_device", "start_s": 120.432677, "dur_ms": 1.768, "batch": 96}
+{"run_id": "50be57e2326c", "span_id": "8b579811", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 120.434517, "dur_ms": 363.571, "model": 0, "batch": 96}
+{"run_id": "50be57e2326c", "span_id": "f7e09243", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 120.798177, "dur_ms": 364.42, "model": 1, "batch": 96}
+{"run_id": "50be57e2326c", "span_id": "1fb8e1d0", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 121.162689, "dur_ms": 366.475, "model": 2, "batch": 96}
+{"run_id": "50be57e2326c", "span_id": "c3e3a404", "parent_id": null, "name": "B1.to_host", "start_s": 121.529267, "dur_ms": 0.906, "batch": 96}
+{"run_id": "50be57e2326c", "span_id": "7cf58417", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 121.530256, "dur_ms": 110.731, "batch": 96, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "a5e8c1bc", "parent_id": null, "name": "B5.route_fcd", "start_s": 121.641056, "dur_ms": 9.433, "batch": 96, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "252c36cd", "parent_id": null, "name": "B0.load_wait", "start_s": 121.650926, "dur_ms": 90.793, "batch": 97, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "392ad4c5", "parent_id": null, "name": "B1.to_device", "start_s": 121.741853, "dur_ms": 2.196, "batch": 97}
+{"run_id": "50be57e2326c", "span_id": "b013d077", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 121.744123, "dur_ms": 363.237, "model": 0, "batch": 97}
+{"run_id": "50be57e2326c", "span_id": "30af46da", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 122.107459, "dur_ms": 364.202, "model": 1, "batch": 97}
+{"run_id": "50be57e2326c", "span_id": "4b8e011e", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 122.471784, "dur_ms": 366.976, "model": 2, "batch": 97}
+{"run_id": "50be57e2326c", "span_id": "0832bbab", "parent_id": null, "name": "B1.to_host", "start_s": 122.83886, "dur_ms": 1.221, "batch": 97}
+{"run_id": "50be57e2326c", "span_id": "d3196de4", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 122.840176, "dur_ms": 96.612, "batch": 97, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "3bcdd5d1", "parent_id": null, "name": "B5.route_fcd", "start_s": 122.936856, "dur_ms": 7.218, "batch": 97, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "32907b15", "parent_id": null, "name": "B0.load_wait", "start_s": 122.944403, "dur_ms": 77.325, "batch": 98, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "5cc2f10b", "parent_id": null, "name": "B1.to_device", "start_s": 123.021848, "dur_ms": 1.799, "batch": 98}
+{"run_id": "50be57e2326c", "span_id": "2b27415a", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 123.023705, "dur_ms": 363.28, "model": 0, "batch": 98}
+{"run_id": "50be57e2326c", "span_id": "46124754", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 123.387074, "dur_ms": 364.071, "model": 1, "batch": 98}
+{"run_id": "50be57e2326c", "span_id": "31688296", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 123.751235, "dur_ms": 366.866, "model": 2, "batch": 98}
+{"run_id": "50be57e2326c", "span_id": "cc235798", "parent_id": null, "name": "B1.to_host", "start_s": 124.118355, "dur_ms": 1.155, "batch": 98}
+{"run_id": "50be57e2326c", "span_id": "4c17c809", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 124.11959, "dur_ms": 69.381, "batch": 98, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "db588708", "parent_id": null, "name": "B5.route_fcd", "start_s": 124.189024, "dur_ms": 6.909, "batch": 98, "images": 8, "red": 4}
+{"run_id": "50be57e2326c", "span_id": "d05f48a4", "parent_id": null, "name": "B0.load_wait", "start_s": 124.196326, "dur_ms": 77.042, "batch": 99, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "681860d3", "parent_id": null, "name": "B1.to_device", "start_s": 124.273542, "dur_ms": 1.767, "batch": 99}
+{"run_id": "50be57e2326c", "span_id": "cacb866f", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 124.275372, "dur_ms": 363.224, "model": 0, "batch": 99}
+{"run_id": "50be57e2326c", "span_id": "08ab42d9", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 124.638689, "dur_ms": 364.09, "model": 1, "batch": 99}
+{"run_id": "50be57e2326c", "span_id": "49caf3b4", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 125.002871, "dur_ms": 366.38, "model": 2, "batch": 99}
+{"run_id": "50be57e2326c", "span_id": "83fc0d28", "parent_id": null, "name": "B1.to_host", "start_s": 125.369357, "dur_ms": 0.929, "batch": 99}
+{"run_id": "50be57e2326c", "span_id": "b06818bf", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 125.370371, "dur_ms": 64.5, "batch": 99, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "c8f6e1cd", "parent_id": null, "name": "B5.route_fcd", "start_s": 125.434929, "dur_ms": 5.615, "batch": 99, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "ec2e4d58", "parent_id": null, "name": "B0.load_wait", "start_s": 125.440903, "dur_ms": 77.108, "batch": 100, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "7cd80525", "parent_id": null, "name": "B1.to_device", "start_s": 125.518135, "dur_ms": 1.892, "batch": 100}
+{"run_id": "50be57e2326c", "span_id": "fc60812f", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 125.520141, "dur_ms": 364.108, "model": 0, "batch": 100}
+{"run_id": "50be57e2326c", "span_id": "6d14d00f", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 125.884343, "dur_ms": 364.313, "model": 1, "batch": 100}
+{"run_id": "50be57e2326c", "span_id": "494b1152", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 126.248741, "dur_ms": 367.523, "model": 2, "batch": 100}
+{"run_id": "50be57e2326c", "span_id": "de145b33", "parent_id": null, "name": "B1.to_host", "start_s": 126.616366, "dur_ms": 1.107, "batch": 100}
+{"run_id": "50be57e2326c", "span_id": "83280fc4", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 126.617659, "dur_ms": 81.986, "batch": 100, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "3703c281", "parent_id": null, "name": "B5.route_fcd", "start_s": 126.699704, "dur_ms": 7.817, "batch": 100, "images": 8, "red": 4}
+{"run_id": "50be57e2326c", "span_id": "1e6e8d94", "parent_id": null, "name": "B0.load_wait", "start_s": 126.707986, "dur_ms": 78.319, "batch": 101, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "9fe489fe", "parent_id": null, "name": "B1.to_device", "start_s": 126.786434, "dur_ms": 1.92, "batch": 101}
+{"run_id": "50be57e2326c", "span_id": "e37ec640", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 126.788417, "dur_ms": 363.517, "model": 0, "batch": 101}
+{"run_id": "50be57e2326c", "span_id": "216bf65a", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 127.152066, "dur_ms": 364.964, "model": 1, "batch": 101}
+{"run_id": "50be57e2326c", "span_id": "33966642", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 127.517124, "dur_ms": 366.743, "model": 2, "batch": 101}
+{"run_id": "50be57e2326c", "span_id": "8ee0c65c", "parent_id": null, "name": "B1.to_host", "start_s": 127.883973, "dur_ms": 0.945, "batch": 101}
+{"run_id": "50be57e2326c", "span_id": "08ea006d", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 127.885007, "dur_ms": 77.069, "batch": 101, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "24534251", "parent_id": null, "name": "B5.route_fcd", "start_s": 127.962141, "dur_ms": 7.183, "batch": 101, "images": 8, "red": 5}
+{"run_id": "50be57e2326c", "span_id": "18ccc6ea", "parent_id": null, "name": "B0.load_wait", "start_s": 127.96971, "dur_ms": 80.195, "batch": 102, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "d6c08609", "parent_id": null, "name": "B1.to_device", "start_s": 128.050085, "dur_ms": 1.754, "batch": 102}
+{"run_id": "50be57e2326c", "span_id": "71e28127", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 128.051933, "dur_ms": 363.31, "model": 0, "batch": 102}
+{"run_id": "50be57e2326c", "span_id": "8aa85d9e", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 128.415331, "dur_ms": 363.798, "model": 1, "batch": 102}
+{"run_id": "50be57e2326c", "span_id": "235e49f2", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 128.77923, "dur_ms": 366.894, "model": 2, "batch": 102}
+{"run_id": "50be57e2326c", "span_id": "e28c3709", "parent_id": null, "name": "B1.to_host", "start_s": 129.146265, "dur_ms": 1.055, "batch": 102}
+{"run_id": "50be57e2326c", "span_id": "83e47fdb", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 129.147461, "dur_ms": 108.472, "batch": 102, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "e3c90b1b", "parent_id": null, "name": "B5.route_fcd", "start_s": 129.256018, "dur_ms": 8.337, "batch": 102, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "d29687a2", "parent_id": null, "name": "B0.load_wait", "start_s": 129.264906, "dur_ms": 103.093, "batch": 103, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "f2c5d70f", "parent_id": null, "name": "B1.to_device", "start_s": 129.368179, "dur_ms": 1.899, "batch": 103}
+{"run_id": "50be57e2326c", "span_id": "eaeb41eb", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 129.370136, "dur_ms": 363.502, "model": 0, "batch": 103}
+{"run_id": "50be57e2326c", "span_id": "83d30022", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 129.733754, "dur_ms": 364.241, "model": 1, "batch": 103}
+{"run_id": "50be57e2326c", "span_id": "f73dd9e7", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 130.098085, "dur_ms": 366.661, "model": 2, "batch": 103}
+{"run_id": "50be57e2326c", "span_id": "ca56fdb9", "parent_id": null, "name": "B1.to_host", "start_s": 130.464906, "dur_ms": 1.046, "batch": 103}
+{"run_id": "50be57e2326c", "span_id": "e8343a98", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 130.466054, "dur_ms": 80.993, "batch": 103, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "e7c8255c", "parent_id": null, "name": "B5.route_fcd", "start_s": 130.547102, "dur_ms": 7.667, "batch": 103, "images": 8, "red": 4}
+{"run_id": "50be57e2326c", "span_id": "feb13c53", "parent_id": null, "name": "B0.load_wait", "start_s": 130.555205, "dur_ms": 72.805, "batch": 104, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "21fb959a", "parent_id": null, "name": "B1.to_device", "start_s": 130.62813, "dur_ms": 1.845, "batch": 104}
+{"run_id": "50be57e2326c", "span_id": "775288bc", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 130.63003, "dur_ms": 363.714, "model": 0, "batch": 104}
+{"run_id": "50be57e2326c", "span_id": "a70a3cb3", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 130.993849, "dur_ms": 363.818, "model": 1, "batch": 104}
+{"run_id": "50be57e2326c", "span_id": "c29a00c2", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 131.357748, "dur_ms": 367.314, "model": 2, "batch": 104}
+{"run_id": "50be57e2326c", "span_id": "92ad9667", "parent_id": null, "name": "B1.to_host", "start_s": 131.725172, "dur_ms": 0.959, "batch": 104}
+{"run_id": "50be57e2326c", "span_id": "4b0c0596", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 131.726227, "dur_ms": 86.161, "batch": 104, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "1879d2ad", "parent_id": null, "name": "B5.route_fcd", "start_s": 131.812452, "dur_ms": 8.989, "batch": 104, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "132bb6ef", "parent_id": null, "name": "B0.load_wait", "start_s": 131.821772, "dur_ms": 78.387, "batch": 105, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "ba4c16e3", "parent_id": null, "name": "B1.to_device", "start_s": 131.90029, "dur_ms": 1.974, "batch": 105}
+{"run_id": "50be57e2326c", "span_id": "4a394722", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 131.902442, "dur_ms": 362.673, "model": 0, "batch": 105}
+{"run_id": "50be57e2326c", "span_id": "18b75ee0", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 132.265221, "dur_ms": 364.409, "model": 1, "batch": 105}
+{"run_id": "50be57e2326c", "span_id": "b764a745", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 132.629711, "dur_ms": 367.13, "model": 2, "batch": 105}
+{"run_id": "50be57e2326c", "span_id": "18f82e0e", "parent_id": null, "name": "B1.to_host", "start_s": 132.996939, "dur_ms": 0.967, "batch": 105}
+{"run_id": "50be57e2326c", "span_id": "660349d2", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 132.997991, "dur_ms": 93.608, "batch": 105, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "5a4b835d", "parent_id": null, "name": "B5.route_fcd", "start_s": 133.091667, "dur_ms": 7.892, "batch": 105, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "eae4235d", "parent_id": null, "name": "B0.load_wait", "start_s": 133.09993, "dur_ms": 82.734, "batch": 106, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "93f83d17", "parent_id": null, "name": "B1.to_device", "start_s": 133.182803, "dur_ms": 1.878, "batch": 106}
+{"run_id": "50be57e2326c", "span_id": "ccd3d8d4", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 133.184747, "dur_ms": 363.836, "model": 0, "batch": 106}
+{"run_id": "50be57e2326c", "span_id": "dad86a86", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 133.548663, "dur_ms": 364.519, "model": 1, "batch": 106}
+{"run_id": "50be57e2326c", "span_id": "d8c5c0fa", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 133.913327, "dur_ms": 366.912, "model": 2, "batch": 106}
+{"run_id": "50be57e2326c", "span_id": "5b5c1e8f", "parent_id": null, "name": "B1.to_host", "start_s": 134.280346, "dur_ms": 1.248, "batch": 106}
+{"run_id": "50be57e2326c", "span_id": "f226bc33", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 134.281687, "dur_ms": 78.159, "batch": 106, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "5f666a84", "parent_id": null, "name": "B5.route_fcd", "start_s": 134.359902, "dur_ms": 6.319, "batch": 106, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "64cca1bd", "parent_id": null, "name": "B0.load_wait", "start_s": 134.366523, "dur_ms": 76.845, "batch": 107, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "6fe92727", "parent_id": null, "name": "B1.to_device", "start_s": 134.443546, "dur_ms": 1.962, "batch": 107}
+{"run_id": "50be57e2326c", "span_id": "778b3b19", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 134.445577, "dur_ms": 364.186, "model": 0, "batch": 107}
+{"run_id": "50be57e2326c", "span_id": "3a267305", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 134.809877, "dur_ms": 364.619, "model": 1, "batch": 107}
+{"run_id": "50be57e2326c", "span_id": "85a8bcf6", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 135.174586, "dur_ms": 367.004, "model": 2, "batch": 107}
+{"run_id": "50be57e2326c", "span_id": "91b4db2c", "parent_id": null, "name": "B1.to_host", "start_s": 135.541705, "dur_ms": 1.076, "batch": 107}
+{"run_id": "50be57e2326c", "span_id": "856a78a2", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 135.542877, "dur_ms": 93.766, "batch": 107, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "d27e2682", "parent_id": null, "name": "B5.route_fcd", "start_s": 135.6367, "dur_ms": 7.988, "batch": 107, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "b9cdcd8b", "parent_id": null, "name": "B0.load_wait", "start_s": 135.645055, "dur_ms": 76.096, "batch": 108, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "f39b766b", "parent_id": null, "name": "B1.to_device", "start_s": 135.72135, "dur_ms": 2.072, "batch": 108}
+{"run_id": "50be57e2326c", "span_id": "b442ec43", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 135.723489, "dur_ms": 364.478, "model": 0, "batch": 108}
+{"run_id": "50be57e2326c", "span_id": "20975183", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 136.088077, "dur_ms": 364.541, "model": 1, "batch": 108}
+{"run_id": "50be57e2326c", "span_id": "801d9247", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 136.452713, "dur_ms": 368.785, "model": 2, "batch": 108}
+{"run_id": "50be57e2326c", "span_id": "a14853b4", "parent_id": null, "name": "B1.to_host", "start_s": 136.821598, "dur_ms": 1.163, "batch": 108}
+{"run_id": "50be57e2326c", "span_id": "354d6422", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 136.822853, "dur_ms": 59.205, "batch": 108, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "f73a7935", "parent_id": null, "name": "B5.route_fcd", "start_s": 136.882114, "dur_ms": 5.456, "batch": 108, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "9be3caa9", "parent_id": null, "name": "B0.load_wait", "start_s": 136.887939, "dur_ms": 76.013, "batch": 109, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "ef398158", "parent_id": null, "name": "B1.to_device", "start_s": 136.964072, "dur_ms": 1.947, "batch": 109}
+{"run_id": "50be57e2326c", "span_id": "c18247bc", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 136.96608, "dur_ms": 363.521, "model": 0, "batch": 109}
+{"run_id": "50be57e2326c", "span_id": "7d347d33", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 137.329701, "dur_ms": 364.722, "model": 1, "batch": 109}
+{"run_id": "50be57e2326c", "span_id": "8869e2f5", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 137.694526, "dur_ms": 366.938, "model": 2, "batch": 109}
+{"run_id": "50be57e2326c", "span_id": "553b824d", "parent_id": null, "name": "B1.to_host", "start_s": 138.061605, "dur_ms": 1.252, "batch": 109}
+{"run_id": "50be57e2326c", "span_id": "789e88f9", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 138.062954, "dur_ms": 79.652, "batch": 109, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "ec21966d", "parent_id": null, "name": "B5.route_fcd", "start_s": 138.142666, "dur_ms": 8.125, "batch": 109, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "e06e80a9", "parent_id": null, "name": "B0.load_wait", "start_s": 138.151144, "dur_ms": 79.285, "batch": 110, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "b289d78e", "parent_id": null, "name": "B1.to_device", "start_s": 138.230549, "dur_ms": 1.817, "batch": 110}
+{"run_id": "50be57e2326c", "span_id": "8ad86086", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 138.232425, "dur_ms": 363.553, "model": 0, "batch": 110}
+{"run_id": "50be57e2326c", "span_id": "04f83b9f", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 138.596068, "dur_ms": 364.411, "model": 1, "batch": 110}
+{"run_id": "50be57e2326c", "span_id": "8a6557e8", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 138.960579, "dur_ms": 367.793, "model": 2, "batch": 110}
+{"run_id": "50be57e2326c", "span_id": "da787c0a", "parent_id": null, "name": "B1.to_host", "start_s": 139.328472, "dur_ms": 0.95, "batch": 110}
+{"run_id": "50be57e2326c", "span_id": "493dc973", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 139.329513, "dur_ms": 65.631, "batch": 110, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "54874be3", "parent_id": null, "name": "B5.route_fcd", "start_s": 139.395206, "dur_ms": 6.043, "batch": 110, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "0e43b8e9", "parent_id": null, "name": "B0.load_wait", "start_s": 139.401583, "dur_ms": 76.744, "batch": 111, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "c8a4f8a3", "parent_id": null, "name": "B1.to_device", "start_s": 139.478621, "dur_ms": 2.332, "batch": 111}
+{"run_id": "50be57e2326c", "span_id": "ecdbf670", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 139.481053, "dur_ms": 363.347, "model": 0, "batch": 111}
+{"run_id": "50be57e2326c", "span_id": "3989c341", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 139.844497, "dur_ms": 364.161, "model": 1, "batch": 111}
+{"run_id": "50be57e2326c", "span_id": "54721355", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 140.208752, "dur_ms": 369.326, "model": 2, "batch": 111}
+{"run_id": "50be57e2326c", "span_id": "7abc5b33", "parent_id": null, "name": "B1.to_host", "start_s": 140.578182, "dur_ms": 1.078, "batch": 111}
+{"run_id": "50be57e2326c", "span_id": "313ba588", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 140.579347, "dur_ms": 75.156, "batch": 111, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "f134efde", "parent_id": null, "name": "B5.route_fcd", "start_s": 140.65457, "dur_ms": 6.666, "batch": 111, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "dbb6bdad", "parent_id": null, "name": "B0.load_wait", "start_s": 140.661586, "dur_ms": 107.332, "batch": 112, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "b68edd9e", "parent_id": null, "name": "B1.to_device", "start_s": 140.769067, "dur_ms": 1.781, "batch": 112}
+{"run_id": "50be57e2326c", "span_id": "1a565a1f", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 140.770942, "dur_ms": 365.725, "model": 0, "batch": 112}
+{"run_id": "50be57e2326c", "span_id": "bd386e36", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 141.136766, "dur_ms": 367.059, "model": 1, "batch": 112}
+{"run_id": "50be57e2326c", "span_id": "c921ff41", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 141.503916, "dur_ms": 370.216, "model": 2, "batch": 112}
+{"run_id": "50be57e2326c", "span_id": "1ec10bd9", "parent_id": null, "name": "B1.to_host", "start_s": 141.874499, "dur_ms": 1.025, "batch": 112}
+{"run_id": "50be57e2326c", "span_id": "35511136", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 141.875609, "dur_ms": 63.588, "batch": 112, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "ca9fd6d1", "parent_id": null, "name": "B5.route_fcd", "start_s": 141.939372, "dur_ms": 6.042, "batch": 112, "images": 8, "red": 4}
+{"run_id": "50be57e2326c", "span_id": "3c3cf17a", "parent_id": null, "name": "B0.load_wait", "start_s": 141.945757, "dur_ms": 79.759, "batch": 113, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "0ef79745", "parent_id": null, "name": "B1.to_device", "start_s": 142.025635, "dur_ms": 1.983, "batch": 113}
+{"run_id": "50be57e2326c", "span_id": "064b0cdc", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 142.0277, "dur_ms": 364.245, "model": 0, "batch": 113}
+{"run_id": "50be57e2326c", "span_id": "dff4745d", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 142.392038, "dur_ms": 365.734, "model": 1, "batch": 113}
+{"run_id": "50be57e2326c", "span_id": "8ac17623", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 142.757859, "dur_ms": 369.185, "model": 2, "batch": 113}
+{"run_id": "50be57e2326c", "span_id": "ac26ae9c", "parent_id": null, "name": "B1.to_host", "start_s": 143.127153, "dur_ms": 1.238, "batch": 113}
+{"run_id": "50be57e2326c", "span_id": "f0c0f06f", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 143.128479, "dur_ms": 73.999, "batch": 113, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "2c625c5b", "parent_id": null, "name": "B5.route_fcd", "start_s": 143.202532, "dur_ms": 5.602, "batch": 113, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "2211ed02", "parent_id": null, "name": "B0.load_wait", "start_s": 143.208448, "dur_ms": 84.249, "batch": 114, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "ccc004e8", "parent_id": null, "name": "B1.to_device", "start_s": 143.292827, "dur_ms": 1.755, "batch": 114}
+{"run_id": "50be57e2326c", "span_id": "f22451c8", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 143.294655, "dur_ms": 364.111, "model": 0, "batch": 114}
+{"run_id": "50be57e2326c", "span_id": "b3d51ed7", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 143.658869, "dur_ms": 364.438, "model": 1, "batch": 114}
+{"run_id": "50be57e2326c", "span_id": "97ad167c", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 144.02339, "dur_ms": 368.108, "model": 2, "batch": 114}
+{"run_id": "50be57e2326c", "span_id": "65a49bc8", "parent_id": null, "name": "B1.to_host", "start_s": 144.391623, "dur_ms": 1.289, "batch": 114}
+{"run_id": "50be57e2326c", "span_id": "912599d4", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 144.393004, "dur_ms": 85.727, "batch": 114, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "17271a8f", "parent_id": null, "name": "B5.route_fcd", "start_s": 144.47882, "dur_ms": 7.868, "batch": 114, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "bc5f9daf", "parent_id": null, "name": "B0.load_wait", "start_s": 144.487031, "dur_ms": 87.994, "batch": 115, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "140ce4ff", "parent_id": null, "name": "B1.to_device", "start_s": 144.575164, "dur_ms": 2.064, "batch": 115}
+{"run_id": "50be57e2326c", "span_id": "9ca5edfc", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 144.577307, "dur_ms": 363.876, "model": 0, "batch": 115}
+{"run_id": "50be57e2326c", "span_id": "d8e18f12", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 144.941298, "dur_ms": 364.493, "model": 1, "batch": 115}
+{"run_id": "50be57e2326c", "span_id": "7f668b38", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 145.305886, "dur_ms": 366.901, "model": 2, "batch": 115}
+{"run_id": "50be57e2326c", "span_id": "853841e4", "parent_id": null, "name": "B1.to_host", "start_s": 145.673173, "dur_ms": 1.254, "batch": 115}
+{"run_id": "50be57e2326c", "span_id": "d8992345", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 145.674517, "dur_ms": 80.625, "batch": 115, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "8557ed99", "parent_id": null, "name": "B5.route_fcd", "start_s": 145.755209, "dur_ms": 6.879, "batch": 115, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "742ee46c", "parent_id": null, "name": "B0.load_wait", "start_s": 145.762425, "dur_ms": 91.684, "batch": 116, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "efcd39bc", "parent_id": null, "name": "B1.to_device", "start_s": 145.854347, "dur_ms": 1.797, "batch": 116}
+{"run_id": "50be57e2326c", "span_id": "16f85607", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 145.856234, "dur_ms": 363.59, "model": 0, "batch": 116}
+{"run_id": "50be57e2326c", "span_id": "9558bd3c", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 146.219917, "dur_ms": 364.644, "model": 1, "batch": 116}
+{"run_id": "50be57e2326c", "span_id": "79db80df", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 146.584648, "dur_ms": 367.05, "model": 2, "batch": 116}
+{"run_id": "50be57e2326c", "span_id": "dbed0934", "parent_id": null, "name": "B1.to_host", "start_s": 146.951806, "dur_ms": 1.07, "batch": 116}
+{"run_id": "50be57e2326c", "span_id": "9f32b932", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 146.952993, "dur_ms": 75.351, "batch": 116, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "d9da3b5c", "parent_id": null, "name": "B5.route_fcd", "start_s": 147.0284, "dur_ms": 4.544, "batch": 116, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "8dee1523", "parent_id": null, "name": "B0.load_wait", "start_s": 147.033274, "dur_ms": 84.176, "batch": 117, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "b7008f7d", "parent_id": null, "name": "B1.to_device", "start_s": 147.11777, "dur_ms": 2.061, "batch": 117}
+{"run_id": "50be57e2326c", "span_id": "8e01c4dc", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 147.119897, "dur_ms": 364.159, "model": 0, "batch": 117}
+{"run_id": "50be57e2326c", "span_id": "6b4032b3", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 147.484153, "dur_ms": 364.324, "model": 1, "batch": 117}
+{"run_id": "50be57e2326c", "span_id": "292a5662", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 147.848724, "dur_ms": 367.106, "model": 2, "batch": 117}
+{"run_id": "50be57e2326c", "span_id": "dffd5733", "parent_id": null, "name": "B1.to_host", "start_s": 148.215945, "dur_ms": 1.036, "batch": 117}
+{"run_id": "50be57e2326c", "span_id": "adabd0eb", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 148.217061, "dur_ms": 69.628, "batch": 117, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "0e2339d8", "parent_id": null, "name": "B5.route_fcd", "start_s": 148.286772, "dur_ms": 6.885, "batch": 117, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "4c4835cb", "parent_id": null, "name": "B0.load_wait", "start_s": 148.293964, "dur_ms": 85.387, "batch": 118, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "3e1058d7", "parent_id": null, "name": "B1.to_device", "start_s": 148.379468, "dur_ms": 1.975, "batch": 118}
+{"run_id": "50be57e2326c", "span_id": "b6e2612c", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 148.381618, "dur_ms": 363.596, "model": 0, "batch": 118}
+{"run_id": "50be57e2326c", "span_id": "c0b82ea1", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 148.745308, "dur_ms": 364.305, "model": 1, "batch": 118}
+{"run_id": "50be57e2326c", "span_id": "173a52f0", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 149.109703, "dur_ms": 367.076, "model": 2, "batch": 118}
+{"run_id": "50be57e2326c", "span_id": "64f97f79", "parent_id": null, "name": "B1.to_host", "start_s": 149.476878, "dur_ms": 1.097, "batch": 118}
+{"run_id": "50be57e2326c", "span_id": "fc360083", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 149.47806, "dur_ms": 66.145, "batch": 118, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "4b05039d", "parent_id": null, "name": "B5.route_fcd", "start_s": 149.544298, "dur_ms": 4.878, "batch": 118, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "7fc8bf06", "parent_id": null, "name": "B0.load_wait", "start_s": 149.549484, "dur_ms": 80.119, "batch": 119, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "3b059779", "parent_id": null, "name": "B1.to_device", "start_s": 149.629721, "dur_ms": 1.829, "batch": 119}
+{"run_id": "50be57e2326c", "span_id": "3b8704db", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 149.631667, "dur_ms": 363.473, "model": 0, "batch": 119}
+{"run_id": "50be57e2326c", "span_id": "5acc516a", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 149.995231, "dur_ms": 364.336, "model": 1, "batch": 119}
+{"run_id": "50be57e2326c", "span_id": "a16b18ff", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 150.359677, "dur_ms": 367.069, "model": 2, "batch": 119}
+{"run_id": "50be57e2326c", "span_id": "a6e9ea37", "parent_id": null, "name": "B1.to_host", "start_s": 150.726846, "dur_ms": 1.116, "batch": 119}
+{"run_id": "50be57e2326c", "span_id": "cdd70354", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 150.728046, "dur_ms": 79.662, "batch": 119, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "c561d432", "parent_id": null, "name": "B5.route_fcd", "start_s": 150.807789, "dur_ms": 6.379, "batch": 119, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "50bbef2b", "parent_id": null, "name": "B0.load_wait", "start_s": 150.814487, "dur_ms": 87.512, "batch": 120, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "9695fb03", "parent_id": null, "name": "B1.to_device", "start_s": 150.902155, "dur_ms": 1.904, "batch": 120}
+{"run_id": "50be57e2326c", "span_id": "7eeaede5", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 150.904147, "dur_ms": 363.457, "model": 0, "batch": 120}
+{"run_id": "50be57e2326c", "span_id": "e6b22029", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 151.2677, "dur_ms": 364.408, "model": 1, "batch": 120}
+{"run_id": "50be57e2326c", "span_id": "1ac613fb", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 151.632207, "dur_ms": 367.197, "model": 2, "batch": 120}
+{"run_id": "50be57e2326c", "span_id": "ca21c16c", "parent_id": null, "name": "B1.to_host", "start_s": 151.999533, "dur_ms": 1.163, "batch": 120}
+{"run_id": "50be57e2326c", "span_id": "04d3ca32", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 152.000867, "dur_ms": 70.866, "batch": 120, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "c8b06a1e", "parent_id": null, "name": "B5.route_fcd", "start_s": 152.071796, "dur_ms": 6.59, "batch": 120, "images": 8, "red": 2}
+{"run_id": "50be57e2326c", "span_id": "77dde63c", "parent_id": null, "name": "B0.load_wait", "start_s": 152.078755, "dur_ms": 86.867, "batch": 121, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "30a10d4e", "parent_id": null, "name": "B1.to_device", "start_s": 152.165823, "dur_ms": 2.065, "batch": 121}
+{"run_id": "50be57e2326c", "span_id": "273a5ca0", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 152.167968, "dur_ms": 363.735, "model": 0, "batch": 121}
+{"run_id": "50be57e2326c", "span_id": "a3dc1cf8", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 152.531797, "dur_ms": 364.663, "model": 1, "batch": 121}
+{"run_id": "50be57e2326c", "span_id": "ecf7473f", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 152.896553, "dur_ms": 366.919, "model": 2, "batch": 121}
+{"run_id": "50be57e2326c", "span_id": "8e3af2e4", "parent_id": null, "name": "B1.to_host", "start_s": 153.263602, "dur_ms": 1.277, "batch": 121}
+{"run_id": "50be57e2326c", "span_id": "2d2f3aba", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 153.264962, "dur_ms": 101.785, "batch": 121, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "22e46286", "parent_id": null, "name": "B5.route_fcd", "start_s": 153.366806, "dur_ms": 9.517, "batch": 121, "images": 8, "red": 3}
+{"run_id": "50be57e2326c", "span_id": "b0e0a4c1", "parent_id": null, "name": "B0.load_wait", "start_s": 153.376752, "dur_ms": 92.434, "batch": 122, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "de113d0b", "parent_id": null, "name": "B1.to_device", "start_s": 153.469327, "dur_ms": 1.929, "batch": 122}
+{"run_id": "50be57e2326c", "span_id": "0646e58b", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 153.471524, "dur_ms": 364.178, "model": 0, "batch": 122}
+{"run_id": "50be57e2326c", "span_id": "ce3a900f", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 153.835796, "dur_ms": 364.388, "model": 1, "batch": 122}
+{"run_id": "50be57e2326c", "span_id": "e5c3d65a", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 154.200284, "dur_ms": 366.533, "model": 2, "batch": 122}
+{"run_id": "50be57e2326c", "span_id": "178479c3", "parent_id": null, "name": "B1.to_host", "start_s": 154.566922, "dur_ms": 1.121, "batch": 122}
+{"run_id": "50be57e2326c", "span_id": "47aabe6f", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 154.568135, "dur_ms": 91.471, "batch": 122, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "2ea2ee29", "parent_id": null, "name": "B5.route_fcd", "start_s": 154.659676, "dur_ms": 6.289, "batch": 122, "images": 8, "red": 1}
+{"run_id": "50be57e2326c", "span_id": "3ae05a7d", "parent_id": null, "name": "B0.load_wait", "start_s": 154.666447, "dur_ms": 89.319, "batch": 123, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "3579e077", "parent_id": null, "name": "B1.to_device", "start_s": 154.755885, "dur_ms": 2.188, "batch": 123}
+{"run_id": "50be57e2326c", "span_id": "65c2f176", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 154.758144, "dur_ms": 363.387, "model": 0, "batch": 123}
+{"run_id": "50be57e2326c", "span_id": "1106baba", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 155.121624, "dur_ms": 364.545, "model": 1, "batch": 123}
+{"run_id": "50be57e2326c", "span_id": "cea1f168", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 155.486253, "dur_ms": 367.148, "model": 2, "batch": 123}
+{"run_id": "50be57e2326c", "span_id": "601a9b09", "parent_id": null, "name": "B1.to_host", "start_s": 155.853529, "dur_ms": 1.209, "batch": 123}
+{"run_id": "50be57e2326c", "span_id": "279a2717", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 155.854825, "dur_ms": 69.358, "batch": 123, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "134ceea3", "parent_id": null, "name": "B5.route_fcd", "start_s": 155.924242, "dur_ms": 6.636, "batch": 123, "images": 8, "red": 4}
+{"run_id": "50be57e2326c", "span_id": "a99b6cc4", "parent_id": null, "name": "B0.load_wait", "start_s": 155.931268, "dur_ms": 83.215, "batch": 124, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "f7934496", "parent_id": null, "name": "B1.to_device", "start_s": 156.014634, "dur_ms": 1.879, "batch": 124}
+{"run_id": "50be57e2326c", "span_id": "5a7e221e", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 156.016596, "dur_ms": 363.925, "model": 0, "batch": 124}
+{"run_id": "50be57e2326c", "span_id": "97c3a318", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 156.380607, "dur_ms": 364.336, "model": 1, "batch": 124}
+{"run_id": "50be57e2326c", "span_id": "0a6fe382", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 156.745045, "dur_ms": 367.178, "model": 2, "batch": 124}
+{"run_id": "50be57e2326c", "span_id": "94f0498d", "parent_id": null, "name": "B1.to_host", "start_s": 157.112333, "dur_ms": 1.104, "batch": 124}
+{"run_id": "50be57e2326c", "span_id": "546da8c7", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 157.113518, "dur_ms": 50.499, "batch": 124, "images": 8}
+{"run_id": "50be57e2326c", "span_id": "9d8add0a", "parent_id": null, "name": "B5.route_fcd", "start_s": 157.164068, "dur_ms": 5.794, "batch": 124, "images": 8, "red": 4}
+{"run_id": "50be57e2326c", "span_id": "eb2538ea", "parent_id": null, "name": "B6.diversity_kmeans", "start_s": 157.170599, "dur_ms": 1517.319, "red_before": 295, "budget": 200, "red_after": 200}
+{"run_id": "50be57e2326c", "span_id": "ec237e81", "parent_id": null, "name": "B7.write_queues", "start_s": 158.698567, "dur_ms": 433.09, "write": true}

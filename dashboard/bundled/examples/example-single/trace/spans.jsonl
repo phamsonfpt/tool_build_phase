@@ -1,0 +1,10 @@
+{"run_id": "701b0c831ceb", "span_id": "decef386", "parent_id": null, "name": "B0.load_wait", "start_s": 0.00069, "dur_ms": 30.519, "batch": 0, "images": 1}
+{"run_id": "701b0c831ceb", "span_id": "60443a50", "parent_id": null, "name": "B1.to_device", "start_s": 0.031351, "dur_ms": 13.895, "batch": 0}
+{"run_id": "701b0c831ceb", "span_id": "9f36f1ed", "parent_id": null, "name": "B1.forward.expert_1", "start_s": 0.045397, "dur_ms": 410.416, "model": 0, "batch": 0}
+{"run_id": "701b0c831ceb", "span_id": "bcf16d5f", "parent_id": null, "name": "B1.forward.expert_2", "start_s": 0.45589, "dur_ms": 55.923, "model": 1, "batch": 0}
+{"run_id": "701b0c831ceb", "span_id": "6add79d0", "parent_id": null, "name": "B1.forward.expert_3", "start_s": 0.511888, "dur_ms": 57.511, "model": 2, "batch": 0}
+{"run_id": "701b0c831ceb", "span_id": "9424a736", "parent_id": null, "name": "B1.to_host", "start_s": 0.569477, "dur_ms": 0.279, "batch": 0}
+{"run_id": "701b0c831ceb", "span_id": "3e801c65", "parent_id": null, "name": "B2-B4.match_score_aggregate", "start_s": 0.569861, "dur_ms": 3.426, "batch": 0, "images": 1}
+{"run_id": "701b0c831ceb", "span_id": "40474cd1", "parent_id": null, "name": "B5.route_fcd", "start_s": 0.573328, "dur_ms": 1.192, "batch": 0, "images": 1, "red": 1}
+{"run_id": "701b0c831ceb", "span_id": "db81ce50", "parent_id": null, "name": "B6.diversity_kmeans", "start_s": 0.575033, "dur_ms": 0.005, "red_before": 1, "budget": 1, "red_after": 1}
+{"run_id": "701b0c831ceb", "span_id": "95b78fc5", "parent_id": null, "name": "B7.write_queues", "start_s": 0.575071, "dur_ms": 2.061, "write": true}

@@ -1,0 +1,31 @@
+# Render Blueprint for the M29 dashboard (web server only; the GPU work runs on Kaggle or a PC).
+# Free plan: sleeps after 15 idle minutes and its disk is wiped on every restart (jobs are lost).
+services:
+  - type: web
+    name: m29-dashboard
+    runtime: python
+    plan: free
+    buildCommand: pip install -r dashboard/requirements-web.txt
+    startCommand: python dashboard/server.py
+    healthCheckPath: /healthz
+    envVars:
+      - key: M29_MODE
+        value: web
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: WORKER_TOKEN            # shared secret between this server and the workers
+        generateValue: true
+      # public pages: no DASH_PASSWORD. Set one in the Render dashboard to lock the pages again.
+      # ALLOW_SEED stays unset: a public server must not serve BDD100K images or labels.
+      - key: MAX_JOB_IMAGES          # upload limits so that nobody uses up the Kaggle GPU quota
+        value: "300"
+      - key: MAX_QUEUED_JOBS
+        value: "5"
+      - key: KAGGLE_USERNAME
+        sync: false
+      - key: KAGGLE_API_TOKEN        # Kaggle > Settings > API > Generate New Token
+        sync: false
+      - key: KAGGLE_KERNEL
+        value: m29-gpu-worker
+      - key: KAGGLE_DATASET
+        value: m29-ai-router-bundle
