@@ -102,11 +102,12 @@ pollSystem(); setInterval(pollSystem, 3000);
 async function route() {
   clearTimers(); closeModal();
   const parts = location.hash.replace(/^#\/?/, "").split("/").filter(Boolean).map(decodeURIComponent);
-  const page = parts[0] || "train";
-  $$("#side a.nav").forEach((a) => a.classList.toggle("on", a.dataset.nav === (page === "train" ? "train" : "test")));
+  const page = parts[0] || "intro";
+  $$("#side a.nav").forEach((a) => a.classList.toggle("on", a.dataset.nav === (["intro", "train"].includes(page) ? page : "test")));
   window.scrollTo(0, 0);
   try {
-    if (page === "train") await pageTrain();
+    if (page === "intro") await pageIntro();
+    else if (page === "train") await pageTrain();
     else if (page === "test") await pageTest();
     else if (page === "job") await pageJob(parts[1]);
     else if (page === "batch") await pageBatch(parts[1]);
@@ -119,6 +120,46 @@ async function route() {
 }
 window.addEventListener("hashchange", route);
 route();
+
+// ================================================================== GIỚI THIỆU (trang đầu)
+async function pageIntro() {
+  main().innerHTML = `
+    <div class="kick" style="color:#b45309;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:12px">AI20K Build Phase · Cohort 4A · Đội 022 / 113 · Bài M29</div>
+    <h1 style="font-size:30px;margin-top:6px">M29 AI-Router: Confidence-Based Human Review</h1>
+    <p class="lead" style="font-size:16px;max-width:1000px">
+      <b>Tóm tắt.</b> Gán nhãn lại toàn bộ ảnh thô rất tốn công (khoảng 35 giây cho một box), trong khi phần lớn ảnh mô hình đã đoán đúng.
+      M29 AI-Router cho <b>3 detector RT-DETR</b> (train trên BDD100K) cùng chấm từng ảnh, đo mức <b>bất đồng</b> giữa chúng và mức <b>bất thường</b>
+      của từng object so với dữ liệu train, rồi chỉ đưa cho người review những prediction đáng ngờ. Phần còn lại được gán nhãn tự động, kèm cam kết
+      thống kê về tỉ lệ nhãn sai. Trang này cho xem toàn bộ cách hệ thống tính toán, từ thống kê dữ liệu tới từng phép tính trên một ảnh, và cho bạn tự gửi ảnh để chạy thử.</p>
+
+    <div class="grid g3 section">
+      <div class="card"><h3>1 · Bài toán</h3><p style="font-size:14px;line-height:1.5">Đề M29: <i>chỉ bắt reviewer xem prediction có confidence thấp hoặc bất thường</i>. Đầu ra là chính sách review, hàng đợi review và benchmark. Hai thước đo: <b>Error Recall</b> (bao nhiêu lỗi lọt vào hàng đợi) và <b>Workload Reduction</b> (bớt được bao nhiêu công).</p></div>
+      <div class="card"><h3>2 · Cách hệ thống làm</h3><p style="font-size:14px;line-height:1.5">3 expert chạy cùng ảnh → ghép object bằng <b>Hungarian</b>, gộp box bằng <b>WBF</b> → đo <b>entropy</b> và variance toạ độ → khoảng cách <b>Mahalanobis</b> tới centroid từng lớp (FCD) → ngưỡng chứng nhận bằng <b>Learn-Then-Test</b> → <b>K-Means</b> để hàng đợi không lặp cảnh → ảnh vào vùng Đỏ (cần xem), Xám (chờ) hoặc Xanh (tự gán).</p></div>
+      <div class="card"><h3>3 · Kết quả (2.000 ảnh test)</h3><p style="font-size:14px;line-height:1.5">Xem 20 % số ảnh, tỉ lệ lỗi bắt được (lỗi = box sai + object bị sót): ngẫu nhiên 20,0 %, bản ship 25,6 %, <b>bản v2 35,6 %</b>, mức trần oracle 38,3 %. Bản v2 còn cho <b>9.220 nhãn tự động</b> dùng được ngay, tỉ lệ sai 1,53 % (cam kết ≤ 2 %).</p></div>
+    </div>
+
+    <h2 class="section">Dùng thử trong 3 bước</h2>
+    <div class="grid g3">
+      <a class="card big" href="#/train" style="color:inherit;text-decoration:none"><div class="ico">📊</div><div class="t">Dữ liệu train</div><div style="font-size:14px">70.000 ảnh, 1,29 triệu box: tỉ lệ lớp, mean/variance, không gian ẩn 3D của từng lớp.</div></a>
+      <a class="card big" href="#/single/example-single/cd92dc38-3ee11e29.jpg" style="color:inherit;text-decoration:none"><div class="ico">🖼</div><div class="t">Một ảnh, từng bước</div><div style="font-size:14px">B0 → B7 với ma trận và số thật. Bấm một object để xem vector đặc trưng và khoảng cách tới centroid. 76/76 phép tính khớp code gốc.</div></a>
+      <a class="card big" href="#/batch/example-batch" style="color:inherit;text-decoration:none"><div class="ico">🗂</div><div class="t">Cả lô 1.000 ảnh</div><div style="font-size:14px">Số ảnh mỗi vùng, phân bố điểm so với ngưỡng, không gian ẩn, cụm K-Means, tracing và monitoring.</div></a>
+    </div>
+    <p class="hint" style="margin-top:10px">Muốn chạy với ảnh của bạn: vào <a href="#/test">Test ảnh</a> → <b>Đẩy ảnh của bạn</b>. Ảnh được xử lý trên GPU của nhóm; nếu ô "Máy xử lý ảnh" ở góc trái báo chưa có máy GPU, ảnh sẽ chờ trong hàng đợi.</p>
+
+    <div class="grid g2 section">
+      <div class="card"><h3>Nói thẳng: những gì chưa đạt</h3><ul style="font-size:14px;line-height:1.55;padding-left:18px">
+        <li>Mục tiêu Error Recall 65 % chưa đạt ở ngân sách 20 %: kể cả mức trần oracle chỉ 38 %.</li>
+        <li>Detector còn bỏ sót nhiều object; vùng Xanh của bản ship chưa mở được.</li>
+        <li>Bản công khai <b>không hiển thị ảnh BDD100K</b> (license chỉ cho phân phối phi lợi nhuận kèm thông báo bản quyền); box, số liệu và các bước tính vẫn hiển thị đúng.</li>
+      </ul></div>
+      <div class="card"><h3>Hướng phát triển</h3><ul style="font-size:14px;line-height:1.55;padding-left:18px">
+        <li>Đo thời gian review thật trên CVAT để chọn ngân sách và cách hiện box mồi.</li>
+        <li>Train lại expert với ảnh do hệ thống chọn, đo mAP sau mỗi vòng.</li>
+        <li>Nối giao diện với chiến lược v2 (review theo prediction).</li>
+      </ul>
+      <p class="hint">Công nghệ: PyTorch, HuggingFace RT-DETR, scikit-learn, FastAPI, Plotly · Hạ tầng: Render + GPU Kaggle / máy cá nhân.</p></div>
+    </div>`;
+}
 
 // ================================================================== ① DỮ LIỆU TRAIN
 const ATTR_VI = {
