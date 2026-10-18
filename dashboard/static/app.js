@@ -144,14 +144,9 @@ async function pageIntro() {
       <a class="card big" href="#/single/example-single/cd92dc38-3ee11e29.jpg" style="color:inherit;text-decoration:none"><div class="ico">🖼</div><div class="t">Một ảnh, từng bước</div><div style="font-size:14px">B0 → B7 với ma trận và số thật. Bấm một object để xem vector đặc trưng và khoảng cách tới centroid. 76/76 phép tính khớp code gốc.</div></a>
       <a class="card big" href="#/batch/example-batch" style="color:inherit;text-decoration:none"><div class="ico">🗂</div><div class="t">Cả lô 1.000 ảnh</div><div style="font-size:14px">Số ảnh mỗi vùng, phân bố điểm so với ngưỡng, không gian ẩn, cụm K-Means, tracing và monitoring.</div></a>
     </div>
-    <p class="hint" style="margin-top:10px">Muốn chạy với ảnh của bạn: vào <a href="#/test">Test ảnh</a> → <b>Đẩy ảnh của bạn</b>. Ảnh được xử lý trên GPU của nhóm; nếu ô "Máy xử lý ảnh" ở góc trái báo chưa có máy GPU, ảnh sẽ chờ trong hàng đợi.</p>
+    <p class="hint" style="margin-top:10px">Muốn chạy với ảnh của bạn: vào <a href="#/test">Test ảnh</a> → <b>Đẩy ảnh của bạn</b>. Ảnh được xử lý trên GPU của nhóm; nếu ô "Máy xử lý ảnh" ở góc trái báo chưa có máy GPU, ảnh sẽ chờ trong hàng đợi. Bản công khai không hiển thị ảnh BDD100K (license); box, số liệu và các bước tính vẫn hiển thị đúng.</p>
 
-    <div class="grid g2 section">
-      <div class="card"><h3>Nói thẳng: những gì chưa đạt</h3><ul style="font-size:14px;line-height:1.55;padding-left:18px">
-        <li>Mục tiêu Error Recall 65 % chưa đạt ở ngân sách 20 %: kể cả mức trần oracle chỉ 38 %.</li>
-        <li>Detector còn bỏ sót nhiều object; vùng Xanh của bản ship chưa mở được.</li>
-        <li>Bản công khai <b>không hiển thị ảnh BDD100K</b> (license chỉ cho phân phối phi lợi nhuận kèm thông báo bản quyền); box, số liệu và các bước tính vẫn hiển thị đúng.</li>
-      </ul></div>
+    <div class="section">
       <div class="card"><h3>Hướng phát triển</h3><ul style="font-size:14px;line-height:1.55;padding-left:18px">
         <li>Đo thời gian review thật trên CVAT để chọn ngân sách và cách hiện box mồi.</li>
         <li>Train lại expert với ảnh do hệ thống chọn, đo mAP sau mỗi vòng.</li>
